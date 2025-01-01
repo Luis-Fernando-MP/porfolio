@@ -1,4 +1,4 @@
-import { Exo2Font, GeologicaFont, PoppinsFont } from '@/shared/fonts'
+import { bodyFonts } from '@/shared/fonts'
 import '@sass/config/global.scss'
 import type { Metadata } from 'next'
 import type { JSX, ReactNode } from 'react'
@@ -14,22 +14,17 @@ interface IRootLayout {
 }
 
 export const metadata: Metadata = {
-  title: 'Juli dev',
+  title: 'key-flare',
   description: 'Some...',
   icons: {
-    icon: [
-      { url: '/favicon.ico', media: '(prefers-color-scheme: light)' },
-      { url: '/favicon-dark.ico', media: '(prefers-color-scheme: dark)' }
-    ]
+    icon: [{ url: '/logo.svg' }]
   }
 }
 
 const RootLayout = async ({ children }: IRootLayout): Promise<JSX.Element> => {
   return (
     <html lang='es'>
-      <body
-        className={`${GeologicaFont.variable} ${PoppinsFont.variable} ${Exo2Font.variable} grid`}
-      >
+      <body className={`${bodyFonts}`}>
         <Providers>
           {children}
           <Firefly />
@@ -38,7 +33,7 @@ const RootLayout = async ({ children }: IRootLayout): Promise<JSX.Element> => {
           position='top-center'
           toastOptions={{
             className: 'toast',
-            position: 'bottom-left',
+            position: 'top-center',
             style: {
               background: 'rgb(var(--bg-primary))',
               color: 'rgb(var(--fnt-primary))'

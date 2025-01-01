@@ -1,3 +1,6 @@
+/* stylelint-disable scss/no-global-function-names */
+@use '@sass/config/vars' as v;
+
 $quantity: 50;
 
 .firefly {
@@ -44,7 +47,7 @@ $quantity: 50;
     &::after {
       opacity: 0;
       background: white;
-      box-shadow: 0 0 0 0 yellow;
+      box-shadow: 0 0 0 0 rgb(v.$tn1);
       animation:
         drift ease alternate infinite,
         flash ease infinite;
@@ -73,7 +76,7 @@ $quantity: 50;
 
     @keyframes move#{$i} {
       @for $step from 0 through $steps {
-        #{$step * (100 / $steps)}% {
+        #{unquote('#{$step * (100 / $steps)}%')} {
           transform: translateX(random(100) - 50vw)
             translateY(random(100) - 50vh)
             scale(random(75) / 100 + 0.25);
@@ -96,12 +99,12 @@ $quantity: 50;
       30%,
       100% {
         opacity: 0;
-        box-shadow: 0 0 0 0 yellow;
+        box-shadow: 0 0 0 0 rgb(v.$tn1);
       }
 
       5% {
         opacity: 1;
-        box-shadow: 0 0 2vw 0.4vw yellow;
+        box-shadow: 0 0 2vw 0.4vw rgb(v.$tn1);
       }
     }
   }
