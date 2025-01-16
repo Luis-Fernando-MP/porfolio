@@ -11,8 +11,8 @@
   box-sizing: border-box;
   margin: 0;
   padding: 0;
-
   border: none;
+
   outline: none;
 }
 
@@ -169,23 +169,23 @@ ul {
 .icon,
 .lucide {
   display: block;
-  width: 17px;
-  height: 17px;
-  stroke: rgb($fn1);
+  width: 20px;
+  height: 20px;
+  stroke: rgb($fn3);
 }
 
 .tn1 {
   color: rgb($tn1);
 }
 
-@include m.smallerScreen {
+@include m.mediumScreen {
   html {
-    font-size: 10px;
+    font-size: 12px;
   }
 }
 
 ::selection {
-  color: rgb($fn1);
+  color: rgb($bg1);
   background-color: rgb($tn1);
 }
 
