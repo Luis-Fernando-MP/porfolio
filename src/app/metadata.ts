@@ -5,15 +5,23 @@ export const metadata: Metadata = {
   title: 'Key Flare',
   description:
     'Pon a prueba y mejora tu velocidad de escritura con Key Flare, un clon de Monkeytype creado para fines educativos. ¡Compite contra ti mismo y domina el teclado!',
-  keywords:
-    'Key Flare, monkeytype, test de velocidad de escritura, mecanografía, práctica de escritura, teclado, wpm, cpm, mejorar velocidad, juegos de escritura',
-  authors: [{ name: 'Luis MP' }],
+  keywords: [
+    'Key Flare',
+    'monkeytype',
+    'test de velocidad de escritura',
+    'mecanografía',
+    'práctica de escritura',
+    'teclado',
+    'wpm',
+    'cpm',
+    'mejorar velocidad',
+    'juegos de escritura'
+  ],
+  authors: [{ name: 'Luis MP', url: 'luisjp.vercel.app' }],
   creator: 'Luis MP',
-  publisher: 'JULES',
+  publisher: 'SHUN',
   icons: {
-    icon: [
-      { url: '/logo.svg', sizes: 'any, 16x16, 32x32, 48x48, 64x64, 128x128, 256x256, 512x512' }
-    ]
+    icon: '/logo.svg'
   },
   openGraph: {
     title: 'Key Flare - Mejora tu velocidad de escritura',
@@ -21,8 +29,14 @@ export const metadata: Metadata = {
       'Pon a prueba y mejora tu velocidad de escritura con Key Flare, un clon de Monkeytype creado para fines educativos. ¡Compite contra ti mismo y domina el teclado!',
     url: 'https://key-flare.vercel.app',
     siteName: 'Key Flare',
-    images: [{ url: '/imagen-opengraph.png', alt: 'Key Flare Logo' }],
-    locale: 'es_PE',
+    images: [
+      {
+        url: '/opengraph.png',
+        alt: 'Key Flare Logo',
+        width: 1200,
+        height: 630
+      }
+    ],
     type: 'website'
   },
   twitter: {
@@ -30,11 +44,12 @@ export const metadata: Metadata = {
     title: 'Key Flare - Mejora tu velocidad de escritura',
     description:
       'Pon a prueba y mejora tu velocidad de escritura con Key Flare, un clon de Monkeytype creado para fines educativos. ¡Compite contra ti mismo y domina el teclado!',
-    images: [{ url: '/imagen-opengraph.png', alt: 'Key Flare Logo' }]
-  },
-  robots: {
-    index: true,
-    follow: true
+    images: [
+      {
+        url: '/opengraph.png',
+        alt: 'Key Flare Logo'
+      }
+    ]
   }
 }
 

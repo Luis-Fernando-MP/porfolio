@@ -1,3 +1,5 @@
+import Hydration from '@/shared/components/Hydration'
+import Offline from '@/shared/components/Offline'
 import { bodyFonts } from '@/shared/fonts'
 import '@sass/config/global.scss'
 import NextTopLoader from 'nextjs-toploader'
@@ -6,7 +8,6 @@ import { Toaster } from 'react-hot-toast'
 
 import './globals.css'
 import { metadata, viewport } from './metadata'
-import Providers from './providers'
 import './style.scss'
 
 interface IRootLayout {
@@ -16,9 +17,11 @@ interface IRootLayout {
 const RootLayout = async ({ children }: IRootLayout): Promise<JSX.Element> => {
   return (
     <html lang='es'>
-      <body className={`${bodyFonts}`}>
+      <body className={`${bodyFonts} antialiased`}>
         <NextTopLoader color='rgb(var(--tn-primary))' showSpinner={false} />
-        <Providers>{children}</Providers>
+        <Hydration>{children}</Hydration>
+        <Offline />
+        {/* <LoaderPage /> */}
         <Toaster
           position='top-center'
           toastOptions={{

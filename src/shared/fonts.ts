@@ -1,21 +1,21 @@
-import { Exo_2, Oswald, Roboto } from 'next/font/google'
+import { Pixelify_Sans, VT323, Workbench } from 'next/font/google'
 
-export const titleFont = Oswald({
+export const font1 = Pixelify_Sans({
   subsets: ['latin'],
-  weight: ['700', '600', '500'],
-  variable: '--titleFont'
+  weight: ['400', '500', '600', '700'],
+  variable: '--family1'
 })
 
-export const paragraphFont = Roboto({
+export const font2 = VT323({
   subsets: ['latin'],
-  weight: ['900', '700', '500', '400', '300'],
-  variable: '--paragraphFont'
+  weight: ['400'],
+  variable: '--family2'
 })
 
-export const exclamationFont = Exo_2({
+export const font3 = Workbench({
   subsets: ['latin'],
-  weight: ['200', '300', '400', '500', '700'],
-  variable: '--exclamationFont'
+  weight: ['400'],
+  variable: '--familyEspecial'
 })
 
-export const bodyFonts = `${titleFont.variable} ${paragraphFont.variable} ${exclamationFont.variable}`
+export const bodyFonts = `${font1.variable} ${font2.variable} ${font3.variable}`
