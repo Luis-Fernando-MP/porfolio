@@ -22,6 +22,7 @@
 
   &-logo {
     padding: v.$padding;
+    border-radius: v.$radius;
 
     @include g.glitch(color 5s forwards);
   }

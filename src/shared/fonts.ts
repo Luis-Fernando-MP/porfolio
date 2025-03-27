@@ -2,7 +2,7 @@ import { Montserrat, Open_Sans, Raleway } from 'next/font/google'
 
 export const font1 = Montserrat({
   subsets: ['latin'],
-  weight: ['400', '500', '600', '700'],
+  weight: ['400', '500', '700'],
   variable: '--family1'
 })
 
