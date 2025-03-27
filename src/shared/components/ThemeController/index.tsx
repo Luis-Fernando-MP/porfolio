@@ -1,7 +1,9 @@
 'use client'
 
-import { acl } from '@/shared/acl'
 import Popup from '@/shared/components/Popup'
+import IconButton from '@/shared/ui/IconButton'
+import PaletteSphere from '@/shared/ui/PaletteSphere'
+import ThemeColorDisplay from '@/shared/ui/ThemeColorDisplay'
 import { type JSX, MouseEvent, useState } from 'react'
 
 import { PopupPositions } from '../Popup/usePopup'
@@ -21,40 +23,29 @@ const ThemeController = (): JSX.Element => {
     setPositions({ x: e.clientX, y: e.clientY })
   }
 
+  const handleSelectTheme = (key: string, e: MouseEvent): void => {
+    if (e.ctrlKey) return
+    handleSetTheme(key)
+  }
+
   return (
     <section className='theme'>
-      <button className='theme-controller active' onClick={handleOpenPopup}>
-        <h5>Tema: {appTheme}</h5>
-      </button>
+      <IconButton transparent label='Tema de la aplicación' position='bottom' onClick={handleOpenPopup}>
+        <ThemeColorDisplay />
+        <p>Tema :</p>
+        <h4>{appTheme}</h4>
+      </IconButton>
       <Popup isOpen={openThemes} onClose={togglePopup} title='Temas' className='theme-popup' clickPosition={positions}>
         {Object.entries(THEMES).map(current => {
           const [key, colors] = current
           return (
-            <button
+            <PaletteSphere
               key={key}
-              onClick={() => handleSetTheme(key)}
-              className={`theme-action ${acl(key === appTheme, 'selected')}`}
-              style={{
-                backgroundColor: `rgb(${colors['bg-primary']})`,
-                borderColor: `rgb(${colors['bg-tertiary']})`
-              }}
-            >
-              <div
-                className='theme-action__circle'
-                style={{
-                  backgroundImage: `linear-gradient(45deg, rgb(${colors['tn-primary']}), rgb(${colors['tn-primary']}, 0.3), rgb(${colors['bg-primary']}) 80%)`
-                }}
-              />
-              <div className='theme-action__blur' style={{ backgroundColor: `rgb(${colors['bg-secondary']})` }} />
-              <h4
-                style={{
-                  backgroundColor: `rgb(${colors['bg-primary']}, .1)`,
-                  color: `rgb(${colors['fnt-primary']})`
-                }}
-              >
-                {key}
-              </h4>
-            </button>
+              title={key}
+              theme={colors}
+              selected={key === appTheme}
+              onClick={e => handleSelectTheme(key, e)}
+            />
           )
         })}
       </Popup>

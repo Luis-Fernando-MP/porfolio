@@ -21,28 +21,27 @@ const PopupComponent = ({
   clickPosition = { x: 0, y: 0 },
   ...props
 }: IPopup) => {
-  const { $popupRef, handleMouseDown, isDragging, position } = usePopup({ isOpen, clickPosition })
+  const { $popupRef, handleMouseDown, isDragging, position } = usePopup({ isOpen, clickPosition, onClose })
 
   if (!isOpen) return null
 
   const RenderPopup = (
     <article
+      role='button'
+      tabIndex={0}
       ref={$popupRef}
-      className='popup'
+      className='popup border'
+      id='popup'
+      onMouseDown={handleMouseDown}
       style={{
         left: `${position.x}px`,
         top: `${position.y}px`,
         opacity: isOpen ? 1 : 0
       }}
     >
-      <div className={`popup-container ${className}`} {...props}>
-        {children}
-      </div>
       <header
-        role='button'
-        tabIndex={0}
         className='popup-header'
-        onMouseDown={handleMouseDown}
+        id='popup-header'
         style={{
           cursor: isDragging ? 'grabbing' : 'grab'
         }}
@@ -50,6 +49,9 @@ const PopupComponent = ({
         <button className='popup-closeButton' onClick={onClose} />
         <p>{title}</p>
       </header>
+      <section className={`popup-container ${className}`} {...props}>
+        {children}
+      </section>
     </article>
   )
 

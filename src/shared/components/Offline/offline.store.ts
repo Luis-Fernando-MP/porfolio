@@ -12,6 +12,6 @@ const state: StateCreator<IOfflineStore> = set => ({
   setIsOffline: isOffline => set({ isOffline })
 })
 
-const OfflineStore = create(state)
+const useOfflineStore = create(state)
 
-export default OfflineStore
+export default useOfflineStore

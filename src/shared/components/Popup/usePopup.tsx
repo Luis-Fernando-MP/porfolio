@@ -5,9 +5,10 @@ export type PopupPositions = { x: number; y: number }
 interface IUsePopupHook {
   isOpen: boolean
   clickPosition?: PopupPositions
+  onClose: () => void
 }
 
-const usePopup = ({ isOpen, clickPosition }: IUsePopupHook) => {
+const usePopup = ({ isOpen, clickPosition, onClose }: IUsePopupHook) => {
   const $popupRef = useRef<HTMLElement>(null)
   const $dragPosition = useRef<PopupPositions | null>(null)
   const [isDragging, setIsDragging] = useState(false)
@@ -16,22 +17,24 @@ const usePopup = ({ isOpen, clickPosition }: IUsePopupHook) => {
 
   const handleMouseMove = useCallback(
     (e: globalThis.MouseEvent) => {
-      if (!isDragging || !$dragPosition.current || !$popupRef.current) return
-      e.preventDefault()
-      const rect = $popupRef.current.getBoundingClientRect()
-      const deltaX = e.clientX - $dragPosition.current.x
-      const deltaY = e.clientY - $dragPosition.current.y
-      const minX = 0
-      const minY = 0
-      const maxX = bodyRect.width - rect.width
-      const maxY = bodyRect.height - rect.height
-      $dragPosition.current = { x: e.clientX, y: e.clientY }
-      setPosition(prev => {
-        let newX = prev.x + deltaX
-        let newY = prev.y + deltaY
-        newX = Math.max(minX, Math.min(newX, maxX))
-        newY = Math.max(minY, Math.min(newY, maxY))
-        return { x: newX, y: newY }
+      requestAnimationFrame(() => {
+        if (!isDragging || !$dragPosition.current || !$popupRef.current || !e.ctrlKey || !e.buttons) return
+        e.preventDefault()
+        const rect = $popupRef.current.getBoundingClientRect()
+        const deltaX = e.clientX - $dragPosition.current.x
+        const deltaY = e.clientY - $dragPosition.current.y
+        const minX = 0
+        const minY = 0
+        const maxX = bodyRect.width - rect.width
+        const maxY = bodyRect.height - rect.height
+        $dragPosition.current = { x: e.clientX, y: e.clientY }
+        setPosition(prev => {
+          let newX = prev.x + deltaX
+          let newY = prev.y + deltaY
+          newX = Math.max(minX, Math.min(newX, maxX))
+          newY = Math.max(minY, Math.min(newY, maxY))
+          return { x: newX, y: newY }
+        })
       })
     },
     [bodyRect, isDragging]
@@ -39,11 +42,28 @@ const usePopup = ({ isOpen, clickPosition }: IUsePopupHook) => {
 
   const handleMouseUp = useCallback(() => {
     setIsDragging(false)
+    $popupRef.current?.classList.remove('block-children-events')
   }, [])
 
-  const handleMouseDown = (e: MouseEvent) => {
+  const bringPopupToFront = useCallback(() => {
     if (!$popupRef.current) return
+
+    const popups = document.querySelectorAll('.popup')
+    popups.forEach(popup => {
+      if (!(popup instanceof HTMLElement)) return
+      popup.style.zIndex = '10'
+    })
+    if ($popupRef.current) $popupRef.current.style.zIndex = '11'
+  }, [$popupRef])
+
+  const handleMouseDown = (e: MouseEvent) => {
+    const moveOnHeader = (e.target as HTMLElement).closest('#popup-header')
+    if (!$popupRef.current || (!moveOnHeader && !e.ctrlKey)) return
+    if (e.ctrlKey) {
+      $popupRef.current?.classList.add('block-children-events')
+    }
     setIsDragging(true)
+    bringPopupToFront()
     $dragPosition.current = { x: e.clientX, y: e.clientY }
   }
 
@@ -63,15 +83,28 @@ const usePopup = ({ isOpen, clickPosition }: IUsePopupHook) => {
       newX = Math.min(newX, innerWidth - popupWidth)
       newY = Math.min(newY, innerHeight - popupHeight)
 
-      setTimeout(() => {
-        $popupRef.current?.classList.remove('animate')
-      }, 300)
+      handleRemoveAnimatedClass()
 
       return { x: newX, y: newY }
     },
     // eslint-disable-next-line react-hooks/exhaustive-deps
     [bodyRect]
   )
+
+  const handleRemoveAnimatedClass = useCallback(() => {
+    if (!$popupRef.current) return
+
+    const removeClass = () => {
+      $popupRef.current?.classList.remove('animate')
+      $popupRef.current?.removeEventListener('animationend', removeClass)
+    }
+
+    $popupRef.current.addEventListener('animationend', removeClass)
+  }, [])
+
+  useEffect(() => {
+    bringPopupToFront()
+  }, [isOpen, bringPopupToFront])
 
   useEffect(() => {
     if (!$popupRef.current || !isOpen) return
@@ -85,6 +118,18 @@ const usePopup = ({ isOpen, clickPosition }: IUsePopupHook) => {
   }, [isOpen])
 
   useEffect(() => {
+    if (!isOpen || !$popupRef.current) return
+    const handleKeyEvent = (e: KeyboardEvent): void => {
+      if (!(e.ctrlKey && (e.key === 'x' || e.key === 'Escape'))) return
+      onClose()
+    }
+    $popupRef.current.addEventListener('keydown', handleKeyEvent)
+    return () => {
+      $popupRef.current?.removeEventListener('keydown', handleKeyEvent)
+    }
+  }, [isOpen, onClose])
+
+  useEffect(() => {
     document.addEventListener('mousemove', handleMouseMove)
     document.addEventListener('mouseup', handleMouseUp)
 
@@ -96,8 +141,8 @@ const usePopup = ({ isOpen, clickPosition }: IUsePopupHook) => {
 
   return {
     $popupRef,
-    position,
     handleMouseDown,
+    position,
     isDragging
   }
 }

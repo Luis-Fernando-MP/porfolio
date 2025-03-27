@@ -1,4 +1,4 @@
-interface Theme {
+export interface Theme {
   'bg-primary': string
   'bg-secondary': string
   'bg-tertiary': string
@@ -9,7 +9,49 @@ interface Theme {
   'tn-secondary': string
 }
 
+export type ThemeKeys = keyof typeof THEMES
+
 export const THEMES: Record<string, Theme> = {
+  'Shumi dev': {
+    'bg-primary': '0, 0, 0',
+    'bg-secondary': '10, 9, 9',
+    'bg-tertiary': '55, 55, 55',
+    'fnt-primary': '237, 237, 237',
+    'fnt-secondary': '147, 147, 147',
+    'fnt-active': '255, 255, 255',
+    'tn-primary': '1, 57, 54',
+    'tn-secondary': '237, 182, 123'
+  },
+  DeepOcean: {
+    'bg-primary': '10, 30, 50',
+    'bg-secondary': '30, 60, 90',
+    'bg-tertiary': '50, 90, 120',
+    'fnt-primary': '220, 230, 240',
+    'fnt-secondary': '180, 200, 220',
+    'fnt-active': '100, 180, 220',
+    'tn-primary': '80, 150, 180',
+    'tn-secondary': '150, 200, 230'
+  },
+  AshMountains: {
+    'bg-primary': '40, 40, 45',
+    'bg-secondary': '60, 60, 65',
+    'bg-tertiary': '80, 80, 85',
+    'fnt-primary': '230, 230, 235',
+    'fnt-secondary': '190, 190, 195',
+    'fnt-active': '0, 0, 0',
+    'tn-primary': '110, 110, 130',
+    'tn-secondary': '180, 180, 200'
+  },
+  StarryNight: {
+    'bg-primary': '10, 10, 20',
+    'bg-secondary': '20, 20, 30',
+    'bg-tertiary': '30, 30, 40',
+    'fnt-primary': '240, 240, 250',
+    'fnt-secondary': '128, 128, 147',
+    'fnt-active': '0, 0, 0',
+    'tn-primary': '150, 150, 190',
+    'tn-secondary': '200, 200, 230'
+  },
   // Claros
   'Aurora Day': {
     'bg-primary': '245, 245, 250',
@@ -71,6 +113,16 @@ export const THEMES: Record<string, Theme> = {
     'tn-primary': '235, 130, 180',
     'tn-secondary': '220, 130, 180'
   },
+  'Rose Quartz': {
+    'bg-primary': '255, 192, 203',
+    'bg-secondary': '255, 160, 180',
+    'bg-tertiary': '255, 128, 150',
+    'fnt-primary': '50, 30, 40',
+    'fnt-secondary': '100, 60, 80',
+    'fnt-active': '255, 255, 255',
+    'tn-primary': '255, 100, 120',
+    'tn-secondary': '255, 80, 100'
+  },
   Lavender: {
     'bg-primary': '240, 230, 255',
     'bg-secondary': '220, 210, 245',
@@ -88,7 +140,7 @@ export const THEMES: Record<string, Theme> = {
     'fnt-primary': '50, 30, 70',
     'fnt-secondary': '80, 60, 100',
     'fnt-active': '0, 0, 0',
-    'tn-primary': '200, 180, 255',
+    'tn-primary': '178 150, 255',
     'tn-secondary': '180, 160, 220'
   },
   'Nebula Light': {
@@ -200,16 +252,6 @@ export const THEMES: Record<string, Theme> = {
     'fnt-active': '255, 255, 255',
     'tn-primary': '0, 0, 0',
     'tn-secondary': '80, 80, 80'
-  },
-  'Granite Gray': {
-    'bg-primary': '120, 120, 120',
-    'bg-secondary': '100, 100, 100',
-    'bg-tertiary': '80, 80, 80',
-    'fnt-primary': '230, 230, 230',
-    'fnt-secondary': '180, 180, 180',
-    'fnt-active': '255, 255, 255',
-    'tn-primary': '100, 100, 100',
-    'tn-secondary': '100, 100, 100'
   },
   'Obsidian Black': {
     'bg-primary': '30, 30, 30',
@@ -371,16 +413,6 @@ export const THEMES: Record<string, Theme> = {
     'fnt-active': '0, 0, 0',
     'tn-primary': '230, 150, 50',
     'tn-secondary': '200, 100, 40'
-  },
-  'Galactic Fusion': {
-    'bg-primary': '55, 5, 75',
-    'bg-secondary': '75, 5, 105',
-    'bg-tertiary': '95, 5, 135',
-    'fnt-primary': '230, 230, 230',
-    'fnt-secondary': '190, 190, 190',
-    'fnt-active': '0, 0, 0',
-    'tn-primary': '220, 50, 220',
-    'tn-secondary': '180, 40, 180'
   },
   Midnight: {
     'bg-primary': '10, 25, 50',

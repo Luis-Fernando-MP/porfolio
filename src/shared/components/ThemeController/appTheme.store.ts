@@ -15,6 +15,6 @@ const state: StateCreator<IAppThemeStore> = set => ({
   resetTheme: () => set({ appTheme: DEFAULT_THEME })
 })
 
-const AppThemeStore = create(persist(state, { name: 'app-theme' }))
+const useAppThemeStore = create(persist(state, { name: 'app-theme' }))
 
-export default AppThemeStore
+export default useAppThemeStore

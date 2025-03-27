@@ -1,13 +1,12 @@
 'use client'
 
-import { AUDIOS, playAudio } from '@/shared/audio'
 import { THEMES } from '@/shared/themes'
 import { useLayoutEffect } from 'react'
 
-import AppThemeStore, { DEFAULT_THEME } from './appTheme'
+import useAppThemeStore, { DEFAULT_THEME } from './appTheme.store'
 
 const useAppTheme = () => {
-  const { appTheme, setAppTheme } = AppThemeStore()
+  const { appTheme, setAppTheme } = useAppThemeStore()
 
   useLayoutEffect(() => {
     const root = document.documentElement
@@ -21,9 +20,8 @@ const useAppTheme = () => {
 
   const handleSetTheme = (selectTheme: string): void => {
     if (appTheme === selectTheme) {
-      return playAudio(AUDIOS.ERROR)
+      return
     }
-    playAudio(AUDIOS.CHANGE)
     setAppTheme(selectTheme)
   }
 

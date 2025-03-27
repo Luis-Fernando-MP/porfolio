@@ -17,22 +17,11 @@ interface IRootLayout {
 const RootLayout = async ({ children }: IRootLayout): Promise<JSX.Element> => {
   return (
     <html lang='es'>
-      <body className={`${bodyFonts} antialiased`}>
+      <body className={`${bodyFonts} app antialiased`}>
         <NextTopLoader color='rgb(var(--tn-primary))' showSpinner={false} />
-        <Hydration>{children}</Hydration>
         <Offline />
-        {/* <LoaderPage /> */}
-        <Toaster
-          position='top-center'
-          toastOptions={{
-            className: 'toast',
-            position: 'top-right',
-            style: {
-              background: 'rgb(var(--bg-primary))',
-              color: 'rgb(var(--fnt-primary))'
-            }
-          }}
-        />
+        <Hydration>{children}</Hydration>
+        <Toaster position='top-center' toastOptions={{ className: 'toast' }} />
       </body>
     </html>
   )

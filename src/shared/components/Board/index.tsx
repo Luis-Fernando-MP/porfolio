@@ -11,14 +11,28 @@ interface BoardProps {
   children: (offset: TPositions, scale: number) => JSX.Element
   className?: string
   isCenter?: boolean
+  minScale?: boolean
+  normalScale?: boolean
 }
 
-const Board = ({ children, className = '', isCenter = true }: BoardProps): JSX.Element => {
-  const { $containerRef, $childrenRef, noExistRefs, isMoving, offset, scale, handleBoardDown, handleBoardMove, handleBoardUp } =
-    useBoard({ isCenter })
+const Board = ({ children, className = '', isCenter = true, minScale, normalScale }: BoardProps): JSX.Element => {
+  const {
+    $containerRef,
+    $childrenRef,
+    noExistRefs,
+    isMoving,
+    offset,
+    scale,
+    handleBoardDown,
+    handleBoardMove,
+    handleBoardUp,
+    handleTouchStart,
+    handleTouchMove,
+    handleTouchEnd
+  } = useBoard({ isCenter, minScale, normalScale })
 
   return (
-    <div
+    <article
       role='button'
       tabIndex={0}
       className='board-zone'
@@ -28,9 +42,13 @@ const Board = ({ children, className = '', isCenter = true }: BoardProps): JSX.E
       onMouseUp={handleBoardUp}
       onMouseLeave={handleBoardUp}
       onContextMenu={e => e.preventDefault()}
+      // Mobile
+      onTouchStart={handleTouchStart}
+      onTouchMove={handleTouchMove}
+      onTouchEnd={handleTouchEnd}
       style={{
         opacity: noExistRefs ? 0 : 1,
-        cursor: isMoving ? 'grabbing' : 'default'
+        cursor: isMoving ? 'grabbing' : 'auto'
       }}
     >
       <div
@@ -44,7 +62,7 @@ const Board = ({ children, className = '', isCenter = true }: BoardProps): JSX.E
       >
         {children(offset, scale)}
       </div>
-    </div>
+    </article>
   )
 }
 

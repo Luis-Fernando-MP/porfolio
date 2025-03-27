@@ -1,18 +1,18 @@
-import { Pixelify_Sans, VT323, Workbench } from 'next/font/google'
+import { Montserrat, Open_Sans, Raleway } from 'next/font/google'
 
-export const font1 = Pixelify_Sans({
+export const font1 = Montserrat({
   subsets: ['latin'],
   weight: ['400', '500', '600', '700'],
   variable: '--family1'
 })
 
-export const font2 = VT323({
+export const font2 = Open_Sans({
   subsets: ['latin'],
   weight: ['400'],
   variable: '--family2'
 })
 
-export const font3 = Workbench({
+export const font3 = Raleway({
   subsets: ['latin'],
   weight: ['400'],
   variable: '--familyEspecial'
