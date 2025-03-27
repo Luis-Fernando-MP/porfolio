@@ -64,9 +64,10 @@
     }
   }
 
-  &.none {
+  &.transparent {
     padding: 0;
     border: none;
     border-radius: 0;
+    background-color: transparent;
   }
 }
