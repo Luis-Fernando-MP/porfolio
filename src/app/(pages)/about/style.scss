@@ -1,37 +1,42 @@
 @use '@sass/config/vars' as v;
 @use '@sass/utils/defs' as d;
 
-.mainApp {
-  position: relative;
-
-  width: 900px;
-  height: fit-content;
-  margin: auto;
-  padding: v.$padding * 8 0;
-
-  &-wrapper {
-    max-width: 600px;
-    margin: auto;
-  }
-
-  &-backContent {
-    gap: v.$padding * 2;
-  }
-
-  &-back {
-    position: sticky;
-    top: v.$padding;
-    background-color: rgba(v.$bg1, 0.5);
-    backdrop-filter: blur(5px);
-  }
-}
-
 .about {
-  &-description {
+  @include d.flex($gap: v.$padding * 3);
+
+  &-section {
     width: 100%;
 
-    @include d.flex($gap: v.$padding * 2);
+    @include d.flex($gap: v.$padding * 1.5);
 
     text-align: center;
+  }
+
+  &-testimonies {
+    @include d.flex($dir: row, $ali: center);
+
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  &-testimonial {
+    max-width: 270px;
+    text-align: left;
+
+    @include d.flex;
+  }
+
+  &-author {
+    margin-bottom: v.$padding;
+
+    text-decoration-color: rgb(v.$fn1);
+    text-decoration-line: underline;
+    text-decoration-style: solid;
+    text-decoration-thickness: auto;
+    text-underline-offset: 10px;
+  }
+
+  &-description {
+    font-size: 0.8rem;
   }
 }
