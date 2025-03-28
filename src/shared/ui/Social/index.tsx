@@ -1,4 +1,4 @@
-import { MAIL } from '@/shared/constants'
+import { CV, FIGMA, GITHUB, LINKED_IN, MAIL, PHONE } from '@/shared/constants'
 import { FigmaIcon, FileUserIcon, GithubIcon, LinkedinIcon, MailIcon, PhoneIcon } from 'lucide-react'
 import Link from 'next/link'
 import type { FC } from 'react'
@@ -14,11 +14,11 @@ const socialPaths = [
     icon: <MailIcon />,
     link: MAIL
   },
-  { icon: <PhoneIcon />, link: 'tel:1234567890' },
-  { icon: <LinkedinIcon />, link: 'https://www.linkedin.com/in/your-linkedin-profile' },
-  { icon: <GithubIcon />, link: 'https://github.com/your-github-profile' },
-  { icon: <FigmaIcon />, link: 'https://www.figma.com/file/your-figma-file' },
-  { icon: <FileUserIcon />, link: 'https://www.cv.com/your-cv-file.pdf' }
+  { icon: <PhoneIcon />, link: PHONE },
+  { icon: <LinkedinIcon />, link: LINKED_IN },
+  { icon: <GithubIcon />, link: GITHUB },
+  { icon: <FigmaIcon />, link: FIGMA },
+  { icon: <FileUserIcon />, link: CV }
 ]
 
 const Social: FC<Props> = ({ className = '' }) => {

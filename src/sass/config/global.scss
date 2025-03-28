@@ -35,7 +35,8 @@ html {
 body {
   position: relative;
 
-  overflow: hidden;
+  overflow-x: hidden;
+  overflow-y: auto;
 
   width: 100dvw;
   height: 100dvh;

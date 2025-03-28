@@ -2,7 +2,7 @@
 
 import IconButton from '@/shared/ui/IconButton'
 import ShumDev from '@/shared/ui/ShumDev'
-import { BoltIcon, BookOpenIcon, BriefcaseBusinessIcon, Layers2Icon, RocketIcon, ShieldCheckIcon } from 'lucide-react'
+import { BoltIcon, BookOpenIcon, BriefcaseBusinessIcon, Layers2Icon, RocketIcon, ShieldCheckIcon, UserIcon } from 'lucide-react'
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 import type { FC } from 'react'
@@ -14,6 +14,11 @@ interface Props {
 }
 
 const pages = [
+  {
+    path: '/about',
+    label: 'Acerca de mi',
+    icon: UserIcon
+  },
   {
     path: '/blog',
     label: 'Blog',

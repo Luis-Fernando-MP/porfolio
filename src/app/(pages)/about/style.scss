@@ -1,0 +1,37 @@
+@use '@sass/config/vars' as v;
+@use '@sass/utils/defs' as d;
+
+.mainApp {
+  position: relative;
+
+  width: 900px;
+  height: fit-content;
+  margin: auto;
+  padding: v.$padding * 8 0;
+
+  &-wrapper {
+    max-width: 600px;
+    margin: auto;
+  }
+
+  &-backContent {
+    gap: v.$padding * 2;
+  }
+
+  &-back {
+    position: sticky;
+    top: v.$padding;
+    background-color: rgba(v.$bg1, 0.5);
+    backdrop-filter: blur(5px);
+  }
+}
+
+.about {
+  &-description {
+    width: 100%;
+
+    @include d.flex($gap: v.$padding * 2);
+
+    text-align: center;
+  }
+}
