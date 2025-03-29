@@ -48,6 +48,8 @@ body {
 
   background-color: rgb($bg1);
 
+  @include scroll-hidden;
+
   // Typography
 
   @each $tag, $props in $typography {

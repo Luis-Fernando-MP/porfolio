@@ -23,6 +23,7 @@
       "@/*": ["./src/*"],
       "@sass/*": ["./src/sass/*"],
       "@shared/*": ["./src/shared/*"]
+      // "@markdown/*": ["./src/constants/markdown/*"]
     }
   },
   "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts"],

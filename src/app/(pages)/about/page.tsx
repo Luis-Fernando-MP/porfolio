@@ -1,4 +1,3 @@
-import MainApp from '@/app/components/MainApp'
 import type { FC } from 'react'
 
 import './style.scss'
@@ -6,8 +5,8 @@ import Testimonies from './ui/Testimonies'
 
 const Page: FC = () => {
   return (
-    <MainApp className='about'>
-      <section className='about-section'>
+    <>
+      <section className='mainApp-section'>
         <h1>Acerca de mi:</h1>
         <div className='paragraph'>
           <p className='paragraph-normal'>¡Hola!</p>
@@ -51,13 +50,13 @@ const Page: FC = () => {
         </div>
       </section>
 
-      <section className='about-section'>
+      <section className='mainApp-section'>
         <h2>Testimonios:</h2>
         <div className='about-testimonies'>
           <Testimonies />
         </div>
       </section>
-    </MainApp>
+    </>
   )
 }
 
