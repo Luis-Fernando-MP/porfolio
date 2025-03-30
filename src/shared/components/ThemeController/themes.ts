@@ -11,7 +11,7 @@ export interface Theme {
 
 export type ThemeKeys = keyof typeof THEMES
 
-export const THEMES: Record<string, Theme> = {
+export const THEMES = {
   'Shumi dev': {
     'bg-primary': '0, 0, 0',
     'bg-secondary': '10, 9, 9',
@@ -20,7 +20,8 @@ export const THEMES: Record<string, Theme> = {
     'fnt-secondary': '147, 147, 147',
     'fnt-active': '255, 255, 255',
     'tn-primary': '1, 57, 54',
-    'tn-secondary': '237, 182, 123'
+    'tn-secondary': '237, 182, 123',
+    type: 'dark'
   },
   DeepOcean: {
     'bg-primary': '10, 30, 50',
@@ -30,7 +31,8 @@ export const THEMES: Record<string, Theme> = {
     'fnt-secondary': '180, 200, 220',
     'fnt-active': '100, 180, 220',
     'tn-primary': '80, 150, 180',
-    'tn-secondary': '150, 200, 230'
+    'tn-secondary': '150, 200, 230',
+    type: 'dark'
   },
   AshMountains: {
     'bg-primary': '40, 40, 45',
@@ -40,7 +42,8 @@ export const THEMES: Record<string, Theme> = {
     'fnt-secondary': '190, 190, 195',
     'fnt-active': '0, 0, 0',
     'tn-primary': '110, 110, 130',
-    'tn-secondary': '180, 180, 200'
+    'tn-secondary': '180, 180, 200',
+    type: 'dark'
   },
   StarryNight: {
     'bg-primary': '10, 10, 20',
@@ -50,9 +53,9 @@ export const THEMES: Record<string, Theme> = {
     'fnt-secondary': '128, 128, 147',
     'fnt-active': '0, 0, 0',
     'tn-primary': '150, 150, 190',
-    'tn-secondary': '200, 200, 230'
+    'tn-secondary': '200, 200, 230',
+    type: 'dark'
   },
-  // Claros
   'Aurora Day': {
     'bg-primary': '245, 245, 250',
     'bg-secondary': '230, 235, 250',
@@ -61,7 +64,8 @@ export const THEMES: Record<string, Theme> = {
     'fnt-secondary': '60, 90, 130',
     'fnt-active': '255, 255, 255',
     'tn-primary': '255, 100, 150',
-    'tn-secondary': '200, 150, 180'
+    'tn-secondary': '200, 150, 180',
+    type: 'light'
   },
   'Pastel Horizon': {
     'bg-primary': '250, 245, 255',
@@ -71,7 +75,8 @@ export const THEMES: Record<string, Theme> = {
     'fnt-secondary': '80, 100, 150',
     'fnt-active': '255, 255, 255',
     'tn-primary': '250, 150, 200',
-    'tn-secondary': '220, 120, 180'
+    'tn-secondary': '220, 120, 180',
+    type: 'light'
   },
   Cloud: {
     'bg-primary': '240, 248, 255',
@@ -81,7 +86,8 @@ export const THEMES: Record<string, Theme> = {
     'fnt-secondary': '50, 50, 100',
     'fnt-active': '255, 255, 255',
     'tn-primary': '0, 122, 204',
-    'tn-secondary': '0, 100, 180'
+    'tn-secondary': '0, 100, 180',
+    type: 'light'
   },
   Pearl: {
     'bg-primary': '255, 250, 250',
@@ -91,7 +97,8 @@ export const THEMES: Record<string, Theme> = {
     'fnt-secondary': '90, 90, 90',
     'fnt-active': '255, 255, 255',
     'tn-primary': '255, 120, 130',
-    'tn-secondary': '230, 100, 110'
+    'tn-secondary': '230, 100, 110',
+    type: 'light'
   },
   Candy: {
     'bg-primary': '255, 200, 200',
@@ -101,7 +108,8 @@ export const THEMES: Record<string, Theme> = {
     'fnt-secondary': '100, 40, 100',
     'fnt-active': '255, 255, 255',
     'tn-primary': '255, 90, 90',
-    'tn-secondary': '255, 105, 180'
+    'tn-secondary': '255, 105, 180',
+    type: 'light'
   },
   'Cotton Candy': {
     'bg-primary': '255, 200, 240',
@@ -111,7 +119,8 @@ export const THEMES: Record<string, Theme> = {
     'fnt-secondary': '80, 50, 80',
     'fnt-active': '255, 255, 255',
     'tn-primary': '235, 130, 180',
-    'tn-secondary': '220, 130, 180'
+    'tn-secondary': '220, 130, 180',
+    type: 'light'
   },
   'Rose Quartz': {
     'bg-primary': '255, 192, 203',
@@ -121,7 +130,8 @@ export const THEMES: Record<string, Theme> = {
     'fnt-secondary': '100, 60, 80',
     'fnt-active': '255, 255, 255',
     'tn-primary': '255, 100, 120',
-    'tn-secondary': '255, 80, 100'
+    'tn-secondary': '255, 80, 100',
+    type: 'light'
   },
   Lavender: {
     'bg-primary': '240, 230, 255',
@@ -131,7 +141,8 @@ export const THEMES: Record<string, Theme> = {
     'fnt-secondary': '100, 80, 120',
     'fnt-active': '255, 255, 255',
     'tn-primary': '150, 100, 200',
-    'tn-secondary': '200, 150, 230'
+    'tn-secondary': '200, 150, 230',
+    type: 'light'
   },
   'Lavender Gray': {
     'bg-primary': '230, 230, 250',
@@ -140,8 +151,9 @@ export const THEMES: Record<string, Theme> = {
     'fnt-primary': '50, 30, 70',
     'fnt-secondary': '80, 60, 100',
     'fnt-active': '0, 0, 0',
-    'tn-primary': '178 150, 255',
-    'tn-secondary': '180, 160, 220'
+    'tn-primary': '178, 150, 255',
+    'tn-secondary': '180, 160, 220',
+    type: 'light'
   },
   'Nebula Light': {
     'bg-primary': '255, 240, 255',
@@ -151,8 +163,10 @@ export const THEMES: Record<string, Theme> = {
     'fnt-secondary': '60, 60, 80',
     'fnt-active': '255, 255, 255',
     'tn-primary': '200, 143, 200',
-    'tn-secondary': '235, 135, 235'
+    'tn-secondary': '235, 135, 235',
+    type: 'light'
   },
+
   'Soft Pink': {
     'bg-primary': '255, 200, 200',
     'bg-secondary': '255, 180, 180',
@@ -161,7 +175,8 @@ export const THEMES: Record<string, Theme> = {
     'fnt-secondary': '80, 50, 50',
     'fnt-active': '255, 255, 255',
     'tn-primary': '255, 150, 150',
-    'tn-secondary': '220, 120, 120'
+    'tn-secondary': '220, 120, 120',
+    type: 'light'
   },
   'Pastel Pink': {
     'bg-primary': '255, 230, 230',
@@ -171,7 +186,8 @@ export const THEMES: Record<string, Theme> = {
     'fnt-secondary': '80, 50, 50',
     'fnt-active': '255, 255, 255',
     'tn-primary': '235, 160, 160',
-    'tn-secondary': '220, 150, 150'
+    'tn-secondary': '220, 150, 150',
+    type: 'light'
   },
   Almond: {
     'bg-primary': '255, 235, 205',
@@ -181,7 +197,8 @@ export const THEMES: Record<string, Theme> = {
     'fnt-secondary': '120, 80, 60',
     'fnt-active': '255, 255, 255',
     'tn-primary': '210, 150, 100',
-    'tn-secondary': '190, 140, 90'
+    'tn-secondary': '190, 140, 90',
+    type: 'light'
   },
   Citrus: {
     'bg-primary': '250, 250, 200',
@@ -191,7 +208,8 @@ export const THEMES: Record<string, Theme> = {
     'fnt-secondary': '100, 50, 0',
     'fnt-active': '255, 255, 255',
     'tn-primary': '200, 100, 0',
-    'tn-secondary': '255, 165, 0'
+    'tn-secondary': '255, 165, 0',
+    type: 'light'
   },
   'Sunny Meadow': {
     'bg-primary': '245, 255, 240',
@@ -201,7 +219,8 @@ export const THEMES: Record<string, Theme> = {
     'fnt-secondary': '80, 100, 60',
     'fnt-active': '255, 255, 255',
     'tn-primary': '240, 170, 50',
-    'tn-secondary': '180, 220, 90'
+    'tn-secondary': '180, 220, 90',
+    type: 'light'
   },
   Emerald: {
     'bg-primary': '150, 220, 180',
@@ -211,7 +230,8 @@ export const THEMES: Record<string, Theme> = {
     'fnt-secondary': '40, 80, 60',
     'fnt-active': '255, 255, 255',
     'tn-primary': '0, 150, 80',
-    'tn-secondary': '0, 200, 120'
+    'tn-secondary': '0, 200, 120',
+    type: 'light'
   },
   'Passionate Red': {
     'bg-primary': '255, 105, 180',
@@ -221,7 +241,8 @@ export const THEMES: Record<string, Theme> = {
     'fnt-secondary': '80, 50, 80',
     'fnt-active': '255, 255, 255',
     'tn-primary': '255, 50, 100',
-    'tn-secondary': '220, 40, 80'
+    'tn-secondary': '220, 40, 80',
+    type: 'light'
   },
   'Sunrise Glow': {
     'bg-primary': '255, 200, 150',
@@ -231,7 +252,8 @@ export const THEMES: Record<string, Theme> = {
     'fnt-secondary': '80, 50, 20',
     'fnt-active': '255, 255, 255',
     'tn-primary': '255, 100, 50',
-    'tn-secondary': '220, 80, 40'
+    'tn-secondary': '220, 80, 40',
+    type: 'light'
   },
   'Icy Blue': {
     'bg-primary': '180, 220, 255',
@@ -241,7 +263,8 @@ export const THEMES: Record<string, Theme> = {
     'fnt-secondary': '40, 50, 70',
     'fnt-active': '255, 255, 255',
     'tn-primary': '0, 120, 240',
-    'tn-secondary': '0, 100, 200'
+    'tn-secondary': '0, 100, 200',
+    type: 'light'
   },
   'Marble White': {
     'bg-primary': '240, 240, 240',
@@ -251,7 +274,8 @@ export const THEMES: Record<string, Theme> = {
     'fnt-secondary': '60, 60, 80',
     'fnt-active': '255, 255, 255',
     'tn-primary': '0, 0, 0',
-    'tn-secondary': '80, 80, 80'
+    'tn-secondary': '80, 80, 80',
+    type: 'light'
   },
   'Obsidian Black': {
     'bg-primary': '30, 30, 30',
@@ -261,7 +285,8 @@ export const THEMES: Record<string, Theme> = {
     'fnt-secondary': '170, 170, 170',
     'fnt-active': '0, 0, 0',
     'tn-primary': '255, 255, 255',
-    'tn-secondary': '200, 200, 200'
+    'tn-secondary': '200, 200, 200',
+    type: 'dark'
   },
   'Ebony Elegance': {
     'bg-primary': '50, 40, 30',
@@ -271,9 +296,9 @@ export const THEMES: Record<string, Theme> = {
     'fnt-secondary': '170, 170, 170',
     'fnt-active': '0, 0, 0',
     'tn-primary': '250, 240, 230',
-    'tn-secondary': '150, 140, 130'
+    'tn-secondary': '150, 140, 130',
+    type: 'dark'
   },
-  // Oscuros
   'Twilight Purple': {
     'bg-primary': '25, 25, 35',
     'bg-secondary': '40, 40, 55',
@@ -282,7 +307,8 @@ export const THEMES: Record<string, Theme> = {
     'fnt-secondary': '160, 160, 180',
     'fnt-active': '255, 255, 255',
     'tn-primary': '140, 50, 240',
-    'tn-secondary': '180, 100, 250'
+    'tn-secondary': '180, 100, 250',
+    type: 'dark'
   },
   'Dark Slate': {
     'bg-primary': '40, 40, 40',
@@ -292,7 +318,8 @@ export const THEMES: Record<string, Theme> = {
     'fnt-secondary': '180, 180, 180',
     'fnt-active': '255, 255, 255',
     'tn-primary': '0, 120, 240',
-    'tn-secondary': '0, 100, 200'
+    'tn-secondary': '0, 100, 200',
+    type: 'dark'
   },
   Carbon: {
     'bg-primary': '12, 12, 12',
@@ -302,7 +329,8 @@ export const THEMES: Record<string, Theme> = {
     'fnt-secondary': '160, 160, 160',
     'fnt-active': '0, 0, 0',
     'tn-primary': '50, 230, 130',
-    'tn-secondary': '40, 220, 130'
+    'tn-secondary': '40, 220, 130',
+    type: 'dark'
   },
   Circuit: {
     'bg-primary': '10, 15, 25',
@@ -312,7 +340,8 @@ export const THEMES: Record<string, Theme> = {
     'fnt-secondary': '0, 255, 255',
     'fnt-active': '0, 0, 0',
     'tn-primary': '0, 255, 0',
-    'tn-secondary': '0, 200, 0'
+    'tn-secondary': '0, 200, 0',
+    type: 'dark'
   },
   'Synth wave 84': {
     'bg-primary': '10, 10, 30',
@@ -322,7 +351,8 @@ export const THEMES: Record<string, Theme> = {
     'fnt-secondary': '0, 240, 255',
     'fnt-active': '0, 0, 0',
     'tn-primary': '255, 135, 210',
-    'tn-secondary': '220, 90, 160'
+    'tn-secondary': '220, 90, 160',
+    type: 'dark'
   },
   Nebula: {
     'bg-primary': '20, 20, 40',
@@ -332,7 +362,8 @@ export const THEMES: Record<string, Theme> = {
     'fnt-secondary': '200, 100, 255',
     'fnt-active': '255, 255, 255',
     'tn-primary': '255, 0, 128',
-    'tn-secondary': '220, 0, 110'
+    'tn-secondary': '220, 0, 110',
+    type: 'dark'
   },
   Eclipse: {
     'bg-primary': '5, 5, 5',
@@ -342,7 +373,8 @@ export const THEMES: Record<string, Theme> = {
     'fnt-secondary': '160, 160, 160',
     'fnt-active': '0, 0, 0',
     'tn-primary': '255, 150, 50',
-    'tn-secondary': '230, 130, 40'
+    'tn-secondary': '230, 130, 40',
+    type: 'dark'
   },
   'Forest Dawn': {
     'bg-primary': '25, 35, 25',
@@ -352,7 +384,8 @@ export const THEMES: Record<string, Theme> = {
     'fnt-secondary': '140, 170, 110',
     'fnt-active': '0, 0, 0',
     'tn-primary': '230, 150, 50',
-    'tn-secondary': '180, 130, 70'
+    'tn-secondary': '180, 130, 70',
+    type: 'dark'
   },
   'Forest Twilight': {
     'bg-primary': '30, 40, 30',
@@ -362,7 +395,8 @@ export const THEMES: Record<string, Theme> = {
     'fnt-secondary': '150, 180, 150',
     'fnt-active': '0, 0, 0',
     'tn-primary': '0, 150, 50',
-    'tn-secondary': '0, 200, 100'
+    'tn-secondary': '0, 200, 100',
+    type: 'dark'
   },
   Neon: {
     'bg-primary': '10, 10, 10',
@@ -372,7 +406,8 @@ export const THEMES: Record<string, Theme> = {
     'fnt-secondary': '0, 200, 255',
     'fnt-active': '0, 0, 0',
     'tn-primary': '255, 255, 0',
-    'tn-secondary': '0, 128, 255'
+    'tn-secondary': '0, 128, 255',
+    type: 'dark'
   },
   Aurora: {
     'bg-primary': '10, 20, 20',
@@ -382,7 +417,8 @@ export const THEMES: Record<string, Theme> = {
     'fnt-secondary': '0, 192, 255',
     'fnt-active': '0, 0, 0',
     'tn-primary': '255, 0, 128',
-    'tn-secondary': '0, 255, 200'
+    'tn-secondary': '0, 255, 200',
+    type: 'dark'
   },
   'Twilight Pink': {
     'bg-primary': '50, 10, 30',
@@ -392,7 +428,8 @@ export const THEMES: Record<string, Theme> = {
     'fnt-secondary': '200, 200, 200',
     'fnt-active': '0, 0, 0',
     'tn-primary': '255, 100, 150',
-    'tn-secondary': '220, 80, 120'
+    'tn-secondary': '220, 80, 120',
+    type: 'dark'
   },
   Velvet: {
     'bg-primary': '20, 10, 30',
@@ -402,7 +439,8 @@ export const THEMES: Record<string, Theme> = {
     'fnt-secondary': '180, 140, 220',
     'fnt-active': '0, 0, 0',
     'tn-primary': '255, 105, 180',
-    'tn-secondary': '255, 20, 147'
+    'tn-secondary': '255, 20, 147',
+    type: 'dark'
   },
   'Volcanic Magma': {
     'bg-primary': '55, 15, 15',
@@ -412,7 +450,8 @@ export const THEMES: Record<string, Theme> = {
     'fnt-secondary': '210, 150, 70',
     'fnt-active': '0, 0, 0',
     'tn-primary': '230, 150, 50',
-    'tn-secondary': '200, 100, 40'
+    'tn-secondary': '200, 100, 40',
+    type: 'dark'
   },
   Midnight: {
     'bg-primary': '10, 25, 50',
@@ -422,6 +461,7 @@ export const THEMES: Record<string, Theme> = {
     'fnt-secondary': '150, 180, 230',
     'fnt-active': '255, 255, 255',
     'tn-primary': '50, 100, 255',
-    'tn-secondary': '40, 80, 220'
+    'tn-secondary': '40, 80, 220',
+    type: 'dark'
   }
 }

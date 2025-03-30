@@ -5,9 +5,6 @@ import { compileMDX } from 'next-mdx-remote/rsc'
 import path from 'path'
 import rehypeHighlight from 'rehype-highlight'
 
-import './vs-dark.css'
-import './vs-light.css'
-
 type GenerateMdxDataProps = {
   mdxPath: string
   extraLanguages?: string[]

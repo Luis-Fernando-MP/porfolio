@@ -1,5 +1,6 @@
 'use client'
 
+import ThemeController from '@/shared/components/ThemeController'
 import IconButton from '@/shared/ui/IconButton'
 import ShumDev from '@/shared/ui/ShumDev'
 import { BoltIcon, BookOpenIcon, BriefcaseBusinessIcon, Layers2Icon, RocketIcon, ShieldCheckIcon, UserIcon } from 'lucide-react'
@@ -74,6 +75,8 @@ const MainBar: FC<Props> = ({ className = '' }) => {
         <IconButton label='Personalizar' transparent>
           <BoltIcon />
         </IconButton>
+
+        <ThemeController />
       </section>
     </article>
   )

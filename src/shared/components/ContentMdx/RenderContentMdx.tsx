@@ -3,6 +3,9 @@
 import { CompileMDXResult } from 'next-mdx-remote/rsc'
 import { type FC } from 'react'
 
+import './styles/vs-dark.css'
+import './styles/vs-light.css'
+
 interface Props {
   data: CompileMDXResult | null
 }

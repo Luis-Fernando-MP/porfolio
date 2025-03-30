@@ -1,5 +1,5 @@
 import { acl } from '@/shared/acl'
-import { Theme } from '@/shared/themes'
+import { Theme } from '@/shared/components/ThemeController/themes'
 import type { ButtonHTMLAttributes, FC } from 'react'
 
 import IconButton from '../IconButton'
