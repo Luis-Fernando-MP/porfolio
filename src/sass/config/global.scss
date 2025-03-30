@@ -72,9 +72,12 @@ body {
     background: none;
   }
 
+  span {
+    font-size: map.get(map.get($typography, 'a'), size);
+  }
+
   small,
   label,
-  span,
   input {
     font-family: $font2;
     font-size: map.get(map.get($typography, 'p'), size);

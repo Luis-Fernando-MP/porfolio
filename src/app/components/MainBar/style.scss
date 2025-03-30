@@ -3,6 +3,7 @@
 
 .mainBar {
   position: fixed;
+  z-index: 10;
   bottom: v.$padding * 2;
   left: 50%;
   transform: translateX(-50%);
@@ -14,7 +15,7 @@
   padding: v.$padding * 0.7 v.$padding * 2;
   border-radius: v.$radius;
 
-  background-color: rgb(v.$bg1, 0.8);
+  background-color: rgb(v.$bg1, 0.5);
   backdrop-filter: blur(10px);
 
   @include d.flex($dir: row, $ali: center, $gap: v.$padding * 2);
