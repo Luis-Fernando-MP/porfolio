@@ -1,4 +1,3 @@
-
 /**
  * One Light theme for prism.js
  * Based on Atom's One Light theme: https://github.com/atom/atom/tree/master/packages/one-light-syntax
@@ -380,7 +379,7 @@ html[data-theme='light'] {
   /* Border around popup */
   .prism-previewer.prism-previewer::before,
   .prism-previewer-gradient.prism-previewer-gradient div {
-    border-color: hsl(0deg 0 95%);
+    border-color: hsl(0deg 0% 95%);
   }
 
   /* Angle and time should remain as circles and are hence not included */
@@ -392,11 +391,11 @@ html[data-theme='light'] {
 
   /* Triangles pointing to the code */
   .prism-previewer.prism-previewer::after {
-    border-top-color: hsl(0deg 0 95%);
+    border-top-color: hsl(0deg 0% 95%);
   }
 
   .prism-previewer-flipped.prism-previewer-flipped.after {
-    border-bottom-color: hsl(0deg 0 95%);
+    border-bottom-color: hsl(0deg 0% 95%);
   }
 
   /* Background colour within the popup */
