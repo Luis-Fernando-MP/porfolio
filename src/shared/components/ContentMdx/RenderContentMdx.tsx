@@ -1,13 +1,15 @@
 'use client'
 
+import { ArticleFrontmatter } from '@/shared/mdx/frontmatter.type'
 import { CompileMDXResult } from 'next-mdx-remote/rsc'
 import { type FC, useEffect, useRef } from 'react'
 
+import './styles/rehype.scss'
 import './styles/vs-dark.scss'
 import './styles/vs-light.scss'
 
 interface Props {
-  data: CompileMDXResult | null
+  data: CompileMDXResult<ArticleFrontmatter> | null
 }
 
 const RenderContentMdx: FC<Props> = ({ data }) => {
@@ -28,10 +30,10 @@ const RenderContentMdx: FC<Props> = ({ data }) => {
         copyButton = document.createElement('button') as HTMLElement
         copyButton.innerHTML = 'Copy'
         copyButton.id = 'rehype-copy-button'
+        copyButton.className = 'rehype-copy-button'
         preElement.insertBefore(copyButton, codeBlock)
       }
 
-      // Agregar el evento de copiado al botón
       copyButton.addEventListener('click', async () => {
         if (!codeBlock.textContent) return
         await navigator.clipboard.writeText(codeBlock.textContent)
@@ -42,9 +44,14 @@ const RenderContentMdx: FC<Props> = ({ data }) => {
   }, [data])
 
   if (!data) return null
-  const { content } = data
+  const { content, frontmatter } = data
 
-  return <div ref={contentRef}>{content}</div>
+  return (
+    <article className='rehype' ref={contentRef}>
+      <h1>{frontmatter.title}</h1>
+      {content}
+    </article>
+  )
 }
 
 export default RenderContentMdx

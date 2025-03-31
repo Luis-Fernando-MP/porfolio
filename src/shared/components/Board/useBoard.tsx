@@ -62,7 +62,7 @@ const useBoard = ({ isCenter, minScale = false, normalScale = false }: IUseBoard
     const { newOffsetX, newOffsetY } = centerChildren(scale)
     setScale(scale)
     setOffset({ x: newOffsetX, y: newOffsetY })
-  }, [setOffset, setScale])
+  }, [setOffset, setScale, centerChildren])
 
   const moveToChild = useCallback(
     (index: number, extraScale: number = 1) => {
@@ -95,7 +95,7 @@ const useBoard = ({ isCenter, minScale = false, normalScale = false }: IUseBoard
     const { minScale: appMinScale, maxScale } = getDynamicScale(paRect, childrenRect)
     setScale(minScale ? appMinScale : maxScale)
     moveToChild(0, minScale ? appMinScale : maxScale)
-  }, [moveToChild, setScale])
+  }, [moveToChild, setScale, minScale])
 
   const handleBoardDown = (e: React.MouseEvent) => {
     if (e.ctrlKey) {
@@ -185,7 +185,7 @@ const useBoard = ({ isCenter, minScale = false, normalScale = false }: IUseBoard
     if (isCenter) return centerAndFit()
 
     centerWithSpacing()
-  }, [normalScale, centerAndFit, centerWithSpacing, isCenter, centerChildren])
+  }, [normalScale, centerAndFit, centerWithSpacing, isCenter, centerChildren, setOffset, setScale])
 
   useEffect(() => {
     setPrevChild(prevChild)

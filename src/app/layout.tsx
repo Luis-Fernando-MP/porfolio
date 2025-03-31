@@ -23,7 +23,7 @@ const RootLayout = async ({ children }: IRootLayout): Promise<JSX.Element> => {
         <NextTopLoader color='rgb(var(--tn-primary))' showSpinner={false} />
         <Offline />
         <Hydration>
-          {/* <Gradient /> */}
+          <Gradient />
           {children}
           <MainBar />
         </Hydration>

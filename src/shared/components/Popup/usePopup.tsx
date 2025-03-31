@@ -118,14 +118,15 @@ const usePopup = ({ isOpen, clickPosition, onClose }: IUsePopupHook) => {
   }, [isOpen])
 
   useEffect(() => {
-    if (!isOpen || !$popupRef.current) return
+    const currentPopupRef = $popupRef.current
+    if (!isOpen || !currentPopupRef) return
     const handleKeyEvent = (e: KeyboardEvent): void => {
       if (!(e.ctrlKey && (e.key === 'x' || e.key === 'Escape'))) return
       onClose()
     }
-    $popupRef.current.addEventListener('keydown', handleKeyEvent)
+    currentPopupRef.addEventListener('keydown', handleKeyEvent)
     return () => {
-      $popupRef.current?.removeEventListener('keydown', handleKeyEvent)
+      currentPopupRef?.removeEventListener('keydown', handleKeyEvent)
     }
   }, [isOpen, onClose])
 

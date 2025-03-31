@@ -3,6 +3,8 @@
 @use '@sass/utils/scrollbar' as *;
 
 .mainApp {
+  scroll-behavior: smooth;
+
   position: relative;
 
   overflow-x: hidden;

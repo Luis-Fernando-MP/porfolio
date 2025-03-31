@@ -1,5 +1,4 @@
 import createMDX from '@next/mdx'
-import highlight from 'rehype-highlight'
 
 /** @type {import('next').NextConfig} */
 const nextConfig = {
@@ -9,7 +8,6 @@ const nextConfig = {
 
 const withMDX = createMDX({
   options: {
-    rehypePlugins: [highlight],
     remarkPlugins: []
   }
 })

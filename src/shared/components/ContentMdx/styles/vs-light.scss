@@ -43,7 +43,6 @@ html[data-theme='light'] {
     word-break: normal;
     word-spacing: normal;
     tab-size: 2;
-    white-space: pre;
   }
 
   /* Selection */
@@ -67,7 +66,6 @@ html[data-theme='light'] {
   :not(pre) > code[class*='language-'] {
     padding: 0.2em 0.3em;
     border-radius: 0.3em;
-    white-space: normal;
   }
 
   .token.comment,

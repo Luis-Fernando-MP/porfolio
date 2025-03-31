@@ -3,9 +3,7 @@
 import ContentMdx from '@/shared/components/ContentMdx'
 import type { FC } from 'react'
 
-interface Props {}
-
-const Page: FC<Props> = async () => {
+const Page: FC = async () => {
   return (
     <div>
       hola abajo:

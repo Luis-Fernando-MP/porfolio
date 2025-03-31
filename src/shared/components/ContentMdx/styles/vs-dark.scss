@@ -1,5 +1,4 @@
 /* stylelint-disable no-descending-specificity */
-/* stylelint-disable no-duplicate-selectors */
 
 @use '@sass/config/vars' as v;
 
@@ -21,7 +20,6 @@ html[data-theme='dark'] {
     word-break: normal;
     word-spacing: normal;
     tab-size: 4;
-    white-space: pre;
   }
 
   pre[class*='language-']::selection,
