@@ -1,7 +1,15 @@
-import type { NextConfig } from 'next'
+import createMDX from '@next/mdx'
 
-const nextConfig: NextConfig = {
-  allowedDevOrigins: ['127.0.0.1', 'local-origin.dev', '*.local-origin.dev']
+/** @type {import('next').NextConfig} */
+const nextConfig = {
+  pageExtensions: ['js', 'jsx', 'md', 'mdx', 'ts', 'tsx'],
+  transpilePackages: ['next-mdx-remote']
 }
 
-export default nextConfig
+const withMDX = createMDX({
+  options: {
+    remarkPlugins: []
+  }
+})
+
+export default withMDX(nextConfig)

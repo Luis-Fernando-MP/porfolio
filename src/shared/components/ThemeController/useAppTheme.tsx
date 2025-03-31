@@ -1,6 +1,6 @@
 'use client'
 
-import { THEMES } from '@/shared/themes'
+import { THEMES, ThemeKeys } from '@/shared/components/ThemeController/themes'
 import { useLayoutEffect } from 'react'
 
 import useAppThemeStore, { DEFAULT_THEME } from './appTheme.store'
@@ -13,7 +13,11 @@ const useAppTheme = () => {
     let currentTheme = THEMES[appTheme]
     if (!currentTheme) currentTheme = THEMES[DEFAULT_THEME]
 
-    Object.entries(currentTheme).forEach(([key, color]) => {
+    const { type, ...theme } = currentTheme
+
+    root.setAttribute('data-theme', type)
+
+    Object.entries(theme).forEach(([key, color]) => {
       root.style.setProperty(`--${key}`, `${color}`)
     })
   }, [appTheme])
@@ -22,7 +26,7 @@ const useAppTheme = () => {
     if (appTheme === selectTheme) {
       return
     }
-    setAppTheme(selectTheme)
+    setAppTheme(selectTheme as ThemeKeys)
   }
 
   return { appTheme, handleSetTheme, THEMES }

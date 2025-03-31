@@ -5,6 +5,10 @@
     "stylelint-config-clean-order",
     "stylelint-config-two-dash-bem"
   ],
+  "ignoreFiles": [
+    "./src/shared/components/ContentMdx/styles/vs-dark.scss",
+    "./src/shared/components/ContentMdx/styles/vs-light.scss"
+  ],
   "rules": {
     "scss/at-rule-no-unknown": [
       true,

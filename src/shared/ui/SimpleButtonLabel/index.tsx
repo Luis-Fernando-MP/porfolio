@@ -8,14 +8,15 @@ interface Props extends React.HTMLAttributes<HTMLButtonElement> {
   label?: string
   position?: 'top' | 'bottom' | 'left' | 'right'
   className?: string
+  contentClass?: string
 }
 
-const SimpleButtonLabel: FC<Props> = ({ children, label, position, className, ...props }) => {
-  const parsedClassName = `simpleButtonLabel  ${className}`
+const SimpleButtonLabel: FC<Props> = ({ children, label, position, className, contentClass = '', ...props }) => {
+  const parsedClassName = `simpleButtonLabel ${className}`
 
   return (
     <button className={parsedClassName} {...props}>
-      <div className='simpleButtonLabel-content'>{children}</div>
+      <div className={`simpleButtonLabel-content ${contentClass}`}>{children}</div>
       {label && (
         <LabelText type='darken' className={`simpleButtonLabel-label ${position}`}>
           {label}

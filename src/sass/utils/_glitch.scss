@@ -17,11 +17,17 @@
       text-shadow:
         2px 2px 0 rgb(v.$tn1),
         -2px -2px 0 rgb(v.$tn2);
+      box-shadow:
+        2px 2px 0 rgb(v.$tn1),
+        -2px -2px 0 rgb(v.$tn2);
     }
 
     25% {
       transform: translate(2px, 2px);
       text-shadow:
+        -2px -2px 0 rgb(v.$tn1),
+        2px 2px 0 rgb(v.$tn2);
+      box-shadow:
         -2px -2px 0 rgb(v.$tn1),
         2px 2px 0 rgb(v.$tn2);
     }
@@ -31,11 +37,17 @@
       text-shadow:
         2px -2px 0 rgb(v.$tn1),
         -2px 2px 0 rgb(v.$tn2);
+      box-shadow:
+        2px -2px 0 rgb(v.$tn1),
+        -2px 2px 0 rgb(v.$tn2);
     }
 
     75% {
       transform: translate(2px, -2px);
       text-shadow:
+        -2px 2px 0 rgb(v.$tn1),
+        2px -2px 0 rgb(v.$tn2);
+      box-shadow:
         -2px 2px 0 rgb(v.$tn1),
         2px -2px 0 rgb(v.$tn2);
     }

@@ -1,11 +1,13 @@
 import { StateCreator, create } from 'zustand'
 import { persist } from 'zustand/middleware'
 
-export const DEFAULT_THEME = 'Aurora Day'
+import { ThemeKeys } from './themes'
+
+export const DEFAULT_THEME: ThemeKeys = 'Shumi dev'
 
 interface IAppThemeStore {
-  appTheme: string
-  setAppTheme: (appTheme: string) => void
+  appTheme: ThemeKeys
+  setAppTheme: (appTheme: ThemeKeys) => void
   resetTheme: () => void
 }
 

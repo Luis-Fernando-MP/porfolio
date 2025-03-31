@@ -12,6 +12,7 @@ interface Props extends React.HTMLAttributes<HTMLButtonElement> {
   className?: string
   transparent?: boolean
   active?: boolean
+  contentClass?: string
 }
 
 /**
@@ -22,6 +23,7 @@ interface Props extends React.HTMLAttributes<HTMLButtonElement> {
  * @param {string} className - The class name of the button.
  * @param {boolean} transparent - Whether the button is transparent.
  * @param {boolean} active - Whether the button is active.
+ * @param {string} contentClass - The class name of the content
  */
 
 const IconButton: FC<Props> = ({
@@ -32,13 +34,14 @@ const IconButton: FC<Props> = ({
   className = '',
   transparent = false,
   active = false,
+  contentClass = '',
   ...props
 }) => {
   const parsedClassName = `iconButton ${acl(outline, 'outline')} ${acl(transparent, 'transparent')} ${acl(active, 'active')} ${className}`
 
   return (
     <button className={parsedClassName} {...props}>
-      <div className='iconButton-content'>{children}</div>
+      <div className={`iconButton-content ${contentClass}`}>{children}</div>
       {label && (
         <LabelText type='darken' className={`iconButton-label ${position}`}>
           {label}

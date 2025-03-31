@@ -53,7 +53,8 @@
   }
 
   &-content {
-    @include d.flex($dir: row, $ali: center, $gap: v.$padding * 0.5);
+    display: flex;
+    align-items: center;
   }
 
   &:hover &-label {

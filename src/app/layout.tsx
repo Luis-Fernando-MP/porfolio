@@ -6,9 +6,11 @@ import NextTopLoader from 'nextjs-toploader'
 import type { JSX, ReactNode } from 'react'
 import { Toaster } from 'react-hot-toast'
 
+import MainBar from './components/MainBar'
 import './globals.css'
 import { metadata, viewport } from './metadata'
 import './style.scss'
+import Gradient from './ui/Gradient'
 
 interface IRootLayout {
   children?: Readonly<ReactNode[]> | null | Readonly<ReactNode>
@@ -20,7 +22,11 @@ const RootLayout = async ({ children }: IRootLayout): Promise<JSX.Element> => {
       <body className={`${bodyFonts} app antialiased`}>
         <NextTopLoader color='rgb(var(--tn-primary))' showSpinner={false} />
         <Offline />
-        <Hydration>{children}</Hydration>
+        <Hydration>
+          <Gradient />
+          {children}
+          <MainBar />
+        </Hydration>
         <Toaster position='top-center' toastOptions={{ className: 'toast' }} />
       </body>
     </html>

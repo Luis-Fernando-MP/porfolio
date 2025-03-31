@@ -1,0 +1,45 @@
+@use '@sass/config/vars' as v;
+@use '@sass/utils/defs' as d;
+
+.mainBar {
+  position: fixed;
+  z-index: 10;
+  bottom: v.$padding * 2;
+  left: 50%;
+  transform: translateX(-50%);
+
+  justify-content: center;
+
+  width: fit-content;
+  height: fit-content;
+  padding: v.$padding * 0.7 v.$padding * 2;
+  border-radius: v.$radius;
+
+  background-color: rgb(v.$bg1, 0.5);
+  backdrop-filter: blur(10px);
+
+  @include d.flex($dir: row, $ali: center, $gap: v.$padding * 2);
+
+  .separator {
+    width: 1px;
+    height: v.$icon * 2;
+    background-color: rgb(v.$bg3);
+  }
+
+  &-section {
+    @include d.flex($dir: row, $ali: center, $gap: v.$padding);
+  }
+
+  &-fileName {
+    p {
+      overflow: hidden;
+
+      max-width: 120px;
+      padding: 0 v.$padding * 0.5;
+
+      color: rgb(v.$fn1);
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+  }
+}

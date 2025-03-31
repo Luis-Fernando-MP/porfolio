@@ -112,6 +112,7 @@ const Dropzone: FC<Props> = ({ onDrop, removeAfterUpload = false, maxFiles = 1, 
         </section>
       </section>
     )
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [isDragActive, isDragAccept, files, children, maxFiles, open, handleRemoveFile])
 
   useEffect(() => {

@@ -1,19 +1,21 @@
 :root {
-  --bg-primary: 13, 13, 13;
-  --bg-secondary: 19, 20, 23;
-  --bg-tertiary: 61, 61, 61;
+  --bg-primary: 0, 0, 0;
+  --bg-secondary: 10, 9, 9;
+  --bg-tertiary: 55, 55, 55;
 
   // Fuentes
-  --fnt-primary: 255, 255, 255;
-  --fnt-secondary: 119, 119, 120;
+  --fnt-primary: 237, 237, 237;
+  --fnt-secondary: 147, 147, 147;
   --fnt-active: 255, 255, 255;
 
   // Principales
-  --tn-primary: 164, 47, 238;
-  --tn-secondary: 45, 255, 238;
+  --tn-primary: 1, 57, 54;
+  --tn-secondary: 237, 182, 123;
+
+  // Fuentes
   --xl-font-size: 4rem;
-  --h1-font-size: 1.3rem;
-  --h2-font-size: 1.2rem;
+  --h1-font-size: 1.2rem;
+  --h2-font-size: 1.15rem;
   --h3-font-size: 1rem;
   --h4-font-size: 0.9rem;
   --h5-font-size: 0.9rem;
@@ -62,9 +64,7 @@ $success: rgb(40 167 69);
 $warning: rgb(255 193 7);
 $info: rgb(42 42 42);
 $focus: rgb(66 133 244);
-
-// app
-$pixelSize: 30px;
+$active: rgb(150 211 50);
 
 // bezier
 $bezier: cubic-bezier(0.68, -0.55, 0.27, 1.55);

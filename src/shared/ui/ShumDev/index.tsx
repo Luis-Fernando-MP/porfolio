@@ -6,16 +6,22 @@ import './style.scss'
 interface Props {
   size?: 'xs' | 'sm' | 'md' | 'lg' | 'xl'
   radius?: 'circle' | 'rounded' | 'none'
+  className?: string
 }
 
 /**
- * @param {string} size - The size of the shum dev logo. xs, sm, md, lg, xl.
- * @param {string} radius - The radius of the shum dev logo. circle, rounded, none.
+ * Componente que representa el logo de Shum Dev.
+ *
+ * @param {string} size - El tamaño del logo de Shum Dev. Puede ser 'xs', 'sm', 'md', 'lg' o 'xl'.
+ * @param {string} radius - El radio del logo de Shum Dev. Puede ser 'circle', 'rounded' o 'none'.
+ * @param {boolean} transparent - Indica si el logo debe tener un fondo transparente.
+ * @param {string} className - Clases CSS adicionales para personalizar el componente.
+ * @returns {JSX.Element} El componente Shum Dev.
  */
 
-const ShumDev: FC<Props> = ({ size = 'xs', radius = 'rounded' }) => {
+const ShumDev: FC<Props> = ({ size = 'xs', radius = '', className = '' }) => {
   return (
-    <section className={`shumDev ${size} ${radius}`}>
+    <section className={`shumDev ${size} ${radius} ${className}`}>
       <ShumLogo className='shumDev-logo' />
     </section>
   )

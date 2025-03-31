@@ -1,7 +1,7 @@
 'use client'
 
-import Logo from '@/shared/assets/Logo'
-import React, { useLayoutEffect, useRef, useState } from 'react'
+import ShumDev from '@/shared/ui/ShumDev'
+import React, { useEffect, useRef, useState } from 'react'
 
 import './style.scss'
 
@@ -9,19 +9,16 @@ const LoaderPage = () => {
   const [loading, setLoading] = useState(true)
   const $loaderRef = useRef<HTMLElement>(null)
 
-  useLayoutEffect(() => {
-    setTimeout(() => {
-      setLoading(false)
-    }, 500)
+  useEffect(() => {
+    setLoading(false)
   }, [])
 
   if (!loading) return null
 
   return (
     <section ref={$loaderRef} className='loaderApp' style={{ opacity: loading ? 1 : 0 }}>
-      <h2>J-ART</h2>
-      <Logo className='loaderApp-logo' />
-      <p>By: Shun dev ❤️</p>
+      <ShumDev size='lg' className='loaderApp-logo' />
+      <h2>Shumi dev</h2>
     </section>
   )
 }
