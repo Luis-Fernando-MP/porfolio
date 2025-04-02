@@ -2,16 +2,7 @@
 
 import IconButton from '@/shared/ui/IconButton'
 import MiShumDev from '@/shared/ui/MiShumDev'
-import {
-  BoltIcon,
-  BookOpenIcon,
-  BriefcaseBusinessIcon,
-  GaugeIcon,
-  Layers2Icon,
-  RocketIcon,
-  ShieldCheckIcon,
-  UserIcon
-} from 'lucide-react'
+import { BoltIcon, BookOpenIcon, GaugeIcon, RocketIcon, UserIcon } from 'lucide-react'
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 import type { FC } from 'react'
@@ -71,7 +62,7 @@ const MainBar: FC<Props> = ({ className = '' }) => {
       <section className='mainBar-section'>
         <Link href='/other' aria-label='Relacionados'>
           <IconButton className='border' active={pathname === '/other'}>
-            <ShieldCheckIcon />
+            <BoltIcon />
             <h4>Otros</h4>
           </IconButton>
         </Link>

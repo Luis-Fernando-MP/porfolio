@@ -6,7 +6,7 @@
 
   color: transparent;
 
-  background: linear-gradient(120deg, rgb(v.$fn2) 30%, rgb(v.$fn1) 50%, rgb(v.$fn2) 70%);
+  background: linear-gradient(120deg, rgb(v.$fn2, 0.3) 30%, rgb(v.$fn1) 50%, rgb(v.$fn2, 0.3) 70%);
   background-clip: text;
   background-size: 200% 100%;
 

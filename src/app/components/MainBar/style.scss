@@ -5,10 +5,7 @@
   position: sticky;
   z-index: 10;
   top: v.$padding;
-
   justify-content: space-between;
-
-  width: 100%;
 
   @include d.flex($dir: row, $ali: center, $gap: v.$padding * 2);
 
