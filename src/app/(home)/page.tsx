@@ -1,10 +1,12 @@
 import ShumDev from '@/shared/ui/ShumDev'
 import Social from '@/shared/ui/Social'
+import { Post, allPosts } from '@contentlayer/generated'
 import type { JSX } from 'react'
 
 import './style.scss'
 
 const Home = (): JSX.Element => {
+  console.log('--------------------------all', allPosts)
   return (
     <main className='home' aria-label='Página principal de Luis Fernando'>
       <div className='home-wrapper'>

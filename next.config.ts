@@ -1,15 +1,8 @@
-import createMDX from '@next/mdx'
+import { withContentlayer } from 'next-contentlayer'
 
 /** @type {import('next').NextConfig} */
-const nextConfig = {
-  pageExtensions: ['js', 'jsx', 'md', 'mdx', 'ts', 'tsx'],
-  transpilePackages: ['next-mdx-remote']
-}
+const nextConfig = {}
 
-const withMDX = createMDX({
-  options: {
-    remarkPlugins: []
-  }
+export default withContentlayer({
+  ...nextConfig
 })
-
-export default withMDX(nextConfig)
