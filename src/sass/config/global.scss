@@ -1,7 +1,6 @@
 @use '@sass/config/vars' as *;
 @use '@sass/config/typography' as *;
 @use '@sass/utils/media' as m;
-@use '@sass/utils/scrollbar' as *;
 @use '@sass/utils/boxLoader' as loader;
 @use 'sass:map';
 
@@ -33,13 +32,6 @@ html {
 }
 
 body {
-  scroll-behavior: smooth;
-
-  position: relative;
-
-  overflow-x: hidden;
-  overflow-y: auto;
-
   width: 100dvw;
   height: 100dvh;
   min-height: 100dvh;
@@ -49,8 +41,6 @@ body {
   color: rgb($fn1);
 
   background-color: rgb($bg1);
-
-  @include scroll-hidden;
 
   // Typography
 
@@ -210,4 +200,11 @@ body {
     text-decoration: dotted underline rgb($tn1) 3px;
     text-underline-offset: 5px;
   }
+}
+
+.gr-text {
+  background: $txtGradient;
+  background-clip: text;
+
+  -webkit-text-fill-color: transparent;
 }

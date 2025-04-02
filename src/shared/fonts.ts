@@ -1,8 +1,8 @@
-import { Montserrat, Open_Sans, Raleway } from 'next/font/google'
+import { Monoton, Montserrat, Open_Sans, Raleway } from 'next/font/google'
 
 export const font1 = Montserrat({
   subsets: ['latin'],
-  weight: ['400', '500', '700'],
+  weight: ['400', '500', '700', '800'],
   variable: '--family1'
 })
 
@@ -18,4 +18,10 @@ export const font3 = Raleway({
   variable: '--familyEspecial'
 })
 
-export const bodyFonts = `${font1.variable} ${font2.variable} ${font3.variable}`
+export const especial1 = Monoton({
+  subsets: ['latin'],
+  weight: ['400'],
+  variable: '--especial1'
+})
+
+export const bodyFonts = `${font1.variable} ${font2.variable} ${font3.variable} ${especial1.variable}`

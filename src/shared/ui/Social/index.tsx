@@ -1,13 +1,11 @@
 import { CV, FIGMA, GITHUB, LINKED_IN, MAIL, PHONE } from '@/shared/constants'
 import { FigmaIcon, FileUserIcon, GithubIcon, LinkedinIcon, MailIcon, PhoneIcon } from 'lucide-react'
 import Link from 'next/link'
-import type { FC } from 'react'
+import type { FC, HtmlHTMLAttributes } from 'react'
 
 import './style.scss'
 
-interface Props {
-  className?: string
-}
+interface Props extends HtmlHTMLAttributes<HTMLElement> {}
 
 const socialPaths = [
   {
@@ -21,9 +19,9 @@ const socialPaths = [
   { icon: <FileUserIcon />, link: CV }
 ]
 
-const Social: FC<Props> = ({ className = '' }) => {
+const Social: FC<Props> = ({ className = '', ...props }) => {
   return (
-    <aside className={`social ${className}`}>
+    <aside className={`social ${className}`} {...props}>
       {socialPaths.map(({ icon, link }) => (
         <Link href={link} target='_blank' rel='noopener noreferrer' className='social-link border' key={link}>
           {icon}

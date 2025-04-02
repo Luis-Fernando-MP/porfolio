@@ -1,12 +1,13 @@
 import ShumLogo from '@/shared/assets/ShumLogo'
-import type { FC } from 'react'
+import type { FC, HtmlHTMLAttributes } from 'react'
 
+import ShinyText from '../ShinyText'
 import './style.scss'
 
-interface Props {
+interface Props extends HtmlHTMLAttributes<HTMLElement> {
   size?: 'xs' | 'sm' | 'md' | 'lg' | 'xl'
   radius?: 'circle' | 'rounded' | 'none'
-  className?: string
+  full?: boolean
 }
 
 /**
@@ -14,17 +15,16 @@ interface Props {
  *
  * @param {string} size - El tamaño del logo de Shum Dev. Puede ser 'xs', 'sm', 'md', 'lg' o 'xl'.
  * @param {string} radius - El radio del logo de Shum Dev. Puede ser 'circle', 'rounded' o 'none'.
- * @param {boolean} transparent - Indica si el logo debe tener un fondo transparente.
- * @param {string} className - Clases CSS adicionales para personalizar el componente.
  * @returns {JSX.Element} El componente Shum Dev.
  */
 
-const ShumDev: FC<Props> = ({ size = 'xs', radius = '', className = '' }) => {
+const MiShumDev: FC<Props> = ({ size = 'sm', radius = 'rounded', className = '', full = false, ...props }) => {
   return (
-    <section className={`shumDev ${size} ${radius} ${className}`}>
-      <ShumLogo className='shumDev-logo' />
+    <section className={`miShumDev border ${size} ${radius} ${className}`} {...props}>
+      <ShumLogo className='miShumDev-logo' />
+      {full && <ShinyText>Mishum dev</ShinyText>}
     </section>
   )
 }
 
-export default ShumDev
+export default MiShumDev

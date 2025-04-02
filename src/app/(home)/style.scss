@@ -1,70 +1,19 @@
 @use '@sass/config/vars' as v;
 @use '@sass/utils/defs' as d;
+@use '@sass/utils/scrollbar' as *;
 
 .home {
-  display: grid;
-  place-content: center;
+  scroll-behavior: smooth;
+
+  position: relative;
+
+  overflow-x: visible;
+  overflow-y: auto;
+
   width: 100%;
   height: 100%;
+  margin: auto;
 
-  &-wrapper {
-    @include d.flex($gap: v.$padding * 2);
-
-    justify-content: center;
-  }
-
-  &-logo {
-    margin: auto;
-  }
-
-  &-about {
-    max-width: 230px;
-  }
-
-  &-title {
-    font-size: 1.6rem;
-    font-weight: 500;
-  }
-
-  &-active {
-    width: fit-content;
-    margin: auto;
-    padding: v.$padding;
-    border-radius: v.$radius * 0.5;
-
-    background-color: rgb(v.$bg1);
-
-    @include d.flex($dir: row, $ali: center);
-
-    > div {
-      width: 5px;
-      height: 5px;
-      border-radius: 50%;
-
-      background-color: v.$active;
-
-      animation: pulse 1s infinite;
-
-      @keyframes pulse {
-        0% {
-          transform: scale(1);
-          box-shadow: 0 0 0 0 transparent;
-        }
-
-        50% {
-          transform: scale(1.2);
-          box-shadow: 0 0 15px 2px v.$active;
-        }
-
-        100% {
-          transform: scale(1);
-          box-shadow: 0 0 0 0 transparent;
-        }
-      }
-    }
-  }
-
-  &-social {
-    margin: auto;
-  }
+  @include scroll-hidden;
+  @include d.flex($gap: v.$big-padding * 2, $ali: center);
 }
