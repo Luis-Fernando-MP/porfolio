@@ -1,8 +1,8 @@
 @use '@sass/config/vars' as *;
 @use '@sass/config/typography' as *;
 @use '@sass/utils/media' as m;
-@use '@sass/utils/scrollbar' as *;
 @use '@sass/utils/boxLoader' as loader;
+@use '@sass/utils/scrollbar' as *;
 @use 'sass:map';
 
 *,
@@ -23,7 +23,19 @@
 }
 
 html {
+  scroll-behavior: smooth;
+
+  position: relative;
+
+  overflow-x: clip;
+  overflow-y: scroll;
+
+  width: 100dvw;
+  min-height: 1000dvh;
+
   font-size: $family-size;
+
+  @include scroll-hidden;
 }
 
 @include m.mediumScreen {
@@ -33,27 +45,15 @@ html {
 }
 
 body {
-  scroll-behavior: smooth;
-
-  position: relative;
-
-  overflow-x: hidden;
-  overflow-y: auto;
-
-  width: 100dvw;
-  height: 100dvh;
-  min-height: 100dvh;
-  max-height: 100vh;
+  width: 100%;
+  height: fit-content;
 
   font-family: $font1;
   color: rgb($fn1);
 
   background-color: rgb($bg1);
 
-  @include scroll-hidden;
-
   // Typography
-
   @each $tag, $props in $typography {
     #{$tag} {
       font-family: map.get($props, family);
@@ -128,10 +128,14 @@ body {
 
   a {
     text-decoration: none;
+
+    &:hover {
+      cursor: crosshair;
+    }
   }
 
   .border {
-    border: 1px solid rgb($bg3);
+    border: 1px solid rgb($bg3, 0.6);
   }
 
   button {
@@ -209,5 +213,14 @@ body {
     font-style: italic;
     text-decoration: dotted underline rgb($tn1) 3px;
     text-underline-offset: 5px;
+  }
+}
+
+.titleLink {
+  text-decoration: none;
+
+  &:hover {
+    text-decoration: underline;
+    text-decoration-color: rgb($fn1);
   }
 }

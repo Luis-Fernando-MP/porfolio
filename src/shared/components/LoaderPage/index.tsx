@@ -1,6 +1,6 @@
 'use client'
 
-import ShumDev from '@/shared/ui/ShumDev'
+import MiShumDev from '@/shared/ui/MiShumDev'
 import React, { useEffect, useRef, useState } from 'react'
 
 import './style.scss'
@@ -17,7 +17,7 @@ const LoaderPage = () => {
 
   return (
     <section ref={$loaderRef} className='loaderApp' style={{ opacity: loading ? 1 : 0 }}>
-      <ShumDev size='lg' className='loaderApp-logo' />
+      <MiShumDev size='lg' className='loaderApp-logo' />
       <h2>Shumi dev</h2>
     </section>
   )

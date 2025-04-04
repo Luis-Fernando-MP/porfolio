@@ -1,0 +1,28 @@
+@use '@sass/config/vars' as v;
+@use '@sass/utils/defs' as d;
+
+.titleText {
+  width: fit-content;
+
+  @include d.flex(5px);
+
+  min-height: 110px;
+
+  &-sub,
+  &-title {
+    font-family: v.$font1;
+    font-weight: 900;
+    text-transform: uppercase;
+  }
+
+  &-sub {
+    font-size: 1.6rem;
+  }
+
+  &-title {
+    font-size: 2rem;
+    color: rgb(v.$tn1);
+    text-decoration: wavy underline rgb(v.$tn1) 5px;
+    text-underline-offset: 15px;
+  }
+}

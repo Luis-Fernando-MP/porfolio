@@ -1,0 +1,28 @@
+@use '@sass/config/vars' as v;
+@use '@sass/utils/defs' as d;
+
+.shiny-text {
+  display: inline-block;
+
+  color: transparent;
+
+  background: linear-gradient(120deg, rgb(v.$fn2, 0.3) 30%, rgb(v.$fn1) 50%, rgb(v.$fn2, 0.3) 70%);
+  background-clip: text;
+  background-size: 200% 100%;
+
+  animation: shine 5s linear infinite;
+}
+
+@keyframes shine {
+  0% {
+    background-position: 100%;
+  }
+
+  100% {
+    background-position: -100%;
+  }
+}
+
+.shiny-text.disabled {
+  animation: none;
+}

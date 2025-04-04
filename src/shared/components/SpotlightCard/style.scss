@@ -1,0 +1,35 @@
+@use '@sass/config/vars' as v;
+@use '@sass/utils/defs' as d;
+
+.cardSpotlight {
+  --mouse-spotlight-x: 50%;
+  --mouse-spotlight-y: 50%;
+
+  position: relative;
+  overflow: hidden;
+
+  &::before {
+    pointer-events: none;
+    content: '';
+
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+
+    opacity: 0;
+    background: radial-gradient(circle at var(--mouse-spotlight-x) var(--mouse-spotlight-y), rgb(v.$bg3), transparent 80%);
+
+    transition: opacity 0.5s ease;
+  }
+
+  &-content {
+    position: relative;
+  }
+
+  &:hover::before,
+  &:focus-within::before {
+    opacity: 0.6;
+  }
+}

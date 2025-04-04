@@ -1,6 +1,6 @@
 'use client'
 
-import { type JSX, type ReactNode, useEffect, useState } from 'react'
+import { type JSX, type ReactNode, useLayoutEffect, useState } from 'react'
 
 import LoaderPage from './LoaderPage'
 
@@ -11,7 +11,7 @@ interface IHydration {
 const Hydration = ({ children }: IHydration): JSX.Element => {
   const [isHydrated, setIsHydrated] = useState(false)
 
-  useEffect(() => {
+  useLayoutEffect(() => {
     setIsHydrated(true)
   }, [])
 

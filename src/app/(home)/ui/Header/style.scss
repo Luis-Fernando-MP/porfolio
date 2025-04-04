@@ -1,0 +1,51 @@
+@use '@sass/config/vars' as v;
+@use '@sass/utils/defs' as d;
+
+.header {
+  position: relative;
+
+  overflow-x: clip;
+  overflow-y: unset;
+
+  width: 100%;
+  height: calc(100vh - 60px);
+  min-height: calc(100vh - 60px);
+
+  &-wrapper {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 120px 1fr;
+
+    height: 100%;
+    padding: v.$big-padding 0;
+  }
+
+  &-focus {
+    position: absolute;
+    z-index: -1;
+    top: -300px;
+    left: 50%;
+
+    width: 600px;
+    height: 700px;
+    border-radius: 50%;
+
+    background-color: rgb(v.$tn1);
+    filter: blur(100px) opacity(0.2);
+  }
+
+  &-nickname {
+    color: rgb(v.$tn1);
+  }
+
+  &-main {
+    @include d.flex($ali: center);
+
+    justify-content: center;
+  }
+
+  &-title {
+    font-size: 4rem;
+    font-weight: 800;
+  }
+}

@@ -22,8 +22,8 @@
     "paths": {
       "@/*": ["./src/*"],
       "@sass/*": ["./src/sass/*"],
-      "@shared/*": ["./src/shared/*"]
-      // "@markdown/*": ["./src/constants/markdown/*"]
+      "@shared/*": ["./src/shared/*"],
+      "@contentlayer/*": ["./.contentlayer/*"]
     }
   },
   "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts"],

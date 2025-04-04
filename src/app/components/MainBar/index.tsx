@@ -1,9 +1,8 @@
 'use client'
 
-import ThemeController from '@/shared/components/ThemeController'
 import IconButton from '@/shared/ui/IconButton'
-import ShumDev from '@/shared/ui/ShumDev'
-import { BoltIcon, BookOpenIcon, BriefcaseBusinessIcon, Layers2Icon, RocketIcon, ShieldCheckIcon, UserIcon } from 'lucide-react'
+import MiShumDev from '@/shared/ui/MiShumDev'
+import { BoltIcon, BookOpenIcon, GaugeIcon, RocketIcon, UserIcon } from 'lucide-react'
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 import type { FC } from 'react'
@@ -16,29 +15,24 @@ interface Props {
 
 const pages = [
   {
-    path: '/about',
-    label: 'Acerca de mi',
-    icon: UserIcon
-  },
-  {
     path: '/blog',
     label: 'Blog',
-    icon: BookOpenIcon
+    Icon: BookOpenIcon
   },
   {
     path: '/projects',
     label: 'Proyectos',
-    icon: RocketIcon
+    Icon: RocketIcon
   },
   {
-    path: '/stack',
-    label: 'Stack',
-    icon: Layers2Icon
+    path: '/shorts',
+    label: 'Shorts',
+    Icon: GaugeIcon
   },
   {
-    path: '/work',
-    label: 'Trabajo',
-    icon: BriefcaseBusinessIcon
+    path: '/about',
+    label: 'Acerca de mi',
+    Icon: UserIcon
   }
 ]
 
@@ -46,37 +40,32 @@ const MainBar: FC<Props> = ({ className = '' }) => {
   const pathname = usePathname()
 
   return (
-    <article className={`mainBar border ${className}`}>
+    <article className={`mainBar ${className}`}>
       <Link href='/' aria-label='Página principal'>
-        <ShumDev size='sm' radius='circle' />
+        <MiShumDev size='sm' full />
       </Link>
 
-      <div className='separator' />
-
       <section className='mainBar-section'>
-        {pages.map(page => (
-          <Link key={page.path} href={page.path} aria-label={page.label}>
-            <IconButton label={page.label} transparent active={pathname === page.path}>
-              <page.icon />
-            </IconButton>
-          </Link>
-        ))}
+        {pages.map(page => {
+          const { Icon, label, path } = page
+          return (
+            <Link key={path} href={path} aria-label={label}>
+              <IconButton className='border' active={pathname === path}>
+                <Icon />
+                <h4>{label}</h4>
+              </IconButton>
+            </Link>
+          )
+        })}
       </section>
 
-      <div className='separator' />
-
       <section className='mainBar-section'>
-        <Link href='/certificates' aria-label='Mis certificados'>
-          <IconButton label='Mis certificados' transparent active={pathname === '/certificates'}>
-            <ShieldCheckIcon />
+        <Link href='/other' aria-label='Relacionados'>
+          <IconButton className='border' active={pathname === '/other'}>
+            <BoltIcon />
+            <h4>Otros</h4>
           </IconButton>
         </Link>
-
-        <IconButton label='Personalizar' transparent>
-          <BoltIcon />
-        </IconButton>
-
-        <ThemeController />
       </section>
     </article>
   )

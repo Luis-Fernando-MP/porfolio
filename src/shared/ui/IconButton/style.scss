@@ -15,7 +15,8 @@
   padding: v.$padding * 0.8;
   border-radius: v.$radius * 0.5;
 
-  background-color: rgba(v.$bg2);
+  background-color: rgb(v.$bg2, 0.8);
+  backdrop-filter: blur(10px);
 
   &.transparent {
     background-color: transparent;
@@ -76,7 +77,7 @@
   }
 
   &-content {
-    @include d.flex($dir: row, $ali: center, $gap: v.$padding * 0.5);
+    @include d.flex($dir: row, $ali: center, $gap: v.$padding * 0.7);
   }
 
   &:hover &-label {

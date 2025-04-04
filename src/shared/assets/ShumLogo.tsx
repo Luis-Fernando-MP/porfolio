@@ -6,7 +6,7 @@ interface Props {
 
 const ShumLogo: FC<Props> = ({ className }) => {
   return (
-    <svg className={className} width='314' height='306' viewBox='0 0 314 306' fill='none' xmlns='http://www.w3.org/2000/svg'>
+    <svg className={className} width='30' height='30' viewBox='0 0 314 306' fill='none'>
       <g filter='url(#filter0_d_4260_4)'>
         <g clipPath='url(#paint0_diamond_4260_4_clip_path)' data-figma-skip-parse='true'>
           <g transform='matrix(0.1875 0.0831077 -0.0609136 0.136958 96.75 149.749)'>

@@ -2,31 +2,30 @@
 @use '@sass/utils/defs' as d;
 
 .mainBar {
-  position: fixed;
+  position: sticky;
   z-index: 10;
-  bottom: v.$padding * 2;
-  left: 50%;
-  transform: translateX(-50%);
+  top: v.$big-padding;
+  justify-content: space-between;
 
-  justify-content: center;
+  &::after {
+    content: '';
 
-  width: fit-content;
-  height: fit-content;
-  padding: v.$padding * 0.7 v.$padding * 2;
-  border-radius: v.$radius;
+    position: absolute;
+    z-index: -1;
+    top: -40px;
+    left: -50%;
 
-  background-color: rgb(v.$bg1, 0.5);
-  backdrop-filter: blur(10px);
+    width: 200%;
+    height: 100px;
+
+    background-image: linear-gradient(rgb(v.$bg1) 70%, rgb(v.$bg1, 0));
+  }
 
   @include d.flex($dir: row, $ali: center, $gap: v.$padding * 2);
 
-  .separator {
-    width: 1px;
-    height: v.$icon * 2;
-    background-color: rgb(v.$bg3);
-  }
-
   &-section {
+    position: relative;
+
     @include d.flex($dir: row, $ali: center, $gap: v.$padding);
   }
 
