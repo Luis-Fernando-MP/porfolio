@@ -1,26 +1,50 @@
+'use client'
+
 import SpotlightCard from '@/shared/components/SpotlightCard'
 import { parseTitleToLink } from '@/shared/parseTitle'
 import IconLink from '@/shared/ui/IconLink'
 import Tags from '@/shared/ui/Tags'
 import { Image } from '@unpic/react'
+import { Variants, motion } from 'framer-motion'
 import { ChevronRightIcon } from 'lucide-react'
 import Link from 'next/link'
-import type { FC } from 'react'
+import { type FC } from 'react'
 
 import './style.scss'
 
 interface Props {
+  itsEven: boolean
   title: string
   resume: string
   images: string[]
   tags: string[]
 }
 
-const PreviewProject: FC<Props> = ({ images, resume, tags, title }) => {
+const PreviewProject: FC<Props> = ({ itsEven, images, resume, tags, title }) => {
   const projectURL = `/projects/${parseTitleToLink(title)}`
 
+  const variants: Variants = {
+    offscreen: {
+      y: 300,
+      x: itsEven ? '-20%' : '20%'
+    },
+    onscreen: {
+      y: 0,
+      x: 0
+    }
+  }
+
   return (
-    <li className='previewProject' itemScope itemType='http://schema.org/CreativeWork'>
+    <motion.li
+      className='previewProject'
+      itemScope
+      itemType='http://schema.org/CreativeWork'
+      whileInView='onscreen'
+      viewport={{ margin: '10%' }}
+      initial='offscreen'
+      variants={variants}
+      transition={{ type: 'spring', bounce: 0.4, duration: 0.8 }}
+    >
       <SpotlightCard className='previewProject-spotlight border' contentClass='previewProject-description'>
         <Link href={projectURL} id={`project-title-${projectURL}`} aria-label={`Enlace al proyecto ${title}`} itemProp='url'>
           <h2 className='previewProject-title titleLink' itemProp='name'>
@@ -56,15 +80,15 @@ const PreviewProject: FC<Props> = ({ images, resume, tags, title }) => {
         {images.map(image => (
           <Image
             key={`${image}-preview-project`}
+            className='previewProject-image'
             src={image}
             width={140}
             height={170}
-            className='previewProject-image'
             alt={`Imagen del proyecto ${title}`}
           />
         ))}
       </aside>
-    </li>
+    </motion.li>
   )
 }
 

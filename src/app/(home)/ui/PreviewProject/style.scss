@@ -50,6 +50,8 @@
     position: absolute;
     top: 0;
 
+    overflow: hidden;
+
     border-radius: v.$radius * 0.5;
 
     object-fit: cover;

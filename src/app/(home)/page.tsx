@@ -11,8 +11,8 @@ const Home = (): JSX.Element => {
     <main className='home' aria-label='Página principal de Luis Fernando'>
       {/* <SplashCursor /> */}
       <Header />
-      <MainBar className='home-wrapper' />
       <div className='home-wrapper home-sections'>
+        <MainBar className='home-wrapper' />
         <PreviewProjects />
       </div>
     </main>

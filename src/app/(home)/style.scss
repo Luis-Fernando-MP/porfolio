@@ -12,8 +12,6 @@
   }
 
   &-sections {
-    padding-top: v.$big-padding * 2;
-
     @include d.flex($gap: v.$big-padding * 2);
   }
 }

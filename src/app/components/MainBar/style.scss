@@ -7,9 +7,25 @@
   top: v.$big-padding;
   justify-content: space-between;
 
+  &::after {
+    content: '';
+
+    position: absolute;
+    z-index: -1;
+    top: -40px;
+    left: -50%;
+
+    width: 200%;
+    height: 100px;
+
+    background-image: linear-gradient(rgb(v.$bg1) 70%, rgb(v.$bg1, 0));
+  }
+
   @include d.flex($dir: row, $ali: center, $gap: v.$padding * 2);
 
   &-section {
+    position: relative;
+
     @include d.flex($dir: row, $ali: center, $gap: v.$padding);
   }
 
