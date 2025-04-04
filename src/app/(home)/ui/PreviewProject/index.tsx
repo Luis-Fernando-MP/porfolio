@@ -40,7 +40,7 @@ const PreviewProject: FC<Props> = ({ itsEven, images, resume, tags, title }) => 
       itemScope
       itemType='http://schema.org/CreativeWork'
       whileInView='onscreen'
-      viewport={{ margin: '10%' }}
+      viewport={{ margin: '10%', once: true }}
       initial='offscreen'
       variants={variants}
       transition={{ type: 'spring', bounce: 0.4, duration: 0.8 }}

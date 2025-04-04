@@ -45,6 +45,8 @@ html {
 }
 
 body {
+  overflow-x: clip;
+
   width: 100%;
   height: fit-content;
 
@@ -151,6 +153,18 @@ body {
 
     svg {
       stroke: rgb($fnA) !important;
+    }
+  }
+
+  .inverse {
+    background-color: rgb($fn1) !important;
+
+    * {
+      color: rgb($bg1) !important;
+    }
+
+    svg {
+      stroke: rgb($bg1) !important;
     }
   }
 }

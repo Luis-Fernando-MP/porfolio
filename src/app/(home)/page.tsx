@@ -2,6 +2,7 @@ import SplashCursor from '@/shared/components/SplashCursor'
 import type { JSX } from 'react'
 
 import MainBar from '../components/MainBar'
+import LatestPosts from './components/LatestPosts'
 import PreviewProjects from './components/PreviewProjects'
 import './style.scss'
 import Header from './ui/Header'
@@ -14,6 +15,7 @@ const Home = (): JSX.Element => {
       <div className='home-wrapper home-sections'>
         <MainBar className='home-wrapper' />
         <PreviewProjects />
+        <LatestPosts />
       </div>
     </main>
   )

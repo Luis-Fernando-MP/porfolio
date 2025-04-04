@@ -47,7 +47,7 @@ const PreviewProjects: FC = () => {
         ))}
       </ul>
 
-      <IconLink href='/projects' className='previewProjects-more'>
+      <IconLink href='/projects' className='inverse'>
         <h3>Ver más proyectos</h3>
         <ArrowRightIcon />
       </IconLink>
