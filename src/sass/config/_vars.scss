@@ -1,7 +1,7 @@
 :root {
   --bg-primary: 0, 0, 0;
   --bg-secondary: 10, 9, 9;
-  --bg-tertiary: 25, 25, 25;
+  --bg-tertiary: 35, 35, 35;
 
   // Fuentes
   --fnt-primary: 237, 237, 237;
@@ -9,14 +9,14 @@
   --fnt-active: 255, 255, 255;
 
   // Principales
-  --tn-primary: 1, 57, 54;
+  --tn-primary: 5, 147, 140;
   --tn-secondary: 237, 182, 123;
 
   // Fuentes
   --xl-font-size: 4rem;
-  --h1-font-size: 1.2rem;
-  --h2-font-size: 1.15rem;
-  --h3-font-size: 1rem;
+  --h1-font-size: 1.1rem;
+  --h2-font-size: 1rem;
+  --h3-font-size: 0.9rem;
   --h4-font-size: 0.9rem;
   --h5-font-size: 0.9rem;
   --p-font-size: 0.9rem;
@@ -57,7 +57,6 @@ $family-size: 16px;
 $fontBase: 'Segoe UI Mono', 'Roboto Mono';
 $font1: var(--family1);
 $font2: var(--family2);
-$font3: var(--family3);
 $fontE1: var(--especial1);
 
 // Basic colors

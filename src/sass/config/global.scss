@@ -128,10 +128,14 @@ body {
 
   a {
     text-decoration: none;
+
+    &:hover {
+      cursor: crosshair;
+    }
   }
 
   .border {
-    border: 1px solid rgb($bg3);
+    border: 1px solid rgb($bg3, 0.6);
   }
 
   button {
@@ -212,9 +216,11 @@ body {
   }
 }
 
-.gr-text {
-  background: $txtGradient;
-  background-clip: text;
+.titleLink {
+  text-decoration: none;
 
-  -webkit-text-fill-color: transparent;
+  &:hover {
+    text-decoration: underline;
+    text-decoration-color: rgb($fn1);
+  }
 }

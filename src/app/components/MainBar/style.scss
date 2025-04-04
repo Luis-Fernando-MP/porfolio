@@ -4,7 +4,7 @@
 .mainBar {
   position: sticky;
   z-index: 10;
-  top: v.$padding;
+  top: v.$big-padding;
   justify-content: space-between;
 
   @include d.flex($dir: row, $ali: center, $gap: v.$padding * 2);

@@ -15,7 +15,7 @@
   place-content: center;
 
   width: 100vw;
-  height: 100%;
+  height: fit-content;
 
   opacity: 0.05;
 
@@ -24,7 +24,5 @@
     font-size: 7rem;
     text-align: center;
     text-transform: uppercase;
-
-    opacity: 0.5;
   }
 }

@@ -26,12 +26,16 @@
     top: -300px;
     left: 50%;
 
-    width: 700px;
+    width: 600px;
     height: 700px;
     border-radius: 50%;
 
     background-color: rgb(v.$tn1);
     filter: blur(100px) opacity(0.2);
+  }
+
+  &-nickname {
+    color: rgb(v.$tn1);
   }
 
   &-main {
