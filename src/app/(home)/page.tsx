@@ -1,6 +1,7 @@
 import SplashCursor from '@/shared/components/SplashCursor'
 import type { JSX } from 'react'
 
+import Footer from '../components/Footer'
 import MainBar from '../components/MainBar'
 import LatestPosts from './components/LatestPosts'
 import PreviewProjects from './components/PreviewProjects'
@@ -19,6 +20,7 @@ const Home = (): JSX.Element => {
         <LatestPosts />
         <Testimonies />
       </div>
+      <Footer />
     </main>
   )
 }
