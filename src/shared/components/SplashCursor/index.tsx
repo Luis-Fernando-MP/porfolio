@@ -1304,6 +1304,7 @@ export default function SplashCursor({
         zIndex: -10,
         pointerEvents: 'none',
         width: '100%',
+        opacity: 0.3,
         height: '100%'
       }}
     >

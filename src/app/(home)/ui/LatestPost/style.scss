@@ -9,6 +9,9 @@
   height: fit-content;
   padding: v.$padding * 2;
 
+  background-color: rgb(v.$bg1, 0.7);
+  backdrop-filter: blur(10px);
+
   @include d.flex($gap: v.$padding * 2);
 
   &-spotlight {
