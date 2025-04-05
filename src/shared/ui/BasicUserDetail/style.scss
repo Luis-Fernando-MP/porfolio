@@ -1,0 +1,22 @@
+@use '@sass/config/vars' as v;
+@use '@sass/utils/defs' as d;
+
+.basicUserDetail {
+  width: 100%;
+
+  @include d.flex($dir: row, $ali: center);
+
+  &-image {
+    pointer-events: none;
+    user-select: none;
+    border-radius: 50%;
+  }
+
+  &-info {
+    @include d.flex($gap: 5px);
+  }
+
+  &-userName {
+    font-weight: bold;
+  }
+}

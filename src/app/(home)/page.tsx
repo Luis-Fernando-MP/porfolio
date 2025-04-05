@@ -4,6 +4,7 @@ import type { JSX } from 'react'
 import MainBar from '../components/MainBar'
 import LatestPosts from './components/LatestPosts'
 import PreviewProjects from './components/PreviewProjects'
+import Testimonies from './components/Testimonies'
 import './style.scss'
 import Header from './ui/Header'
 
@@ -16,6 +17,7 @@ const Home = (): JSX.Element => {
         <MainBar className='home-wrapper' />
         <PreviewProjects />
         <LatestPosts />
+        <Testimonies />
       </div>
     </main>
   )

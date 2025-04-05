@@ -3,6 +3,8 @@
 
 .latestPost {
   position: relative;
+  z-index: 1;
+
   width: 285px;
   height: fit-content;
   padding: v.$padding * 2;
