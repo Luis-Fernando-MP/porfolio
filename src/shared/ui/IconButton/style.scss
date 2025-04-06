@@ -26,11 +26,6 @@
     border: 2px dashed rgba(v.$tn1);
   }
 
-  svg {
-    width: v.$icon;
-    height: v.$icon;
-  }
-
   &-label {
     pointer-events: none;
     user-select: none;

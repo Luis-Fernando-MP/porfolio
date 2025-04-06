@@ -3,6 +3,7 @@ import type { FC, HtmlHTMLAttributes } from 'react'
 
 import ShinyText from '../ShinyText'
 import './style.scss'
+import './userMobile.scss'
 
 interface Props extends HtmlHTMLAttributes<HTMLElement> {
   size?: 'xs' | 'sm' | 'md' | 'lg' | 'xl'

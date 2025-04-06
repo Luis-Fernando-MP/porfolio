@@ -33,7 +33,7 @@
 
   &-top {
     justify-content: space-between;
-    width: 100%;
+    width: 900px;
 
     @include d.flex($dir: row, $ali: center);
   }

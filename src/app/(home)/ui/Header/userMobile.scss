@@ -15,6 +15,17 @@
       text-align: center;
     }
 
+    &-top {
+      flex-wrap: wrap;
+      justify-content: space-evenly;
+      width: 100%;
+    }
+
+    &-focus {
+      width: 250px;
+      height: 200px;
+    }
+
     &-title {
       font-size: 3rem !important;
     }
@@ -29,6 +40,10 @@
   .header {
     &-title {
       font-size: 2rem !important;
+    }
+
+    &-focus {
+      display: none;
     }
 
     &-main {

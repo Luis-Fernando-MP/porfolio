@@ -38,18 +38,6 @@ html {
   @include scroll-hidden;
 }
 
-@include m.mediumScreen {
-  html {
-    font-size: 12px;
-  }
-}
-
-@include m.smallerScreen {
-  html {
-    font-size: 9px;
-  }
-}
-
 body {
   overflow-x: clip;
 
@@ -242,5 +230,25 @@ body {
   &:hover {
     text-decoration: underline;
     text-decoration-color: rgb($fn1);
+  }
+}
+
+@include m.mediumScreen {
+  html {
+    font-size: 12px;
+  }
+
+  body {
+    .icon,
+    .lucide {
+      width: $icon * 0.5;
+      height: $icon * 0.5;
+    }
+  }
+}
+
+@include m.smallerScreen {
+  html {
+    font-size: 9px;
   }
 }
