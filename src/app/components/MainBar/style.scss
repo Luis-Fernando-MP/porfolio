@@ -4,24 +4,29 @@
 .mainBar {
   position: sticky;
   z-index: 10;
-  top: v.$big-padding;
-  justify-content: space-between;
+  top: 0;
 
-  &::after {
-    content: '';
+  width: 100%;
+  margin-bottom: v.$big-padding * 2;
 
-    position: absolute;
-    z-index: -1;
-    top: -40px;
-    left: -50%;
+  background-color: rgb(v.$bg1, 0.7);
+  backdrop-filter: blur(10px);
 
-    width: 200%;
-    height: 100px;
-
-    background-image: linear-gradient(rgb(v.$bg1) 70%, rgb(v.$bg1, 0));
+  &-menu {
+    display: none;
   }
 
-  @include d.flex($dir: row, $ali: center, $gap: v.$padding * 2);
+  &-wrapper {
+    position: relative;
+
+    justify-content: space-between;
+
+    width: 900px;
+    margin: auto;
+    padding: v.$padding 0;
+
+    @include d.flex($dir: row, $ali: center, $gap: v.$padding * 2);
+  }
 
   &-section {
     position: relative;

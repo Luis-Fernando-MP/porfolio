@@ -1,6 +1,7 @@
 import type { FC } from 'react'
 
 import './style.scss'
+import './userMobile.scss'
 
 interface Props {
   sub: string

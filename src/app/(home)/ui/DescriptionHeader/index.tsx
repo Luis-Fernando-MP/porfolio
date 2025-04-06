@@ -14,10 +14,6 @@ const DescriptionHeader: FC<Props> = ({ className = '', ...props }) => {
           <h4>Listo para desarrollar contigo</h4>
         </div>
       </section>
-
-      <h4 className='descriptionHeader-paragraph'>
-        Desarrollador y diseñador de <br /> aplicaciones web <u>Full Stack</u>
-      </h4>
     </header>
   )
 }

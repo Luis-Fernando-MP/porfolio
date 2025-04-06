@@ -1,0 +1,32 @@
+@use '@sass/config/vars' as v;
+@use '@sass/utils/media' as m;
+
+@include m.largeScreen {
+  .header {
+    height: fit-content;
+    min-height: fit-content;
+    margin-bottom: v.$big-padding;
+    padding: v.$padding;
+
+    &-wrapper {
+      gap: v.$big-padding;
+      padding: 0;
+    }
+
+    &-sections {
+      gap: v.$big-padding * 2;
+    }
+  }
+}
+
+@include m.smallScreen {
+  .header {
+    &-title {
+      font-size: 2rem;
+    }
+
+    &-main {
+      gap: v.$padding * 0.5;
+    }
+  }
+}

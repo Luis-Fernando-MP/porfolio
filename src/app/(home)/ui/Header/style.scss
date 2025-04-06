@@ -14,7 +14,7 @@
   &-wrapper {
     display: grid;
     grid-template-columns: 1fr;
-    grid-template-rows: 120px 1fr;
+    grid-template-rows: 40px 1fr;
 
     height: 100%;
     padding: v.$big-padding 0;
@@ -26,12 +26,12 @@
     top: -300px;
     left: 50%;
 
-    width: 600px;
+    width: 1000px;
     height: 700px;
     border-radius: 50%;
 
-    background-color: rgb(v.$tn1);
-    filter: blur(100px) opacity(0.2);
+    background-color: rgb(v.$tn1, 0.5);
+    filter: blur(300px);
   }
 
   &-nickname {
@@ -47,5 +47,9 @@
   &-title {
     font-size: 4rem;
     font-weight: 800;
+  }
+
+  &-description {
+    text-align: center;
   }
 }

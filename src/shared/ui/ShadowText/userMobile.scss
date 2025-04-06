@@ -1,0 +1,28 @@
+@use '@sass/config/vars' as v;
+@use '@sass/utils/media' as m;
+
+@include m.largeScreen {
+  .shadowText {
+    width: 100%;
+
+    &-title {
+      font-size: 4.5rem;
+    }
+  }
+}
+
+@include m.smallScreen {
+  .shadowText {
+    &-title {
+      font-size: 3rem;
+    }
+  }
+}
+
+@include m.smallerScreen {
+  .shadowText {
+    &-title {
+      font-size: 2rem;
+    }
+  }
+}

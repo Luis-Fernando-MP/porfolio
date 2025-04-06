@@ -1,0 +1,33 @@
+@use '@sass/config/vars' as v;
+@use '@sass/utils/media' as m;
+
+@include m.largeScreen {
+  .previewProject {
+    flex-direction: column-reverse;
+    gap: v.$padding;
+    align-items: center;
+
+    max-width: 350px;
+    height: fit-content;
+
+    &:nth-of-type(even) {
+      flex-direction: column-reverse;
+    }
+
+    &-images {
+      width: 200px;
+      height: 160px;
+    }
+
+    &-image {
+      width: 100px;
+      height: 130px;
+    }
+
+    &-spotlight {
+      width: 300px;
+      padding: v.$padding;
+      border-radius: v.$radius * 0.5;
+    }
+  }
+}

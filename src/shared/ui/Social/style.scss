@@ -6,6 +6,8 @@
 .social {
   @include d.flex($dir: row, $ali: center);
 
+  flex-wrap: wrap;
+
   &-link {
     padding: v.$padding * 0.7;
     border-radius: 5px;

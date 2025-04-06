@@ -8,14 +8,16 @@ import PreviewProjects from './components/PreviewProjects'
 import Testimonies from './components/Testimonies'
 import './style.scss'
 import Header from './ui/Header'
+import './userMobile.scss'
 
 const Home = (): JSX.Element => {
   return (
     <main className='home' aria-label='Página principal de Luis Fernando'>
-      <SplashCursor />
+      {/* <SplashCursor /> */}
       <Header />
+      <MainBar className='home-wrapper' />
+
       <div className='home-wrapper home-sections'>
-        <MainBar className='home-wrapper' />
         <PreviewProjects />
         <LatestPosts />
         <Testimonies />

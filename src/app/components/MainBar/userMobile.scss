@@ -1,0 +1,46 @@
+@use '@sass/config/vars' as v;
+@use '@sass/utils/media' as m;
+
+@include m.largeScreen {
+  .mainBar {
+    &-wrapper {
+      justify-content: space-evenly;
+      width: 100%;
+      padding: v.$padding;
+    }
+
+    &-pages {
+      position: absolute;
+      bottom: -200px;
+      left: 53%;
+      transform: translateX(-50%);
+
+      flex-direction: column;
+
+      height: 200px;
+      padding: v.$padding;
+      border: 1px solid rgb(v.$bg3);
+      border-radius: v.$radius;
+
+      background-color: rgb(v.$bg1, 0.8);
+      backdrop-filter: blur(10px);
+    }
+
+    &-menu {
+      display: block;
+    }
+  }
+}
+
+@include m.smallScreen {
+  .mainBar {
+    &-wrapper {
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
+    &-pages {
+      left: 54%;
+    }
+  }
+}

@@ -2,6 +2,8 @@
 @use '@sass/utils/defs' as d;
 
 .descriptionHeader {
+  flex-wrap: wrap;
+  justify-content: center;
   width: 100%;
 
   @include d.flex($gap: v.$padding * 2);

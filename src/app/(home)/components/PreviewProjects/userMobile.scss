@@ -1,0 +1,52 @@
+@use '@sass/config/vars' as v;
+@use '@sass/utils/media' as m;
+
+@include m.largeScreen {
+  .previewProjects {
+    &-list {
+      flex-direction: row;
+      flex-wrap: wrap;
+      justify-content: center;
+      width: 100%;
+    }
+  }
+}
+
+@include m.smallScreen {
+  .previewProjects {
+    justify-content: center;
+
+    &-section {
+      align-items: center;
+    }
+
+    &-description {
+      width: 70%;
+      text-align: center;
+    }
+
+    &-arrow {
+      right: -50px;
+      bottom: 0;
+      width: 54px;
+      height: 12px;
+    }
+  }
+}
+
+@include m.smallerScreen {
+  .previewProjects {
+    &-section {
+      align-items: center;
+    }
+
+    &-description {
+      width: 100%;
+      text-align: center;
+    }
+
+    &-arrow {
+      display: none;
+    }
+  }
+}

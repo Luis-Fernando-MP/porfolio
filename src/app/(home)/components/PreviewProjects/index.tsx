@@ -7,6 +7,7 @@ import type { FC } from 'react'
 
 import PreviewProject from '../../ui/PreviewProject'
 import './style.scss'
+import './userMobile.scss'
 
 const TEMPORAL_LAST_PROJECTS = [
   {

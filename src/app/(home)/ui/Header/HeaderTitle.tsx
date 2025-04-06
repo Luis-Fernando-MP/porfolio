@@ -12,6 +12,9 @@ const HeaderTitle: FC = () => {
 
   return (
     <motion.section className='header-main' style={{ scale, opacity }}>
+      <h5 className='header-description'>
+        Desarrollador y diseñador de aplicaciones web <u>Full Stack</u>
+      </h5>
       <h1 className='header-title'>LUIS FERNANDO</h1>
       <h2 className='header-nickname'>#MISHUM</h2>
       <p>Atento a tus menajes en:</p>

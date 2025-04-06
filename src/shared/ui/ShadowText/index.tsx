@@ -5,6 +5,7 @@ import { FC, useRef } from 'react'
 
 import ShinyText from '../ShinyText'
 import './style.scss'
+import './userMobile.scss'
 
 interface Props {
   children: string

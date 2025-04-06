@@ -1,0 +1,17 @@
+@use '@sass/config/vars' as v;
+@use '@sass/utils/media' as m;
+
+@include m.largeScreen {
+  .home {
+    padding: v.$padding;
+
+    &-wrapper {
+      width: 100%;
+      padding: v.$padding;
+    }
+
+    &-sections {
+      gap: v.$big-padding * 2;
+    }
+  }
+}
