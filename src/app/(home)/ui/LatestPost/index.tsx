@@ -20,17 +20,19 @@ interface Props {
 
 const LatestPost: FC<Props> = ({ title, publishedAt, resume, tags }) => {
   const parseDate = dayjs(publishedAt).format('MMM DD, YYYY')
-  const postURL = parseTitleToLink(title)
+  const postURL = `/posts/${parseTitleToLink(title)}`
 
   return (
     <SpotlightCard className='latestPost-spotlight border'>
       <div className='latestPost'>
-        <Link href={`/posts/${postURL}`} className='latestPost-open'>
+        <Link href={postURL} className='latestPost-open'>
           <ArrowUpRightIcon />
         </Link>
         <div className='latestPost-description'>
           <h5 className='latestPost-date'>{parseDate}</h5>
-          <h1 className='latestPost-title'>{title}</h1>
+          <Link href={postURL} className='latestPost-title titleLink'>
+            <h2>{title}</h2>
+          </Link>
           <p className='latestPost-resume'>{resume}</p>
         </div>
         <Tags tags={tags} areLinks keyParent='latest-post' />

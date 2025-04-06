@@ -3,6 +3,14 @@
 
 @include m.largeScreen {
   .previewProjects {
+    &-section {
+      align-items: center;
+    }
+
+    &-description {
+      text-align: center;
+    }
+
     &-list {
       flex-direction: row;
       flex-wrap: wrap;
@@ -15,10 +23,6 @@
 @include m.smallScreen {
   .previewProjects {
     justify-content: center;
-
-    &-section {
-      align-items: center;
-    }
 
     &-description {
       width: 70%;
@@ -42,7 +46,6 @@
 
     &-description {
       width: 100%;
-      text-align: center;
     }
 
     &-arrow {

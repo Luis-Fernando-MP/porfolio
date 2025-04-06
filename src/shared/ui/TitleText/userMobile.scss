@@ -1,12 +1,17 @@
 @use '@sass/config/vars' as v;
 @use '@sass/utils/media' as m;
 
+@include m.largeScreen {
+  .titleText {
+    margin: auto;
+    text-align: center;
+  }
+}
+
 @include m.smallScreen {
   .titleText {
     height: fit-content;
     min-height: 70px;
-    margin: auto;
-    text-align: center;
 
     &-sub {
       font-size: 1rem;

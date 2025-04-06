@@ -3,6 +3,7 @@ import type { FC } from 'react'
 
 import Testimony from '../../ui/Testimony'
 import './style.scss'
+import './userMobile.scss'
 
 const TMP_IMAGE = 'https://modii.org/wp-content/uploads/2023/06/5claves_Mesa-de-trabajo-1.png'
 

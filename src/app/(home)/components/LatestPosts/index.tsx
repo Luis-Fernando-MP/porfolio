@@ -7,6 +7,7 @@ import type { FC } from 'react'
 
 import LatestPost from '../../ui/LatestPost'
 import './style.scss'
+import './userMobile.scss'
 
 const TEMPORAL_LAST_POSTS = [
   {

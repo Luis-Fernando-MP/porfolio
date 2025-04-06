@@ -5,7 +5,7 @@
   position: relative;
   z-index: 1;
 
-  width: 285px;
+  width: 290px;
   height: fit-content;
   padding: v.$padding * 2;
 
@@ -17,7 +17,7 @@
   &-spotlight {
     overflow: hidden;
     margin-bottom: v.$padding;
-    border-radius: v.$radius;
+    border-radius: v.$radius * 0.7;
   }
 
   &-open {
@@ -70,12 +70,14 @@
   }
 
   &-date {
-    @include d.flex($dir: row);
+    @include d.flex($dir: row, $gap: v.$padding * 0.5);
+
+    text-transform: capitalize;
 
     &::before {
       content: '';
       width: 5px;
-      height: 100%;
+      height: 15px;
       background-color: rgb(v.$fn2);
     }
   }

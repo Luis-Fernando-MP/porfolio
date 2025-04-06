@@ -1,0 +1,35 @@
+@use '@sass/config/vars' as v;
+@use '@sass/utils/media' as m;
+
+@include m.largeScreen {
+  .testimony {
+    padding: v.$padding;
+
+    &-spotlight {
+      width: 250px;
+      height: 300px;
+
+      &:nth-child(2) {
+        left: 25%;
+      }
+
+      &:nth-child(3) {
+        left: 75%;
+      }
+    }
+  }
+}
+
+@include m.smallScreen {
+  .testimony {
+    &-spotlight {
+      position: relative;
+
+      &:nth-child(n) {
+        top: 0;
+        left: 0;
+        transform: none;
+      }
+    }
+  }
+}

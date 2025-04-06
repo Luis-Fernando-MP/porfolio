@@ -1,0 +1,36 @@
+@use '@sass/config/vars' as v;
+@use '@sass/utils/media' as m;
+
+@include m.largeScreen {
+  .latestPosts {
+    &-list {
+      column-count: 2;
+      width: fit-content;
+    }
+  }
+}
+
+@include m.smallScreen {
+  .latestPosts {
+    &-list {
+      column-count: 1;
+      width: fit-content;
+    }
+  }
+}
+
+@include m.smallerScreen {
+  .previewProjects {
+    &-section {
+      align-items: center;
+    }
+
+    &-description {
+      width: 100%;
+    }
+
+    &-arrow {
+      display: none;
+    }
+  }
+}

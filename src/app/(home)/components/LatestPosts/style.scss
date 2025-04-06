@@ -15,16 +15,7 @@
   &-list {
     column-count: 3;
     row-gap: v.$padding;
-    column-gap: v.$padding;
     width: 100%;
-
-    @media (width <= 1000px) {
-      column-count: 2;
-    }
-
-    @media (width <= 600px) {
-      column-count: 1;
-    }
   }
 
   &-more {
