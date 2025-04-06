@@ -21,6 +21,7 @@
     ],
     "paths": {
       "@/*": ["./src/*"],
+      "@home/*": ["./src/app/(home)/*"],
       "@sass/*": ["./src/sass/*"],
       "@shared/*": ["./src/shared/*"],
       "@contentlayer/*": ["./.contentlayer/*"]

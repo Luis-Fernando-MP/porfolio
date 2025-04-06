@@ -1,18 +1,16 @@
 'use client'
 
-import { ArticleFrontmatter } from '@/shared/mdx/frontmatter.type'
-import { CompileMDXResult } from 'next-mdx-remote/rsc'
+// import { ArticleFrontmatter } from '@/shared/mdx/frontmatter.type'
+// import { CompileMDXResult } from 'next-mdx-remote/rsc'
 import { type FC, useEffect, useRef } from 'react'
 
 import './styles/rehype.scss'
 import './styles/vs-dark.scss'
 import './styles/vs-light.scss'
 
-interface Props {
-  data: CompileMDXResult<ArticleFrontmatter> | null
-}
+// data: CompileMDXResult<ArticleFrontmatter> | null
 
-const RenderContentMdx: FC<Props> = ({ data }) => {
+const RenderContentMdx: FC<any> = ({ data }) => {
   const contentRef = useRef<HTMLDivElement>(null)
 
   useEffect(() => {

@@ -2,11 +2,12 @@ import BottomArrow from '@/shared/assets/BottomArrow'
 import IconLink from '@/shared/ui/IconLink'
 import ShadowText from '@/shared/ui/ShadowText'
 import TitleText from '@/shared/ui/TitleText'
+import PreviewProject from '@home/ui/PreviewProject'
 import { ArrowRightIcon } from 'lucide-react'
 import type { FC } from 'react'
 
-import PreviewProject from '../../ui/PreviewProject'
 import './style.scss'
+import './userMobile.scss'
 
 const TEMPORAL_LAST_PROJECTS = [
   {
@@ -47,7 +48,7 @@ const PreviewProjects: FC = () => {
         ))}
       </ul>
 
-      <IconLink href='/projects' className='previewProjects-more'>
+      <IconLink href='/projects' className='inverse'>
         <h3>Ver más proyectos</h3>
         <ArrowRightIcon />
       </IconLink>

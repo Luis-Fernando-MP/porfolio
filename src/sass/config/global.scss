@@ -31,20 +31,16 @@ html {
   overflow-y: scroll;
 
   width: 100dvw;
-  min-height: 1000dvh;
+  min-height: 100dvh;
 
   font-size: $family-size;
 
   @include scroll-hidden;
 }
 
-@include m.mediumScreen {
-  html {
-    font-size: 12px;
-  }
-}
-
 body {
+  overflow-x: clip;
+
   width: 100%;
   height: fit-content;
 
@@ -153,6 +149,18 @@ body {
       stroke: rgb($fnA) !important;
     }
   }
+
+  .inverse {
+    background-color: rgb($fn1) !important;
+
+    * {
+      color: rgb($bg1) !important;
+    }
+
+    svg {
+      stroke: rgb($bg1) !important;
+    }
+  }
 }
 
 .toast {
@@ -222,5 +230,25 @@ body {
   &:hover {
     text-decoration: underline;
     text-decoration-color: rgb($fn1);
+  }
+}
+
+@include m.mediumScreen {
+  html {
+    font-size: 12px;
+  }
+
+  body {
+    .icon,
+    .lucide {
+      width: $icon * 0.5;
+      height: $icon * 0.5;
+    }
+  }
+}
+
+@include m.smallerScreen {
+  html {
+    font-size: 9px;
   }
 }

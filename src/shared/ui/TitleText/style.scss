@@ -17,12 +17,14 @@
 
   &-sub {
     font-size: 1.6rem;
+    font-weight: 400;
   }
 
   &-title {
     font-size: 2rem;
+    font-weight: 900;
     color: rgb(v.$tn1);
-    text-decoration: wavy underline rgb(v.$tn1) 5px;
+    text-decoration: wavy underline rgb(v.$tn1) 3px;
     text-underline-offset: 15px;
   }
 }

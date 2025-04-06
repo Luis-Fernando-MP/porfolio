@@ -6,7 +6,6 @@ import './style.scss'
 
 interface SpotlightCardProps extends HtmlHTMLAttributes<HTMLElement> {
   children?: Readonly<ReactNode[]> | null | Readonly<ReactNode>
-  contentClass?: string
 }
 
 /**
@@ -16,10 +15,9 @@ interface SpotlightCardProps extends HtmlHTMLAttributes<HTMLElement> {
  * @param {Object} props - Component properties.
  * @param {ReactNode} [props.children] - Content to be displayed inside the card.
  * @param {string} [props.className] - Additional CSS classes for the main container.
- * @param {string} [props.contentClass] - Additional CSS classes for the card content.
  * @returns {JSX.Element} Spotlight card element.
  */
-const SpotlightCard: React.FC<SpotlightCardProps> = ({ children, className = '', contentClass = '', ...props }) => {
+const SpotlightCard: React.FC<SpotlightCardProps> = ({ children, className = '', ...props }) => {
   const divRef = useRef<HTMLDivElement>(null)
 
   const handleMouseMove: React.MouseEventHandler<HTMLDivElement> = e => {
@@ -43,7 +41,7 @@ const SpotlightCard: React.FC<SpotlightCardProps> = ({ children, className = '',
       className={`cardSpotlight ${className}`}
       {...props}
     >
-      <div className={`cardSpotlight-content ${contentClass}`}>{children}</div>
+      {children}
     </div>
   )
 }

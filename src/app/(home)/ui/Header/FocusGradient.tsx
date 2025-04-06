@@ -5,10 +5,10 @@ import type { FC } from 'react'
 
 const FocusGradient: FC = () => {
   const { scrollY } = useScroll()
-  const scale = useTransform(scrollY, [0, 400], [1, 2])
-  const opacity = useTransform(scrollY, [0, 400], [1, 2])
+  const top = useTransform(scrollY, [0, 300], [-100, 500])
+  const blur = useTransform(scrollY, [0, 300], ['blur(250px)', 'blur(100px)'])
 
-  return <motion.div className='header-focus' animate={{ rotateZ: [0, 120, 0] }} style={{ x: '-50%', scale, opacity }} />
+  return <motion.div className='header-focus' style={{ y: top, x: '-50%', filter: blur }} />
 }
 
 export default FocusGradient

@@ -5,25 +5,26 @@ import type { FC, HtmlHTMLAttributes } from 'react'
 
 import './style.scss'
 
-interface Props extends HtmlHTMLAttributes<HTMLElement> {}
+type Props = HtmlHTMLAttributes<HTMLElement>
 
 const socialPaths = [
   {
     icon: <MailIcon />,
-    link: MAIL
+    link: MAIL,
+    label: 'Correo Electrónico'
   },
-  { icon: <PhoneIcon />, link: PHONE },
-  { icon: <LinkedinIcon />, link: LINKED_IN },
-  { icon: <GithubIcon />, link: GITHUB },
-  { icon: <FigmaIcon />, link: FIGMA },
-  { icon: <FileUserIcon />, link: CV }
+  { icon: <PhoneIcon />, link: PHONE, label: 'Teléfono' },
+  { icon: <LinkedinIcon />, link: LINKED_IN, label: 'LinkedIn' },
+  { icon: <GithubIcon />, link: GITHUB, label: 'GitHub' },
+  { icon: <FigmaIcon />, link: FIGMA, label: 'Figma' },
+  { icon: <FileUserIcon />, link: CV, label: 'Currículum' }
 ]
 
 const Social: FC<Props> = ({ className = '', ...props }) => {
   return (
     <aside className={`social ${className}`} {...props}>
-      {socialPaths.map(({ icon, link }) => (
-        <Link href={link} target='_blank' rel='noopener noreferrer' className='social-link border' key={link}>
+      {socialPaths.map(({ icon, link, label }) => (
+        <Link href={link} target='_blank' rel='noopener noreferrer' className='social-link border' key={link} aria-label={label}>
           {icon}
         </Link>
       ))}

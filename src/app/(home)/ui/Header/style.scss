@@ -3,35 +3,70 @@
 
 .header {
   position: relative;
-
   overflow-x: clip;
-  overflow-y: unset;
-
   width: 100%;
-  height: calc(100vh - 60px);
-  min-height: calc(100vh - 60px);
+  height: calc(100vh - 120px);
 
   &-wrapper {
     display: grid;
     grid-template-columns: 1fr;
-    grid-template-rows: 120px 1fr;
+    grid-template-rows: 40px 1fr;
 
+    width: 900px;
     height: 100%;
+    margin: auto;
     padding: v.$big-padding 0;
   }
 
   &-focus {
     position: absolute;
     z-index: -1;
-    top: -300px;
     left: 50%;
 
-    width: 600px;
-    height: 700px;
+    width: 400px;
+    height: 250px;
     border-radius: 50%;
 
-    background-color: rgb(v.$tn1);
-    filter: blur(100px) opacity(0.2);
+    background-color: rgba(v.$tn1);
+    filter: blur(250px);
+  }
+
+  &-top {
+    justify-content: space-between;
+    width: 900px;
+
+    @include d.flex($dir: row, $ali: center);
+  }
+
+  &-point {
+    display: block;
+
+    width: 3px;
+    height: 3px;
+    border-radius: 50%;
+
+    background-color: v.$active;
+
+    animation: pulse 3s infinite;
+
+    @keyframes pulse {
+      0% {
+        transform: scale(1);
+        box-shadow: 0 0 0 0 transparent;
+      }
+
+      50% {
+        transform: scale(1.2);
+        box-shadow:
+          0 0 30px 2px v.$active,
+          0 0 5px 2px v.$active;
+      }
+
+      100% {
+        transform: scale(1);
+        box-shadow: 0 0 0 0 transparent;
+      }
+    }
   }
 
   &-nickname {
@@ -47,5 +82,9 @@
   &-title {
     font-size: 4rem;
     font-weight: 800;
+  }
+
+  &-description {
+    text-align: center;
   }
 }

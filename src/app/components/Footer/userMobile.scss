@@ -1,0 +1,33 @@
+@use '@sass/config/vars' as v;
+@use '@sass/utils/media' as m;
+@use '@sass/utils/defs' as d;
+
+@include m.largeScreen {
+  .footer {
+    &-wrapper {
+      width: 100%;
+    }
+  }
+}
+
+@include m.mediumScreen {
+  .footer {
+    &-wrapper {
+      @include d.flex($gap: v.$padding * 2);
+
+      width: fit-content;
+      max-width: 200px;
+      padding: v.$big-padding 0;
+    }
+
+    &-social {
+      align-items: center;
+      text-align: center;
+    }
+
+    &-links {
+      flex-direction: row;
+      flex-wrap: wrap;
+    }
+  }
+}

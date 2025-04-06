@@ -1,0 +1,32 @@
+@use '@sass/config/vars' as v;
+@use '@sass/utils/defs' as d;
+
+.latestPosts {
+  width: 100%;
+
+  @include d.flex($ali: center, $gap: v.$big-padding);
+
+  &-section {
+    position: relative;
+    width: 100%;
+    height: fit-content;
+  }
+
+  &-list {
+    column-count: 3;
+    row-gap: v.$padding;
+    width: 100%;
+  }
+
+  &-more {
+    background-color: rgb(v.$fn1) !important;
+
+    h3 {
+      color: rgb(v.$bg1);
+    }
+
+    .lucide {
+      stroke: rgb(v.$bg1);
+    }
+  }
+}

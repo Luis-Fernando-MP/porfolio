@@ -13,6 +13,7 @@
     "@lucide/lab": "0.1.2",
     "@unpic/react": "1.0.1",
     "contentlayer": "^0.3.4",
+    "dayjs": "^1.11.13",
     "framer-motion": "^12.6.3",
     "howler": "2.2.4",
     "lucide-react": "0.484.0",
