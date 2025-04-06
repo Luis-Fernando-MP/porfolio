@@ -16,7 +16,6 @@ const Home = (): JSX.Element => {
       {/* <SplashCursor /> */}
       <Header />
       <MainBar className='home-wrapper' />
-
       <div className='home-wrapper home-sections'>
         <PreviewProjects />
         <LatestPosts />

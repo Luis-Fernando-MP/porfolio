@@ -3,14 +3,20 @@
 
 @include m.largeScreen {
   .header {
-    height: fit-content;
-    min-height: fit-content;
-    margin-bottom: v.$big-padding;
-    padding: v.$padding;
+    max-height: fit-content;
 
     &-wrapper {
       gap: v.$big-padding;
-      padding: 0;
+
+      max-width: 100%;
+      height: fit-content;
+      padding: 0 !important;
+
+      text-align: center;
+    }
+
+    &-title {
+      font-size: 3rem !important;
     }
 
     &-sections {
@@ -22,7 +28,7 @@
 @include m.smallScreen {
   .header {
     &-title {
-      font-size: 2rem;
+      font-size: 2rem !important;
     }
 
     &-main {

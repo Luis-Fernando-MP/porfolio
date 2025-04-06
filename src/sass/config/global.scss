@@ -44,6 +44,12 @@ html {
   }
 }
 
+@include m.smallerScreen {
+  html {
+    font-size: 9px;
+  }
+}
+
 body {
   overflow-x: clip;
 
