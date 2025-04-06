@@ -1,6 +1,7 @@
 import type { FC, HtmlHTMLAttributes } from 'react'
 
 import './style.scss'
+import './userMobile.scss'
 
 /**
  * TitleWeight component displays a title with two different weights.

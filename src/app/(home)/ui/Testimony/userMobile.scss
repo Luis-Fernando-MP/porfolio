@@ -6,8 +6,8 @@
     padding: v.$padding;
 
     &-spotlight {
-      width: 250px;
-      height: 300px;
+      max-width: 230px;
+      height: 270px;
 
       &:nth-child(2) {
         left: 25%;
@@ -24,6 +24,8 @@
   .testimony {
     &-spotlight {
       position: relative;
+      max-width: 210px;
+      height: 250px;
 
       &:nth-child(n) {
         top: 0;

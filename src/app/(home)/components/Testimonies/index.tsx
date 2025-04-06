@@ -1,7 +1,7 @@
 import TitleWeight from '@/shared/ui/TitleWeight'
+import Testimony from '@home/ui/Testimony'
 import type { FC } from 'react'
 
-import Testimony from '../../ui/Testimony'
 import './style.scss'
 import './userMobile.scss'
 

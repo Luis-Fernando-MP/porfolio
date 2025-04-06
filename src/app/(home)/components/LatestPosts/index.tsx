@@ -2,10 +2,10 @@ import { parseTitleToLink } from '@/shared/parseTitle'
 import IconLink from '@/shared/ui/IconLink'
 import ShadowText from '@/shared/ui/ShadowText'
 import TitleText from '@/shared/ui/TitleText'
+import LatestPost from '@home/ui/LatestPost'
 import { ArrowRightIcon } from 'lucide-react'
 import type { FC } from 'react'
 
-import LatestPost from '../../ui/LatestPost'
 import './style.scss'
 import './userMobile.scss'
 

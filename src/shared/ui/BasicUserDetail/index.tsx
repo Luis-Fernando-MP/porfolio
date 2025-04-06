@@ -2,6 +2,7 @@ import { Image } from '@unpic/react'
 import type { FC } from 'react'
 
 import './style.scss'
+import './userMobile.scss'
 
 interface Props {
   userName: string

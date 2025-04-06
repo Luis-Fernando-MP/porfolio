@@ -1,0 +1,20 @@
+@use '@sass/config/vars' as v;
+@use '@sass/utils/media' as m;
+
+@include m.largeScreen {
+  .titleWeight {
+    h2 {
+      font-size: 1.7rem;
+    }
+  }
+}
+
+@include m.smallScreen {
+  .titleWeight {
+    max-width: 90%;
+
+    h2 {
+      font-size: v.$fH2;
+    }
+  }
+}

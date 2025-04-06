@@ -16,7 +16,7 @@
       @include d.flex($gap: v.$padding * 2);
 
       width: fit-content;
-      min-width: 200px;
+      max-width: 200px;
       padding: v.$big-padding 0;
     }
 

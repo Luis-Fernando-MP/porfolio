@@ -5,7 +5,7 @@ import type { FC, HtmlHTMLAttributes } from 'react'
 
 import './style.scss'
 
-interface Props extends HtmlHTMLAttributes<HTMLElement> {}
+type Props = HtmlHTMLAttributes<HTMLElement>
 
 const socialPaths = [
   {

@@ -13,7 +13,7 @@ import './userMobile.scss'
 const Home = (): JSX.Element => {
   return (
     <main className='home' aria-label='Página principal de Luis Fernando'>
-      {/* <SplashCursor /> */}
+      <SplashCursor />
       <Header />
       <MainBar className='home-wrapper' />
       <div className='home-wrapper home-sections'>
