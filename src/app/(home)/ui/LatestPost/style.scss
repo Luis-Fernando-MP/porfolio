@@ -5,7 +5,8 @@
   position: relative;
   z-index: 1;
 
-  width: 290px;
+  width: 100%;
+  max-width: 290px;
   height: fit-content;
   padding: v.$padding * 2;
 

@@ -5,7 +5,7 @@
 @include m.largeScreen {
   .mainBar {
     &-wrapper {
-      justify-content: space-evenly;
+      justify-content: center;
       width: 100%;
       padding: v.$padding;
     }
@@ -48,6 +48,7 @@
   .mainBar {
     &-wrapper {
       flex-wrap: wrap;
+      gap: v.$padding;
       padding: 5px;
     }
   }

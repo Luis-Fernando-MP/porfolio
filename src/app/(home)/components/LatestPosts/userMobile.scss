@@ -12,6 +12,8 @@
 
 @include m.smallScreen {
   .latestPosts {
+    gap: v.$padding;
+
     &-list {
       column-count: 1;
       width: fit-content;
