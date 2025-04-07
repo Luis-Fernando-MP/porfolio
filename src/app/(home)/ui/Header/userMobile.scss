@@ -3,6 +3,7 @@
 
 @include m.largeScreen {
   .header {
+    height: fit-content;
     max-height: fit-content;
 
     &-wrapper {
