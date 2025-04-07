@@ -1,38 +1,27 @@
 import type { Metadata } from 'next'
 
 export const metadata: Metadata = {
-  metadataBase: new URL('https://key-flare.vercel.app'),
-  title: 'Key Flare',
+  metadataBase: new URL('https://mishum.vercel.app'),
+  title: 'Luis Fernando Melgar Pizarro - Portafolio',
   description:
-    'Pon a prueba y mejora tu velocidad de escritura con Key Flare, un clon de Monkeytype creado para fines educativos. ¡Compite contra ti mismo y domina el teclado!',
-  keywords: [
-    'Key Flare',
-    'monkeytype',
-    'test de velocidad de escritura',
-    'mecanografía',
-    'práctica de escritura',
-    'teclado',
-    'wpm',
-    'cpm',
-    'mejorar velocidad',
-    'juegos de escritura'
-  ],
-  authors: [{ name: 'Luis MP', url: 'luisjp.vercel.app' }],
-  creator: 'Luis MP',
-  publisher: 'SHUN',
+    'Bienvenido a mi portafolio. Soy Luis Fernando Melgar Pizarro, también conocido como MiSHUN, un desarrollador web full stack apasionado por crear soluciones innovadoras.',
+  keywords: ['Portafolio', 'Desarrollador Web', 'Full Stack', 'Luis Fernando Melgar Pizarro', 'MiSHUN'],
+  authors: [{ name: 'Luis Fernando Melgar Pizarro', url: 'https://mishum.vercel.app' }],
+  creator: 'Luis Fernando Melgar Pizarro',
+  publisher: 'MiSHUN',
   icons: {
-    icon: '/logo.svg'
+    icon: '/logo.webp'
   },
   openGraph: {
-    title: 'Key Flare - Mejora tu velocidad de escritura',
+    title: 'Luis Fernando Melgar Pizarro - Portafolio',
     description:
-      'Pon a prueba y mejora tu velocidad de escritura con Key Flare, un clon de Monkeytype creado para fines educativos. ¡Compite contra ti mismo y domina el teclado!',
-    url: 'https://key-flare.vercel.app',
-    siteName: 'Key Flare',
+      'Explora mi portafolio y conoce más sobre mi trabajo como desarrollador web full stack. Descubre mis proyectos, habilidades y experiencia.',
+    url: 'https://mishum.vercel.app',
+    siteName: 'Luis Fernando Melgar Pizarro - Portafolio',
     images: [
       {
         url: '/opengraph.png',
-        alt: 'Key Flare Logo',
+        alt: 'Logo de MiSHUN',
         width: 1200,
         height: 630
       }
@@ -41,13 +30,13 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Key Flare - Mejora tu velocidad de escritura',
+    title: 'Luis Fernando Melgar Pizarro - Portafolio',
     description:
-      'Pon a prueba y mejora tu velocidad de escritura con Key Flare, un clon de Monkeytype creado para fines educativos. ¡Compite contra ti mismo y domina el teclado!',
+      'Conoce más sobre mi trabajo como desarrollador web full stack. Descubre mis proyectos, habilidades y experiencia en mi portafolio personal.',
     images: [
       {
         url: '/opengraph.png',
-        alt: 'Key Flare Logo'
+        alt: 'Logo de MiSHUN'
       }
     ]
   }
