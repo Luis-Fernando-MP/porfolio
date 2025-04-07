@@ -10,9 +10,6 @@
 
 @include m.smallScreen {
   .titleText {
-    height: fit-content;
-    min-height: 70px;
-
     &-sub {
       font-size: 1rem;
     }

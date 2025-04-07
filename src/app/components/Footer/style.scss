@@ -5,20 +5,26 @@
 .footer {
   width: 100%;
   height: fit-content;
+  background-color: rgb(v.$bg2);
+
+  &-title {
+    font-size: 1.5rem;
+    font-weight: 900;
+  }
 
   &-wrapper {
     display: grid;
-    grid-template-columns: 1fr 120px 120px 120px;
-    gap: v.$padding;
+    grid-template-columns: 1fr repeat(3, 100px) 300px;
+    gap: v.$big-padding * 1.5;
 
-    width: 900px;
+    width: fit-content;
     margin: auto;
     padding: v.$big-padding * 2 0;
     border: 1px solid transparent;
     border-image: linear-gradient(to right, rgba(v.$bg3, 0) 0%, rgb(v.$bg3) 50%, rgba(v.$bg3, 0) 100%) 1;
   }
 
-  &-social,
+  &-section,
   &-copyright {
     @include d.flex;
   }

@@ -51,6 +51,20 @@ const TEMPORAL_LAST_POSTS = [
     publishedAt: '2025-01-06',
     resume: 'Conoce las mejores prácticas para mantener seguras tus redes.',
     tags: ['Seguridad', 'Redes']
+  },
+  {
+    id: 'desarrollo-de-apps-moviles-post-id-unique',
+    title: 'Desarrollo de Aplicaciones Móviles',
+    publishedAt: '2025-03-15',
+    resume: 'Guía completa para crear aplicaciones móviles exitosas.',
+    tags: ['Desarrollo', 'Móviles']
+  },
+  {
+    id: 'inteligencia-artificial-en-negocios-post-id-unique',
+    title: 'Inteligencia Artificial en Negocios',
+    publishedAt: '2025-06-20',
+    resume: 'Cómo la IA está transformando el mundo empresarial.',
+    tags: ['Inteligencia Artificial', 'Negocios']
   }
 ]
 

@@ -6,7 +6,7 @@
 
   @include d.flex(5px);
 
-  min-height: 110px;
+  height: fit-content;
 
   &-sub,
   &-title {
@@ -21,10 +21,7 @@
   }
 
   &-title {
-    font-size: 2rem;
+    font-size: 2.5rem;
     font-weight: 900;
-    color: rgb(v.$tn1);
-    text-decoration: wavy underline rgb(v.$tn1) 3px;
-    text-underline-offset: 15px;
   }
 }

@@ -90,7 +90,7 @@ const MainBar: FC<Props> = ({ className = '' }) => {
     <article className={`mainBar ${className}`}>
       <div className='mainBar-wrapper'>
         <Link href='/' aria-label='Página principal'>
-          <MiShumDev size='sm' full />
+          <MiShumDev size='xs' full />
         </Link>
 
         {isMobile && (

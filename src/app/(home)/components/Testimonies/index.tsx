@@ -1,3 +1,4 @@
+import ShadowText from '@/shared/ui/ShadowText'
 import TitleWeight from '@/shared/ui/TitleWeight'
 import Testimony from '@home/ui/Testimony'
 import type { FC } from 'react'
@@ -38,6 +39,7 @@ const Testimonies: FC = () => {
   return (
     <article className='testimonies'>
       <section className='testimonies-section'>
+        <ShadowText>TESTIMONIOS</ShadowText>
         <TitleWeight className='testimonies-title' bold='Bonitas palabras' lighter='Algunas' />
       </section>
       <ul className='testimonies-list'>

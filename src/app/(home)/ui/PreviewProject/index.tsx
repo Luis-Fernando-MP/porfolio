@@ -38,8 +38,6 @@ const PreviewProject: FC<Props> = ({ itsEven, images, resume, tags, title }) => 
   return (
     <motion.li
       className='previewProject'
-      itemScope
-      itemType='http://schema.org/CreativeWork'
       whileInView='onscreen'
       viewport={{ margin: '10%', once: true }}
       initial='offscreen'
@@ -85,8 +83,8 @@ const PreviewProject: FC<Props> = ({ itsEven, images, resume, tags, title }) => 
             key={`${image}-preview-project`}
             className='previewProject-image'
             src={image}
-            width={140}
-            height={170}
+            width={150}
+            height={180}
             alt={`Imagen del proyecto ${title}`}
           />
         ))}

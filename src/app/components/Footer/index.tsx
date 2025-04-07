@@ -1,6 +1,7 @@
+import IconLink from '@/shared/ui/IconLink'
 import ShinyText from '@/shared/ui/ShinyText'
 import Social from '@/shared/ui/Social'
-import { CuboidIcon, LayoutIcon, VenetianMaskIcon } from 'lucide-react'
+import { CoffeeIcon, CuboidIcon, LayoutIcon, MailMinusIcon, VenetianMaskIcon } from 'lucide-react'
 import Link from 'next/link'
 import type { FC } from 'react'
 
@@ -29,9 +30,9 @@ const Footer: FC = () => {
   return (
     <footer className='footer'>
       <div className='footer-wrapper'>
-        <section className='footer-social'>
+        <section className='footer-section'>
           <ShinyText>#Myshum</ShinyText>
-          <h2>LUIS FERNANDO</h2>
+          <h2 className='footer-title'>LUIS FERNANDO</h2>
           <Social />
         </section>
 
@@ -48,7 +49,6 @@ const Footer: FC = () => {
             ))}
           </div>
         </nav>
-
         <nav className='footer-nav'>
           <div className='footer-navTitle'>
             <h4>Extras</h4>
@@ -62,7 +62,6 @@ const Footer: FC = () => {
             ))}
           </div>
         </nav>
-
         <nav className='footer-nav'>
           <div className='footer-navTitle'>
             <h4>Recursos</h4>
@@ -76,11 +75,28 @@ const Footer: FC = () => {
             ))}
           </div>
         </nav>
+
+        <section className='footer-section'>
+          <ShinyText>Charlemos, estaré encantado de conocerte</ShinyText>
+          <IconLink href='#' className='inverse'>
+            <h3>luigfmp@gmail.com</h3>
+            <MailMinusIcon />
+          </IconLink>
+          <p>
+            Puedes apoyarme
+            <br />
+            comprándome un café
+          </p>
+          <IconLink href='#'>
+            <CoffeeIcon />
+            <h3>Buy now!</h3>
+          </IconLink>
+        </section>
       </div>
 
       <div className='footer-copyright'>
         <h3>Copyright © 2025 Luis Fernando.</h3>
-        <h5>Derechos reservados a sus respectivos creadores.</h5>
+        <ShinyText>Derechos reservados a sus respectivos creadores.</ShinyText>
       </div>
     </footer>
   )

@@ -33,7 +33,7 @@ const Testimony: FC<Props> = ({ role, feedback, author, photo, company }) => {
         whileInView='onscreen'
         initial='offscreen'
         variants={variants}
-        transition={{ type: 'spring', bounce: 0.4, duration: 0.8, delay: 1 }}
+        transition={{ type: 'spring', bounce: 0.4, duration: 0.8, delay: 0.2 }}
       >
         <header className='testimony-header'>
           <h5>{company}</h5>

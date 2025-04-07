@@ -4,13 +4,12 @@
 @use '@sass/utils/tooltip' as tol;
 
 .social {
-  @include d.flex($dir: row, $ali: center);
+  @include d.flex($dir: row, $ali: center, $gap: v.$padding * 0.5);
 
   flex-wrap: wrap;
-  justify-content: center;
 
   &-link {
-    padding: v.$padding * 0.7;
+    padding: v.$padding * 0.5;
     border-radius: 5px;
     background-color: rgb(v.$bg2);
   }

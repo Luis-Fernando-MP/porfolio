@@ -6,7 +6,6 @@ import NextTopLoader from 'nextjs-toploader'
 import type { JSX, ReactNode } from 'react'
 import { Toaster } from 'react-hot-toast'
 
-import SplashCursorComponent from './components/SplashCursorComponent'
 import './globals.css'
 import { metadata, viewport } from './metadata'
 import './style.scss'
@@ -21,7 +20,7 @@ const RootLayout = async ({ children }: IRootLayout): Promise<JSX.Element> => {
       <body className={`${bodyFonts} app antialiased`}>
         <NextTopLoader color='rgb(var(--tn-primary))' showSpinner={false} />
         <Offline />
-        <SplashCursorComponent />
+        {/* <SplashCursorComponent /> */}
         <Hydration>{children}</Hydration>
         <Toaster position='top-center' toastOptions={{ className: 'toast' }} />
       </body>

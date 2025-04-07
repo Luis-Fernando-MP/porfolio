@@ -15,18 +15,18 @@
   }
 
   &-list {
-    @include d.flex($gap: v.$padding * 2);
+    @include d.flex($gap: v.$big-padding);
   }
 
   &-description {
     position: relative;
-    width: 500px;
+    width: 400px;
   }
 
   &-arrow {
     position: absolute;
-    right: -50px;
-    bottom: 0;
+    right: -100px;
+    bottom: -20px;
 
     width: 94px;
     height: 52px;

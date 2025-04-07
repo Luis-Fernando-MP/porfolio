@@ -3,7 +3,6 @@
 import { motion } from 'framer-motion'
 import { FC, useRef } from 'react'
 
-import ShinyText from '../ShinyText'
 import './style.scss'
 import './userMobile.scss'
 
@@ -16,9 +15,7 @@ const ShadowText: FC<Props> = ({ children }) => {
 
   return (
     <motion.div className='shadowText' ref={target}>
-      <motion.h3 className='shadowText-title'>
-        <ShinyText>{children}</ShinyText>
-      </motion.h3>
+      <motion.h3 className='shadowText-title'>{children}</motion.h3>
     </motion.div>
   )
 }
