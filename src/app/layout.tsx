@@ -16,13 +16,14 @@ interface IRootLayout {
 
 const RootLayout = async ({ children }: IRootLayout): Promise<JSX.Element> => {
   return (
-    <html lang='es'>
+    <html lang='es' suppressHydrationWarning>
       <body className={`${bodyFonts} app antialiased`}>
         <NextTopLoader color='rgb(var(--tn-primary))' showSpinner={false} />
         <Offline />
         {/* <SplashCursorComponent /> */}
         <Hydration>{children}</Hydration>
         <Toaster position='top-center' toastOptions={{ className: 'toast' }} />
+        <p>Hola mundo?</p>
       </body>
     </html>
   )

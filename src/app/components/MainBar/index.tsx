@@ -48,14 +48,15 @@ const MainBar: FC<Props> = ({ className = '' }) => {
   const [isMobile, setIsMobile] = useState(false)
 
   useEffect(() => {
+    if (typeof window === 'undefined') return
     const handleResize = () => {
       setIsMobile(window.innerWidth < 990)
+
       if (window.innerWidth >= 990) {
         return setShow(true)
       }
       setShow(false)
     }
-
     handleResize()
     window.addEventListener('resize', handleResize)
     return () => window.removeEventListener('resize', handleResize)

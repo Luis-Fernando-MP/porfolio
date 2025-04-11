@@ -9,6 +9,7 @@ const Offline = () => {
   const { isOffline, setIsOffline } = useOfflineStore()
 
   useEffect(() => {
+    if (typeof window === 'undefined') return
     const updateNetworkStatus = () => setIsOffline(!navigator.onLine)
 
     window.addEventListener('online', updateNetworkStatus)

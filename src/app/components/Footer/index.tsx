@@ -1,3 +1,6 @@
+// TODO: Verificar el footer no es cliente
+'use client'
+
 import IconLink from '@/shared/ui/IconLink'
 import ShinyText from '@/shared/ui/ShinyText'
 import Social from '@/shared/ui/Social'
@@ -7,6 +10,8 @@ import type { FC } from 'react'
 
 import './style.scss'
 import './userMobile.scss'
+
+// TODO: Verificar el footer no es cliente
 
 const GENERAL_LINKS = {
   home: 'Inicio',

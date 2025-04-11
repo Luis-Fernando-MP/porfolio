@@ -1,11 +1,9 @@
-'use client'
-
 import SpotlightCard from '@/shared/components/SpotlightCard'
+import TransitionContent from '@/shared/components/TransitionContent'
 import { parseTitleToLink } from '@/shared/parseTitle'
 import IconLink from '@/shared/ui/IconLink'
 import Tags from '@/shared/ui/Tags'
 import { Image } from '@unpic/react'
-import { Variants, motion } from 'framer-motion'
 import { ChevronRightIcon } from 'lucide-react'
 import Link from 'next/link'
 import { type FC } from 'react'
@@ -14,36 +12,17 @@ import './style.scss'
 import './userMobile.scss'
 
 interface Props {
-  itsEven: boolean
   title: string
   resume: string
   images: string[]
   tags: string[]
 }
 
-const PreviewProject: FC<Props> = ({ itsEven, images, resume, tags, title }) => {
+const PreviewProject: FC<Props> = ({ images, resume, tags, title }) => {
   const projectURL = `/projects/${parseTitleToLink(title)}`
 
-  const variants: Variants = {
-    offscreen: {
-      y: 300,
-      x: itsEven ? '-20%' : '20%'
-    },
-    onscreen: {
-      y: 0,
-      x: 0
-    }
-  }
-
   return (
-    <motion.li
-      className='previewProject'
-      whileInView='onscreen'
-      viewport={{ margin: '10%', once: true }}
-      initial='offscreen'
-      variants={variants}
-      transition={{ type: 'spring', bounce: 0.4, duration: 0.8 }}
-    >
+    <TransitionContent className='previewProject'>
       <SpotlightCard className='previewProject-spotlight border'>
         <div className='previewProject-description'>
           <Link href={projectURL} id={`project-title-${projectURL}`} aria-label={`Enlace al proyecto ${title}`} itemProp='url'>
@@ -89,7 +68,7 @@ const PreviewProject: FC<Props> = ({ itsEven, images, resume, tags, title }) => 
           />
         ))}
       </aside>
-    </motion.li>
+    </TransitionContent>
   )
 }
 

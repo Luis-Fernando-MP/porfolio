@@ -44,7 +44,7 @@ const PreviewProjects: FC = () => {
 
       <ul className='previewProjects-section previewProjects-list'>
         {TEMPORAL_LAST_PROJECTS.map((project, i) => (
-          <PreviewProject key={project.id} {...project} itsEven={i % 2 === 0} />
+          <PreviewProject key={project.id} {...project} />
         ))}
       </ul>
 

@@ -7,6 +7,8 @@ const SplashCursorComponent: FC = () => {
   const [isMobile, setIsMobile] = useState(false)
 
   useEffect(() => {
+    if (typeof window === 'undefined') return
+
     const handleResize = () => {
       setIsMobile(window.innerWidth < 990)
     }
