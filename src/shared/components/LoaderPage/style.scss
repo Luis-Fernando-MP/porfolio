@@ -18,7 +18,6 @@
   transition: all 1s ease-in-out;
 
   @include d.flex($ali: center);
-  @include g.glitch(color 5s forwards);
 
   &-logo {
     padding: v.$padding;

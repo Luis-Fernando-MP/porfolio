@@ -23,7 +23,6 @@ const RootLayout = async ({ children }: IRootLayout): Promise<JSX.Element> => {
         {/* <SplashCursorComponent /> */}
         <Hydration>{children}</Hydration>
         <Toaster position='top-center' toastOptions={{ className: 'toast' }} />
-        <p>Hola mundo?</p>
       </body>
     </html>
   )

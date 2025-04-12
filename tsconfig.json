@@ -12,6 +12,7 @@
     "resolveJsonModule": true,
     "isolatedModules": true,
     "jsx": "preserve",
+    "allowImportingTsExtensions": true,
     "forceConsistentCasingInFileNames": true,
     "incremental": true,
     "baseUrl": ".",
@@ -25,7 +26,7 @@
       "@home/*": ["./src/app/(home)/*"],
       "@sass/*": ["./src/sass/*"],
       "@shared/*": ["./src/shared/*"],
-      "contentlayer/generated": ["./.contentlayer/generated"]
+      "contentlayer/generated": ["./.contentlayer/generated/*"]
     }
   },
   "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts", ".contentlayer/generated"],
