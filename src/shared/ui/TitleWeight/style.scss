@@ -17,4 +17,12 @@
   &-title {
     font-weight: 900;
   }
+
+  &.wrap {
+    @include d.flex($gap: 5px);
+
+    h2 {
+      display: block;
+    }
+  }
 }

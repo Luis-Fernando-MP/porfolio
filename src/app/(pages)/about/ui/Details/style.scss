@@ -1,16 +1,24 @@
 @use '@sass/config/vars' as v;
 @use '@sass/utils/defs' as d;
-@use '@sass/utils/scrollbar' as *;
 
 .details {
+  display: grid;
+  grid-template-columns: 300px 1fr;
+  flex-wrap: wrap;
+  gap: v.$big-padding;
+
   width: 100%;
   height: fit-content;
 
-  @include d.flex($dir: row, $gap: v.$big-padding);
+  &-title {
+    @include d.flex($dir: row, $ali: center);
+  }
 
-  &-gallery {
-    width: 350px;
-    border-radius: v.$radius;
-    background-color: rgb(v.$bg2);
+  &-information {
+    @include d.flex($gap: v.$padding * 2);
+  }
+
+  &-paragraph {
+    @include d.flex;
   }
 }

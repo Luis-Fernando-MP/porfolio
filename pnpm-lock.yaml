@@ -17,9 +17,15 @@ importers:
       '@notionhq/client':
         specifier: ^2.3.0
         version: 2.3.0
+      '@unpic/placeholder':
+        specifier: ^0.1.2
+        version: 0.1.2
       '@unpic/react':
         specifier: 1.0.1
         version: 1.0.1(next@15.3.0(@opentelemetry/api@1.9.0)(react-dom@19.1.0(react@19.1.0))(react@19.1.0)(sass@1.86.3))(react-dom@19.1.0(react@19.1.0))(react@19.1.0)
+      blurhash:
+        specifier: ^2.0.5
+        version: 2.0.5
       contentlayer:
         specifier: 0.3.4
         version: 0.3.4(esbuild@0.18.20)
@@ -56,6 +62,9 @@ importers:
       react:
         specifier: 19.1.0
         version: 19.1.0
+      react-blurhash:
+        specifier: ^0.3.0
+        version: 0.3.0(blurhash@2.0.5)(react@19.1.0)
       react-dom:
         specifier: 19.1.0
         version: 19.1.0(react@19.1.0)
@@ -1317,6 +1326,9 @@ packages:
   '@unpic/core@1.0.1':
     resolution: {integrity: sha512-e0cwxOhtWPd4J32rV1V6jFmDGAi1r4p/f+lDqlnx+fhgFwMTyQQKw5lL7VEthUPBHFNaNBsXNbNKwnaIs2V71Q==}
 
+  '@unpic/placeholder@0.1.2':
+    resolution: {integrity: sha512-O++tS97biojo5sqn5TeTt+jUjl5gWOdIQuOXe8YluTJWq4L0GM6VuTkaspNpsmxHfioJw/6YBirzOpG4t87l8Q==}
+
   '@unpic/react@1.0.1':
     resolution: {integrity: sha512-JmKVmf7ZhKDlVFK8yfbgiWp9K4rXXovE8mWrbkqjDJHKhDqbF5uUp7754Tk7oNSYJcvIXfH8P/nYRCfG2ca0/w==}
     peerDependencies:
@@ -1543,6 +1555,9 @@ packages:
   binary-extensions@2.3.0:
     resolution: {integrity: sha512-Ceh+7ox5qe7LJuLHoY0feh3pHuUDHAcRUeyL2VYghZwfpkNIy/+8Ocg0a3UuSoYzavmylwuLWQOf3hl0jjMMIw==}
     engines: {node: '>=8'}
+
+  blurhash@2.0.5:
+    resolution: {integrity: sha512-cRygWd7kGBQO3VEhPiTgq4Wc43ctsM+o46urrmPOiuAe+07fzlSB9OJVdpgDL0jPqXUVQ9ht7aq7kxOeJHRK+w==}
 
   brace-expansion@1.1.11:
     resolution: {integrity: sha512-iCuPHDFgrHX7H2vEI/5xpz07zSHB00TpugqhmYtVmMO6518mCuRMoOYFldEBl0g187ufozdaHgWKcYFb61qGiA==}
@@ -3236,6 +3251,12 @@ packages:
 
   queue-microtask@1.2.3:
     resolution: {integrity: sha512-NuaNSa6flKT5JaSYQzJok04JzTL1CA6aGhv5rfLW3PgqA+M2ChpZQnAC8h8i4ZFkBS8X5RqkDBHA7r4hej3K9A==}
+
+  react-blurhash@0.3.0:
+    resolution: {integrity: sha512-XlKr4Ns1iYFRnk6DkAblNbAwN/bTJvxTVoxMvmTcURdc5oLoXZwqAF9N3LZUh/HT+QFlq5n6IS6VsDGsviYAiQ==}
+    peerDependencies:
+      blurhash: ^2.0.3
+      react: '>=15'
 
   react-dom@19.1.0:
     resolution: {integrity: sha512-Xs1hdnE+DyKgeHJeJznQmYMIBG3TKIHJJT95Q58nHLSrElKlGQqDTR2HQ9fx5CN/Gk6Vh/kupBTDLU11/nDk/g==}
@@ -5075,6 +5096,10 @@ snapshots:
     dependencies:
       unpic: 4.1.2
 
+  '@unpic/placeholder@0.1.2':
+    dependencies:
+      blurhash: 2.0.5
+
   '@unpic/react@1.0.1(next@15.3.0(@opentelemetry/api@1.9.0)(react-dom@19.1.0(react@19.1.0))(react@19.1.0)(sass@1.86.3))(react-dom@19.1.0(react@19.1.0))(react@19.1.0)':
     dependencies:
       '@unpic/core': 1.0.1
@@ -5277,6 +5302,8 @@ snapshots:
   base64-js@1.5.1: {}
 
   binary-extensions@2.3.0: {}
+
+  blurhash@2.0.5: {}
 
   brace-expansion@1.1.11:
     dependencies:
@@ -7342,6 +7369,11 @@ snapshots:
   punycode@2.3.1: {}
 
   queue-microtask@1.2.3: {}
+
+  react-blurhash@0.3.0(blurhash@2.0.5)(react@19.1.0):
+    dependencies:
+      blurhash: 2.0.5
+      react: 19.1.0
 
   react-dom@19.1.0(react@19.1.0):
     dependencies:

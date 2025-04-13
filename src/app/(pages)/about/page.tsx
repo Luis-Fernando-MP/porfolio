@@ -12,13 +12,9 @@ export const metadata: Metadata = {
 
 const About = (): JSX.Element => {
   return (
-    <main className='about' aria-label='Acerca de Luis Fernando'>
-      <MainBar className='about-wrapper' />
-      <div className='about-wrapper'>
-        <Details />
-      </div>
-      <Footer />
-    </main>
+    <>
+      <Details className='about-details' />
+    </>
   )
 }
 
