@@ -6,12 +6,12 @@
   height: fit-content;
   min-height: 100vh;
 
-  @include d.flex($gap: v.$big-padding);
+  @include d.flex($gap: v.$big-padding * 3);
 
   &-wrapper {
     width: 900px;
     margin: auto;
 
-    @include d.flex($gap: v.$big-padding * 4, $ali: center);
+    @include d.flex($gap: v.$big-padding * 2, $ali: center);
   }
 }

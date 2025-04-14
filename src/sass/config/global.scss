@@ -31,7 +31,7 @@ html {
   overflow-y: scroll;
 
   width: 100dvw;
-  min-height: 100dvh;
+  min-height: 100vh;
 
   font-size: $family-size;
 
@@ -239,9 +239,7 @@ body {
   border: 1px solid transparent;
   border-radius: $radius * 0.7;
 
-  background:
-    linear-gradient(rgb($bg1), rgb($bg1)) padding-box,
-    linear-gradient(155deg, rgb($bg2) 10%, rgb($bg3) 30%, rgb($bg3) 70%, rgb($bg2) 80%) border-box;
+  background: linear-gradient(155deg, rgb($bg2) 10%, rgb($bg3) 30%, rgb($bg3), rgb($bg2) 80%);
 }
 
 @include m.mediumScreen {

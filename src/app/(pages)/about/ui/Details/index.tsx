@@ -4,10 +4,12 @@ import type { FC } from 'react'
 
 import Gallery from '../Gallery'
 import './style.scss'
+import './userMobile.scss'
 
 interface Props {
   className?: string
 }
+
 const Details: FC<Props> = ({ className = '' }) => {
   return (
     <article className={`details ${className}`}>

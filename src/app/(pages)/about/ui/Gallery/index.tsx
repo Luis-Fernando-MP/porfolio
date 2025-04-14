@@ -1,10 +1,10 @@
-import { galleryImages } from '@/constants/gallery-images'
+import { galleryImages } from '@/constants/galleryImages'
 import BlurImage from '@/shared/components/BlurImage'
-import { Image } from '@unpic/react'
 import { ImageIcon } from 'lucide-react'
 import type { FC } from 'react'
 
 import './style.scss'
+import './userMobile.scss'
 
 interface Props {
   className?: string
@@ -19,26 +19,7 @@ const Gallery: FC<Props> = ({ className = '' }) => {
       </div>
 
       <ul className='gallery-images'>
-        {[
-          ...galleryImages,
-          ...galleryImages,
-          ...galleryImages,
-          ...galleryImages,
-          ...galleryImages,
-          ...galleryImages,
-          ...galleryImages,
-          ...galleryImages,
-          ...galleryImages,
-          ...galleryImages,
-          ...galleryImages,
-          ...galleryImages,
-          ...galleryImages,
-          ...galleryImages,
-          ...galleryImages,
-          ...galleryImages,
-          ...galleryImages,
-          ...galleryImages
-        ].map((item, i) => {
+        {galleryImages.map((item, i) => {
           const { image, blurhash } = item
           const key = `gallery-image-${i}`
           return (

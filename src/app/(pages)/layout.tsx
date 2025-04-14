@@ -3,6 +3,7 @@ import type { JSX, ReactNode } from 'react'
 import Footer from '../components/Footer'
 import MainBar from '../components/MainBar'
 import './style.scss'
+import './userMobile.scss'
 
 interface Props {
   children?: Readonly<ReactNode[]> | null | Readonly<ReactNode>

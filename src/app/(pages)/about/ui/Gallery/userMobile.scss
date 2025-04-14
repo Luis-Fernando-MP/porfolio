@@ -1,0 +1,41 @@
+@use '@sass/config/vars' as v;
+@use '@sass/utils/media' as m;
+@use '@sass/utils/defs' as d;
+
+@include m.largeScreen {
+  .gallery {
+    width: 100%;
+    max-width: 370px;
+    padding: v.$padding;
+
+    &-images {
+      max-height: 250px;
+    }
+
+    &-image {
+      max-width: 80px;
+      max-height: 80px;
+    }
+  }
+}
+
+@include m.smallScreen {
+  .gallery {
+    &-images {
+      column-count: 4;
+    }
+  }
+}
+
+@include m.smallerScreen {
+  .gallery {
+    &-images {
+      column-count: 3;
+    }
+
+    &-image {
+      width: fit-content;
+      height: fit-content;
+    }
+  }
+}
