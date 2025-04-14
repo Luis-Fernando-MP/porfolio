@@ -12,6 +12,16 @@ interface IPopup extends React.HTMLAttributes<HTMLElement> {
   onClose: () => void
 }
 
+/**
+ * A draggable popup component that renders content in a modal window
+ * @param {ReactNode} children - Content to display in popup
+ * @param {string} className - Additional CSS classes
+ * @param {boolean} isOpen - Controls popup visibility
+ * @param {() => void} onClose - Close handler
+ * @param {string} title - Popup title
+ * @param {PopupPositions} clickPosition - Initial position
+ * @returns {JSX.Element | null} Rendered Popup component
+ */
 const PopupComponent = ({
   children,
   className = '',
@@ -21,7 +31,7 @@ const PopupComponent = ({
   clickPosition = { x: 0, y: 0 },
   ...props
 }: IPopup) => {
-  const { $popupRef, handleMouseDown, isDragging, position } = usePopup({ isOpen, clickPosition, onClose })
+  const { $popupRef, isDragging, position, handleMouseDown, handleTouchStart } = usePopup({ isOpen, clickPosition, onClose })
 
   if (!isOpen) return null
 
@@ -33,6 +43,7 @@ const PopupComponent = ({
       className='popup border'
       id='popup'
       onMouseDown={handleMouseDown}
+      onTouchStart={handleTouchStart}
       style={{
         left: `${position.x}px`,
         top: `${position.y}px`,

@@ -1,4 +1,4 @@
-import { MouseEvent, useCallback, useEffect, useRef, useState } from 'react'
+import { MouseEvent, TouchEvent, useCallback, useEffect, useRef, useState } from 'react'
 
 export type PopupPositions = { x: number; y: number }
 
@@ -18,7 +18,7 @@ const usePopup = ({ isOpen, clickPosition, onClose }: IUsePopupHook) => {
   const handleMouseMove = useCallback(
     (e: globalThis.MouseEvent) => {
       requestAnimationFrame(() => {
-        if (!isDragging || !$dragPosition.current || !$popupRef.current || !e.ctrlKey || !e.buttons) return
+        if (!isDragging || !$dragPosition.current || !$popupRef.current || !e.buttons) return
         e.preventDefault()
         const rect = $popupRef.current.getBoundingClientRect()
         const deltaX = e.clientX - $dragPosition.current.x
@@ -40,7 +40,36 @@ const usePopup = ({ isOpen, clickPosition, onClose }: IUsePopupHook) => {
     [bodyRect, isDragging]
   )
 
+  const handleTouchMove = useCallback(
+    (e: globalThis.TouchEvent) => {
+      if (!isDragging || !$dragPosition.current || !$popupRef.current) return
+      e.preventDefault()
+      const touch = e.touches[0]
+      const rect = $popupRef.current.getBoundingClientRect()
+      const deltaX = touch.clientX - $dragPosition.current.x
+      const deltaY = touch.clientY - $dragPosition.current.y
+      const minX = 0
+      const minY = 0
+      const maxX = bodyRect.width - rect.width
+      const maxY = bodyRect.height - rect.height
+      $dragPosition.current = { x: touch.clientX, y: touch.clientY }
+      setPosition(prev => {
+        let newX = prev.x + deltaX
+        let newY = prev.y + deltaY
+        newX = Math.max(minX, Math.min(newX, maxX))
+        newY = Math.max(minY, Math.min(newY, maxY))
+        return { x: newX, y: newY }
+      })
+    },
+    [bodyRect, isDragging]
+  )
+
   const handleMouseUp = useCallback(() => {
+    setIsDragging(false)
+    $popupRef.current?.classList.remove('block-children-events')
+  }, [])
+
+  const handleTouchEnd = useCallback(() => {
     setIsDragging(false)
     $popupRef.current?.classList.remove('block-children-events')
   }, [])
@@ -58,13 +87,23 @@ const usePopup = ({ isOpen, clickPosition, onClose }: IUsePopupHook) => {
 
   const handleMouseDown = (e: MouseEvent) => {
     const moveOnHeader = (e.target as HTMLElement).closest('#popup-header')
-    if (!$popupRef.current || (!moveOnHeader && !e.ctrlKey)) return
-    if (e.ctrlKey) {
+    if (!$popupRef.current) return
+
+    if (moveOnHeader || e.ctrlKey) {
       $popupRef.current?.classList.add('block-children-events')
+      $dragPosition.current = { x: e.clientX, y: e.clientY }
+      setIsDragging(true)
+      bringPopupToFront()
     }
+  }
+
+  const handleTouchStart = (e: TouchEvent) => {
+    const touch = e.touches[0]
+    const moveOnHeader = (touch.target as HTMLElement).closest('#popup-header')
+    if (!$popupRef.current || !moveOnHeader) return
     setIsDragging(true)
     bringPopupToFront()
-    $dragPosition.current = { x: e.clientX, y: e.clientY }
+    $dragPosition.current = { x: touch.clientX, y: touch.clientY }
   }
 
   const calculateInitialPosition = useCallback(
@@ -133,16 +172,21 @@ const usePopup = ({ isOpen, clickPosition, onClose }: IUsePopupHook) => {
   useEffect(() => {
     document.addEventListener('mousemove', handleMouseMove)
     document.addEventListener('mouseup', handleMouseUp)
+    document.addEventListener('touchmove', handleTouchMove, { passive: false })
+    document.addEventListener('touchend', handleTouchEnd)
 
     return () => {
       document.removeEventListener('mousemove', handleMouseMove)
       document.removeEventListener('mouseup', handleMouseUp)
+      document.removeEventListener('touchmove', handleTouchMove)
+      document.removeEventListener('touchend', handleTouchEnd)
     }
-  }, [handleMouseMove, handleMouseUp])
+  }, [handleMouseMove, handleMouseUp, handleTouchMove, handleTouchEnd])
 
   return {
     $popupRef,
     handleMouseDown,
+    handleTouchStart,
     position,
     isDragging
   }
