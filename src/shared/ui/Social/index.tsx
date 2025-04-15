@@ -4,6 +4,7 @@ import Link from 'next/link'
 import type { FC, HtmlHTMLAttributes } from 'react'
 
 import './style.scss'
+import './userMobile.scss'
 
 type Props = HtmlHTMLAttributes<HTMLElement>
 

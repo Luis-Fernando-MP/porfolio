@@ -2,6 +2,7 @@ import { Image } from '@unpic/react'
 import type { FC } from 'react'
 
 import './style.scss'
+import './userMobile.scss'
 
 interface Props {
   sectionMame: string
@@ -22,7 +23,7 @@ const Technologies: FC<Props> = ({ languages, sectionMame }) => {
           const { src, name } = lang
           return (
             <li className='technologies-language border' key={name}>
-              <Image src={src} width={20} height={20} alt={name} />
+              <Image src={src} width={17} height={17} alt={name} />
             </li>
           )
         })}

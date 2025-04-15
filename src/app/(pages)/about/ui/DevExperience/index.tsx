@@ -2,6 +2,7 @@ import { Image } from '@unpic/react'
 import type { FC, JSX } from 'react'
 
 import './style.scss'
+import './userMobile.scss'
 
 interface Props {
   companyLogo: string

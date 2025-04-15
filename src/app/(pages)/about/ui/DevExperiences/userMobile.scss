@@ -3,13 +3,11 @@
 @use '@sass/utils/defs' as d;
 
 @include m.largeScreen {
-  .page {
+  .devExperiences {
     gap: v.$padding * 2;
 
-    &-wrapper {
-      gap: v.$padding * 2;
-      width: 100%;
-      padding: 0 v.$padding * 2;
+    &-list {
+      gap: v.$padding;
     }
   }
 }

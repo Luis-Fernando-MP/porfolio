@@ -14,14 +14,35 @@
 
   &-wrapper {
     display: grid;
-    grid-template-columns: 1fr repeat(3, 100px) 300px;
+    grid-template-areas: 'user generalLinks extraLinks resources say';
     gap: v.$big-padding * 1.5;
 
     width: fit-content;
+    height: fit-content;
     margin: auto;
     padding: v.$big-padding * 2 0;
     border: 1px solid transparent;
     border-image: linear-gradient(to right, rgba(v.$bg3, 0) 0%, rgb(v.$bg3) 50%, rgba(v.$bg3, 0) 100%) 1;
+  }
+
+  &-user {
+    grid-area: user;
+  }
+
+  &-generalLinks {
+    grid-area: generalLinks;
+  }
+
+  &-extraLinks {
+    grid-area: extraLinks;
+  }
+
+  &-resources {
+    grid-area: resources;
+  }
+
+  &-say {
+    grid-area: say;
   }
 
   &-section,

@@ -2,14 +2,12 @@
 @use '@sass/utils/media' as m;
 @use '@sass/utils/defs' as d;
 
-@include m.largeScreen {
-  .page {
+@include m.smallerScreen {
+  .devStack {
     gap: v.$padding * 2;
 
-    &-wrapper {
-      gap: v.$padding * 2;
-      width: 100%;
-      padding: 0 v.$padding * 2;
+    &-technologies {
+      max-height: 350px;
     }
   }
 }

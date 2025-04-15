@@ -9,6 +9,7 @@ import { type FC, useState } from 'react'
 
 import Technologies from '../Technologies'
 import './style.scss'
+import './userMobile.scss'
 
 const DevStack: FC = () => {
   const [open, setOpen] = useState(false)

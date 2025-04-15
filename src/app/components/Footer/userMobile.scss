@@ -2,22 +2,37 @@
 @use '@sass/utils/media' as m;
 @use '@sass/utils/defs' as d;
 
-@include m.largeScreen {
+@include m.extraLargeScreen {
   .footer {
+    padding: 0 v.$padding * 2;
+
     &-wrapper {
       width: 100%;
     }
   }
 }
 
-@include m.mediumScreen {
+@include m.largeScreen {
   .footer {
     &-wrapper {
-      @include d.flex($gap: v.$padding * 2);
-
-      width: fit-content;
-      max-width: 200px;
+      grid-template-areas:
+        'user say say'
+        'generalLinks extraLinks resources';
+      width: 100%;
+      max-width: 100%;
       padding: v.$big-padding 0;
+    }
+
+    &-user {
+      align-items: flex-end;
+    }
+
+    &-say {
+      align-items: flex-start;
+    }
+
+    &-nav {
+      align-items: center;
     }
 
     &-social {
@@ -28,6 +43,48 @@
     &-links {
       flex-direction: row;
       flex-wrap: wrap;
+    }
+  }
+}
+
+@include m.mediumScreen {
+  .footer {
+    &-wrapper {
+      grid-template-areas:
+        'user generalLinks'
+        'say extraLinks'
+        'say resources';
+      gap: v.$big-padding;
+      padding: v.$padding * 2;
+    }
+
+    &-user,
+    &-say {
+      align-items: flex-end;
+      text-align: right;
+    }
+
+    &-nav {
+      align-items: flex-start;
+    }
+  }
+}
+
+@include m.smallerScreen {
+  .footer {
+    &-wrapper {
+      @include d.flex;
+
+      padding: v.$padding * 2;
+    }
+
+    &-user,
+    &-say,
+    &-nav,
+    &-links {
+      align-items: center;
+      justify-content: center;
+      text-align: center;
     }
   }
 }

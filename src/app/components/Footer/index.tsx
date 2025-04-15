@@ -1,6 +1,3 @@
-// TODO: Verificar el footer no es cliente
-'use client'
-
 import IconLink from '@/shared/ui/IconLink'
 import ShinyText from '@/shared/ui/ShinyText'
 import Social from '@/shared/ui/Social'
@@ -10,8 +7,6 @@ import type { FC } from 'react'
 
 import './style.scss'
 import './userMobile.scss'
-
-// TODO: Verificar el footer no es cliente
 
 const GENERAL_LINKS = {
   home: 'Inicio',
@@ -35,13 +30,13 @@ const Footer: FC = () => {
   return (
     <footer className='footer'>
       <div className='footer-wrapper'>
-        <section className='footer-section'>
+        <section className='footer-section footer-user'>
           <ShinyText>#Myshum</ShinyText>
           <h2 className='footer-title'>LUIS FERNANDO</h2>
           <Social />
         </section>
 
-        <nav className='footer-nav'>
+        <nav className='footer-nav footer-generalLinks'>
           <div className='footer-navTitle'>
             <h4>General</h4>
             <LayoutIcon />
@@ -54,7 +49,7 @@ const Footer: FC = () => {
             ))}
           </div>
         </nav>
-        <nav className='footer-nav'>
+        <nav className='footer-nav footer-extraLinks'>
           <div className='footer-navTitle'>
             <h4>Extras</h4>
             <VenetianMaskIcon />
@@ -67,7 +62,7 @@ const Footer: FC = () => {
             ))}
           </div>
         </nav>
-        <nav className='footer-nav'>
+        <nav className='footer-nav footer-resources'>
           <div className='footer-navTitle'>
             <h4>Recursos</h4>
             <CuboidIcon />
@@ -81,7 +76,7 @@ const Footer: FC = () => {
           </div>
         </nav>
 
-        <section className='footer-section'>
+        <section className='footer-section footer-say'>
           <ShinyText>Charlemos, estaré encantado de conocerte</ShinyText>
           <IconLink href='#' className='inverse'>
             <h3>luigfmp@gmail.com</h3>

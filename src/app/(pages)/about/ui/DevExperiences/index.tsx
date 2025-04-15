@@ -6,6 +6,7 @@ import type { FC } from 'react'
 
 import DevExperience from '../DevExperience'
 import './style.scss'
+import './userMobile.scss'
 
 const DevExperiences: FC = () => {
   return (
