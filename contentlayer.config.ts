@@ -29,6 +29,10 @@ const markFields: FieldDefs = {
     type: 'string',
     required: true
   },
+  title: {
+    type: 'string',
+    required: true
+  },
   quarter: {
     type: 'string',
     required: true
@@ -59,36 +63,22 @@ const markFields: FieldDefs = {
     required: true
   },
 
-  image: {
-    type: 'string',
-    required: true
-  },
-  image_width: {
-    type: 'number',
-    required: true
-  },
-  image_height: {
-    type: 'number',
-    required: true
-  },
-  image_hash: {
-    type: 'string',
-    required: true
-  },
-  image_blur: {
-    type: 'string',
-    required: true
-  },
+  image: { type: 'string' },
+  image_width: { type: 'number' },
+  image_height: { type: 'number' },
+  image_hash: { type: 'string' },
+  image_blur: { type: 'string' },
+
   notion_url: {
     type: 'string',
     required: true
   },
   created_time: {
-    type: 'string',
+    type: 'date',
     required: true
   },
   last_edited_time: {
-    type: 'string',
+    type: 'date',
     required: true
   }
 }

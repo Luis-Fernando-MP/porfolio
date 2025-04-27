@@ -66,25 +66,24 @@ const processMarks = async () => {
     console.timeEnd(`BlurHash and Gradient ${title}`)
 
     const mdxContent = `---
-  id: ${mark.id}
-  quarter: '${properties.Cuatrimestre.select?.name ?? ''}'
-  schedule: '${properties.Horario.rich_text.map(item => item.text?.content).join(', ')}'
-  situation: '${properties.Situación.status?.name}'
-  credits: ${properties.Créditos.number ?? ''}
-  deliverable: '${properties.Entregable.select?.name ?? ''}'
-  teachers: '${properties['Profesor(es)'].rich_text.map(item => item.text?.content).join(', ')}'
+id: '${mark.id}'
+quarter: '${properties.Cuatrimestre.select?.name ?? ''}'
+schedule: '${properties.Horario.rich_text.map(item => item.text?.content).join(', ')}'
+situation: '${properties.Situación.status?.name}'
+credits: '${properties.Créditos.number ?? ''}'
+deliverable: '${properties.Entregable.select?.name ?? ''}'
+teachers: '${properties['Profesor(es)'].rich_text.map(item => item.text?.content).join(', ')}'
+icon: '${mark.icon.external?.url}'
 
-  icon: ${mark.icon.external?.url}
-  
-  image: '/marks/series/${fileName}_cover.jpg'
-  image_width: ${width}
-  image_height: ${height}
-  image_hash: ${blurhash}
-  image_blur: ${placeholder}
-  
-  notion_url: ${mark.url}
-  created_time: ${mark.created_time}
-  last_edited_time: ${lastEditedTime}
+image: '/marks/series/${fileName}_cover.jpg'
+image_width: ${width}
+image_height: ${height}
+image_hash: '${blurhash}'
+image_blur: '${placeholder}'
+
+notion_url: '${mark.url}'
+created_time: '${mark.created_time}'
+last_edited_time: '${lastEditedTime}'
 ---
 
 # ${title}`
