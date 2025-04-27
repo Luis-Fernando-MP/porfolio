@@ -9,7 +9,7 @@ import './style.scss'
 import './userMobile.scss'
 
 const GENERAL_LINKS = {
-  home: 'Inicio',
+  '': 'Inicio',
   blog: 'Blog',
   projects: 'Proyectos',
   short: 'Shorts',
@@ -96,7 +96,7 @@ const Footer: FC = () => {
 
       <div className='footer-copyright'>
         <h3>Copyright © 2025 Luis Fernando.</h3>
-        <ShinyText>Derechos reservados a sus respectivos creadores.</ShinyText>
+        <h4>Derechos reservados a sus respectivos creadores.</h4>
       </div>
     </footer>
   )

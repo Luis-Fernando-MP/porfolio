@@ -14,7 +14,6 @@
   @include d.flex;
 
   &-spotlight {
-    position: absolute;
     left: 50%;
 
     overflow: hidden;
@@ -25,6 +24,12 @@
     border-radius: v.$radius * 0.7;
 
     background-color: rgb(v.$bg2);
+
+    &:nth-child(1),
+    &:nth-child(2),
+    &:nth-child(3) {
+      position: absolute;
+    }
 
     &:nth-child(2) {
       z-index: 0;

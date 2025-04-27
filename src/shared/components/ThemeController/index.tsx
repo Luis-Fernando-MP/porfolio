@@ -32,8 +32,6 @@ const ThemeController = (): JSX.Element => {
     <section className='theme'>
       <IconButton transparent label='Tema de la aplicación' position='bottom' onClick={handleOpenPopup}>
         <ThemeColorDisplay />
-        <p>Tema :</p>
-        <h4>{appTheme}</h4>
       </IconButton>
       <Popup isOpen={openThemes} onClose={togglePopup} title='Temas' className='theme-popup' clickPosition={positions}>
         {Object.entries(THEMES).map(current => {

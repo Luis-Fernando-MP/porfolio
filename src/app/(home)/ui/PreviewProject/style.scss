@@ -57,11 +57,9 @@
     border-radius: v.$radius * 0.5;
 
     object-fit: cover;
-    box-shadow: -10px 10px 20px 10px rgba(v.$bg1);
 
     transition:
       transform 0.3s ease,
-      box-shadow 0.3s ease,
       filter 0.3s ease,
       z-index 0.3s ease;
 

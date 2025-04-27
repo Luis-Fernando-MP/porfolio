@@ -1,45 +1,108 @@
-import { NotionRenderer } from '@notion-render/client'
-import { isFullBlock, isFullPageOrDatabase } from '@notionhq/client'
+import fs from 'fs'
+import path from 'path'
+import { fileURLToPath } from 'url'
 
-import notion from './api.ts'
-import { env } from './constants.ts'
+import { parseTitleToLink } from '../src/lib/parseTitle.ts'
+import type NotionMarkSerie from './types/serie.type.ts'
+import blurHashAndGradient from './utils/blurHashAndGradient.ts'
+import downloadImage from './utils/downloadImage.ts'
+import { getAllMarks } from './utils/getAllMarks.ts'
 
-const renderer = new NotionRenderer()
+const __dirname = path.dirname(fileURLToPath(import.meta.url))
 
-const getPosts = async () => {
-  // const response = await notion.databases.query({
-  //   database_id: env.BLOG_INDEX_ID,
-  //   page_size: 100
-  // })
+const processMarks = async () => {
+  console.time('Total Process Time')
+  const marksDb = await getAllMarks<NotionMarkSerie>()
+  const marks = marksDb.filter(mark => mark.properties.Situación.status.name === 'Cursando')
 
-  const blogPage = await notion.pages.retrieve({
-    page_id: '1d298397f7fa800fa3dae75b4f5e8a62'
-  })
+  const mdxFolderPath = path.join(__dirname, '..', 'content', 'marks')
+  const mdxImagesPath = path.join(__dirname, '..', 'public', 'marks', 'series')
 
-  const rr = await notion.blocks.children.list({ block_id: env.BLOG_INDEX_ID })
+  await Promise.all([
+    fs.promises.mkdir(mdxFolderPath, { recursive: true }),
+    fs.promises.mkdir(mdxImagesPath, { recursive: true })
+  ])
 
-  const block = await notion.pages.properties.retrieve({
-    page_id: '1d298397f7fa800fa3dae75b4f5e8a62',
-    property_id: 'boton'
-  })
-  console.log(block)
-  console.log('-------------------')
-  // console.log(blogPage)
-  // https://developers.notion.com/reference/retrieve-a-database
-  // const databases = rr.results.filter(r => r.type === 'child_database')
-  // console.log('-------------------')
-  // await databases.forEach(async db => {
-  //   const { id } = db
-  //   const databaseInfo = await notion.databases.retrieve({
-  //     database_id: id
-  //   })
+  for (const mark of marks) {
+    const { properties } = mark
 
-  //   console.log(databaseInfo)
-  // })
+    const title = properties.Name.title[0].text.content
+    const fileName = parseTitleToLink(title)
+    console.time(`Process Mark ${title}`)
+
+    const mdxFilePath = path.join(mdxFolderPath, `${fileName}.mdx`)
+    const imageFilePath = path.join(mdxImagesPath, `${fileName}_cover.jpg`)
+
+    const lastEditedTime = properties['Última edición'].last_edited_time
+    const mdxFileExists = await fs.promises.stat(mdxFilePath).catch(() => false)
+
+    if (mdxFileExists) {
+      const mdxContent = await fs.promises.readFile(mdxFilePath, 'utf-8')
+      if (mdxContent.includes(`ultima_edicion: ${lastEditedTime}`)) {
+        console.log(`  >>> No hay cambios para el ID: ${mark.id.slice(0, 15)}`)
+        continue
+      }
+    }
+
+    const imageExists = await fs.promises.stat(imageFilePath).catch(() => false)
+    const imageModifiedTime = imageExists ? (await fs.promises.stat(imageFilePath)).mtime.getTime() : 0
+
+    const lastEditedTimeImage = new Date(properties['Última edición'].last_edited_time).getTime()
+
+    if (!imageExists || imageModifiedTime !== lastEditedTimeImage) {
+      if (imageExists) await fs.promises.unlink(imageFilePath)
+
+      try {
+        console.time(`---> Generando imagen:  ${title}`)
+        await downloadImage({ filepath: imageFilePath, url: mark.cover.external.url })
+        console.timeEnd(`---> Imagen generada: ${title}`)
+      } catch (error) {
+        console.error(`Error al descargar la imagen: ${title}: `, error)
+      }
+    }
+
+    console.time(`BlurHash and Gradient ${title}`)
+    const { blurhash, placeholder, width, height } = await blurHashAndGradient(imageFilePath)
+    console.timeEnd(`BlurHash and Gradient ${title}`)
+
+    const mdxContent = `---
+  id: ${mark.id}
+  quarter: '${properties.Cuatrimestre.select?.name ?? ''}'
+  schedule: '${properties.Horario.rich_text.map(item => item.text?.content).join(', ')}'
+  situation: '${properties.Situación.status?.name}'
+  credits: ${properties.Créditos.number ?? ''}
+  deliverable: '${properties.Entregable.select?.name ?? ''}'
+  teachers: '${properties['Profesor(es)'].rich_text.map(item => item.text?.content).join(', ')}'
+
+  icon: ${mark.icon.external?.url}
+  
+  image: '/marks/series/${fileName}_cover.jpg'
+  image_width: ${width}
+  image_height: ${height}
+  image_hash: ${blurhash}
+  image_blur: ${placeholder}
+  
+  notion_url: ${mark.url}
+  created_time: ${mark.created_time}
+  last_edited_time: ${lastEditedTime}
+---
+
+# ${title}`
+
+    await fs.promises.writeFile(mdxFilePath, mdxContent)
+
+    console.timeEnd(`Process Mark ${title}`)
+  }
+
+  console.timeEnd('Total Process Time')
 }
 
 const generateData = async () => {
-  await getPosts()
+  try {
+    await processMarks()
+  } catch (error) {
+    console.error('Error al procesar las marcas:', error)
+  }
 }
 
 generateData()

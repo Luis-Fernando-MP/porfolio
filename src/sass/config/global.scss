@@ -150,6 +150,10 @@ body {
     }
   }
 
+  .svg-active {
+    stroke: rgb($tn1) !important;
+  }
+
   .inverse {
     background-color: rgb($fn1) !important;
 
@@ -258,6 +262,6 @@ body {
 
 @include m.smallerScreen {
   html {
-    font-size: 9px;
+    font-size: 10px;
   }
 }

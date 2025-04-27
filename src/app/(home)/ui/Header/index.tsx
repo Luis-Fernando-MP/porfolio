@@ -39,13 +39,9 @@ const Header: FC = () => {
             backgroundColor='transparent'
             wireframes={false}
             gravity={0.56}
-            fontSize='2rem'
             mouseConstraintStiffness={0.9}
           />
-          {/* <h5 className='header-description'>
-            Desarrollador y diseñador de aplicaciones web <u>Full Stack</u>
-          </h5> */}
-          <h2 className='header-nickname'>#MISHUM</h2>
+          <h2 className='header-nickname'>#HAUI</h2>
           <p>Atento a tus menajes en:</p>
           <Social className='home-social' aria-label='Enlaces a redes sociales de Luis Fernando' />
         </section>

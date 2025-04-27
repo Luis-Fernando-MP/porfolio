@@ -1,12 +1,12 @@
 import type { Metadata } from 'next'
 
 export const metadata: Metadata = {
-  metadataBase: new URL('https://mishum.vercel.app'),
+  metadataBase: new URL('https://haui.vercel.app'),
   title: 'Portafolio - Luis Fernando',
   description:
     'Bienvenido a mi portafolio. Soy Luis Fernando Melgar Pizarro, también conocido como MiSHUN, un desarrollador web full stack apasionado por crear soluciones innovadoras.',
   keywords: ['Portafolio', 'Desarrollador Web', 'Full Stack', 'Luis Fernando Melgar Pizarro', 'MiSHUN'],
-  authors: [{ name: 'Luis Fernando Melgar Pizarro', url: 'https://mishum.vercel.app' }],
+  authors: [{ name: 'Luis Fernando Melgar Pizarro', url: 'https://haui.vercel.app' }],
   creator: 'Luis Fernando Melgar Pizarro',
   publisher: 'MiSHUN',
   icons: {
@@ -16,7 +16,7 @@ export const metadata: Metadata = {
     title: 'Portafolio - Luis Fernando',
     description:
       'Explora mi portafolio y conoce más sobre mi trabajo como desarrollador web full stack. Descubre mis proyectos, habilidades y experiencia.',
-    url: 'https://mishum.vercel.app',
+    url: 'https://haui.vercel.app',
     siteName: 'Portafolio - Luis Fernando',
     images: [
       {

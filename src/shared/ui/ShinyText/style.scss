@@ -4,6 +4,8 @@
 .shiny-text {
   display: inline-block;
 
+  width: fit-content;
+
   color: transparent;
 
   background: linear-gradient(120deg, rgb(v.$fn2, 0.8) 30%, rgb(v.$fn1) 50%, rgb(v.$fn2, 0.8) 70%);

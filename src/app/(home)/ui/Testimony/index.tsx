@@ -21,7 +21,7 @@ const Testimony: FC<Props> = ({ role, feedback, author, photo, company }) => {
       <TransitionContent className='testimony'>
         <header className='testimony-header'>
           <h5>{company}</h5>
-          <BriefcaseBusinessIcon />
+          <BriefcaseBusinessIcon className='svg-active' />
         </header>
         <p className='testimony-feedback'>&quot;{feedback}&quot;</p>
         <BasicUserDetail userName={author} photo={photo} extra={role} />

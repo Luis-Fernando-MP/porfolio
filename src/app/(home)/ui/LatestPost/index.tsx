@@ -1,6 +1,6 @@
+import { parseTitleToLink } from '@/lib/parseTitle'
 import SpotlightCard from '@/shared/components/SpotlightCard'
 import TransitionContent from '@/shared/components/TransitionContent'
-import { parseTitleToLink } from '@/shared/parseTitle'
 import Tags from '@/shared/ui/Tags'
 import dayjs from 'dayjs'
 import 'dayjs/locale/es'

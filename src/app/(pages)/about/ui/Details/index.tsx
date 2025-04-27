@@ -27,7 +27,7 @@ const Details: FC<Props> = ({ className = '' }) => {
           <div className='paragraph'>
             <p className='paragraph-normal'>Mi nombre es&nbsp;</p>
             <p className='paragraph-highlight'>Luis Fernando</p>
-            <p className='paragraph-normal'>, algunos me llaman Mishum. Soy un&nbsp;</p>
+            <p className='paragraph-normal'>, algunos me llaman Haui. Soy un&nbsp;</p>
             <p className='paragraph-highlight'>desarrollador full stack y diseñador UI.&nbsp;</p>
             <p className='paragraph-normal'>
               Mi viaje dentro de este mundo empezo en 2021, cuando obtuve mi título de técnico en Diseño y Programación de

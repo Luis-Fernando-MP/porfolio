@@ -1,0 +1,30 @@
+.noise {
+  pointer-events: none;
+
+  position: fixed;
+  z-index: 15;
+  top: 0;
+  left: 0;
+
+  width: 100vw;
+  height: 100vh;
+
+  opacity: 0.2;
+  background-image: url('/noise.svg');
+
+  animation: move-noise 5s infinite linear;
+
+  @keyframes move-noise {
+    0% {
+      transform: translate(0, 0);
+    }
+
+    50% {
+      transform: translate(10px, 10px);
+    }
+
+    100% {
+      transform: translate(0, 0);
+    }
+  }
+}

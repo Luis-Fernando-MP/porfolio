@@ -26,15 +26,32 @@ interface Props extends HTMLProps<HTMLDivElement> {
   direction?: 'vertical' | 'horizontal'
   distance?: number
   scrollDirection?: 'up' | 'down' | 'both'
+  onlyOpacity?: boolean
 }
 
+/**
+ * Component that adds transition effects to its children based on scroll position
+ * @param children - Child elements to be rendered
+ * @param blur - Whether to apply blur effect (default: true)
+ * @param duration - Duration of the transition in milliseconds (default: 500)
+ * @param easing - Type of easing transition (default: 'ease-in-out')
+ * @param delay - Delay before transition starts in seconds (default: 0)
+ * @param threshold - Intersection observer threshold (default: 0.5)
+ * @param initialOpacity - Initial opacity value (default: 0)
+ * @param observeOnce - Whether to observe intersection only once (default: false)
+ * @param scale - Scale factor for the transition (default: 1)
+ * @param direction - Direction of the transition (default: 'vertical')
+ * @param distance - Distance of the transition in pixels (default: 70)
+ * @param scrollDirection - Direction of scroll to trigger transition (default: 'down')
+ * @param onlyOpacity - Whether to animate only the opacity (default: false)
+ */
 const TransitionContent: FC<Props> = ({
   children,
   blur = true,
   duration = 500,
   easing = 'ease-in-out',
   delay = 0,
-  threshold = 0.5,
+  threshold = 0,
   initialOpacity = 0,
   className = '',
   observeOnce = false,
@@ -42,6 +59,7 @@ const TransitionContent: FC<Props> = ({
   direction = 'vertical',
   distance = 70,
   scrollDirection = 'down',
+  onlyOpacity = false,
   ...props
 }) => {
   const [inView, setInView] = useState(false)
@@ -72,18 +90,21 @@ const TransitionContent: FC<Props> = ({
   }, [easing])
 
   const styles = useMemo(() => {
-    const transformStyle = direction === 'vertical' ? `translateY(${distance}px)` : `translateX(${distance}px)`
     const transitionType = getEasing()
 
     return {
       opacity: inView ? 1 : initialOpacity,
-      transition: `opacity ${duration}ms ${transitionType}, transform ${duration}ms ${transitionType}`,
-      transitionDelay: `${delay}s`,
-      willChange: 'opacity, transform',
+      transition: onlyOpacity
+        ? `opacity ${duration}ms ${transitionType}`
+        : `opacity ${duration}ms ${transitionType}, transform ${duration}ms ${transitionType}`,
+      transitionDelay: `${delay}ms`,
+      willChange: onlyOpacity ? 'opacity' : 'opacity, transform',
       transformOrigin: 'center',
-      transform: `scale(${inView ? 1 : scale}) ${inView ? 'translate(0)' : transformStyle}`
+      transform: onlyOpacity
+        ? undefined
+        : `scale(${inView ? 1 : scale}) translate(${inView ? '0' : direction === 'vertical' ? `0, ${distance}px` : `${distance}px, 0`})`
     }
-  }, [inView, duration, delay, blur, initialOpacity, scale, direction, distance, getEasing])
+  }, [inView, duration, delay, initialOpacity, scale, direction, distance, getEasing, onlyOpacity])
 
   useEffect(() => {
     const element = ref.current

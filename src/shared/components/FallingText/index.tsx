@@ -5,6 +5,8 @@ import './style.scss'
 
 interface FallingTextProps {
   text?: string
+  wordClass?: string
+  containerClass?: string
   highlightWords?: string[]
   highlightClass?: string
   trigger?: 'auto' | 'scroll' | 'click' | 'hover'
@@ -16,6 +18,8 @@ interface FallingTextProps {
 
 const FallingText: React.FC<FallingTextProps> = ({
   text = '',
+  wordClass = '',
+  containerClass = '',
   highlightWords = [],
   highlightClass = 'highlighted',
   trigger = 'auto',
@@ -36,7 +40,7 @@ const FallingText: React.FC<FallingTextProps> = ({
     const newHTML = words
       .map(word => {
         const isHighlighted = highlightWords.some(hw => word.startsWith(hw))
-        return `<span class="word ${isHighlighted ? highlightClass : ''}">${word}</span>`
+        return `<span class="word ${isHighlighted ? highlightClass : ''} ${wordClass}">${word}</span>`
       })
       .join(' ')
     textRef.current.innerHTML = newHTML
@@ -177,7 +181,7 @@ const FallingText: React.FC<FallingTextProps> = ({
   return (
     <div
       ref={containerRef}
-      className='falling-text-container'
+      className={`falling-text-container ${containerClass}`}
       onClick={trigger === 'click' ? handleTrigger : undefined}
       onMouseOver={trigger === 'hover' ? handleTrigger : undefined}
       style={{

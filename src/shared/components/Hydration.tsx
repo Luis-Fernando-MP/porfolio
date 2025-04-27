@@ -15,8 +15,8 @@ const Hydration = ({ children }: IHydration): JSX.Element => {
     setIsHydrated(true)
   }, [])
 
-  // return <>{isHydrated ? <>{children}</> : <LoaderPage />}</>
-  return <>{children}</>
+  return <>{isHydrated ? <>{children}</> : <LoaderPage />}</>
+  // return <>{children}</>
 }
 
 export default Hydration

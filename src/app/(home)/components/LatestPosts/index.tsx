@@ -1,4 +1,4 @@
-import { parseTitleToLink } from '@/shared/parseTitle'
+import { parseTitleToLink } from '@/lib/parseTitle'
 import IconLink from '@/shared/ui/IconLink'
 import ShadowText from '@/shared/ui/ShadowText'
 import TitleText from '@/shared/ui/TitleText'

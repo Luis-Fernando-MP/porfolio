@@ -1,16 +1,16 @@
 :root {
-  --bg-primary: 13, 13, 13;
-  --bg-secondary: 23, 23, 23;
-  --bg-tertiary: 64, 64, 64;
+  --bg-primary: 10, 10, 10;
+  --bg-secondary: 20, 20, 20;
+  --bg-tertiary: 30, 30, 30;
 
   // Fuentes
   --fnt-primary: 237, 237, 237;
   --fnt-secondary: 147, 147, 147;
-  --fnt-active: 255, 255, 255;
+  --fnt-active: 0, 0, 0;
 
   // Principales
-  --tn-primary: 5, 147, 140;
-  --tn-secondary: 237, 182, 123;
+  --tn-primary: 66, 218, 155;
+  --tn-secondary: 66, 218, 155;
 
   // Fuentes
   --xl-font-size: 4rem;
@@ -52,8 +52,8 @@ $big-screen: 1350px;
 $radius: 15px;
 $padding: 10px;
 $big-padding: 40px;
-$icon: 15px;
-$family-size: 14px;
+$icon: 17px;
+$family-size: 16px;
 $fontBase: 'Segoe UI Mono', 'Roboto Mono';
 $font1: var(--family1);
 $font2: var(--family2);
