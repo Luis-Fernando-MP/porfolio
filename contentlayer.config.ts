@@ -69,6 +69,11 @@ const markFields: FieldDefs = {
   image_hash: { type: 'string' },
   image_blur: { type: 'string' },
 
+  tags: {
+    type: 'list',
+    of: { type: 'string' }
+  },
+
   notion_url: {
     type: 'string',
     required: true

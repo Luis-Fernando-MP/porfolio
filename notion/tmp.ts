@@ -3,9 +3,10 @@ import { isFullBlock, isFullPageOrDatabase } from '@notionhq/client'
 
 // DB -> import prisma from '../src/lib/prisma/index.ts'
 // DB -> const marks = await prisma.mark.findMany()
+
 import notion from './api.ts'
 import { env } from './constants.ts'
-import type NotionMarkSerie from './types/serie.type.ts'
+import type NotionMarkSerie from './types/series.type.ts'
 import { getAllMarks } from './utils/getAllMarks.ts'
 
 const renderer = new NotionRenderer()

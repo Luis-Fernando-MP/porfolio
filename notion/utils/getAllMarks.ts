@@ -1,8 +1,8 @@
 import notion from '../api.ts'
-import { env } from '../constants.ts'
 
-interface GetAllMarksOptions {
+interface Props {
   quantity?: number
+  dbID: string
 }
 
 /**
@@ -10,7 +10,7 @@ interface GetAllMarksOptions {
  * @param quantity - Number of items to fetch (optional), default -1 (all items).
  * @returns {Promise<T[]>} An array of results from Notion.
  */
-export async function getAllMarks<T = any>({ quantity = -1 }: GetAllMarksOptions = {}): Promise<T[]> {
+export async function getAllMarksDB<T = any>({ quantity = -1, dbID }: Props): Promise<T[]> {
   let allResults: T[] = []
   let hasMore = true
   let startCursor: string | undefined = undefined
@@ -20,7 +20,7 @@ export async function getAllMarks<T = any>({ quantity = -1 }: GetAllMarksOptions
   while (hasMore) {
     try {
       const response = await notion.databases.query({
-        database_id: env.MARKS_ID,
+        database_id: dbID,
         start_cursor: startCursor,
         page_size
       })
