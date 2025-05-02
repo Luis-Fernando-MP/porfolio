@@ -1,9 +1,9 @@
 import fs from 'fs'
 import path from 'path'
 
+import { generateBlock } from '../generateBlock.ts'
 import type { NotionMarksDB } from '../types/marks.type.ts'
 import type { NotionSeriesDB } from '../types/series.type.ts'
-import { generateBlock } from './generateBlock.ts'
 
 type NotionGroupSerie = NotionSeriesDB & {
   marks: NotionMarksDB[]

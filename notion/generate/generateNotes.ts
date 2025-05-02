@@ -1,8 +1,8 @@
 import fs from 'fs'
 import path from 'path'
 
-import type { NotionSeriesDB } from '../types/series.type.ts'
-import { generateBlock } from './generateBlock.ts'
+import { generateBlock } from '../generateBlock'
+import type { NotionSeriesDB } from '../types/series.type'
 
 export async function generateNotes(notes: NotionSeriesDB[]) {
   const notesList = [...notes]

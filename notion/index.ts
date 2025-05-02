@@ -1,55 +1,40 @@
+import chalk from 'chalk'
 import { createInterface } from 'readline/promises'
 
-import { getAllNotes } from './generate'
+import loadAction from './helpers/loadAction'
+import { generateNotes } from './notes/generate'
 
-const rl = createInterface({
-  input: process.stdin,
-  output: process.stdout
-})
-
-const loadAction = async (task: () => Promise<any>) => {
-  const loadingChars = ['|', '/', '-', '\\']
-  let index = 0
-  const intervalId = setInterval(() => {
-    process.stdout.write(`\rCargando ${loadingChars[index]}`)
-    index = (index + 1) % loadingChars.length
-  }, 100)
-
-  try {
-    await task()
-  } finally {
-    clearInterval(intervalId)
-    process.stdout.write('\r')
-  }
-}
+const rl = createInterface({ input: process.stdin, output: process.stdout })
 
 const main = async () => {
   console.clear()
   let option
 
   do {
-    console.log('\n¿Qué deseas hacer?')
-    console.log('1. Generar notas')
-    console.log('2. Generar series')
-    console.log('3. Generar marks')
-    console.log('0. Terminar\n')
+    console.log(chalk.magentaBright('\n━━━━━━━━━━━━━━━━━━━━━━━━━━━━━'))
+    console.log(chalk.bold('🟣 ¿Nuevos cambios?\n'))
+    console.log(chalk.yellow('1.') + ' Generar notas')
+    console.log(chalk.yellow('2.') + ' Generar series')
+    console.log(chalk.yellow('3.') + ' Generar marks')
+    console.log(chalk.redBright('0. Terminar'))
+    console.log(chalk.magentaBright('━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n'))
 
-    option = await rl.question('-> ')
+    option = await rl.question(chalk.blueBright('-> Elige una opción: '))
     console.clear()
 
     if (option === '0') {
-      console.log('\n👋 Programa finalizado.')
+      console.log(chalk.bold.green('\n👋 Programa finalizado.'))
       break
     }
 
     const options: Record<string, () => Promise<any>> = {
-      '1': () => getAllNotes()
+      '1': () => generateNotes()
     }
 
     const task = options[option]
 
     if (task) await loadAction(task)
-    else console.log('\n❌ Opción no válida.')
+    else console.log(chalk.redBright('\n❌ Opción no válida.\n'))
   } while (option !== '0')
 
   rl.close()

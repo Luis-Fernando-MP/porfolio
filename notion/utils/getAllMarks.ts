@@ -1,8 +1,9 @@
-import notion from '../api.ts'
+import notion from '@notion/api'
+import { QueryDatabaseParameters } from '@notionhq/client/build/src/api-endpoints'
 
 interface Props {
   quantity?: number
-  dbID: string
+  query: Omit<QueryDatabaseParameters, 'start_cursor'>
 }
 
 /**
@@ -10,7 +11,7 @@ interface Props {
  * @param quantity - Number of items to fetch (optional), default -1 (all items).
  * @returns {Promise<T[]>} An array of results from Notion.
  */
-export async function getAllMarksDB<T = any>({ quantity = -1, dbID }: Props): Promise<T[]> {
+export async function getAllMarksDB<T = any>({ quantity = -1, query }: Props): Promise<T[]> {
   let allResults: T[] = []
   let hasMore = true
   let startCursor: string | undefined = undefined
@@ -20,9 +21,8 @@ export async function getAllMarksDB<T = any>({ quantity = -1, dbID }: Props): Pr
   while (hasMore) {
     try {
       const response = await notion.databases.query({
-        database_id: dbID,
-        start_cursor: startCursor,
-        page_size
+        ...query,
+        start_cursor: startCursor
       })
 
       if (!response) throw new Error('Failed to retrieve marks')

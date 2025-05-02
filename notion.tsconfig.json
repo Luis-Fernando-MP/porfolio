@@ -1,7 +1,6 @@
 {
   "compilerOptions": {
     "moduleResolution": "node",
-    "lib": ["ES6", "DOM"],
     "noEmit": false,
     "allowSyntheticDefaultImports": true,
     "noImplicitAny": true,
@@ -12,7 +11,8 @@
     "noUnusedParameters": true,
     "noFallthroughCasesInSwitch": true,
 
-    "target": "ES6",
+    "target": "ES2021",
+    "lib": ["ES2021", "DOM"],
     "module": "commonjs",
     "strict": true,
     "esModuleInterop": true,

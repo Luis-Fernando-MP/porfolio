@@ -1,11 +1,8 @@
-import notion from './api';
-import { env } from './constants';
-import { generateNotes } from './generate/generateNotes';
-import { getAllMarksDB } from './utils/getAllMarks';
-
-
-
-
+import notion from './api'
+import { env } from './constants'
+import { generateNotes } from './generate/generateNotes'
+import type { NotionSeriesDB } from './types/series.type'
+import { getAllMarksDB } from './utils/getAllMarks'
 
 // import { generateNotes } from './generate/generateNotes'
 // import { generateSerie } from './generate/generateSerie'
@@ -30,32 +27,3 @@ import { getAllMarksDB } from './utils/getAllMarks';
 //     await generateSerie(group)
 //   }
 // }
-
-export const getAllNotes = async () => {
-  const seriesDB = await getAllMarksDB<NotionSeriesDB>({ dbID: env.SERIES_ID })
-  console.time('<<< Cargando apuntes')
-  const response = await notion.databases.query({
-    database_id: env.SERIES_ID,
-    filter: {
-      and: [
-        {
-          property: 'Grupo',
-          status: {
-            equals: 'Apuntes'
-          }
-        },
-        {
-          property: 'Visibilidad',
-          status: {
-            equals: 'Portafolio'
-          }
-        }
-      ]
-    }
-  })
-
-  // await generateNotes(response.results)
-
-  console.timeEnd('<<< Apuntes cargados')
-  console.log(response)
-}
