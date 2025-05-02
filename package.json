@@ -2,14 +2,13 @@
   "name": "porfolio",
   "version": "0.2.1",
   "private": true,
-  "type": "module",
   "scripts": {
     "dev": "rimraf .next && pnpm store prune && next dev",
     "build": "pnpm lint && next build",
     "start": "next start",
     "lint": "pnpx stylelint '**/*.{css,scss}' && next lint",
     "format": "pnpx stylelint '**/*.{css,scss}' --fix && prettier --write '**/*.{js,jsx,ts,tsx,json,md,scss,css}'",
-    "notion:generate": "ts-node ./notion/generate.ts",
+    "notion:generate": "ts-node --project ./notion.tsconfig.json -r tsconfig-paths/register ./notion/index.ts",
     "postinstall": "prisma generate",
     "prisma:migrate": "pnpx prisma migrate dev --name",
     "prisma:deploy": "pnpx prisma migrate deploy",
@@ -72,6 +71,7 @@
     "stylelint-config-two-dash-bem": "1.0.0",
     "tailwindcss": "4.1.3",
     "ts-node": "^10.9.2",
+    "tsconfig-paths": "^4.2.0",
     "typescript": "5.8.3"
   }
 }

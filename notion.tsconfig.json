@@ -1,0 +1,28 @@
+{
+  "compilerOptions": {
+    "moduleResolution": "node",
+    "lib": ["ES6", "DOM"],
+    "noEmit": false,
+    "allowSyntheticDefaultImports": true,
+    "noImplicitAny": true,
+    "strictNullChecks": true,
+    "strictFunctionTypes": true,
+    "noImplicitThis": true,
+    "alwaysStrict": true,
+    "noUnusedParameters": true,
+    "noFallthroughCasesInSwitch": true,
+
+    "target": "ES6",
+    "module": "commonjs",
+    "strict": true,
+    "esModuleInterop": true,
+    "skipLibCheck": true,
+    "forceConsistentCasingInFileNames": true,
+    "baseUrl": ".",
+    "paths": {
+      "@notion/*": ["notion/*"]
+    }
+  },
+  "exclude": ["./node_modules/**", "./.vscode/**"],
+  "include": ["./notion/**/*"]
+}

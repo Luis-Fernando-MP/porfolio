@@ -26,6 +26,7 @@
       "@home/*": ["./src/app/(home)/*"],
       "@sass/*": ["./src/sass/*"],
       "@shared/*": ["./src/shared/*"],
+      "@notion/*": ["./notion/*"],
       "contentlayer/generated": ["./.contentlayer/generated/*"]
     }
   },
