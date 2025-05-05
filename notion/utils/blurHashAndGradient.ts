@@ -1,4 +1,4 @@
-import clog from '@notion/helpers/log'
+import clog from '@notion/utils/log'
 import { blurhashToCssGradientString } from '@unpic/placeholder'
 import { encode } from 'blurhash'
 import sharp from 'sharp'

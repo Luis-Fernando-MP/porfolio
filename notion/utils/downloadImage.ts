@@ -1,4 +1,4 @@
-import clog from '@notion/helpers/log'
+import clog from '@notion/utils/log'
 import axios from 'axios'
 import fs from 'fs'
 import path from 'path'

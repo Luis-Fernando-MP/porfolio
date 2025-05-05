@@ -1,38 +1,41 @@
-import clog from '@notion/helpers/log'
+import clog from '@notion/utils/log'
 import fs from 'fs'
 import path from 'path'
 
 const cleanObsoleteFiles = async (existingIds: string[], folderPath: string, suffix?: string) => {
   const files = await fs.promises.readdir(folderPath)
 
-  const toDelete: string[] = []
+  const toDelete = await Promise.all(
+    files.map(async file => {
+      const fullPath = path.join(folderPath, file)
+      const stat = await fs.promises.stat(fullPath)
 
-  for (const file of files) {
-    const fullPath = path.join(folderPath, file)
-    const stat = await fs.promises.stat(fullPath)
-
-    // Caso: Archivos
-    if (suffix) {
-      if (stat.isFile() && file.endsWith(suffix)) {
+      if (stat.isFile() && suffix && file.endsWith(suffix)) {
         const id = file.replace(suffix, '')
-        if (!existingIds.includes(id)) toDelete.push(file)
+        return !existingIds.includes(id) ? file : null
       }
-    }
-    // Caso: Carpetas
-    if (stat.isDirectory()) {
-      if (!existingIds.includes(file)) toDelete.push(file)
-    }
-  }
 
-  for (const name of toDelete) {
-    const fullPath = path.join(folderPath, name)
-    if (suffix) {
-      await fs.promises.unlink(fullPath)
-    } else {
-      await fs.promises.rm(fullPath, { recursive: true, force: true })
-    }
-    clog.error(`Eliminado: ${name.slice(0, 30)}`)
-  }
+      if (stat.isDirectory() && !existingIds.includes(file)) {
+        return file
+      }
+
+      return null
+    })
+  )
+
+  await Promise.all(
+    toDelete
+      .filter((name): name is string => name !== null)
+      .map(async name => {
+        const fullPath = path.join(folderPath, name)
+        if (suffix) {
+          await fs.promises.unlink(fullPath)
+        } else {
+          await fs.promises.rm(fullPath, { recursive: true, force: true })
+        }
+        clog.error(`Eliminado: ${name.slice(0, 30)}`)
+      })
+  )
 }
 
 export default cleanObsoleteFiles

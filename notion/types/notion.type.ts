@@ -1,3 +1,5 @@
+export type NotionGroupVisibility = 'Portafolio' | 'Privado'
+
 interface ExternalURL {
   url: string
 }
@@ -15,7 +17,7 @@ interface Icon {
 export interface NotionMDVisibility {
   Visibilidad: {
     type: 'status'
-    status: { name: 'Portafolio' | 'Privado'; color: string } | null
+    status: { name: NotionGroupVisibility; color: string } | null
   }
 }
 

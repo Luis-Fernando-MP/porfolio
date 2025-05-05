@@ -1,28 +1,35 @@
 import type { NotionDB, NotionMDVisibility, NotionRichText } from './notion.type'
 
+export type NotionMarkStatus = 'Sin empezar' | 'Editando' | 'Completado'
+
 interface Properties {
   Folder: {
     type: 'select'
     select: { name: string; color: string } | null
-  }
+  } | null
+
+  Tags: {
+    type: 'multi_select'
+    multi_select: { name: string; color: string }[]
+  } | null
 
   Estado: {
     type: 'status'
     status: {
-      name: 'Sin empezar' | 'Editando' | 'Completado'
+      name: NotionMarkStatus
       color: string
     } | null
-  }
+  } | null
 
   Nivel: {
     type: 'select'
     select: { name: string; color: string } | null
-  }
+  } | null
 
   'Semana(s)': {
     type: 'multi_select'
     multi_select: { name: string; color: string }[]
-  }
+  } | null
 
   Name: {
     type: 'title'

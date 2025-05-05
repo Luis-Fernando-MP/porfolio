@@ -3,7 +3,7 @@ import { QueryDatabaseParameters } from '@notionhq/client/build/src/api-endpoint
 
 interface Props {
   quantity?: number
-  query: Omit<QueryDatabaseParameters, 'start_cursor'>
+  query: Omit<QueryDatabaseParameters, 'start_cursor' | 'page_size'>
 }
 
 /**
@@ -22,7 +22,8 @@ export async function getAllMarksDB<T = any>({ quantity = -1, query }: Props): P
     try {
       const response = await notion.databases.query({
         ...query,
-        start_cursor: startCursor
+        start_cursor: startCursor,
+        page_size
       })
 
       if (!response) throw new Error('Failed to retrieve marks')
