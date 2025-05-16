@@ -7,15 +7,15 @@ export const noteContent = (book: NotionSeriesDB, coverUrl: string | undefined, 
   const lastEditedTime = properties['Última edición'].last_edited_time
 
   return `---
-  id: '${id}'
-  title: '${title}'
-  banner: ${coverUrl ? `'/blog/notes/${id}/banner.webp'` : "''"}
-  thumb: ${coverUrl ? `'/blog/notes/${id}/thumb.webp'` : "''"}
-  image_width: ${imageProps.width}
-  image_height: ${imageProps.height}
-  image_hash: '${imageProps.blurhash}'
-  image_blur: '${imageProps.placeholder}'
-  created_time: '${created_time}'
-  last_edited_time: '${lastEditedTime}'
-  ---`.replaceAll('  ', '')
+id: '${id}'
+title: '${title}'
+banner: ${coverUrl ? `'/blog/notes/${id}/banner.webp'` : "''"}
+thumb: ${coverUrl ? `'/blog/notes/${id}/thumb.webp'` : "''"}
+image_width: ${imageProps.width}
+image_height: ${imageProps.height}
+image_hash: '${imageProps.blurhash}'
+image_blur: '${imageProps.placeholder}'
+created_time: '${created_time}'
+last_edited_time: '${lastEditedTime}'
+---`
 }

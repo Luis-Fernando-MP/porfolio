@@ -61,6 +61,7 @@
     "eslint": "9.24.0",
     "eslint-config-next": "15.3.0",
     "eslint-config-prettier": "10.1.2",
+    "node-html-parser": "^7.0.1",
     "postcss": "8.5.3",
     "prettier": "3.5.3",
     "prettier-plugin-tailwindcss": "0.6.11",

@@ -9,22 +9,20 @@ export const serieContent = (book: NotionSeriesDB, coverUrl: string | undefined,
   const teacher = properties['Profesor(es)']?.rich_text[0]?.text.content ?? ''
 
   return `---
-  id: '${id}'
-  title: '${title}'
-  folder: '${properties.Folder?.select?.name}'
-  folder_color: '${properties.Folder?.select?.color}'
-
-  profesor(s): '${teacher}'
-  tags:
-  ${properties.Tags?.multi_select.map(item => `\t- ${item.name}`).join('\n')}
-
-  banner: ${coverUrl ? `'/blog/series/${id}/banner.webp'` : "''"}
-  thumb: ${coverUrl ? `'/blog/series/${id}/thumb.webp'` : "''"}
-  image_width: ${imageProps.width}
-  image_height: ${imageProps.height}
-  image_hash: '${imageProps.blurhash}'
-  image_blur: '${imageProps.placeholder}'
-  created_time: '${created_time}'
-  last_edited_time: '${lastEditedTime}'
-  ---`.replaceAll('  ', '')
+id: '${id}'
+title: '${title}'
+folder: '${properties.Folder?.select?.name}'
+folder_color: '${properties.Folder?.select?.color}'
+profesor(s): '${teacher}'
+tags:
+${properties.Tags?.multi_select.map(item => `  - ${item.name}`).join('\n')}
+banner: ${coverUrl ? `'/blog/series/${id}/banner.webp'` : "''"}
+thumb: ${coverUrl ? `'/blog/series/${id}/thumb.webp'` : "''"}
+image_width: ${imageProps.width}
+image_height: ${imageProps.height}
+image_hash: '${imageProps.blurhash}'
+image_blur: '${imageProps.placeholder}'
+created_time: '${created_time}'
+last_edited_time: '${lastEditedTime}'
+---`
 }

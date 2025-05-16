@@ -1,9 +1,12 @@
 import { NotionRenderer } from '@notion-render/client'
+import { Client } from '@notionhq/client'
 import chalk from 'chalk'
 import path from 'path'
 
 import notion from '../api'
+import { escapeHTML } from './escapeHTML'
 import { fileExists, lastEditedFile, writeFile } from './fs'
+import { getAllBlocks } from './getAllBlocks'
 import { handleImageProcessing } from './handleImageProcessing'
 import clog from './log'
 
@@ -25,6 +28,12 @@ interface Props {
   title: string
   mdxContent: (_: MdxContentProps) => string
   generateContent?: boolean
+}
+export interface Block {
+  id: string
+  type: string
+  has_children?: boolean
+  [key: string]: any
 }
 
 export async function generateBlock(props: Props) {
@@ -66,9 +75,11 @@ export async function generateBlock(props: Props) {
 
     let content = `${mdxContent({ blurhash, placeholder, width, height })}`
     if (generateContent) {
-      const html = await renderer.renderBlock(blockId)
-      content += `\n\n${html.replaceAll('   ', '')}`
+      const blocks = await getAllBlocks({ blockID: blockId })
+      const html = await renderer.render(...blocks)
+      content += escapeHTML(html.replaceAll('   ', '').replaceAll('\n\n\n', ''))
     }
+
     await writeFile(mdxFilePath, content)
     clog.success(`MDX generado: ${cutTitle}`)
     console.log(chalk.blueBright('━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n'))

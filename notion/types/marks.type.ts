@@ -26,7 +26,7 @@ interface Properties {
     select: { name: string; color: string } | null
   } | null
 
-  'Semana(s)': {
+  Sesión: {
     type: 'multi_select'
     multi_select: { name: string; color: string }[]
   } | null

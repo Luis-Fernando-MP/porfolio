@@ -1,4 +1,4 @@
-import notion from '../api.ts'
+import notion from '../api'
 
 interface GetAllBlocksProps {
   blockID: string

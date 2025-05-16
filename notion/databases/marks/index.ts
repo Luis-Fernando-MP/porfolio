@@ -22,8 +22,8 @@ export const generateMarks = async () => {
           and: [
             {
               or: [
-                { property: 'Estado', status: { equals: 'Completado' as NotionMarkStatus } },
-                { property: 'Estado', status: { equals: 'Editando' as NotionMarkStatus } }
+                { property: 'Estado', status: { equals: 'Completado' as NotionMarkStatus } }
+                // { property: 'Estado', status: { equals: 'Editando' as NotionMarkStatus } }
               ]
             },
             { property: 'Visibilidad', status: { equals: 'Portafolio' as NotionGroupVisibility } }
