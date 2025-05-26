@@ -1,4 +1,4 @@
-import { Icon, MonitorDotIcon, MoonStarIcon, Sun, SunMediumIcon } from 'lucide-react'
+import { MonitorDotIcon, MoonStarIcon, SunIcon } from 'lucide-react'
 
 import { INFO } from '.'
 
@@ -256,7 +256,7 @@ export const THEMES = {
   },
 
   light: {
-    Icon: SunMediumIcon,
+    Icon: SunIcon,
     styles: {
       'Aurora Day': {
         'bg-primary': '245, 245, 250',

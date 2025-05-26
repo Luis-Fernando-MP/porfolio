@@ -9,56 +9,20 @@
       width: 100%;
       padding: v.$padding;
     }
-
-    &-modal {
-      position: fixed;
-      z-index: 10;
-      top: 0;
-      left: 0;
-
-      flex-direction: column;
-      justify-content: center;
-
-      width: 100%;
-      height: 100%;
-
-      background-color: rgb(v.$bg1, 0.8);
-      backdrop-filter: blur(10px);
-
-      @include d.flex($ali: center);
-
-      .mainBar-section {
-        flex-direction: column;
-        width: 100%;
-        max-width: 130px;
-      }
-
-      .mainBar-btn {
-        width: 100%;
-      }
-    }
-
-    &-menu {
-      display: block;
-    }
   }
 }
 
 @include m.smallScreen {
   .mainBar {
     &-wrapper {
-      flex-wrap: wrap;
       gap: v.$padding;
       padding: 5px;
     }
-  }
-}
 
-@include m.smallScreen {
-  .mainBar {
-    &-wrapper {
-      flex-wrap: wrap;
-      padding: 5px;
+    &-currentWork {
+      &::before {
+        display: none;
+      }
     }
   }
 }

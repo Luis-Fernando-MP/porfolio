@@ -1,8 +1,10 @@
 import { THEMES, ThemeKeys } from '@/constants/themes'
 import { FC, memo } from 'react'
 
+import CurrentThemeName from './CurrentThemeName'
 import ThemeButton from './ThemeButton'
 import './style.scss'
+import './userMobile.scss'
 
 const renderThemeSection = (style: string) => {
   const { Icon, styles } = THEMES[style as ThemeKeys]
@@ -23,6 +25,7 @@ const renderThemeSection = (style: string) => {
 const ThemesSelector: FC = memo(() => {
   return (
     <div className='themesSelector' role='region' aria-label='Theme selector'>
+      <CurrentThemeName />
       {Object.keys(THEMES).map(renderThemeSection)}
     </div>
   )

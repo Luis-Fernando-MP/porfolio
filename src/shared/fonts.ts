@@ -8,7 +8,7 @@ export const font1 = Montserrat({
 
 export const font2 = Open_Sans({
   subsets: ['latin'],
-  weight: ['400', '700'],
+  weight: ['400', '600'],
   variable: '--family2'
 })
 

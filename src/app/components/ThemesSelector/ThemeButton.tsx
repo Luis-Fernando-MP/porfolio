@@ -1,7 +1,6 @@
 import { ThemeColorKeys, ThemeKeys } from '@/constants/themes'
+import useAppThemeStore, { ISetThemeProps } from '@/shared/store/appTheme.store'
 import { type FC } from 'react'
-
-import useAppThemeStore, { ISetThemeProps } from './hooks/appTheme.store'
 
 interface Props {
   style: string

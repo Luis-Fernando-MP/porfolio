@@ -83,6 +83,10 @@ body {
     color: map.get(map.get($typography, 'p'), color);
   }
 
+  .fne {
+    font-family: $fontE1;
+  }
+
   .icon,
   .lucide {
     display: block;
@@ -134,18 +138,6 @@ body {
     cursor: pointer;
   }
 
-  .active {
-    background-color: rgb($tn1) !important;
-
-    * {
-      color: rgb($fnA) !important;
-    }
-
-    svg {
-      stroke: rgb($fnA) !important;
-    }
-  }
-
   .svg-active {
     stroke: rgb($tn1) !important;
   }
@@ -161,23 +153,43 @@ body {
       stroke: rgb($bg1) !important;
     }
   }
-}
 
-.toast {
-  width: fit-content !important;
-  height: fit-content !important;
-  padding: 0 !important;
-  border: 1px solid rgb($bg3, 0.5) !important;
-  border-radius: $radius * 0.7 !important;
+  .toast {
+    width: fit-content !important;
+    height: fit-content !important;
+    padding: 0 !important;
+    border: 1px solid rgb($bg3, 0.5) !important;
+    border-radius: $radius * 0.7 !important;
 
-  line-height: normal !important;
+    line-height: normal !important;
 
-  background-color: rgb($bg2, 0.7) !important;
-  backdrop-filter: blur(20px) !important;
-  box-shadow: none !important;
+    background-color: rgb($bg2, 0.7) !important;
+    backdrop-filter: blur(20px) !important;
+    box-shadow: none !important;
 
-  > div {
-    margin: 0 !important;
+    > div {
+      margin: 0 !important;
+    }
+  }
+
+  .active {
+    background-color: rgb($tn1) !important;
+
+    &,
+    h3,
+    h4,
+    h5,
+    p,
+    a,
+    button,
+    div,
+    span {
+      color: rgb($fnA) !important;
+    }
+
+    svg {
+      stroke: rgb($fnA) !important;
+    }
   }
 }
 
@@ -193,7 +205,7 @@ body {
 
   &-emphasis {
     font-size: $fH5;
-    font-weight: lighter;
+    font-weight: bolder;
     color: rgb($fn1) !important;
   }
 
