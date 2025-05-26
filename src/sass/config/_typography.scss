@@ -3,13 +3,13 @@
 $typography: (
   'h1': (
     size: $fH1,
-    weight: 700,
+    weight: 800,
     color: rgb($fn1),
     family: $font1
   ),
   'h2': (
     size: $fH2,
-    weight: 500,
+    weight: 700,
     color: rgb($fn1),
     family: $font1
   ),
@@ -17,7 +17,7 @@ $typography: (
     size: $fH3,
     weight: 500,
     color: rgb($fn1),
-    family: $font2
+    family: $font1
   ),
   'h4': (
     size: $fH4,
@@ -27,7 +27,7 @@ $typography: (
   ),
   'h5': (
     size: $fH5,
-    weight: 400,
+    weight: 500,
     color: rgb($fn2),
     family: $font2
   ),
@@ -39,7 +39,7 @@ $typography: (
   ),
   'a': (
     size: $fH5,
-    weight: 500,
+    weight: 400,
     color: rgb($fn1),
     family: $font2
   )

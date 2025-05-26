@@ -1,5 +1,4 @@
 import Hydration from '@/shared/components/Hydration'
-import Noise from '@/shared/components/Noise'
 import Offline from '@/shared/components/Offline'
 import { bodyFonts } from '@/shared/fonts'
 import '@sass/config/global.scss'
@@ -22,7 +21,7 @@ const RootLayout = async ({ children }: IRootLayout): Promise<JSX.Element> => {
         <NextTopLoader color='rgb(var(--tn-primary))' showSpinner={false} />
         <Offline />
         {/* <SplashCursorComponent /> */}
-        <Noise />
+        {/* <Noise /> */}
         <Hydration>{children}</Hydration>
         <Toaster position='top-center' toastOptions={{ className: 'toast' }} />
       </body>

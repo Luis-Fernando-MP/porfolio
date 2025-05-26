@@ -13,9 +13,9 @@ const ShinyText: FC<ShinyTextProps> = ({ children, disabled = false, speed = 5, 
   const animationDuration = `${speed}s`
 
   return (
-    <div className={`shiny-text ${disabled ? 'disabled' : ''} ${className}`} style={{ animationDuration }}>
+    <h4 className={`shiny-text ${disabled ? 'disabled' : ''} ${className}`} style={{ animationDuration }}>
       {children}
-    </div>
+    </h4>
   )
 }
 

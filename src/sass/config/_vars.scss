@@ -1,26 +1,25 @@
 :root {
   --bg-primary: 10, 10, 10;
-  --bg-secondary: 20, 20, 20;
-  --bg-tertiary: 30, 30, 30;
+  --bg-secondary: 16, 16, 16;
+  --bg-tertiary: 44, 42, 42;
 
   // Fuentes
   --fnt-primary: 237, 237, 237;
   --fnt-secondary: 147, 147, 147;
-  --fnt-active: 0, 0, 0;
+  --fnt-active: 255, 255, 255;
 
   // Principales
-  --tn-primary: 66, 218, 155;
+  --tn-primary: 0, 85, 255;
   --tn-secondary: 66, 218, 155;
 
   // Fuentes
   --xl-font-size: 4rem;
-  --h1-font-size: 1.1rem;
-  --h2-font-size: 1rem;
-  --h3-font-size: 0.9rem;
+  --h1-font-size: 1.3rem;
+  --h2-font-size: 1.2rem;
+  --h3-font-size: 1rem;
   --h4-font-size: 0.9rem;
   --h5-font-size: 0.9rem;
   --p-font-size: 0.9rem;
-  --s-grid: 15px;
 }
 
 $fXl: var(--xl-font-size);
@@ -49,11 +48,11 @@ $extra-large-screen: 1200px;
 $big-screen: 1350px;
 
 // Other
-$radius: 15px;
+$radius: 10px;
 $padding: 10px;
 $big-padding: 40px;
 $icon: 17px;
-$family-size: 16px;
+$family-size: 14px;
 $fontBase: 'Segoe UI Mono', 'Roboto Mono';
 $font1: var(--family1);
 $font2: var(--family2);
@@ -66,6 +65,9 @@ $warning: rgb(255 193 7);
 $info: rgb(42 42 42);
 $focus: rgb(66 133 244);
 $active: rgb(150 211 50);
+
+// Max width application
+$max-w: 900px;
 
 // bezier
 $bezier: cubic-bezier(0.68, -0.55, 0.27, 1.55);

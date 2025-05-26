@@ -1,0 +1,48 @@
+@use '@sass/config/vars' as v;
+@use '@sass/utils/defs' as d;
+
+.hauidev {
+  @include d.flex($dir: row, $ali: center, $gap: v.$padding * 0.5);
+
+  width: fit-content;
+  height: fit-content;
+  padding: 5px;
+  background-color: rgb(v.$fn1);
+
+  &.circle {
+    border-radius: 50%;
+  }
+
+  &.rounded {
+    border-radius: v.$radius * 0.4;
+  }
+
+  &.none {
+    border-radius: 0;
+  }
+
+  &.xs .hauidev-logo {
+    width: v.$icon * 0.8;
+    height: v.$icon * 0.8;
+  }
+
+  &.sm .hauidev-logo {
+    width: v.$icon;
+    height: v.$icon;
+  }
+
+  &.md .hauidev-logo {
+    width: v.$icon * 1.5;
+    height: v.$icon * 1.5;
+  }
+
+  &.lg .hauidev-logo {
+    width: v.$icon * 2;
+    height: v.$icon * 2;
+  }
+
+  &.xl .hauidev-logo {
+    width: v.$icon * 4;
+    height: v.$icon * 4;
+  }
+}

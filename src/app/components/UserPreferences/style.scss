@@ -1,0 +1,47 @@
+@use '@sass/config/vars' as v;
+@use '@sass/utils/defs' as d;
+
+.UPreferences {
+  position: absolute;
+  z-index: 10;
+  top: calc(100% + v.$padding);
+  left: 0;
+
+  width: 455px;
+  height: 550px;
+  padding: v.$padding * 2;
+  border-radius: v.$radius * 2;
+
+  background-color: rgb(v.$bg1, 0.7);
+
+  @include d.flex($gap: v.$big_padding);
+
+  &-pages {
+    @include d.flex($dir: row);
+
+    flex-wrap: wrap;
+  }
+
+  &-page {
+    overflow: hidden;
+
+    width: 130px;
+    height: 80px;
+    border-radius: v.$radius;
+
+    background-size: cover;
+
+    &__content {
+      justify-content: center;
+      width: 100%;
+      height: 100%;
+      background-color: rgb(v.$bg1, 0.7);
+
+      @include d.flex($dir: row, $ali: center);
+    }
+  }
+
+  &-section {
+    @include d.flex($gap: v.$padding * 2);
+  }
+}

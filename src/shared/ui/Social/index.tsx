@@ -1,4 +1,4 @@
-import { CV, FIGMA, GITHUB, LINKED_IN, MAIL, PHONE } from '@/shared/constants'
+import { CV, FIGMA, GITHUB, LINKED_IN, MAIL, PHONE } from '@/constants'
 import { FigmaIcon, FileUserIcon, GithubIcon, LinkedinIcon, MailIcon, PhoneIcon } from 'lucide-react'
 import Link from 'next/link'
 import type { FC, HtmlHTMLAttributes } from 'react'
