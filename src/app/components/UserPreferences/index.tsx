@@ -6,6 +6,7 @@ import type { FC } from 'react'
 import ThemesSelector from '../ThemesSelector'
 import FontSizeComponent from './FontSizeComponent'
 import NoiseOptionsComponent from './NoiseOptionsComponent'
+import SoundOptionsComponent from './SoundOptionsComponent'
 import './style.scss'
 import './userMobile.scss'
 
@@ -43,6 +44,10 @@ const UserPreferences: FC = () => {
         <div className='UPreferences-group'>
           <h3># Fondo ruidoso</h3>
           <NoiseOptionsComponent />
+        </div>
+        <div className='UPreferences-group'>
+          <h3># Sonidos</h3>
+          <SoundOptionsComponent />
         </div>
       </section>
     </section>

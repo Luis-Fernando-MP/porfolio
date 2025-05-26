@@ -20,6 +20,20 @@
   @include d.flex($gap: v.$big_padding);
   @include scroll-hidden;
 
+  animation: fade 0.5s ease forwards;
+
+  @keyframes fade {
+    0% {
+      transform: translateY(-20px);
+      opacity: 0;
+    }
+
+    100% {
+      transform: translateY(0);
+      opacity: 1;
+    }
+  }
+
   &-pages {
     @include d.flex($dir: row);
 

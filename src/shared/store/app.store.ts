@@ -20,8 +20,10 @@ export type NoiseOptions = keyof typeof NOISE_OPTIONS
 interface Props {
   noiseStyle: NoiseOptions
   fontSize: FontSizeOptions
+  soundEnabled: boolean
   setNoiseStyle: (noiseStyle: NoiseOptions) => void
   setFontSize: (fontSize: FontSizeOptions) => void
+  setSoundEnabled: (enabled: boolean) => void
 
   currentFontSize: () => number
 }
@@ -29,6 +31,10 @@ interface Props {
 const state: StateCreator<Props> = (set, get) => ({
   noiseStyle: 'Off',
   fontSize: 'Normal',
+  soundEnabled: true,
+  setSoundEnabled: (enabled: boolean) => {
+    set({ soundEnabled: enabled })
+  },
   setFontSize: (fontSize: FontSizeOptions) => {
     set({ fontSize })
   },

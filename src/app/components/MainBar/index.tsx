@@ -1,6 +1,7 @@
 'use client'
 
 import { INFO } from '@/constants'
+import useSound from '@/shared/hook/useSound'
 import HauiDevLogo from '@/shared/ui/HauiDevLogo'
 import IconButton from '@/shared/ui/IconButton'
 import ShinyText from '@/shared/ui/ShinyText'
@@ -19,6 +20,14 @@ interface Props {
 
 const MainBar: FC<Props> = ({ className = '' }) => {
   const [show, setShow] = useState(false)
+  const [openPlay] = useSound('MENU_OPEN', { interrupt: true })
+  const [closePlay] = useSound('MENU_CLOSE', { interrupt: true })
+
+  const handleToggleMenu = (): void => {
+    if (show) closePlay()
+    else openPlay()
+    setShow(!show)
+  }
 
   return (
     <article className={`mainBar ${className}`}>
@@ -30,7 +39,7 @@ const MainBar: FC<Props> = ({ className = '' }) => {
           </div>
         </Link>
 
-        <IconButton className='border' onClick={() => setShow(!show)}>
+        <IconButton className='border' onClick={handleToggleMenu}>
           <MenuIcon />
           <h4>Menu</h4>
         </IconButton>

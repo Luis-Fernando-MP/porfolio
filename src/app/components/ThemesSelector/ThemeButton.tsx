@@ -1,6 +1,8 @@
+import { AUDIOS } from '@/constants/audio'
 import { ThemeColorKeys, ThemeKeys } from '@/constants/themes'
 import useAppThemeStore, { ISetThemeProps } from '@/shared/store/appTheme.store'
 import { type FC } from 'react'
+import useSound from 'use-sound'
 
 interface Props {
   style: string
@@ -9,9 +11,15 @@ interface Props {
 }
 
 const ThemeButton: FC<Props> = ({ style, name, colors }) => {
+  const theme = useAppThemeStore(s => s.theme)
   const setAppTheme = useAppThemeStore(s => s.setAppTheme)
+  const [switchOnPlay] = useSound(AUDIOS.SWITCH_ON.path)
+  const [switchOffPlay] = useSound(AUDIOS.SWITCH_OFF.path)
 
   const handleSetTheme = (props: ISetThemeProps): void => {
+    if (theme === props.theme) return
+    if (['light', 'default'].includes(props.style)) switchOnPlay()
+    else switchOffPlay()
     setAppTheme(props)
   }
 
