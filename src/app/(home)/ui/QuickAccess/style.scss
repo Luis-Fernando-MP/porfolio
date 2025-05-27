@@ -12,22 +12,23 @@
 
   text-align: center;
 
-  background-color: rgb(v.$bg1, 0.1);
+  background-color: rgb(v.$bg1, 0.2);
   backdrop-filter: blur(50px);
 
   @include d.flex($dir: row, $ali: center);
 
-  h4 {
-    color: rgb(v.$fnA);
+  &-subtitle {
+    color: rgb(255 255 255);
   }
 
   .lucide {
-    stroke: rgb(v.$fnA);
+    stroke: rgb(255 255 255);
   }
 
   &-button {
     padding: v.$padding * 0.5 v.$padding;
     border-radius: v.$radius;
-    background-color: rgb(v.$fn1, 0.2);
+    color: rgb(v.$fn1);
+    background-color: rgb(v.$bg1, 0.5);
   }
 }

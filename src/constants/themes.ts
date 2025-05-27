@@ -68,7 +68,7 @@ export const THEMES = {
         'bg-tertiary': '50, 90, 120',
         'fnt-primary': '220, 230, 240',
         'fnt-secondary': '180, 200, 220',
-        'fnt-active': '100, 180, 220',
+        'fnt-active': '255, 255, 255',
         'tn-primary': '80, 150, 180',
         'tn-secondary': '150, 200, 230'
       },
@@ -78,7 +78,7 @@ export const THEMES = {
         'bg-tertiary': '80, 80, 85',
         'fnt-primary': '230, 230, 235',
         'fnt-secondary': '190, 190, 195',
-        'fnt-active': '0, 0, 0',
+        'fnt-active': '255, 255, 255',
         'tn-primary': '110, 110, 130',
         'tn-secondary': '180, 180, 200'
       },
@@ -448,16 +448,6 @@ export const THEMES = {
         'fnt-active': '255, 255, 255',
         'tn-primary': '0, 120, 240',
         'tn-secondary': '0, 100, 200'
-      },
-      Aurora: {
-        'bg-primary': '10, 20, 20',
-        'bg-secondary': '20, 30, 30',
-        'bg-tertiary': '30, 40, 40',
-        'fnt-primary': '0, 255, 128',
-        'fnt-secondary': '0, 192, 255',
-        'fnt-active': '0, 0, 0',
-        'tn-primary': '255, 0, 128',
-        'tn-secondary': '0, 255, 200'
       }
     }
   }
