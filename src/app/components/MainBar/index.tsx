@@ -33,7 +33,7 @@ const MainBar: FC<Props> = ({ className = '' }) => {
     <article className={`mainBar ${className}`}>
       <div className='mainBar-wrapper'>
         <Link href='/' aria-label='Página principal' className='mainBar-logo'>
-          <HauiDevLogo />
+          <HauiDevLogo size='md' />
           <div className='mainBar-logo__devName border'>
             <ShinyText>{INFO.dev_name}</ShinyText>
           </div>
