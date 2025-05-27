@@ -49,3 +49,8 @@ export const APP = {
     }
   ]
 }
+
+export const backgroundImages = [
+  { path: '/assets/backgrounds/1.webp', hash: 'L4F5gBK$00EL.jot^*_M00%2-;Ns' },
+  { path: '/assets/backgrounds/2.webp', hash: 'LQJl4#Nyo~t-_MEQogXUx,EkjDWU' }
+]

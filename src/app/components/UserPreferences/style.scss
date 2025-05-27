@@ -15,7 +15,7 @@
   padding: v.$padding * 2;
   border-radius: v.$radius * 2;
 
-  background-color: rgb(v.$bg1, 0.7);
+  background-color: rgb(v.$bg1);
 
   @include d.flex($gap: v.$big_padding);
   @include scroll-hidden;

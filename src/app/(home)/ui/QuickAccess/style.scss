@@ -12,10 +12,18 @@
 
   text-align: center;
 
-  background-color: rgb(v.$bg2, 0.2);
-  backdrop-filter: blur(20px);
+  background-color: rgb(v.$bg1, 0.1);
+  backdrop-filter: blur(50px);
 
   @include d.flex($dir: row, $ali: center);
+
+  h4 {
+    color: rgb(v.$fnA);
+  }
+
+  .lucide {
+    stroke: rgb(v.$fnA);
+  }
 
   &-button {
     padding: v.$padding * 0.5 v.$padding;

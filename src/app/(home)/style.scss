@@ -5,11 +5,12 @@
 .home {
   width: 100%;
   height: fit-content;
+  min-height: 100vh;
 
-  @include d.flex($gap: v.$big-padding);
+  @include d.flex;
 
   &-wrapper {
-    width: 900px;
+    width: v.$max-w;
     margin: auto;
   }
 

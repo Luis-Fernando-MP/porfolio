@@ -5,11 +5,7 @@
   position: sticky;
   z-index: 10;
   top: 0;
-
   width: 100%;
-
-  background-color: rgb(v.$bg1, 0.7);
-  backdrop-filter: blur(10px);
 
   &-wrapper {
     position: relative;
@@ -17,7 +13,7 @@
     flex-wrap: wrap;
 
     width: v.$max-w;
-    margin: auto;
+    margin: 0 auto;
     padding: v.$padding 0;
 
     @include d.flex($dir: row, $ali: center, $gap: v.$padding * 2);
