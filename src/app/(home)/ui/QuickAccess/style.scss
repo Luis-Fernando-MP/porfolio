@@ -1,0 +1,25 @@
+@use '@sass/config/vars' as v;
+@use '@sass/utils/defs' as d;
+@use '@sass/utils/scrollbar' as *;
+
+.quickAccess {
+  flex-wrap: wrap;
+  justify-content: center;
+
+  width: 100%;
+  height: fit-content;
+  padding: v.$padding * 0.5;
+
+  text-align: center;
+
+  background-color: rgb(v.$bg2, 0.2);
+  backdrop-filter: blur(20px);
+
+  @include d.flex($dir: row, $ali: center);
+
+  &-button {
+    padding: v.$padding * 0.5 v.$padding;
+    border-radius: v.$radius;
+    background-color: rgb(v.$fn1, 0.2);
+  }
+}

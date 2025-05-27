@@ -8,7 +8,7 @@ export const DEV_ENV = process.env.NODE_ENV ?? DEV_MODE.DEV
 
 export const INFO = {
   dev_name: 'Haui dev',
-  name: 'Haui',
+  name: 'Luis Fernando Melgar Pizarro',
   working: {
     state: false,
     enterprise: ''
