@@ -1,5 +1,6 @@
 'use client'
 
+import { INFO } from '@/constants'
 import HauiDevLogo from '@/shared/ui/HauiDevLogo'
 import React, { useEffect, useRef, useState } from 'react'
 
@@ -16,9 +17,20 @@ const LoaderPage = () => {
   if (!loading) return null
 
   return (
-    <section ref={$loaderRef} className='loaderApp' style={{ opacity: loading ? 1 : 0 }}>
-      <HauiDevLogo size='lg' className='loaderApp-logo' />
-      <h2>Shumi dev</h2>
+    <section
+      ref={$loaderRef}
+      className='loaderApp'
+      role='status'
+      aria-label='Loading page'
+      style={{
+        opacity: loading ? 1 : 0
+      }}
+    >
+      <div className='loaderApp-content'>
+        <HauiDevLogo size='lg' radius='rounded' aria-label='Developer logo' />
+        <h4>{INFO.dev_name}</h4>
+      </div>
+      <p className='sr-only'>Loading content, please wait...</p>
     </section>
   )
 }
