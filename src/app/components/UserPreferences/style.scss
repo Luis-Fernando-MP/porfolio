@@ -20,9 +20,9 @@
   @include d.flex($gap: v.$big_padding);
   @include scroll-hidden;
 
-  animation: fade 0.5s ease forwards;
+  animation: fade-bottom 0.5s ease forwards;
 
-  @keyframes fade {
+  @keyframes fade-bottom {
     0% {
       transform: translateY(-20px);
       opacity: 0;

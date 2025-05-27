@@ -7,7 +7,8 @@ export enum DEV_MODE {
 export const DEV_ENV = process.env.NODE_ENV ?? DEV_MODE.DEV
 
 export const INFO = {
-  dev_name: 'Haui dev',
+  devName: 'Haui dev',
+  devShortName: 'Haui',
   name: 'Luis Fernando Melgar Pizarro',
   working: {
     state: false,

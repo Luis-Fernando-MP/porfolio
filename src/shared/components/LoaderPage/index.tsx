@@ -28,7 +28,7 @@ const LoaderPage = () => {
     >
       <div className='loaderApp-content'>
         <HauiDevLogo size='lg' radius='rounded' aria-label='Developer logo' />
-        <h4>{INFO.dev_name}</h4>
+        <h4>{INFO.devName}</h4>
       </div>
       <p className='sr-only'>Loading content, please wait...</p>
     </section>

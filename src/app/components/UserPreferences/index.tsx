@@ -17,7 +17,7 @@ const UserPreferences: FC = () => {
         {APP.pages.map(page => {
           const { Icon, image, label, path } = page
           return (
-            <Link key={path} href={path} className='UPreferences-page border' style={{ backgroundImage: `url(${image})` }}>
+            <Link key={path} href={path} className='UPreferences-page fade border' style={{ backgroundImage: `url(${image})` }}>
               <div className='UPreferences-page__content'>
                 <Icon />
                 <h4>{label}</h4>

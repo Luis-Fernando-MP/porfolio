@@ -14,7 +14,7 @@ export interface Theme {
 }
 export const DEFAULT_THEME = {
   style: 'dark' as ThemeKeys,
-  theme: INFO.dev_name as ThemeColorKeys
+  theme: INFO.devName as ThemeColorKeys
 }
 
 export type ThemeKeys = keyof typeof THEMES
@@ -26,7 +26,7 @@ export const THEMES = {
   default: {
     Icon: MonitorDotIcon,
     styles: {
-      [INFO.dev_name]: {
+      [INFO.devName]: {
         'bg-primary': '10, 10, 10',
         'bg-secondary': '16, 16, 16',
         'bg-tertiary': '44, 42, 42',

@@ -11,10 +11,20 @@
 
   &-wrapper {
     width: v.$max-w;
-    margin: auto;
+    margin: 0 auto;
   }
 
-  &-sections {
-    @include d.flex($gap: v.$big-padding * 6);
+  &-body {
+    display: grid;
+    grid-template-columns: 1fr 350px;
+    gap: v.$big-padding;
+
+    width: 100%;
+    height: fit-content;
+  }
+
+  &-content {
+    height: 100vh;
+    margin-top: 120px;
   }
 }
