@@ -55,6 +55,16 @@ export const THEMES = {
         'fnt-active': '255, 255, 255',
         'tn-primary': '0, 0, 0',
         'tn-secondary': '80, 80, 80'
+      },
+      Cloud: {
+        'bg-primary': '240, 248, 255',
+        'bg-secondary': '224, 224, 255',
+        'bg-tertiary': '200, 220, 255',
+        'fnt-primary': '10, 10, 25',
+        'fnt-secondary': '50, 50, 100',
+        'fnt-active': '255, 255, 255',
+        'tn-primary': '0, 122, 204',
+        'tn-secondary': '0, 100, 180'
       }
     }
   },
@@ -277,16 +287,6 @@ export const THEMES = {
         'fnt-active': '255, 255, 255',
         'tn-primary': '250, 150, 200',
         'tn-secondary': '220, 120, 180'
-      },
-      Cloud: {
-        'bg-primary': '240, 248, 255',
-        'bg-secondary': '224, 224, 255',
-        'bg-tertiary': '200, 220, 255',
-        'fnt-primary': '10, 10, 25',
-        'fnt-secondary': '50, 50, 100',
-        'fnt-active': '255, 255, 255',
-        'tn-primary': '0, 122, 204',
-        'tn-secondary': '0, 100, 180'
       },
       Pearl: {
         'bg-primary': '255, 250, 250',
