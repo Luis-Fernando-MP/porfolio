@@ -9,10 +9,10 @@ export const NOISE_OPTIONS = {
 }
 
 export const FONTSIZE_OPTIONS = {
-  Pequeño: 12,
+  Pequeño: 13,
   Normal: 14,
-  Grande: 16,
-  x2: 18
+  Grande: 17,
+  x2: 19
 }
 
 export type FontSizeOptions = keyof typeof FONTSIZE_OPTIONS

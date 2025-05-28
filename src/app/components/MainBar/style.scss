@@ -47,10 +47,10 @@
 
       background-color: rgb(v.$fnA);
 
-      animation: pulse 3s infinite ease-in-out;
+      animation: pulse-work-status 3s infinite ease-in-out;
     }
 
-    @keyframes pulse {
+    @keyframes pulse-work-status {
       0%,
       100% {
         transform: scale(1.2);

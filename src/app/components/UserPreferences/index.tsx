@@ -1,3 +1,4 @@
+import NavLinks from '@/app/ui/NavLinks'
 import { APP } from '@/constants'
 import Social from '@/shared/ui/Social'
 import Link from 'next/link'
@@ -13,19 +14,7 @@ import './userMobile.scss'
 const UserPreferences: FC = () => {
   return (
     <section className='UPreferences border'>
-      <nav className='UPreferences-pages'>
-        {APP.pages.map(page => {
-          const { Icon, image, label, path } = page
-          return (
-            <Link key={path} href={path} className='UPreferences-page fade border' style={{ backgroundImage: `url(${image})` }}>
-              <div className='UPreferences-page__content'>
-                <Icon />
-                <h4>{label}</h4>
-              </div>
-            </Link>
-          )
-        })}
-      </nav>
+      <NavLinks />
 
       <section className='UPreferences-section'>
         <h3># Temas</h3>

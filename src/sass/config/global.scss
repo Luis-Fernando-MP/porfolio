@@ -4,6 +4,7 @@
 @use '@sass/utils/boxLoader' as loader;
 @use '@sass/utils/scrollbar' as *;
 @use 'sass:map';
+@use '@sass/utils/defs' as d;
 
 *,
 ::before,
@@ -190,6 +191,12 @@ body {
     svg {
       stroke: rgb($fnA) !important;
     }
+  }
+
+  .frow {
+    @include d.flex($ali: center, $dir: row);
+
+    flex-wrap: wrap;
   }
 }
 

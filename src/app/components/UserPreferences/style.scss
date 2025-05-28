@@ -34,36 +34,6 @@
     }
   }
 
-  &-pages {
-    @include d.flex($dir: row);
-
-    flex-wrap: wrap;
-  }
-
-  &-page {
-    overflow: hidden;
-
-    width: 130px;
-    height: 80px;
-    border-radius: v.$radius;
-
-    background-size: cover;
-    background-blend-mode: darken;
-
-    &__content {
-      justify-content: center;
-      width: 100%;
-      height: 100%;
-      background-image: linear-gradient(rgb(v.$bg1, 0.4) 10%, rgb(v.$bg1, 0.8) 70%);
-
-      @include d.flex($dir: row, $ali: center);
-
-      h4 {
-        font-weight: 600;
-      }
-    }
-  }
-
   &-section {
     @include d.flex($gap: v.$padding * 2);
   }

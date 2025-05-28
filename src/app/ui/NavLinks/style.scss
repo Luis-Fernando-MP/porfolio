@@ -1,0 +1,33 @@
+@use '@sass/config/vars' as v;
+@use '@sass/utils/defs' as d;
+@use '@sass/utils/scrollbar' as *;
+
+.navLinks {
+  @include d.flex($dir: row);
+
+  flex-wrap: wrap;
+
+  &-link {
+    overflow: hidden;
+
+    width: 130px;
+    height: 80px;
+    border-radius: v.$radius;
+
+    background-size: cover;
+    background-blend-mode: darken;
+  }
+
+  &-content {
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+    background-image: linear-gradient(rgb(v.$bg1, 0.4) 10%, rgb(v.$bg1, 0.8) 70%);
+
+    @include d.flex($dir: row, $ali: center);
+
+    h4 {
+      font-weight: 600;
+    }
+  }
+}

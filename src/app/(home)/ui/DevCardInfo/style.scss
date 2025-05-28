@@ -7,8 +7,13 @@
   top: v.$padding;
 
   overflow: hidden;
+  overflow-x: hidden;
+  overflow-y: auto;
 
   height: 100%;
+
+  @include scroll-hidden;
+
   max-height: 650px;
   border-radius: v.$radius;
 
@@ -31,17 +36,70 @@
     }
   }
 
-  &-name {
+  &-wrapper {
     position: relative;
     top: -30px;
+    height: 100%;
+    padding: 0 v.$padding * 2 v.$padding * 2;
 
+    @include d.flex($gap: v.$padding * 2);
+  }
+
+  &-name {
     font-size: 3.5em;
     font-weight: 700;
     text-transform: uppercase;
   }
 
-  &-wrapper {
-    height: 100%;
-    padding: 0 v.$padding * 2 v.$padding * 2;
+  &-section {
+    @include d.flex;
+  }
+
+  &-status {
+    &__logo {
+      position: relative;
+
+      &::after {
+        content: '';
+
+        position: absolute;
+        z-index: 1;
+        right: -1px;
+        bottom: -1px;
+
+        display: block;
+
+        width: 15px;
+        height: 15px;
+        border: 2px solid rgb(v.$bg2);
+        border-radius: 50%;
+
+        background-color: v.$active;
+
+        animation: pulse-logo 3s infinite ease-in-out;
+
+        @keyframes pulse-logo {
+          0%,
+          100% {
+            transform: scale(1);
+          }
+
+          50% {
+            transform: scale(0.8);
+          }
+        }
+      }
+    }
+  }
+
+  &-hobbies {
+    @include d.flex;
+
+    padding-left: v.$padding * 2;
+  }
+
+  &-hobby {
+    color: rgb(v.$fn2);
+    list-style: disc;
   }
 }

@@ -9,7 +9,8 @@ export const DEV_ENV = process.env.NODE_ENV ?? DEV_MODE.DEV
 export const INFO = {
   devName: 'Haui dev',
   devShortName: 'Haui',
-  name: 'Luis Fernando Melgar Pizarro',
+  name: 'Luis Fernando',
+  fullName: 'Luis Fernando Melgar Pizarro',
   working: {
     state: false,
     enterprise: ''
@@ -19,7 +20,9 @@ export const INFO = {
   linked_in: 'https://www.linkedin.com/in/luigfmp/',
   github: 'https://github.com/Luis-Fernando-MP',
   figma: 'https://www.figma.com/@luigfmp',
-  cv: 'https://luigfmp.github.io/cv/'
+  cv: 'https://luigfmp.github.io/cv/',
+  resumeAbout: 'Desarrollador y disendow de aplicaciones full stack',
+  hobbies: ['Estudiar', 'Leer', 'Entrenar', 'Programar', 'Investigar', 'Gatos', 'Hamsters', 'Músicas', 'Meditar']
 }
 
 export const APP = {
@@ -44,12 +47,12 @@ export const APP = {
     },
     {
       path: '/about',
-      label: 'Acerca de mi',
+      label: 'Sobre mi',
       image: '/assets/pages/about.webp',
       Icon: UserIcon
     }
   ]
-}
+} as const
 
 export const backgroundImages = [
   { path: '/assets/backgrounds/1.webp', hash: 'L4F5gBK$00EL.jot^*_M00%2-;Ns' },
