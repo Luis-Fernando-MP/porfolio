@@ -1,5 +1,6 @@
 'use client'
 
+import DevCardToggle from '@/app/(home)/ui/DevCardToggle'
 import { INFO } from '@/constants'
 import useSound from '@/shared/hook/useSound'
 import HauiDevLogo from '@/shared/ui/HauiDevLogo'
@@ -44,6 +45,8 @@ const MainBar: FC<Props> = ({ className = '' }) => {
           <h4>Menu</h4>
         </IconButton>
 
+        <DevCardToggle />
+
         <div className='mainBar-currentWork active'>
           {INFO.working.state && <h4>Creando ideas con {INFO.working.enterprise}</h4>}
           {!INFO.working.state && <h4>Listo para desarrollar contigo</h4>}
@@ -52,6 +55,7 @@ const MainBar: FC<Props> = ({ className = '' }) => {
         <button className='mainBar-music'>
           <Image src='/assets/pages/music.webp' width={37} height={37} alt='resonance music' />
         </button>
+
         {show && <UserPreferences />}
       </div>
     </article>

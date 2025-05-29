@@ -4,23 +4,31 @@
 
 .devCard {
   position: sticky;
-  top: v.$padding;
+  top: v.$big-padding * 2;
 
-  overflow: hidden;
-  overflow-x: hidden;
-  overflow-y: auto;
-
+  width: 100%;
+  max-width: 350px;
   height: 100%;
+  max-height: 75vh;
 
-  @include scroll-hidden;
+  &-content {
+    position: relative;
 
-  max-height: 650px;
-  border-radius: v.$radius;
+    overflow-x: hidden;
+    overflow-y: auto;
 
-  background-color: rgb(v.$bg2);
+    width: 100%;
+    height: 100%;
+    border-radius: v.$radius * 2;
+
+    @include scroll-hidden;
+
+    background-color: rgb(v.$bg2);
+  }
 
   &-background {
     position: relative;
+    z-index: 0;
 
     &::after {
       content: '';
@@ -39,8 +47,11 @@
   &-wrapper {
     position: relative;
     top: -30px;
+
     height: 100%;
-    padding: 0 v.$padding * 2 v.$padding * 2;
+    margin-bottom: v.$big-padding * 3;
+    padding-right: v.$padding * 2;
+    padding-left: v.$padding * 2;
 
     @include d.flex($gap: v.$padding * 2);
   }

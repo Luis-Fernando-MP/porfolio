@@ -1,16 +1,18 @@
 @use '@sass/config/vars' as v;
 @use '@sass/utils/media' as m;
+@use '@sass/utils/defs' as d;
 
 @include m.largeScreen {
   .home {
-    padding: v.$padding;
-
     &-wrapper {
       width: 100% !important;
+      padding: v.$padding;
     }
 
-    &-sections {
-      gap: v.$big-padding * 2;
+    &-body {
+      @include d.flex($dir: column-reverse);
+
+      position: relative;
     }
   }
 }
