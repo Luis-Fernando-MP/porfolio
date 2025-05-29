@@ -17,7 +17,8 @@ const NavLinks: FC<Props> = ({ include = 'all' }) => {
   return (
     <nav className='navLinks'>
       {filteredPages.map(({ Icon, image, label, path }) => (
-        <Link key={path} href={path} className='navLinks-link fade border' style={{ backgroundImage: `url(${image})` }}>
+        <Link key={path} href={path} className='navLinks-link fade border'>
+          <div className='navLinks-background' style={{ backgroundImage: `url(${image})` }} />
           <div className='navLinks-content'>
             <Icon />
             <h4>{label}</h4>

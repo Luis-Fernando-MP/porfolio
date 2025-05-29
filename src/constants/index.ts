@@ -1,4 +1,5 @@
 import { BookOpenIcon, GaugeIcon, RocketIcon, UserIcon } from 'lucide-react'
+import path from 'path'
 
 export enum DEV_MODE {
   PROD = 'production',
@@ -56,5 +57,7 @@ export const APP = {
 
 export const backgroundImages = [
   { path: '/assets/backgrounds/1.webp', hash: 'L4F5gBK$00EL.jot^*_M00%2-;Ns' },
-  { path: '/assets/backgrounds/2.webp', hash: 'LQJl4#Nyo~t-_MEQogXUx,EkjDWU' }
+  { path: '/assets/backgrounds/2.webp', hash: 'LXM#wu9u58bc~CWoRPX8K%e.MykC' },
+  { path: '/assets/backgrounds/3.webp', hash: 'LpLol|_$KQS~t6NHS#s,R+X7smnl' },
+  { path: '/assets/backgrounds/4.webp', hash: 'LNJZ*d9a}iOtbeIW59Rk#%krV[IU' }
 ]
