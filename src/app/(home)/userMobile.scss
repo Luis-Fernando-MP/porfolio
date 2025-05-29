@@ -5,7 +5,7 @@
 @include m.largeScreen {
   .home {
     &-wrapper {
-      width: 100% !important;
+      width: 100%;
       padding: v.$padding;
     }
 
@@ -13,6 +13,10 @@
       @include d.flex($dir: column-reverse);
 
       position: relative;
+    }
+
+    &-content {
+      margin-top: v.$padding;
     }
   }
 }

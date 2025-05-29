@@ -1,0 +1,17 @@
+@use '@sass/config/vars' as v;
+@use '@sass/utils/defs' as d;
+@use '@sass/utils/scrollbar' as *;
+
+.backgroundImage {
+  position: absolute;
+  z-index: -2;
+  top: 0;
+  left: 0;
+
+  width: 100%;
+
+  background-position: center;
+  background-size: cover;
+  background-blend-mode: luminosity;
+  filter: brightness(80%);
+}

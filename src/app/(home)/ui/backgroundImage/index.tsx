@@ -11,7 +11,7 @@ interface Props {
   className?: string
 }
 
-export const BackgroundImagesWrapper: FC<Props> = ({ height = 400, className }) => {
+export const BackgroundImage: FC<Props> = ({ height = 400, className }) => {
   const [bgUrl, setBgUrl] = useState<string | null>(null)
   const [placeholder, setPlaceholder] = useState<string | null>(null)
 
@@ -30,7 +30,7 @@ export const BackgroundImagesWrapper: FC<Props> = ({ height = 400, className }) 
   const backgroundImage = bgUrl ? `url(${bgUrl})` : placeholder
   return (
     <section
-      className={`backgroundImage-wrapper fade ${className}`}
+      className={`backgroundImage fade ${className}`}
       style={{ backgroundImage: `${backgroundImage}`, height: `${height}px` }}
     />
   )
