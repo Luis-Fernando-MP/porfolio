@@ -32,7 +32,9 @@ const ThemeButton: FC<Props> = ({ style, name, colors }) => {
       onClick={() => {
         handleSetTheme({ style: style as ThemeKeys, theme: name as ThemeColorKeys })
       }}
-    />
+    >
+      <div style={{ backgroundColor: `rgb(${colors['bg-primary']})` }} />
+    </button>
   )
 }
 

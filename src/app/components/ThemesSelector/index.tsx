@@ -13,7 +13,7 @@ const renderThemeSection = (style: string) => {
       <div className='themesSelector-icon'>
         <Icon aria-hidden='true' />
       </div>
-      <div className='themesSelector-list border' role='group'>
+      <div className='themesSelector-list' role='group'>
         {Object.entries(styles).map(([name, colors]) => (
           <ThemeButton key={`${name}-theme`} style={style} name={name} colors={colors} />
         ))}

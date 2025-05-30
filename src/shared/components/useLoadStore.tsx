@@ -13,10 +13,12 @@ const useLoadStore = () => {
   useLayoutEffect(() => {
     const root = document.documentElement
     const { colors, theme: curTheme } = currentTheme()
-    root.setAttribute('data-theme', curTheme)
-    Object.entries(colors).forEach(([name, color]) => {
-      root.style.setProperty(`--${name}`, `${color}`)
-    })
+    if (colors) {
+      root.setAttribute('data-theme', curTheme)
+      Object.entries(colors).forEach(([name, color]) => {
+        root.style.setProperty(`--${name}`, `${color}`)
+      })
+    }
   }, [theme])
 
   useLayoutEffect(() => {

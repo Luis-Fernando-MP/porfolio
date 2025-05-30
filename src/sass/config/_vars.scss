@@ -11,6 +11,7 @@
   // Principales
   --tn-primary: 0, 85, 255;
   --tn-secondary: 66, 218, 155;
+  --tn-tertiary: 255, 255, 255;
 
   // Fuentes
   --xl-font-size: 4rem;
@@ -38,6 +39,7 @@ $fn2: var(--fnt-secondary);
 $fnA: var(--fnt-active);
 $tn1: var(--tn-primary);
 $tn2: var(--tn-secondary);
+$tn3: var(--tn-tertiary);
 
 // Window
 $min-small-screen: 450px;
@@ -52,7 +54,7 @@ $radius: 10px;
 $padding: 10px;
 $big-padding: 40px;
 $icon: 17px;
-$family-size: 14px;
+$family-size: 12px;
 $fontBase: 'Segoe UI Mono', 'Roboto Mono';
 $font1: var(--family1);
 $font2: var(--family2);

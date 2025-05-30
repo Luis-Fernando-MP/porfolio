@@ -17,11 +17,11 @@
   @include d.flex($dir: row, $ali: center);
 
   &-subtitle {
-    color: rgb(255 255 255);
+    color: rgb(v.$tn3);
   }
 
   .lucide {
-    stroke: rgb(255 255 255);
+    stroke: rgb(v.$tn3);
   }
 
   &-button {
