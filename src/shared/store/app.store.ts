@@ -10,7 +10,7 @@ export const NOISE_OPTIONS = {
 
 export const FONTSIZE_OPTIONS = {
   Pequeño: 10,
-  Normal: 12,
+  Normal: 13,
   Grande: 14,
   x2: 18
 }

@@ -10,7 +10,7 @@
   overflow-x: hidden;
   overflow-y: auto;
 
-  width: 900px;
+  width: v.$max-w;
   height: 100vh;
   margin: auto;
   padding-top: v.$padding * 2;

@@ -1,6 +1,7 @@
 'use client'
 
 import { backgroundImages } from '@/constants'
+import { BackImage } from '@/shared/components/BackImage'
 import { blurhashToCssGradientString } from '@unpic/placeholder'
 import { type FC, useLayoutEffect, useState } from 'react'
 
@@ -12,26 +13,23 @@ interface Props {
 }
 
 export const BackgroundImage: FC<Props> = ({ height = 400, className }) => {
-  const [bgUrl, setBgUrl] = useState<string | null>(null)
-  const [placeholder, setPlaceholder] = useState<string | null>(null)
+  const [img, setImg] = useState<{ path: string; style: string } | null>(null)
 
   useLayoutEffect(() => {
     const randIndex = Math.floor(Math.random() * backgroundImages.length)
-    const { path, hash } = backgroundImages[randIndex]
-
-    const placeholder = blurhashToCssGradientString(hash)
-    setPlaceholder(placeholder)
-
-    const img = new Image()
-    img.src = path
-    img.onload = () => setBgUrl(path)
+    const selected = backgroundImages[randIndex]
+    const placeholder = blurhashToCssGradientString(selected.hash)
+    setImg({ path: selected.path, style: placeholder })
   }, [])
 
-  const backgroundImage = bgUrl ? `url(${bgUrl})` : placeholder
   return (
-    <section
-      className={`backgroundImage fade ${className}`}
-      style={{ backgroundImage: `${backgroundImage}`, height: `${height}px` }}
+    <BackImage
+      className={`backgroundImage ${className}`}
+      src={img?.path ?? ''}
+      blur={img?.style}
+      style={{
+        height: `${height}px`
+      }}
     />
   )
 }

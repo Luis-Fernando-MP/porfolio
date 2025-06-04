@@ -26,6 +26,17 @@ export const THEMES = {
   default: {
     Icon: MonitorDotIcon,
     styles: {
+      rebeccapurple: {
+        'bg-primary': '240, 235, 250', // Fondo principal muy suave
+        'bg-secondary': '220, 210, 240', // Fondo secundario ligeramente más oscuro
+        'bg-tertiary': '200, 185, 230', // Fondo terciario con más presencia del púrpura
+        'fnt-primary': '45, 25, 70', // Texto principal oscuro con tinte púrpura
+        'fnt-secondary': '102, 51, 153', // Texto secundario en rebeccapurple
+        'fnt-active': '255, 255, 255', // Texto activo/seleccionado en blanco
+        'tn-primary': '102, 51, 153', // Tono principal - rebeccapurple (#663399)
+        'tn-secondary': '235, 225, 245', // Tono secundario muy claro
+        'tn-tertiary': '210, 195, 235' // Tono terciario intermedio
+      },
       [INFO.devName]: {
         'bg-primary': '10, 10, 10',
         'bg-secondary': '16, 16, 16',

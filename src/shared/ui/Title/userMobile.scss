@@ -2,14 +2,14 @@
 @use '@sass/utils/media' as m;
 
 @include m.largeScreen {
-  .titleText {
+  .title {
     margin: auto;
     text-align: center;
   }
 }
 
 @include m.smallScreen {
-  .titleText {
+  .title {
     &-sub {
       font-size: 1rem;
     }

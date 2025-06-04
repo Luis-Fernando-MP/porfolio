@@ -9,7 +9,7 @@
   @include d.flex($gap: v.$big-padding);
 
   &-wrapper {
-    width: 900px;
+    width: v.$max-w;
     margin: auto;
   }
 

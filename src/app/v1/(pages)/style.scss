@@ -9,7 +9,7 @@
   @include d.flex($gap: v.$big-padding * 3);
 
   &-wrapper {
-    width: 900px;
+    width: v.$max-w;
     margin: auto;
 
     @include d.flex($gap: v.$big-padding * 2, $ali: center);

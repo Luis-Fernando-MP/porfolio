@@ -19,7 +19,7 @@ import './userMobile.scss'
 
 const DevCardInfo = () => {
   const { isShowing, setIsShowing } = useDevCardStore()
-  const matches = useMediaQuery('(max-width: 990px)')
+  const matches = useMediaQuery('(max-width: 1050px)')
 
   useEffect(() => {
     setIsShowing(!matches)

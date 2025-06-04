@@ -1,4 +1,6 @@
 import { INFO } from '@/constants'
+import Title from '@/shared/ui/Title'
+import TitleWeight from '@/shared/ui/TitleWeight'
 import type { JSX } from 'react'
 
 import Footer from '../components/Footer'
@@ -6,6 +8,7 @@ import MainBar from '../components/MainBar'
 import './style.scss'
 import DevCardInfo from './ui/DevCardInfo'
 import HomeBackground from './ui/HomeBackground'
+import HomeContent from './ui/HomeContent'
 import QuickAccess from './ui/QuickAccess'
 import './userMobile.scss'
 
@@ -17,7 +20,7 @@ const Home = (): JSX.Element => {
       <div className='home-wrapper'>
         <HomeBackground />
         <article className='home-body'>
-          <div className='home-content'>content</div>
+          <HomeContent />
           <DevCardInfo />
         </article>
       </div>

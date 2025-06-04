@@ -10,8 +10,10 @@
 
   width: 100%;
 
-  background-position: center;
-  background-size: cover;
-  background-blend-mode: luminosity;
-  filter: brightness(80%);
+  div {
+    background-position: center;
+    background-size: cover;
+    background-blend-mode: luminosity;
+    filter: brightness(80%);
+  }
 }

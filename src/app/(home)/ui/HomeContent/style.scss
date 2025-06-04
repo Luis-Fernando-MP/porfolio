@@ -1,0 +1,16 @@
+@use '@sass/config/vars' as v;
+@use '@sass/utils/defs' as d;
+
+.content {
+  height: 100vh;
+  margin-top: 120px;
+
+  &-section {
+    @include d.flex;
+  }
+
+  &-description {
+    width: 100%;
+    max-width: 350px;
+  }
+}

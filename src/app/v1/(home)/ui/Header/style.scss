@@ -11,7 +11,7 @@
     display: grid;
     grid-template-rows: 30px 1fr;
 
-    width: 900px;
+    width: v.$max-w;
     height: 100%;
     margin: auto;
     padding: v.$big-padding 0 0;

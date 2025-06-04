@@ -27,7 +27,7 @@
       "@sass/*": ["./src/sass/*"],
       "@shared/*": ["./src/shared/*"],
       "@notion/*": ["./notion/*"],
-      "contentlayer/generated": ["./.contentlayer/generated/*"]
+      "contentlayer/generated": ["./.contentlayer/generated"]
     }
   },
   "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts", ".contentlayer/generated"],
