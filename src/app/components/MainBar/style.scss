@@ -25,14 +25,10 @@
   }
 
   &-logo__devName {
-    padding: v.$padding;
-    border-radius: v.$radius;
     background-color: rgb(v.$bg2);
   }
 
   &-currentWork {
-    padding: v.$padding;
-    border-radius: v.$radius;
     text-align: center;
 
     &::before {

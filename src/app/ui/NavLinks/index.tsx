@@ -1,4 +1,5 @@
 import { APP } from '@/constants'
+import { BackImage } from '@/shared/components/BackImage'
 import Link from 'next/link'
 import type { FC } from 'react'
 
@@ -18,7 +19,7 @@ const NavLinks: FC<Props> = ({ include = 'all' }) => {
     <nav className='navLinks'>
       {filteredPages.map(({ Icon, image, label, path }) => (
         <Link key={path} href={path} className='navLinks-link fade border'>
-          <div className='navLinks-background' style={{ backgroundImage: `url(${image})` }} />
+          <BackImage src={image} className='navLinks-background' alt={label} />
           <div className='navLinks-content'>
             <Icon />
             <h4>{label}</h4>

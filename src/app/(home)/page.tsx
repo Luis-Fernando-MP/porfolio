@@ -1,6 +1,4 @@
 import { INFO } from '@/constants'
-import Title from '@/shared/ui/Title'
-import TitleWeight from '@/shared/ui/TitleWeight'
 import type { JSX } from 'react'
 
 import Footer from '../components/Footer'

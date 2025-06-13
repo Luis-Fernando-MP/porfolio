@@ -2,6 +2,8 @@
 
 import { type FC, HtmlHTMLAttributes, useLayoutEffect, useState } from 'react'
 
+import './style.scss'
+
 interface Props extends HtmlHTMLAttributes<HTMLDivElement> {
   src: string
   blur?: string
@@ -33,7 +35,7 @@ export const BackImage: FC<Props> = ({ className, src, blur, style, alt = '', ti
   return (
     <div
       {...props}
-      className={`fade ${className}`}
+      className={`fade backImage ${className}`}
       style={{
         background: blur ?? '',
         ...style

@@ -10,12 +10,12 @@
 
   overflow: auto;
 
-  width: 455px;
+  width: 350px;
   height: 550px;
-  padding: v.$padding * 2;
-  border-radius: v.$radius * 2;
+  padding: v.$padding * 1.5;
+  border-radius: v.$radius + v.$padding;
 
-  background-color: rgb(v.$bg1);
+  background-color: rgb(v.$bg2);
 
   @include d.flex($gap: v.$big_padding);
   @include scroll-hidden;

@@ -22,7 +22,7 @@ interface Props extends HtmlHTMLAttributes<HTMLElement> {
  */
 const HauiDevLogo: FC<Props> = ({ size = 'sm', radius = 'circle', className = '', showShadow, ...props }) => {
   return (
-    <section className={`hauidev border ${size} ${radius} ${className}`} {...props}>
+    <section className={`hauidev ${size} ${radius} ${className}`} {...props}>
       <HauiDev className='hauidev-logo' showShadow={showShadow} />
     </section>
   )

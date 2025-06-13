@@ -11,8 +11,8 @@
 
   text-align: center;
 
-  background-color: rgb(v.$bg1, 0.2);
-  backdrop-filter: blur(50px);
+  background-color: rgb(#000, 0.1);
+  backdrop-filter: blur(100px);
 
   @include d.flex($dir: row, $ali: center);
 
@@ -28,6 +28,6 @@
     padding: v.$padding * 0.5 v.$padding;
     border-radius: v.$radius;
     color: rgb(v.$fn1);
-    background-color: rgb(v.$bg1, 0.5);
+    background-color: rgb(v.$bg1);
   }
 }

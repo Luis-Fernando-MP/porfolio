@@ -3,6 +3,7 @@ import { MonitorDotIcon, MoonStarIcon, SunIcon, ZapIcon } from 'lucide-react'
 import { INFO } from '.'
 
 export interface Theme {
+  dominantKey: string
   'bg-primary': string
   'bg-secondary': string
   'bg-tertiary': string
@@ -11,33 +12,33 @@ export interface Theme {
   'fnt-active': string
   'tn-primary': string
   'tn-secondary': string
+  'tn-tertiary': string
 }
 export const DEFAULT_THEME = {
   style: 'dark' as ThemeKeys,
-  theme: INFO.devName as ThemeColorKeys
+  theme: 'dev dark' as ThemeColorKeys
 }
 
 export type ThemeKeys = keyof typeof THEMES
-export type ThemeColorKeys = keyof typeof THEMES.default.styles &
-  keyof typeof THEMES.dark.styles &
-  keyof typeof THEMES.light.styles
+export type ThemeColorKeys =
+  | keyof typeof THEMES.default.styles
+  | keyof typeof THEMES.dark.styles
+  | keyof typeof THEMES.light.styles
+  | keyof typeof THEMES.chaotic.styles
+
+type ThemeStyles = typeof THEMES.default.styles &
+  typeof THEMES.dark.styles &
+  typeof THEMES.light.styles &
+  typeof THEMES.chaotic.styles
+
+export type DominantKey = ThemeStyles[keyof ThemeStyles]['dominantKey']
 
 export const THEMES = {
   default: {
     Icon: MonitorDotIcon,
     styles: {
-      rebeccapurple: {
-        'bg-primary': '240, 235, 250', // Fondo principal muy suave
-        'bg-secondary': '220, 210, 240', // Fondo secundario ligeramente más oscuro
-        'bg-tertiary': '200, 185, 230', // Fondo terciario con más presencia del púrpura
-        'fnt-primary': '45, 25, 70', // Texto principal oscuro con tinte púrpura
-        'fnt-secondary': '102, 51, 153', // Texto secundario en rebeccapurple
-        'fnt-active': '255, 255, 255', // Texto activo/seleccionado en blanco
-        'tn-primary': '102, 51, 153', // Tono principal - rebeccapurple (#663399)
-        'tn-secondary': '235, 225, 245', // Tono secundario muy claro
-        'tn-tertiary': '210, 195, 235' // Tono terciario intermedio
-      },
-      [INFO.devName]: {
+      'dev dark': {
+        dominantKey: 'ice',
         'bg-primary': '10, 10, 10',
         'bg-secondary': '16, 16, 16',
         'bg-tertiary': '44, 42, 42',
@@ -48,7 +49,8 @@ export const THEMES = {
         'tn-secondary': '66, 218, 155',
         'tn-tertiary': '248, 251, 255'
       },
-      [`${INFO.devName} light`]: {
+      'dev light': {
+        dominantKey: 'ice',
         'bg-primary': '230, 240, 255',
         'bg-secondary': '210, 230, 250',
         'bg-tertiary': '190, 220, 245',
@@ -59,27 +61,17 @@ export const THEMES = {
         'tn-secondary': '244, 248, 255',
         'tn-tertiary': '244, 248, 255'
       },
-      'Marble White': {
-        'bg-primary': '240, 240, 240',
-        'bg-secondary': '230, 230, 230',
-        'bg-tertiary': '220, 220, 220',
-        'fnt-primary': '30, 30, 50',
-        'fnt-secondary': '60, 60, 80',
+      rebeccapurple: {
+        dominantKey: 'lavender',
+        'bg-primary': '240, 235, 250',
+        'bg-secondary': '220, 210, 240',
+        'bg-tertiary': '200, 185, 230',
+        'fnt-primary': '45, 25, 70',
+        'fnt-secondary': '102, 51, 153',
         'fnt-active': '255, 255, 255',
-        'tn-primary': '0, 0, 0',
-        'tn-secondary': '80, 80, 80',
-        'tn-tertiary': '255, 255, 255'
-      },
-      'Marble Black': {
-        'bg-primary': '30, 30, 30',
-        'bg-secondary': '20, 20, 20',
-        'bg-tertiary': '10, 10, 10',
-        'fnt-primary': '255, 255, 255',
-        'fnt-secondary': '170, 170, 170',
-        'fnt-active': '0, 0, 0',
-        'tn-primary': '255, 255, 255',
-        'tn-secondary': '200, 200, 200',
-        'tn-tertiary': '255, 255, 255'
+        'tn-primary': '102, 51, 153',
+        'tn-secondary': '235, 225, 245',
+        'tn-tertiary': '210, 195, 235'
       }
     }
   },
@@ -87,6 +79,7 @@ export const THEMES = {
     Icon: MoonStarIcon,
     styles: {
       'Dark Slate': {
+        dominantKey: 'slate',
         'bg-primary': '35, 35, 35',
         'bg-secondary': '45, 45, 45',
         'bg-tertiary': '60, 60, 60',
@@ -97,7 +90,20 @@ export const THEMES = {
         'tn-secondary': '20, 100, 200',
         'tn-tertiary': '217, 234, 255'
       },
+      Midnight: {
+        dominantKey: 'ice',
+        'bg-primary': '12, 20, 40',
+        'bg-secondary': '18, 30, 55',
+        'bg-tertiary': '25, 45, 75',
+        'fnt-primary': '190, 210, 255',
+        'fnt-secondary': '150, 180, 230',
+        'fnt-active': '255, 255, 255',
+        'tn-primary': '40, 90, 200',
+        'tn-secondary': '30, 70, 180',
+        'tn-tertiary': '200, 215, 255'
+      },
       Carbon: {
+        dominantKey: 'forest',
         'bg-primary': '10, 10, 10',
         'bg-secondary': '20, 20, 20',
         'bg-tertiary': '30, 30, 30',
@@ -108,7 +114,20 @@ export const THEMES = {
         'tn-secondary': '80, 230, 160',
         'tn-tertiary': '235, 244, 240'
       },
+      'Aurora Forest': {
+        dominantKey: 'forest',
+        'bg-primary': '8, 18, 18',
+        'bg-secondary': '18, 28, 28',
+        'bg-tertiary': '28, 40, 40',
+        'fnt-primary': '150, 255, 200',
+        'fnt-secondary': '100, 220, 180',
+        'fnt-active': '0, 0, 0',
+        'tn-primary': '0, 255, 150',
+        'tn-secondary': '0, 220, 130',
+        'tn-tertiary': '240, 255, 248'
+      },
       Red: {
+        dominantKey: 'red',
         'bg-primary': '5, 5, 5',
         'bg-secondary': '15, 15, 15',
         'bg-tertiary': '25, 25, 25',
@@ -120,6 +139,7 @@ export const THEMES = {
         'tn-tertiary': '255, 245, 245'
       },
       StarryNight: {
+        dominantKey: 'lavender',
         'bg-primary': '8, 8, 18',
         'bg-secondary': '18, 18, 28',
         'bg-tertiary': '28, 28, 38',
@@ -131,6 +151,7 @@ export const THEMES = {
         'tn-tertiary': '237, 237, 255'
       },
       Nebula: {
+        dominantKey: 'lavender',
         'bg-primary': '18, 18, 35',
         'bg-secondary': '28, 28, 55',
         'bg-tertiary': '40, 40, 75',
@@ -142,6 +163,7 @@ export const THEMES = {
         'tn-tertiary': '244, 228, 250'
       },
       Velvet: {
+        dominantKey: 'lavender',
         'bg-primary': '18, 8, 28',
         'bg-secondary': '28, 18, 38',
         'bg-tertiary': '40, 28, 50',
@@ -153,6 +175,7 @@ export const THEMES = {
         'tn-tertiary': '242, 212, 255'
       },
       'Royal Purple': {
+        dominantKey: 'lavender',
         'bg-primary': '25, 15, 40',
         'bg-secondary': '40, 25, 60',
         'bg-tertiary': '60, 40, 85',
@@ -164,6 +187,7 @@ export const THEMES = {
         'tn-tertiary': '230, 215, 252'
       },
       'Twilight Pink': {
+        dominantKey: 'pink',
         'bg-primary': '45, 8, 28',
         'bg-secondary': '65, 18, 38',
         'bg-tertiary': '85, 28, 48',
@@ -174,29 +198,8 @@ export const THEMES = {
         'tn-secondary': '200, 40, 100',
         'tn-tertiary': '255, 230, 244'
       },
-      'Cherry Blossom': {
-        'bg-primary': '35, 20, 25',
-        'bg-secondary': '50, 30, 40',
-        'bg-tertiary': '70, 45, 60',
-        'fnt-primary': '255, 230, 240',
-        'fnt-secondary': '220, 180, 200',
-        'fnt-active': '0, 0, 0',
-        'tn-primary': '255, 140, 180',
-        'tn-secondary': '230, 120, 160',
-        'tn-tertiary': '255, 229, 238'
-      },
-      'Aurora Forest': {
-        'bg-primary': '8, 18, 18',
-        'bg-secondary': '18, 28, 28',
-        'bg-tertiary': '28, 40, 40',
-        'fnt-primary': '150, 255, 200',
-        'fnt-secondary': '100, 220, 180',
-        'fnt-active': '0, 0, 0',
-        'tn-primary': '0, 255, 150',
-        'tn-secondary': '0, 220, 130',
-        'tn-tertiary': '240, 255, 248'
-      },
       'Volcanic Magma': {
+        dominantKey: 'red',
         'bg-primary': '50, 12, 12',
         'bg-secondary': '70, 22, 22',
         'bg-tertiary': '90, 32, 32',
@@ -207,16 +210,17 @@ export const THEMES = {
         'tn-secondary': '230, 100, 40',
         'tn-tertiary': '255, 216, 223'
       },
-      Midnight: {
-        'bg-primary': '12, 20, 40',
-        'bg-secondary': '18, 30, 55',
-        'bg-tertiary': '25, 45, 75',
-        'fnt-primary': '190, 210, 255',
-        'fnt-secondary': '150, 180, 230',
-        'fnt-active': '255, 255, 255',
-        'tn-primary': '40, 90, 200',
-        'tn-secondary': '30, 70, 180',
-        'tn-tertiary': '200, 215, 255'
+      'Cherry Blossom': {
+        dominantKey: 'pink',
+        'bg-primary': '35, 20, 25',
+        'bg-secondary': '50, 30, 40',
+        'bg-tertiary': '70, 45, 60',
+        'fnt-primary': '255, 230, 240',
+        'fnt-secondary': '220, 180, 200',
+        'fnt-active': '0, 0, 0',
+        'tn-primary': '255, 140, 180',
+        'tn-secondary': '230, 120, 160',
+        'tn-tertiary': '255, 229, 238'
       }
     }
   },
@@ -224,6 +228,7 @@ export const THEMES = {
     Icon: SunIcon,
     styles: {
       'Passionate Red': {
+        dominantKey: 'rose',
         'bg-primary': '255, 105, 180',
         'bg-secondary': '255, 85, 160',
         'bg-tertiary': '255, 65, 140',
@@ -235,6 +240,7 @@ export const THEMES = {
         'tn-tertiary': '255, 211, 233'
       },
       'Candy Bright': {
+        dominantKey: 'rose',
         'bg-primary': '255, 200, 200',
         'bg-secondary': '255, 180, 220',
         'bg-tertiary': '240, 160, 210',
@@ -246,6 +252,7 @@ export const THEMES = {
         'tn-tertiary': '253, 224, 239'
       },
       'Rose Pure': {
+        dominantKey: 'rose',
         'bg-primary': '255, 192, 203',
         'bg-secondary': '255, 160, 180',
         'bg-tertiary': '255, 128, 150',
@@ -257,6 +264,7 @@ export const THEMES = {
         'tn-tertiary': '255, 213, 226'
       },
       'Cotton Candy': {
+        dominantKey: 'rose',
         'bg-primary': '255, 200, 240',
         'bg-secondary': '255, 180, 220',
         'bg-tertiary': '255, 160, 200',
@@ -268,6 +276,7 @@ export const THEMES = {
         'tn-tertiary': '255, 238, 250'
       },
       'Pastel Pink': {
+        dominantKey: 'rose',
         'bg-primary': '255, 200, 200',
         'bg-secondary': '255, 180, 180',
         'bg-tertiary': '255, 160, 160',
@@ -279,6 +288,7 @@ export const THEMES = {
         'tn-tertiary': '255, 224, 234'
       },
       'Rose Quartz': {
+        dominantKey: 'rose',
         'bg-primary': '255, 248, 250',
         'bg-secondary': '255, 228, 235',
         'bg-tertiary': '255, 208, 220',
@@ -290,6 +300,7 @@ export const THEMES = {
         'tn-tertiary': '255, 228, 236'
       },
       Candy: {
+        dominantKey: 'rose',
         'bg-primary': '255, 245, 250',
         'bg-secondary': '255, 225, 240',
         'bg-tertiary': '250, 205, 230',
@@ -301,6 +312,7 @@ export const THEMES = {
         'tn-tertiary': '255, 250, 253'
       },
       'Aurora Day': {
+        dominantKey: 'rose',
         'bg-primary': '245, 245, 250',
         'bg-secondary': '230, 235, 250',
         'bg-tertiary': '210, 220, 240',
@@ -314,6 +326,7 @@ export const THEMES = {
 
       // === FAMILIA PÚRPURA/LAVANDA ===
       Lavender: {
+        dominantKey: 'lavender',
         'bg-primary': '240, 230, 255',
         'bg-secondary': '220, 210, 245',
         'bg-tertiary': '200, 190, 235',
@@ -325,6 +338,7 @@ export const THEMES = {
         'tn-tertiary': '233, 211, 255'
       },
       'Lilac Breeze': {
+        dominantKey: 'lavender',
         'bg-primary': '245, 235, 255',
         'bg-secondary': '235, 215, 250',
         'bg-tertiary': '225, 195, 245',
@@ -337,6 +351,7 @@ export const THEMES = {
       },
       // === FAMILIA AZUL ===
       'Icy Blue': {
+        dominantKey: 'ice',
         'bg-primary': '180, 220, 255',
         'bg-secondary': '160, 200, 245',
         'bg-tertiary': '140, 180, 235',
@@ -349,6 +364,7 @@ export const THEMES = {
       },
       // === FAMILIA VERDE ===
       Emerald: {
+        dominantKey: 'forest',
         'bg-primary': '150, 220, 180',
         'bg-secondary': '120, 190, 150',
         'bg-tertiary': '90, 160, 120',
@@ -360,6 +376,7 @@ export const THEMES = {
         'tn-tertiary': '200, 255, 229'
       },
       'Mint Fresh': {
+        dominantKey: 'forest',
         'bg-primary': '240, 255, 245',
         'bg-secondary': '215, 245, 225',
         'bg-tertiary': '190, 235, 205',
@@ -371,6 +388,7 @@ export const THEMES = {
         'tn-tertiary': '233, 255, 240'
       },
       'Tropical Breeze': {
+        dominantKey: 'forest',
         'bg-primary': '230, 250, 245',
         'bg-secondary': '210, 240, 235',
         'bg-tertiary': '190, 230, 225',
@@ -383,6 +401,7 @@ export const THEMES = {
       },
       // === FAMILIA NARANJA/DURAZNO ===
       'Sunrise Glow': {
+        dominantKey: 'orange',
         'bg-primary': '255, 200, 150',
         'bg-secondary': '255, 180, 120',
         'bg-tertiary': '255, 160, 90',
@@ -394,6 +413,7 @@ export const THEMES = {
         'tn-tertiary': '255, 238, 238'
       },
       Citrus: {
+        dominantKey: 'orange',
         'bg-primary': '250, 250, 200',
         'bg-secondary': '255, 200, 150',
         'bg-tertiary': '240, 150, 100',
@@ -405,6 +425,7 @@ export const THEMES = {
         'tn-tertiary': '255, 239, 209'
       },
       'Sunny Meadow': {
+        dominantKey: 'orange',
         'bg-primary': '245, 255, 240',
         'bg-secondary': '230, 245, 220',
         'bg-tertiary': '210, 235, 200',
@@ -416,6 +437,7 @@ export const THEMES = {
         'tn-tertiary': '247, 255, 230'
       },
       'Golden Hour': {
+        dominantKey: 'orange',
         'bg-primary': '255, 250, 240',
         'bg-secondary': '255, 235, 200',
         'bg-tertiary': '250, 220, 160',
@@ -427,6 +449,7 @@ export const THEMES = {
         'tn-tertiary': '255, 253, 248'
       },
       Almond: {
+        dominantKey: 'skin',
         'bg-primary': '255, 235, 205',
         'bg-secondary': '245, 225, 195',
         'bg-tertiary': '235, 215, 185',
@@ -439,10 +462,11 @@ export const THEMES = {
       }
     }
   },
-  caotic: {
+  chaotic: {
     Icon: ZapIcon,
     styles: {
       'Synth wave 84': {
+        dominantKey: 'chaotic-purple',
         'bg-primary': '8, 8, 25',
         'bg-secondary': '18, 18, 35',
         'bg-tertiary': '28, 28, 45',
@@ -453,8 +477,8 @@ export const THEMES = {
         'tn-secondary': '220, 90, 180',
         'tn-tertiary': '255, 228, 255'
       },
-
       Neon: {
+        dominantKey: 'chaotic-forest',
         'bg-primary': '8, 8, 8',
         'bg-secondary': '18, 18, 18',
         'bg-tertiary': '28, 28, 28',
@@ -465,8 +489,8 @@ export const THEMES = {
         'tn-secondary': '0, 255, 255',
         'tn-tertiary': '255, 217, 245'
       },
-
       Electric: {
+        dominantKey: 'chaotic-turquoise',
         'bg-primary': '5, 5, 15',
         'bg-secondary': '15, 15, 25',
         'bg-tertiary': '25, 25, 35',
@@ -477,9 +501,9 @@ export const THEMES = {
         'tn-secondary': '0, 255, 128',
         'tn-tertiary': '202, 255, 255'
       },
-
       // === NUEVOS TEMAS CAÓTICOS ===
       'Laser Grid': {
+        dominantKey: 'chaotic-passion',
         'bg-primary': '12, 5, 20',
         'bg-secondary': '22, 15, 30',
         'bg-tertiary': '35, 25, 45',
@@ -491,6 +515,7 @@ export const THEMES = {
         'tn-tertiary': '255, 199, 229'
       },
       Hologram: {
+        dominantKey: 'chaotic-forest',
         'bg-primary': '10, 15, 10',
         'bg-secondary': '20, 25, 20',
         'bg-tertiary': '30, 40, 30',
@@ -502,6 +527,7 @@ export const THEMES = {
         'tn-tertiary': '240, 255, 250'
       },
       'Rave Night': {
+        dominantKey: 'chaotic-purple-yellow',
         'bg-primary': '0, 0, 30',
         'bg-secondary': '20, 0, 50',
         'bg-tertiary': '40, 20, 70',
@@ -512,18 +538,8 @@ export const THEMES = {
         'tn-secondary': '255, 100, 255',
         'tn-tertiary': '255, 255, 184'
       },
-      'Glitch Mode': {
-        'bg-primary': '30, 10, 0',
-        'bg-secondary': '50, 20, 10',
-        'bg-tertiary': '70, 30, 20',
-        'fnt-primary': '0, 255, 255',
-        'fnt-secondary': '255, 0, 100',
-        'fnt-active': '255, 255, 255',
-        'tn-primary': '255, 255, 0',
-        'tn-secondary': '255, 0, 255',
-        'tn-tertiary': '248, 255, 255'
-      },
       'Cosmic Storm': {
+        dominantKey: 'chaotic-purple',
         'bg-primary': '5, 0, 20',
         'bg-secondary': '15, 10, 40',
         'bg-tertiary': '25, 20, 60',
@@ -534,29 +550,8 @@ export const THEMES = {
         'tn-secondary': '128, 255, 255',
         'tn-tertiary': '255, 248, 255'
       },
-      'Galaxy Rave': {
-        'bg-primary': '10, 0, 40',
-        'bg-secondary': '20, 10, 60',
-        'bg-tertiary': '30, 20, 80',
-        'fnt-primary': '255, 255, 0',
-        'fnt-secondary': '255, 0, 255',
-        'fnt-active': '255, 255, 255',
-        'tn-primary': '0, 255, 255',
-        'tn-secondary': '255, 128, 0',
-        'tn-tertiary': '255, 255, 248'
-      },
-      'Retro Wave': {
-        'bg-primary': '25, 0, 35',
-        'bg-secondary': '40, 10, 50',
-        'bg-tertiary': '60, 20, 70',
-        'fnt-primary': '255, 100, 255',
-        'fnt-secondary': '0, 255, 255',
-        'fnt-active': '255, 255, 255',
-        'tn-primary': '255, 20, 147',
-        'tn-secondary': '0, 255, 200',
-        'tn-tertiary': '255, 240, 255'
-      },
       Vaporwave: {
+        dominantKey: 'chaotic-purple',
         'bg-primary': '30, 15, 45',
         'bg-secondary': '50, 25, 65',
         'bg-tertiary': '70, 35, 85',
@@ -567,18 +562,8 @@ export const THEMES = {
         'tn-secondary': '255, 100, 255',
         'tn-tertiary': '255, 255, 245'
       },
-      'Neon Dreams': {
-        'bg-primary': '0, 20, 40',
-        'bg-secondary': '10, 30, 60',
-        'bg-tertiary': '20, 45, 80',
-        'fnt-primary': '255, 0, 128',
-        'fnt-secondary': '0, 255, 255',
-        'fnt-active': '255, 255, 255',
-        'tn-primary': '255, 100, 0',
-        'tn-secondary': '128, 255, 255',
-        'tn-tertiary': '255, 240, 255'
-      },
       'Electric Sunset': {
+        dominantKey: 'chaotic-purple-yellow',
         'bg-primary': '40, 0, 20',
         'bg-secondary': '60, 10, 30',
         'bg-tertiary': '80, 20, 45',
@@ -591,4 +576,4 @@ export const THEMES = {
       }
     }
   }
-}
+} as const

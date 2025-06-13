@@ -21,16 +21,13 @@
   }
 }
 
-@include m.smallScreen {
-  .UPreferences {
-    width: 400px;
-  }
-}
-
 @include m.smallerScreen {
   .UPreferences {
     left: 50%;
     transform: translateX(-50%);
+
     width: 100%;
+    max-width: 90%;
+    max-height: 500px;
   }
 }

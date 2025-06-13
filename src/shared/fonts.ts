@@ -1,12 +1,12 @@
-import { Charm, Montserrat, Open_Sans } from 'next/font/google'
+import { Charm, Inter, Roboto } from 'next/font/google'
 
-export const font1 = Montserrat({
+export const font1 = Roboto({
   subsets: ['latin'],
   weight: ['500', '600', '700', '800'],
   variable: '--family1'
 })
 
-export const font2 = Open_Sans({
+export const font2 = Inter({
   subsets: ['latin'],
   weight: ['400', '500', '600'],
   variable: '--family2'

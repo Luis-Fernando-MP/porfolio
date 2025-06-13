@@ -4,22 +4,27 @@
 .post {
   position: relative;
 
-  width: 300px;
-  padding: v.$padding;
-  border-radius: v.$radius;
+  overflow: hidden;
 
-  background-color: rgb(v.$bg2);
+  width: 300px;
+  padding: v.$padding * 2;
+  border-radius: v.$radius;
 
   @include d.flex;
 
   &-background {
     position: absolute;
-
-    // z-index: -1;
+    z-index: -1;
     top: 0;
     left: 0;
 
     width: 100%;
     height: 100%;
+  }
+
+  &-title {
+    max-width: 200px;
+    font-weight: bold;
+    color: rgb(v.$tn3);
   }
 }

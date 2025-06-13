@@ -35,7 +35,7 @@ const MainBar: FC<Props> = ({ className = '' }) => {
       <div className='mainBar-wrapper'>
         <Link href='/' aria-label='Página principal' className='mainBar-logo'>
           <HauiDevLogo size='md' />
-          <div className='mainBar-logo__devName border'>
+          <div className='mainBar-logo__devName btn border'>
             <ShinyText>{INFO.devName}</ShinyText>
           </div>
         </Link>
@@ -47,7 +47,7 @@ const MainBar: FC<Props> = ({ className = '' }) => {
 
         <DevCardToggle />
 
-        <div className='mainBar-currentWork active'>
+        <div className='mainBar-currentWork btn active'>
           {INFO.working.state && <h4>Creando ideas con {INFO.working.enterprise}</h4>}
           {!INFO.working.state && <h4>Listo para desarrollar contigo</h4>}
         </div>

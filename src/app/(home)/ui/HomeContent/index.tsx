@@ -12,12 +12,15 @@ const HomeContent: FC = () => {
     <article className='content'>
       <section className='content-section'>
         <Title sub='Ultimas' title='Publicaciones?' />
-        <p className='content-description'>Un solo grano de arena también hace desierto.</p>
+        <p className='content-description'>
+          Un solo grano de arena,
+          <br /> también hace desierto.
+        </p>
         <IconLink href='/projects' className='active'>
-          <h4>MIra mis posts</h4>
+          <h4>Mira mis posts</h4>
           <ArrowRightIcon />
         </IconLink>
-        <LastedPosts />
+        {/* <LastedPosts /> */}
       </section>
     </article>
   )

@@ -27,8 +27,9 @@ const state: StateCreator<IAppThemeStore> = (set, get) => ({
   },
   currentTheme: () => {
     const { styleTheme, theme } = get()
-    const colors = THEMES[styleTheme]?.styles[theme]
-    return { style: styleTheme, theme, colors: colors ?? THEMES[DEFAULT_THEME.style].styles[DEFAULT_THEME.theme] }
+    const colors = (THEMES[styleTheme]?.styles as any)[theme]
+    const defaultColors = (THEMES[DEFAULT_THEME.style].styles as any)[DEFAULT_THEME.theme]
+    return { style: styleTheme, theme, colors: colors ?? defaultColors }
   }
 })
 

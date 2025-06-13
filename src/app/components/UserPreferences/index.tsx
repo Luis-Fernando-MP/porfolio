@@ -1,7 +1,5 @@
 import NavLinks from '@/app/ui/NavLinks'
-import { APP } from '@/constants'
 import Social from '@/shared/ui/Social'
-import Link from 'next/link'
 import type { FC } from 'react'
 
 import ThemesSelector from '../ThemesSelector'

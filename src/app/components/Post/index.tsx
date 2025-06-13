@@ -14,9 +14,9 @@ const Post: FC<Props> = ({ thumb, last_edited_time, title, folder, image_blur, i
     <section className='post border'>
       <BackImage className='post-background' src={thumb} blur={image_blur} alt={title} />
       <Link href={`/posts/${id}`}>
-        <h3>{title}</h3>
+        <h3 className='post-title'>{title}</h3>
       </Link>
-      <p>{folder}</p>
+      <p className='post-folder'>{folder}</p>
       <div className='post-date'>
         <ClockIcon />
         {toRelativeTime(last_edited_time)}

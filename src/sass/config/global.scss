@@ -198,6 +198,12 @@ body {
 
     flex-wrap: wrap;
   }
+
+  .btn {
+    min-height: 29px;
+    padding: $padding * 0.5 $padding;
+    border-radius: $radius;
+  }
 }
 
 .paragraph {

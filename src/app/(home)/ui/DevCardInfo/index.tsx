@@ -36,7 +36,7 @@ const DevCardInfo = () => {
   return (
     <div role='dialog' aria-modal='true' className={`devCard ${acl(isShowing, 'show')}`} onClick={handleOverlayClick}>
       <div role='button' tabIndex={0} className='devCard-content' onClick={handleContentClick}>
-        <BackgroundImage height={110} className='devCard-background' />
+        <BackgroundImage height={109} className='devCard-background' />
 
         <section className='devCard-wrapper'>
           <Link href={INFO.github} target='_blank' rel='noopener noreferrer'>
