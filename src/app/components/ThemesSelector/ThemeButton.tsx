@@ -1,6 +1,6 @@
 import { ThemeBackgroundImages } from '@/constants'
 import { AUDIOS } from '@/constants/audio'
-import { ThemeColorKeys, ThemeKeys } from '@/constants/themes'
+import { DominantKey, ThemeColorKeys, ThemeKeys } from '@/constants/themes'
 import useAppThemeStore, { ISetThemeProps } from '@/shared/store/appTheme.store'
 import useBackgroundImageStore from '@/shared/store/backgroundImage.store'
 import { type FC } from 'react'
@@ -24,7 +24,7 @@ const ThemeButton: FC<Props> = ({ style, name, colors }) => {
     if (['light', 'default'].includes(props.style)) switchOnPlay()
     else switchOffPlay()
     setAppTheme(props)
-    setBg(props.dominantKey as ThemeBackgroundImages)
+    setBg(props.dominantKey)
   }
 
   return (
@@ -34,7 +34,11 @@ const ThemeButton: FC<Props> = ({ style, name, colors }) => {
       aria-label={`Select ${name} theme`}
       title={`${name} theme`}
       onClick={() => {
-        handleSetTheme({ style: style as ThemeKeys, theme: name as ThemeColorKeys, dominantKey: colors['dominantKey'] })
+        handleSetTheme({
+          style: style as ThemeKeys,
+          theme: name as ThemeColorKeys,
+          dominantKey: colors['dominantKey'] as DominantKey
+        })
       }}
     >
       <div style={{ backgroundColor: `rgb(${colors['bg-primary']})` }} />

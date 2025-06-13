@@ -19,8 +19,8 @@
     overflow: hidden;
     flex-wrap: wrap;
 
-    width: 100%;
-    max-width: 302px;
+    width: fit-content;
+    max-width: 270px;
     border-radius: v.$radius;
 
     @include d.flex($dir: row, $gap: 0);

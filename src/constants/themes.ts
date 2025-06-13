@@ -1,7 +1,5 @@
 import { MonitorDotIcon, MoonStarIcon, SunIcon, ZapIcon } from 'lucide-react'
 
-import { INFO } from '.'
-
 export interface Theme {
   dominantKey: string
   'bg-primary': string
@@ -16,7 +14,8 @@ export interface Theme {
 }
 export const DEFAULT_THEME = {
   style: 'dark' as ThemeKeys,
-  theme: 'dev dark' as ThemeColorKeys
+  theme: 'dev dark' as ThemeColorKeys,
+  dominantKey: 'ice' as DominantKey
 }
 
 export type ThemeKeys = keyof typeof THEMES
