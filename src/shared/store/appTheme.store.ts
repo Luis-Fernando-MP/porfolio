@@ -1,17 +1,15 @@
-import { DEFAULT_THEME, DominantKey, THEMES, Theme, ThemeColorKeys, ThemeKeys } from '@/constants/themes'
+import { DEFAULT_THEME, THEMES, Theme, ThemeColorKeys, ThemeKeys } from '@/constants/themes'
 import { StateCreator, create } from 'zustand'
 import { persist } from 'zustand/middleware'
 
 export interface ISetThemeProps {
   style: ThemeKeys
   theme: ThemeColorKeys
-  dominantKey: DominantKey
 }
 
 interface IAppThemeStore {
   styleTheme: ThemeKeys
   theme: ThemeColorKeys
-  dominantKey: DominantKey
 
   setAppTheme: (_: ISetThemeProps) => void
   resetTheme: () => void
@@ -21,9 +19,8 @@ interface IAppThemeStore {
 const state: StateCreator<IAppThemeStore> = (set, get) => ({
   styleTheme: DEFAULT_THEME.style,
   theme: DEFAULT_THEME.theme,
-  dominantKey: DEFAULT_THEME.dominantKey,
   setAppTheme: config => {
-    set({ styleTheme: config.style, theme: config.theme, dominantKey: config.dominantKey })
+    set({ styleTheme: config.style, theme: config.theme })
   },
   resetTheme: () => {
     set({ styleTheme: DEFAULT_THEME.style, theme: DEFAULT_THEME.theme })

@@ -1,4 +1,5 @@
-import { ThemeBackgroundImages, themeBackgroundImages } from '@/constants'
+import { themeBackgroundImages } from '@/constants'
+import { ThemeColorKeys } from '@/constants/themes'
 import { blurhashToCssGradientString } from '@unpic/placeholder'
 import { StateCreator, create } from 'zustand'
 import { persist } from 'zustand/middleware'
@@ -7,18 +8,18 @@ type Background = { path: string; style: string }
 
 interface Props {
   background: Background
-  setBackgroundKey: (key: ThemeBackgroundImages) => void
+  setBackgroundKey: (key: ThemeColorKeys) => void
 }
 
-const DEFAULT_BG_KEY = 'ice' as ThemeBackgroundImages
+const DEFAULT_BG_KEY: ThemeColorKeys = 'dev dark'
 const DEFAULT_BGS = themeBackgroundImages[DEFAULT_BG_KEY]
 const index = Math.floor(Math.random() * DEFAULT_BGS.length)
-const DEFAULT_BG = DEFAULT_BGS[index]
-const placeholder = blurhashToCssGradientString(DEFAULT_BG.hash)
+const DEFAULT_BG = DEFAULT_BGS[index] ?? { path: '/assets/backgrounds/ice1.webp', hash: 'L4F5gBK$00EL.jot^*_M00%2-;Ns' }
+const placeholder = blurhashToCssGradientString(DEFAULT_BG?.hash)
 
 const state: StateCreator<Props> = set => ({
   background: {
-    path: DEFAULT_BG.path,
+    path: DEFAULT_BG?.path,
     style: placeholder
   },
   setBackgroundKey(key) {

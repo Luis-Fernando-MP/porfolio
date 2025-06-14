@@ -1,7 +1,6 @@
 import { BookOpenIcon, GaugeIcon, RocketIcon, UserIcon } from 'lucide-react'
-import path from 'path'
 
-import { DominantKey } from './themes'
+import { ThemeColorKeys } from './themes'
 
 export enum DEV_MODE {
   PROD = 'production',
@@ -57,25 +56,59 @@ export const APP = {
   ]
 } as const
 
-export type ThemeBackgroundImages = keyof typeof themeBackgroundImages
 type BackgroundImage = { path: string; hash: string }
 
-export const themeBackgroundImages: Record<DominantKey, BackgroundImage[]> = {
-  ice: [{ path: '/assets/backgrounds/1.webp', hash: 'L4F5gBK$00EL.jot^*_M00%2-;Ns' }],
-  red: [
-    { path: '/assets/backgrounds/2.webp', hash: 'LXM#wu9u58bc~CWoRPX8K%e.MykC' },
-    { path: '/assets/backgrounds/3.webp', hash: 'LpLol|_$KQS~t6NHS#s,R+X7smnl' }
+export const themeBackgroundImages: Record<ThemeColorKeys, BackgroundImage[]> = {
+  // Default theme
+  'dev dark': [
+    // { path: '/assets/backgrounds/ice1.webp', hash: 'L4F5gBK$00EL.jot^*_M00%2-;Ns' },
   ],
-  forest: [],
-  lavender: [],
-  orange: [],
-  pink: [],
-  rose: [],
-  skin: [],
-  slate: [],
-  'chaotic-forest': [],
-  'chaotic-passion': [],
-  'chaotic-purple': [],
-  'chaotic-purple-yellow': [{ path: '/assets/backgrounds/4.webp', hash: 'LNJZ*d9a}iOtbeIW59Rk#%krV[IU' }],
-  'chaotic-turquoise': []
+  'dev light': [],
+  rebeccapurple: [],
+
+  // Dark themes
+  'Dark Slate': [],
+  Midnight: [],
+  Carbon: [],
+  'Aurora Forest': [],
+  Red: [],
+  StarryNight: [],
+  Nebula: [],
+  Velvet: [],
+  'Royal Purple': [],
+  'Twilight Pink': [],
+  'Volcanic Magma': [],
+  'Cherry Blossom': [],
+
+  // Light themes
+  'Passionate Red': [],
+  'Candy Bright': [],
+  'Rose Pure': [],
+  'Cotton Candy': [],
+  'Pastel Pink': [],
+  'Rose Quartz': [],
+  Candy: [],
+  'Aurora Day': [],
+  Lavender: [],
+  'Lilac Breeze': [],
+  'Icy Blue': [],
+  Emerald: [],
+  'Mint Fresh': [],
+  'Tropical Breeze': [],
+  'Sunrise Glow': [],
+  Citrus: [],
+  'Sunny Meadow': [],
+  'Golden Hour': [],
+  Almond: [],
+
+  // Chaotic themes
+  'Synth wave 84': [],
+  Neon: [],
+  Electric: [],
+  'Laser Grid': [],
+  Hologram: [],
+  'Rave Night': [],
+  'Cosmic Storm': [],
+  Vaporwave: [],
+  'Electric Sunset': []
 }

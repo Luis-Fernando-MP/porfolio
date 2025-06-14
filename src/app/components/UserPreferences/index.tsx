@@ -2,6 +2,7 @@ import NavLinks from '@/app/ui/NavLinks'
 import Social from '@/shared/ui/Social'
 import type { FC } from 'react'
 
+import BackgroundSelector from '../BackgroundSelector'
 import ThemesSelector from '../ThemesSelector'
 import FontSizeComponent from './FontSizeComponent'
 import NoiseOptionsComponent from './NoiseOptionsComponent'
@@ -13,6 +14,11 @@ const UserPreferences: FC = () => {
   return (
     <section className='UPreferences border'>
       <NavLinks />
+
+      <section className='UPreferences-section'>
+        <h3># Background</h3>
+        <BackgroundSelector />
+      </section>
 
       <section className='UPreferences-section'>
         <h3># Temas</h3>

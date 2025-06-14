@@ -1,6 +1,5 @@
-import { ThemeBackgroundImages } from '@/constants'
 import { AUDIOS } from '@/constants/audio'
-import { DominantKey, ThemeColorKeys, ThemeKeys } from '@/constants/themes'
+import { ThemeColorKeys, ThemeKeys } from '@/constants/themes'
 import useAppThemeStore, { ISetThemeProps } from '@/shared/store/appTheme.store'
 import useBackgroundImageStore from '@/shared/store/backgroundImage.store'
 import { type FC } from 'react'
@@ -19,12 +18,12 @@ const ThemeButton: FC<Props> = ({ style, name, colors }) => {
   const [switchOnPlay] = useSound(AUDIOS.SWITCH_ON.path)
   const [switchOffPlay] = useSound(AUDIOS.SWITCH_OFF.path)
 
-  const handleSetTheme = (props: ISetThemeProps & { dominantKey: string }): void => {
+  const handleSetTheme = (props: ISetThemeProps): void => {
     if (theme === props.theme) return
     if (['light', 'default'].includes(props.style)) switchOnPlay()
     else switchOffPlay()
     setAppTheme(props)
-    setBg(props.dominantKey)
+    setBg(props.theme)
   }
 
   return (
@@ -36,8 +35,7 @@ const ThemeButton: FC<Props> = ({ style, name, colors }) => {
       onClick={() => {
         handleSetTheme({
           style: style as ThemeKeys,
-          theme: name as ThemeColorKeys,
-          dominantKey: colors['dominantKey'] as DominantKey
+          theme: name as ThemeColorKeys
         })
       }}
     >

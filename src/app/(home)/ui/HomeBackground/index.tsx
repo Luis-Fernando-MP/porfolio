@@ -7,7 +7,7 @@ import './userMobile.scss'
 const HomeBackground: FC = () => {
   return (
     <section className='homeBackground'>
-      <BackgroundImage className='homeBackground-wrapper' />
+      <BackgroundImage className='homeBackground-wrapper' height={530} />
     </section>
   )
 }

@@ -2,12 +2,12 @@ import useAppThemeStore from '@/shared/store/appTheme.store'
 import type { FC } from 'react'
 
 const CurrentThemeName: FC = () => {
-  const dominantKey = useAppThemeStore(s => s.dominantKey)
+  const style = useAppThemeStore(s => s.styleTheme)
   const theme = useAppThemeStore(s => s.theme)
 
   return (
     <div className='paragraph'>
-      <h4 className='paragraph-normal capitalize'>{dominantKey} • </h4>
+      <h4 className='paragraph-normal capitalize'>{style} • </h4>
       <h3 className='paragraph-emphasis fne capitalize'>{theme}</h3>
     </div>
   )
