@@ -1,27 +1,26 @@
-import { AUDIOS } from '@/constants/audio'
 import { ThemeColorKeys, ThemeKeys } from '@/constants/themes'
+import { PlayOptions } from '@/shared/hook/useSound'
 import useAppThemeStore, { ISetThemeProps } from '@/shared/store/appTheme.store'
 import useBackgroundImageStore from '@/shared/store/backgroundImage.store'
 import { type FC } from 'react'
-import useSound from 'use-sound'
 
 interface Props {
   style: string
   name: string
   colors: Record<string, string>
+  playOn: (options?: PlayOptions) => void
+  playOff: (options?: PlayOptions) => void
 }
 
-const ThemeButton: FC<Props> = ({ style, name, colors }) => {
+const ThemeButton: FC<Props> = ({ style, name, colors, playOff, playOn }) => {
   const theme = useAppThemeStore(s => s.theme)
   const setAppTheme = useAppThemeStore(s => s.setAppTheme)
   const setBg = useBackgroundImageStore(s => s.setBackgroundKey)
-  const [switchOnPlay] = useSound(AUDIOS.SWITCH_ON.path)
-  const [switchOffPlay] = useSound(AUDIOS.SWITCH_OFF.path)
 
   const handleSetTheme = (props: ISetThemeProps): void => {
     if (theme === props.theme) return
-    if (['light', 'default'].includes(props.style)) switchOnPlay()
-    else switchOffPlay()
+    if (['light', 'default'].includes(props.style)) playOn()
+    else playOff()
     setAppTheme(props)
     setBg(props.theme)
   }

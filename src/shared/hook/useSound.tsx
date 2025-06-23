@@ -1,13 +1,11 @@
 import { AUDIOS } from '@/constants/audio'
-import sound from 'use-sound'
-import { useSound as useSoundLib } from 'use-sound'
+import { Howl } from 'howler'
 
 import useAppStore from '../store/app.store'
 
-type SpriteMap = {
-  [key: string]: [number, number]
-}
-type HookOptions<T = any> = T & {
+type SpriteMap = { [key: string]: [number, number] }
+
+type HookOptions = {
   id?: string
   volume?: number
   playbackRate?: number
@@ -16,27 +14,51 @@ type HookOptions<T = any> = T & {
   sprite?: SpriteMap
   onload?: () => void
 }
-interface PlayOptions {
+
+export interface PlayOptions {
   id?: string
   forceSoundEnabled?: boolean
   playbackRate?: number
 }
+
 export interface ExposedData {
   sound: Howl | null
-  stop: (id?: string) => void
-  pause: (id?: string) => void
+  stop: (id?: number) => void
+  pause: (id?: number) => void
   duration: number | null
 }
 
-const useSound = (audio: keyof typeof AUDIOS, { options }: HookOptions = {}): [(options?: PlayOptions) => void, ExposedData] => {
-  const soundEnabled = useAppStore(s => s.soundEnabled)
-  const [play, expose] = useSoundLib(AUDIOS[audio].path, options)
+const soundCache: Record<string, Howl> = {}
 
-  function handlePlay(options?: PlayOptions) {
-    if (soundEnabled) play(options)
+const useSound = (audio: keyof typeof AUDIOS, options: HookOptions = {}): [(options?: PlayOptions) => void, ExposedData] => {
+  const soundEnabled = useAppStore(s => s.soundEnabled)
+  const src = AUDIOS[audio]?.path
+
+  const sound = (() => {
+    if (!soundCache[src]) {
+      soundCache[src] = new Howl({
+        src: [src],
+        ...options
+      })
+    }
+    return soundCache[src]
+  })()
+
+  const play = (opts?: PlayOptions) => {
+    if (!soundEnabled && !opts?.forceSoundEnabled) return
+    const id = sound.play(opts?.id)
+    if (opts?.playbackRate) sound.rate(opts.playbackRate, id)
   }
 
-  return [handlePlay, expose]
+  return [
+    play,
+    {
+      sound,
+      stop: (id?: number) => sound.stop(id),
+      pause: (id?: number) => sound.pause(id),
+      duration: sound.duration()
+    }
+  ]
 }
 
 export default useSound

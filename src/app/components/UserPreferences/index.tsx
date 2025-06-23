@@ -16,13 +16,13 @@ const UserPreferences: FC = () => {
       <NavLinks />
 
       <section className='UPreferences-section'>
-        <h3># Background</h3>
-        <BackgroundSelector />
+        <h3># Temas</h3>
+        <ThemesSelector />
       </section>
 
       <section className='UPreferences-section'>
-        <h3># Temas</h3>
-        <ThemesSelector />
+        <h3># Background</h3>
+        <BackgroundSelector />
       </section>
 
       <section className='UPreferences-section'>

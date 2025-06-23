@@ -1,15 +1,14 @@
-import { AUDIOS } from '@/constants/audio'
 import { acl } from '@/shared/acl'
+import useSound from '@/shared/hook/useSound'
 import useAppStore from '@/shared/store/app.store'
 import type { FC } from 'react'
-import useSound from 'use-sound'
 
 const SoundOptionsComponent: FC = () => {
   const soundEnabled = useAppStore(s => s.soundEnabled)
   const setSoundEnabled = useAppStore(s => s.setSoundEnabled)
 
-  const [swOn] = useSound(AUDIOS.SWITCH_ON.path)
-  const [swOff] = useSound(AUDIOS.SWITCH_OFF.path)
+  const [swOn] = useSound('MENU_OPEN')
+  const [swOff] = useSound('MENU_CLOSE')
 
   const handleChange = (enable: boolean) => {
     if (soundEnabled === enable) return

@@ -11,10 +11,6 @@ export interface Theme {
   'tn-secondary': string
   'tn-tertiary': string
 }
-export const DEFAULT_THEME = {
-  style: 'dark' as ThemeKeys,
-  theme: 'dev dark' as ThemeColorKeys
-}
 
 export type ThemeKeys = keyof typeof THEMES
 export type ThemeColorKeys =
@@ -524,3 +520,69 @@ export const THEMES = {
     }
   }
 } as const
+
+export type BackgroundImage = { path: string; hash: string }
+
+export const themeBackgroundImages: Record<ThemeColorKeys, BackgroundImage[]> = {
+  // Default theme
+  'dev dark': [
+    { path: '/backgrounds/dev-dark/1.webp', hash: 'L4F5gBK$00EL.jot^*_M00%2-;Ns' },
+    { path: '/backgrounds/dev-dark/2.webp', hash: 'L4F5gBK$00EL.jot^*_M00%2-;Ns' },
+    { path: '/backgrounds/dev-dark/3.webp', hash: 'L4F5gBK$00EL.jot^*_M00%2-;Ns' }
+  ],
+  'dev light': [],
+  rebeccapurple: [],
+
+  // Dark themes
+  'Dark Slate': [],
+  Midnight: [],
+  Carbon: [],
+  'Aurora Forest': [],
+  Red: [],
+  StarryNight: [],
+  Nebula: [],
+  Velvet: [],
+  'Royal Purple': [],
+  'Twilight Pink': [],
+  'Volcanic Magma': [],
+  'Cherry Blossom': [],
+
+  // Light themes
+  'Passionate Red': [],
+  'Candy Bright': [],
+  'Rose Pure': [],
+  'Cotton Candy': [],
+  'Pastel Pink': [],
+  'Rose Quartz': [],
+  Candy: [],
+  'Aurora Day': [],
+  Lavender: [],
+  'Lilac Breeze': [],
+  'Icy Blue': [],
+  Emerald: [],
+  'Mint Fresh': [],
+  'Tropical Breeze': [],
+  'Sunrise Glow': [],
+  Citrus: [],
+  'Sunny Meadow': [],
+  'Golden Hour': [],
+  Almond: [],
+
+  // Chaotic themes
+  'Synth wave 84': [],
+  Neon: [],
+  Electric: [],
+  'Laser Grid': [],
+  Hologram: [],
+  'Rave Night': [],
+  'Cosmic Storm': [],
+  Vaporwave: [],
+  'Electric Sunset': []
+}
+
+export const DEFAULT_THEME = {
+  style: 'dark' as ThemeKeys,
+  theme: 'dev dark' as ThemeColorKeys,
+  bgs: themeBackgroundImages['dev dark'],
+  bg: themeBackgroundImages['dev dark'][0] ?? { path: '/backgrounds/dev-dark/2.webp', hash: 'L4F5gBK$00EL.jot^*_M00%2-;Ns' }
+}
