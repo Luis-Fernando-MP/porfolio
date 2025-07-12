@@ -1,3 +1,5 @@
+$family-size: 14px;
+
 :root {
   --bg-primary: 10, 10, 10;
   --bg-secondary: 16, 16, 16;
@@ -17,10 +19,10 @@
   --xl-font-size: 2.25rem;
   --h1-font-size: 1.125rem;
   --h2-font-size: 1rem;
-  --h3-font-size: 0.9375rem;
-  --h4-font-size: 0.875rem;
-  --h5-font-size: 0.8125rem;
-  --p-font-size: 0.8125rem;
+  --h3-font-size: 0.975rem;
+  --h4-font-size: 0.9375rem;
+  --h5-font-size: 0.9125rem;
+  --p-font-size: 0.9125rem;
 }
 
 $fXl: var(--xl-font-size);
@@ -54,7 +56,6 @@ $radius: 10px;
 $padding: 10px;
 $big-padding: 40px;
 $icon: 17px;
-$family-size: 14px;
 $fontBase: 'Segoe UI Mono', 'Roboto Mono';
 $font1: var(--family1);
 $font2: var(--family2);

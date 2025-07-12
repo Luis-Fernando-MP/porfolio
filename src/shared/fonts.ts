@@ -1,12 +1,12 @@
-import { Charm, Inter, Roboto } from 'next/font/google'
+import { Charm, Open_Sans, Poppins } from 'next/font/google'
 
-export const font1 = Roboto({
+export const font1 = Poppins({
   subsets: ['latin'],
   weight: ['500', '600', '700', '800'],
   variable: '--family1'
 })
 
-export const font2 = Inter({
+export const font2 = Open_Sans({
   subsets: ['latin'],
   weight: ['400', '500', '600'],
   variable: '--family2'
