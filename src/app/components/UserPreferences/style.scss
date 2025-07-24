@@ -1,0 +1,56 @@
+@use '@sass/config/vars' as v;
+@use '@sass/utils/defs' as d;
+@use '@sass/utils/scrollbar' as *;
+
+.UPreferences {
+  position: absolute;
+  z-index: 10;
+  top: calc(100% + v.$padding);
+  left: 0;
+
+  overflow: auto;
+
+  width: 350px;
+  height: 550px;
+  padding: v.$padding * 1.5;
+  border-radius: v.$radius + v.$padding;
+
+  background-color: rgb(v.$bg2);
+
+  @include d.flex($gap: v.$big_padding);
+  @include scroll-hidden;
+
+  animation: fade-bottom 0.5s ease forwards;
+
+  @keyframes fade-bottom {
+    0% {
+      transform: translateY(-20px);
+      opacity: 0;
+    }
+
+    100% {
+      transform: translateY(0);
+      opacity: 1;
+    }
+  }
+
+  &-section {
+    @include d.flex($gap: v.$padding * 2);
+  }
+
+  &-group {
+    @include d.flex;
+  }
+
+  &-options {
+    @include d.flex($dir: row, $ali: center);
+
+    flex-wrap: wrap;
+  }
+
+  &-option {
+    padding: v.$padding;
+    border-radius: v.$radius;
+    background-color: rgb(v.$bg2);
+  }
+}

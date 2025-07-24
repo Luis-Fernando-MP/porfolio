@@ -16,6 +16,8 @@ const Masonry: React.FC<MasonryProps> = ({ data, children }) => {
   const [columns, setColumns] = useState<number>(2)
 
   useEffect(() => {
+    if (typeof window === 'undefined') return
+
     const updateColumns = () => {
       if (window.matchMedia('(min-width: 1500px)').matches) {
         setColumns(5)

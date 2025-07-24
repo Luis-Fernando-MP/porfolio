@@ -1,0 +1,33 @@
+@use '@sass/config/vars' as v;
+@use '@sass/utils/media' as m;
+@use '@sass/utils/defs' as d;
+
+@include m.largeScreen {
+  .UPreferences {
+    left: 50%;
+    animation: fade-bottom 0.5s ease forwards;
+
+    @keyframes fade-bottom {
+      0% {
+        transform: translateY(-20px) translateX(-50%);
+        opacity: 0;
+      }
+
+      100% {
+        transform: translateY(0) translateX(-50%);
+        opacity: 1;
+      }
+    }
+  }
+}
+
+@include m.smallerScreen {
+  .UPreferences {
+    left: 50%;
+    transform: translateX(-50%);
+
+    width: 100%;
+    max-width: 90%;
+    max-height: 500px;
+  }
+}

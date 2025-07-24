@@ -1,0 +1,46 @@
+@use '@sass/config/vars' as v;
+@use '@sass/utils/defs' as d;
+
+.themesSelector {
+  @include d.flex;
+
+  &-style {
+    width: fit-content;
+    border-radius: v.$radius;
+
+    @include d.flex($dir: row, $gap: v.$padding * 2, $ali: center);
+  }
+
+  &-icon {
+    min-width: fit-content;
+  }
+
+  &-list {
+    overflow: hidden;
+    flex-wrap: wrap;
+
+    width: fit-content;
+    max-width: 270px;
+    border-radius: v.$radius;
+
+    @include d.flex($dir: row, $gap: 0);
+  }
+
+  &-theme {
+    justify-content: center;
+    width: 30px;
+    height: 30px;
+
+    @include d.flex($ali: center);
+
+    div {
+      width: 10px;
+      height: 10px;
+      border-radius: 2px;
+    }
+
+    &:last-child {
+      border-bottom-right-radius: v.$radius;
+    }
+  }
+}

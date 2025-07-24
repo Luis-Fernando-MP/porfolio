@@ -1,0 +1,19 @@
+@use '@sass/config/vars' as v;
+@use '@sass/utils/media' as m;
+@use '@sass/utils/defs' as d;
+
+@include m.largeScreen {
+  .details {
+    @include d.flex($ali: center, $gap: v.$big-padding, $dir: column-reverse);
+
+    &-information {
+      align-items: center;
+      width: 100%;
+      max-width: 500px;
+    }
+
+    &-paragraph {
+      text-align: center;
+    }
+  }
+}

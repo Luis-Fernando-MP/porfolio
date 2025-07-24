@@ -1,7 +1,9 @@
+$family-size: 14px;
+
 :root {
-  --bg-primary: 0, 0, 0;
-  --bg-secondary: 10, 9, 9;
-  --bg-tertiary: 35, 35, 35;
+  --bg-primary: 10, 10, 10;
+  --bg-secondary: 16, 16, 16;
+  --bg-tertiary: 44, 42, 42;
 
   // Fuentes
   --fnt-primary: 237, 237, 237;
@@ -9,18 +11,18 @@
   --fnt-active: 255, 255, 255;
 
   // Principales
-  --tn-primary: 5, 147, 140;
-  --tn-secondary: 237, 182, 123;
+  --tn-primary: 0, 85, 255;
+  --tn-secondary: 66, 218, 155;
+  --tn-tertiary: 255, 255, 255;
 
   // Fuentes
-  --xl-font-size: 4rem;
-  --h1-font-size: 1.1rem;
+  --xl-font-size: 2.25rem;
+  --h1-font-size: 1.125rem;
   --h2-font-size: 1rem;
-  --h3-font-size: 0.9rem;
-  --h4-font-size: 0.9rem;
-  --h5-font-size: 0.9rem;
-  --p-font-size: 0.9rem;
-  --s-grid: 15px;
+  --h3-font-size: 0.975rem;
+  --h4-font-size: 0.9375rem;
+  --h5-font-size: 0.9125rem;
+  --p-font-size: 0.9125rem;
 }
 
 $fXl: var(--xl-font-size);
@@ -39,21 +41,21 @@ $fn2: var(--fnt-secondary);
 $fnA: var(--fnt-active);
 $tn1: var(--tn-primary);
 $tn2: var(--tn-secondary);
+$tn3: var(--tn-tertiary);
 
 // Window
-$min-small-screen: 450px;
+$min-small-screen: 375px;
 $small-screen: 610px;
 $medium-screen: 820px;
-$large-screen: 990px;
+$large-screen: 1050px;
 $extra-large-screen: 1200px;
 $big-screen: 1350px;
 
 // Other
-$radius: 15px;
+$radius: 10px;
 $padding: 10px;
 $big-padding: 40px;
-$icon: 15px;
-$family-size: 15px;
+$icon: 17px;
 $fontBase: 'Segoe UI Mono', 'Roboto Mono';
 $font1: var(--family1);
 $font2: var(--family2);
@@ -66,6 +68,9 @@ $warning: rgb(255 193 7);
 $info: rgb(42 42 42);
 $focus: rgb(66 133 244);
 $active: rgb(150 211 50);
+
+// Max width application
+$max-w: 1000px;
 
 // bezier
 $bezier: cubic-bezier(0.68, -0.55, 0.27, 1.55);

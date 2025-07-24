@@ -1,153 +1,24 @@
 @use '@sass/config/vars' as *;
-@use '@sass/config/typography' as *;
-@use '@sass/utils/media' as m;
 @use '@sass/utils/boxLoader' as loader;
-@use '@sass/utils/scrollbar' as *;
-@use 'sass:map';
+@use '@sass/utils/defs' as d;
 
-*,
-::before,
-::after {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-  border: none;
-
-  list-style: none;
-
-  outline: none;
-
-  &:focus {
-    outline: none;
-  }
-}
-
-html {
-  scroll-behavior: smooth;
-
-  position: relative;
-
-  overflow-x: clip;
-  overflow-y: scroll;
-
-  width: 100dvw;
-  min-height: 100dvh;
-
-  font-size: $family-size;
-
-  @include scroll-hidden;
-}
+@use 'default' as *;
 
 body {
-  overflow-x: clip;
-
-  width: 100%;
-  height: fit-content;
-
-  font-family: $font1;
-  color: rgb($fn1);
-
-  background-color: rgb($bg1);
-
-  // Typography
-  @each $tag, $props in $typography {
-    #{$tag} {
-      font-family: map.get($props, family);
-      font-size: map.get($props, size);
-      font-weight: map.get($props, weight);
-      color: map.get($props, color);
-    }
-  }
-
-  textarea,
-  button,
-  select {
-    font-family: map.get(map.get($typography, 'a'), family);
-    font-size: map.get(map.get($typography, 'a'), size);
-    font-weight: map.get(map.get($typography, 'a'), weight);
-    color: map.get(map.get($typography, 'a'), color);
-
-    background: none;
-  }
-
-  span {
-    font-size: map.get(map.get($typography, 'a'), size);
-  }
-
-  small,
-  label,
-  input {
-    font-family: $font2;
-    font-size: map.get(map.get($typography, 'p'), size);
-    font-weight: map.get(map.get($typography, 'p'), weight);
-    color: map.get(map.get($typography, 'p'), color);
-  }
-
-  .icon,
-  .lucide {
-    display: block;
-    width: $icon;
-    height: $icon;
-  }
-
-  .lucide {
-    stroke: rgb($fn1);
-    stroke-width: 1.5;
-  }
-
-  ::selection {
-    color: rgb($fn1);
-    background-color: rgb($tn1);
+  .fne {
+    font-family: $fontE1;
   }
 
   .loading {
     @include loader.boxLoader;
   }
 
-  input {
-    width: min-content;
-
-    &:focus {
-      outline: none;
-    }
-  }
-
-  input[type='number'] {
-    appearance: textfield;
-
-    &::-webkit-inner-spin-button,
-    &::-webkit-outer-spin-button {
-      margin: 0;
-      appearance: none;
-    }
-  }
-
-  a {
-    text-decoration: none;
-
-    &:hover {
-      cursor: crosshair;
-    }
-  }
-
   .border {
-    border: 1px solid rgb($bg3, 0.6);
+    border: 1px solid rgb($bg3);
   }
 
-  button {
-    cursor: pointer;
-  }
-
-  .active {
-    background-color: rgb($tn1) !important;
-
-    * {
-      color: rgb($fnA) !important;
-    }
-
-    svg {
-      stroke: rgb($fnA) !important;
-    }
+  .svg-active {
+    stroke: rgb($tn1) !important;
   }
 
   .inverse {
@@ -161,23 +32,54 @@ body {
       stroke: rgb($bg1) !important;
     }
   }
-}
 
-.toast {
-  width: fit-content !important;
-  height: fit-content !important;
-  padding: 0 !important;
-  border: 1px solid rgb($bg3, 0.5) !important;
-  border-radius: $radius * 0.7 !important;
+  .toast {
+    width: fit-content !important;
+    height: fit-content !important;
+    padding: 0 !important;
+    border: 1px solid rgb($bg3, 0.5) !important;
+    border-radius: $radius * 0.7 !important;
 
-  line-height: normal !important;
+    line-height: normal !important;
 
-  background-color: rgb($bg2, 0.7) !important;
-  backdrop-filter: blur(20px) !important;
-  box-shadow: none !important;
+    background-color: rgb($bg2, 0.7) !important;
+    backdrop-filter: blur(20px) !important;
+    box-shadow: none !important;
 
-  > div {
-    margin: 0 !important;
+    > div {
+      margin: 0 !important;
+    }
+  }
+
+  .active {
+    background-color: rgb($tn1) !important;
+
+    &,
+    h3,
+    h4,
+    h5,
+    p,
+    a,
+    button,
+    div,
+    span {
+      color: rgb($fnA) !important;
+    }
+
+    svg {
+      stroke: rgb($fnA) !important;
+    }
+  }
+
+  .frow {
+    @include d.flex($ali: center, $dir: row);
+
+    flex-wrap: wrap;
+  }
+
+  .btn {
+    padding: 7px $padding;
+    border-radius: $radius;
   }
 }
 
@@ -192,8 +94,8 @@ body {
   }
 
   &-emphasis {
-    font-size: $fH5;
-    font-weight: lighter;
+    font-size: $fH3;
+    font-weight: bolder;
     color: rgb($fn1) !important;
   }
 
@@ -233,22 +135,21 @@ body {
   }
 }
 
-@include m.mediumScreen {
-  html {
-    font-size: 12px;
-  }
+.borderIcon {
+  width: fit-content;
+  padding: $padding;
+  border: 1px solid transparent;
+  border-radius: $radius * 0.7;
 
-  body {
-    .icon,
-    .lucide {
-      width: $icon * 0.5;
-      height: $icon * 0.5;
-    }
-  }
+  background: linear-gradient(155deg, rgb($bg2) 10%, rgb($bg3) 30%, rgb($bg3), rgb($bg2) 80%);
 }
 
-@include m.smallerScreen {
-  html {
-    font-size: 9px;
+@keyframes fade {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
   }
 }

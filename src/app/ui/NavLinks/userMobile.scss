@@ -1,0 +1,43 @@
+@use '@sass/config/vars' as v;
+@use '@sass/utils/media' as m;
+@use '@sass/utils/defs' as d;
+
+@include m.smallScreen {
+  .navLinks {
+    &-link {
+      width: fit-content;
+      min-width: 100px;
+      min-height: 80px;
+    }
+
+    &-content {
+      padding: 5px;
+    }
+  }
+}
+
+@include m.smallerScreen {
+  .navLinks {
+    &-link {
+      width: fit-content;
+      min-width: fit-content;
+      height: fit-content;
+      min-height: fit-content;
+    }
+
+    &-content {
+      padding: 5px;
+      padding: v.$padding;
+      background-color: rgb(v.$fn1);
+
+      h4 {
+        font-weight: normal;
+        color: rgb(v.$bg1);
+      }
+
+      .lucide {
+        stroke: rgb(v.$bg1);
+      }
+    }
+  }
+}

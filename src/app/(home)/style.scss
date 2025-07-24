@@ -1,19 +1,24 @@
 @use '@sass/config/vars' as v;
 @use '@sass/utils/defs' as d;
-@use '@sass/utils/scrollbar' as *;
 
 .home {
   width: 100%;
   height: fit-content;
+  min-height: 100vh;
 
-  @include d.flex($gap: v.$big-padding);
+  @include d.flex;
 
   &-wrapper {
-    width: 900px;
-    margin: auto;
+    width: v.$max-w;
+    margin: 0 auto;
   }
 
-  &-sections {
-    @include d.flex($gap: v.$big-padding * 4);
+  &-body {
+    display: grid;
+    grid-template-columns: 1fr 350px;
+    gap: v.$big-padding;
+
+    width: 100%;
+    height: fit-content;
   }
 }

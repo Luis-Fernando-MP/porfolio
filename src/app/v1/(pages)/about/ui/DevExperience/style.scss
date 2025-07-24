@@ -1,0 +1,46 @@
+@use '@sass/config/vars' as v;
+@use '@sass/utils/defs' as d;
+
+.devExperience {
+  justify-content: space-between;
+  width: 100%;
+
+  @include d.flex($dir: row);
+
+  &-image {
+    border-radius: 6px;
+  }
+
+  &-date {
+    color: rgb(v.$fn2);
+  }
+
+  &-information {
+    width: 70%;
+
+    @include d.flex;
+  }
+
+  &-position {
+    font-weight: bold;
+  }
+
+  &-company {
+    @include d.flex($dir: row, $ali: center);
+  }
+
+  &-description {
+    @include d.flex;
+
+    color: rgb(v.$fn2);
+
+    li {
+      list-style: inside;
+    }
+
+    ul,
+    ol {
+      padding-left: v.$padding;
+    }
+  }
+}

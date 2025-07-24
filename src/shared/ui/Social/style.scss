@@ -7,11 +7,10 @@
   @include d.flex($dir: row, $ali: center);
 
   flex-wrap: wrap;
-  justify-content: center;
 
   &-link {
-    padding: v.$padding * 0.7;
-    border-radius: 5px;
-    background-color: rgb(v.$bg2);
+    padding: v.$padding;
+    border-radius: v.$radius;
+    background-color: rgb(v.$bg1);
   }
 }

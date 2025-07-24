@@ -12,11 +12,10 @@
   width: fit-content;
   min-width: 35px;
   height: fit-content;
-  padding: v.$padding * 0.8;
-  border-radius: v.$radius * 0.5;
+  padding: 7px v.$padding;
+  border-radius: v.$radius;
 
-  background-color: rgb(v.$bg2, 0.8);
-  backdrop-filter: blur(10px);
+  background-color: rgb(v.$bg2);
 
   &.transparent {
     background-color: transparent;

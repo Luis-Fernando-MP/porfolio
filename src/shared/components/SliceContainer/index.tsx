@@ -1,41 +1,59 @@
+'use client'
+
 import IconButton from '@/shared/ui/IconButton'
 import { MoreHorizontalIcon } from 'lucide-react'
 import { type FC, type HTMLAttributes, type ReactNode, useState } from 'react'
 
 import './style.scss'
 
+/**
+ * A container component that allows content to be expanded or collapsed with a toggle button.
+ *
+ * @prop {ReactNode} [children] - The child elements to render inside the container.
+ * @prop {number} [maxHeight] - Maximum height of the container when collapsed.
+ * @prop {() => void} [onExtend] - Callback triggered when the "Extend" button is clicked.
+ * @prop {number} [extendedMaxHeight] - Maximum height of the container when expanded.
+ * @prop {boolean} [reverse=false] - Reverses the content order if set to true.
+ * @prop {string} [overlayColor='var(--bg-secondary)'] - Background gradient color used for the overlay.
+ * @extends HTMLAttributes<HTMLDivElement>
+ */
 interface Props extends HTMLAttributes<HTMLDivElement> {
-  children?: Readonly<ReactNode[]> | null | Readonly<ReactNode>
+  children?: ReactNode
   maxHeight?: number
   onExtend?: () => void
   extendedMaxHeight?: number
+  reverse?: boolean
+  overlayColor?: string
 }
 
-/**
- * @description Component that allows you to extend and contract a content container.
- * @param {ReactNode} children - The child elements that will be displayed inside the container.
- * @param {number} maxHeight - The maximum height of the container when it is contracted.
- * @param {() => void} onExtend - The function that will be executed when the extension button is clicked.
- * @param {number} extendedMaxHeight - The maximum height of the container when it is extended.
- * @param {HTMLAttributes<HTMLDivElement>} props - Additional properties of the component.
- */
-
-const SliceContainer: FC<Props> = ({ children, maxHeight, className, onExtend, extendedMaxHeight, ...props }) => {
+const SliceContainer: FC<Props> = ({
+  children,
+  maxHeight,
+  className = '',
+  onExtend,
+  extendedMaxHeight,
+  reverse = false,
+  overlayColor = 'var(--bg-secondary)',
+  style,
+  ...props
+}) => {
   const [isExtended, setIsExtended] = useState(false)
   const exMaxHeight = extendedMaxHeight ? `${extendedMaxHeight}px` : '100%'
 
   const handleClick = () => {
-    setIsExtended(!isExtended)
+    setIsExtended(prev => !prev)
     onExtend?.()
   }
 
   return (
-    <article className='sliceContainer' {...props}>
-      <IconButton onClick={handleClick} className='sliceContainer-action'>
-        {isExtended ? 'Contraer' : 'Extender'}
-        <MoreHorizontalIcon />
-      </IconButton>
-
+    <article
+      className='sliceContainer'
+      {...props}
+      style={{
+        ...style,
+        flexDirection: reverse ? 'column-reverse' : 'column'
+      }}
+    >
       <section
         className={`sliceContainer-content ${className}`}
         style={{
@@ -44,7 +62,20 @@ const SliceContainer: FC<Props> = ({ children, maxHeight, className, onExtend, e
         }}
       >
         {children}
+        {!isExtended && (
+          <div
+            className='sliceContainer-gradient'
+            style={{
+              backgroundImage: `linear-gradient(rgb(${overlayColor}, 0) 60%, rgb(${overlayColor}))`
+            }}
+          />
+        )}
       </section>
+
+      <IconButton onClick={handleClick} className='sliceContainer-action'>
+        {isExtended ? 'Colapsar' : 'Expandir'}
+        <MoreHorizontalIcon />
+      </IconButton>
     </article>
   )
 }

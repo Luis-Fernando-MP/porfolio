@@ -1,0 +1,30 @@
+@use '@sass/config/vars' as v;
+@use '@sass/utils/media' as m;
+
+@include m.largeScreen {
+  .homeBackground {
+    height: 100px;
+
+    &-wrapper {
+      height: 200px !important;
+    }
+  }
+}
+
+@include m.mediumScreen {
+  .homeBackground {
+    height: 70px;
+  }
+}
+
+@include m.smallScreen {
+  .homeBackground {
+    height: 50px;
+  }
+}
+
+@include m.smallerScreen {
+  .homeBackground {
+    height: 40px;
+  }
+}

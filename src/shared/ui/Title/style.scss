@@ -1,0 +1,21 @@
+@use '@sass/config/vars' as v;
+@use '@sass/utils/defs' as d;
+
+.title {
+  flex-wrap: wrap;
+  width: fit-content;
+  height: fit-content;
+
+  @include d.flex($dir: row, $ali: center);
+
+  &-sub {
+    font-size: 3rem;
+    font-weight: 400;
+  }
+
+  &-title {
+    font-family: v.$fontE1;
+    font-size: 3rem;
+    font-weight: 900;
+  }
+}

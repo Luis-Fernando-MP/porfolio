@@ -1,0 +1,30 @@
+@use '@sass/config/vars' as v;
+@use '@sass/utils/defs' as d;
+
+.technologies {
+  width: 100%;
+
+  @include d.flex;
+
+  &-title {
+    color: rgb(v.$fn2);
+  }
+
+  &-list {
+    @include d.flex($dir: row);
+
+    flex-wrap: wrap;
+  }
+
+  &-language {
+    padding: v.$padding;
+    border-radius: v.$radius;
+    background-color: rgb(v.$bg2);
+
+    img {
+      width: 20px;
+      height: 20px;
+      object-fit: contain;
+    }
+  }
+}

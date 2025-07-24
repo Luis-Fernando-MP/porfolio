@@ -1,0 +1,21 @@
+@use '@sass/config/vars' as v;
+@use '@sass/utils/media' as m;
+
+@include m.largeScreen {
+  .title {
+    margin: auto;
+    text-align: center;
+  }
+}
+
+@include m.smallScreen {
+  .title {
+    &-sub {
+      font-size: 1rem;
+    }
+
+    &-title {
+      font-size: 1.2rem;
+    }
+  }
+}

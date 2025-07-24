@@ -1,0 +1,31 @@
+@use '@sass/config/vars' as v;
+@use '@sass/utils/defs' as d;
+
+.quickAccess {
+  flex-wrap: wrap;
+  justify-content: center;
+
+  width: 100%;
+  height: fit-content;
+  padding: v.$padding * 0.5;
+
+  text-align: center;
+
+  background-color: rgb(#000, 0.1);
+  backdrop-filter: blur(100px);
+
+  @include d.flex($dir: row, $ali: center);
+
+  &-subtitle {
+    color: rgb(v.$tn3);
+  }
+
+  .lucide {
+    stroke: rgb(v.$tn3);
+  }
+
+  &-button {
+    color: rgb(v.$fn1);
+    background-color: rgb(v.$bg1);
+  }
+}
