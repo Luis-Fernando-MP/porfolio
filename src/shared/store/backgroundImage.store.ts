@@ -10,7 +10,7 @@ interface Props {
   getThemeBackgrounds: (key: ThemeColorKeys) => BackgroundImage[]
 }
 
-const placeholder = blurhashToCssGradientString(DEFAULT_THEME.bg?.hash)
+const placeholder = blurhashToCssGradientString(DEFAULT_THEME.bg.hash)
 
 const state: StateCreator<Props> = set => ({
   background: {

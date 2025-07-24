@@ -23,6 +23,17 @@ export const THEMES = {
   default: {
     Icon: MonitorDotIcon,
     styles: {
+      gris: {
+        'bg-primary': '25, 26, 27',
+        'bg-secondary': '32, 33, 34',
+        'bg-tertiary': '44, 45, 47',
+        'fnt-primary': '237, 237, 237',
+        'fnt-secondary': '169, 171, 173',
+        'fnt-active': '255, 255, 255',
+        'tn-primary': '55, 115, 236',
+        'tn-secondary': '92, 142, 245',
+        'tn-tertiary': '248, 251, 255'
+      },
       'dev dark': {
         'bg-primary': '10, 10, 10',
         'bg-secondary': '16, 16, 16',
@@ -89,6 +100,7 @@ export const THEMES = {
 export type BackgroundImage = { path: string; hash: string }
 
 export const themeBackgroundImages: Record<ThemeColorKeys, BackgroundImage[]> = {
+  gris: [{ path: '/backgrounds/dev-dark/1.webp', hash: 'L4F5gBK$00EL.jot^*_M00%2-;Ns' }],
   'dev dark': [
     { path: '/backgrounds/dev-dark/1.webp', hash: 'L4F5gBK$00EL.jot^*_M00%2-;Ns' },
     { path: '/backgrounds/dev-dark/2.webp', hash: 'L4F5gBK$00EL.jot^*_M00%2-;Ns' },
@@ -100,8 +112,9 @@ export const themeBackgroundImages: Record<ThemeColorKeys, BackgroundImage[]> = 
 }
 
 export const DEFAULT_THEME = {
-  style: 'dark' as ThemeKeys,
-  theme: 'dev dark' as ThemeColorKeys,
-  bgs: themeBackgroundImages['dev dark'],
-  bg: themeBackgroundImages['dev dark'][0] ?? { path: '/backgrounds/dev-dark/2.webp', hash: 'L4F5gBK$00EL.jot^*_M00%2-;Ns' }
+  style: 'gris' as ThemeKeys,
+  theme: 'gris' as ThemeColorKeys,
+  colors: THEMES.default.styles.gris,
+  bgs: themeBackgroundImages['gris'],
+  bg: themeBackgroundImages['gris'][0] ?? { path: '/backgrounds/dev-dark/2.webp', hash: 'L4F5gBK$00EL.jot^*_M00%2-;Ns' }
 }

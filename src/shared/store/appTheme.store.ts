@@ -19,17 +19,21 @@ interface IAppThemeStore {
 const state: StateCreator<IAppThemeStore> = (set, get) => ({
   styleTheme: DEFAULT_THEME.style,
   theme: DEFAULT_THEME.theme,
-  setAppTheme: config => {
-    set({ styleTheme: config.style, theme: config.theme })
-  },
-  resetTheme: () => {
-    set({ styleTheme: DEFAULT_THEME.style, theme: DEFAULT_THEME.theme })
-  },
+
+  setAppTheme: config => set({ styleTheme: config.style, theme: config.theme }),
+
+  resetTheme: () => set({ styleTheme: DEFAULT_THEME.style, theme: DEFAULT_THEME.theme }),
+
   currentTheme: () => {
     const { styleTheme, theme } = get()
-    const colors = (THEMES[styleTheme]?.styles as any)[theme]
-    const defaultColors = (THEMES[DEFAULT_THEME.style].styles as any)[DEFAULT_THEME.theme]
-    return { style: styleTheme, theme, colors: colors ?? defaultColors }
+    const themeStyles = THEMES[styleTheme]?.styles
+    const colors = (themeStyles as any)[theme]
+
+    return {
+      style: styleTheme,
+      theme,
+      colors: colors ?? DEFAULT_THEME.colors
+    }
   }
 })
 
