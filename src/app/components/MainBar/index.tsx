@@ -5,12 +5,11 @@ import { INFO } from '@/constants'
 import useSound from '@/shared/hook/useSound'
 import HauiDevLogo from '@/shared/ui/HauiDevLogo'
 import IconButton from '@/shared/ui/IconButton'
-import ShinyText from '@/shared/ui/ShinyText'
-import { Image } from '@unpic/react'
 import { MenuIcon } from 'lucide-react'
 import Link from 'next/link'
 import { type FC, useState } from 'react'
 
+import MusicButton from '../MusicButton'
 import UserPreferences from '../UserPreferences'
 import './style.scss'
 import './userMobile.scss'
@@ -44,21 +43,15 @@ const MainBar: FC<Props> = ({ className = '' }) => {
             <h4>Menu</h4>
           </IconButton>
 
+          <MusicButton />
+
           <DevCardToggle />
 
           <IconButton className='events-none' active>
+            <div className='mainBar-point' />
             {INFO.working.state && <h4>Creando ideas con {INFO.working.enterprise}</h4>}
-            {!INFO.working.state && <h4>Listo para desarrollar contigo</h4>}
+            {!INFO.working.state && <h4>Trabajemos juntos</h4>}
           </IconButton>
-
-          <div className='mainBar-currentWork btn active'>
-            {INFO.working.state && <h4>Creando ideas con {INFO.working.enterprise}</h4>}
-            {!INFO.working.state && <h4>Listo para desarrollar contigo</h4>}
-          </div>
-
-          <button className='mainBar-music'>
-            <Image src='/assets/pages/music.webp' width={37} height={37} alt='resonance music' />
-          </button>
         </div>
 
         {show && <UserPreferences />}

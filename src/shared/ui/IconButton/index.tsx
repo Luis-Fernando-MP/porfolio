@@ -20,6 +20,7 @@ type CommonProps = {
   disable?: boolean
   noSound?: boolean
   soundType?: Audio
+  noPadding?: boolean
 }
 
 type ButtonProps = CommonProps & {
@@ -50,7 +51,8 @@ type Props = ButtonProps | LinkProps
  * @param {boolean} isLink - When true, renders a Next.js link instead of a button.
  * @param {boolean} disable - Prevents any interaction and applies disabled style.
  * @param {boolean} noSound - If true, prevents sound from playing on click.
- * @param {Audio} soundType - Type of sound to play. Defaults to 'BUTTON2'.
+ * @param {Audio} soundType - Type of sound to play. Defaults to 'BUTTON'.
+ * @param {boolean} noPadding - If true, removes default padding from the button.
  * @param {string} href - URL destination for the link (required if isLink is true).
  *
  * @example
@@ -80,6 +82,13 @@ type Props = ButtonProps | LinkProps
  * >
  *   <MenuIcon />
  * </IconButton>
+ *
+ * // Render with no padding
+ * <IconButton
+ *   noPadding
+ * >
+ *   <SmallIcon />
+ * </IconButton>
  */
 const IconButton: FC<Props> = ({
   children,
@@ -94,11 +103,12 @@ const IconButton: FC<Props> = ({
   disable = false,
   noSound = false,
   soundType = 'BUTTON',
+  noPadding = false,
   ...props
 }) => {
   const [playSound] = useSound(soundType, { interrupt: true })
 
-  const parsedClassName = `iconButton ${acl(outline, 'outline')} ${acl(transparent, 'transparent')} ${acl(active, 'active')} ${acl(disable, 'disabled')} ${className}`
+  const parsedClassName = `iconButton ${acl(outline, 'outline')} ${acl(transparent, 'transparent')} ${acl(active, 'active')} ${acl(disable, 'disabled')} ${acl(noPadding, 'noPadding')} ${className}`
 
   const handleClick = (e: MouseEvent<HTMLElement>) => {
     if (disable) return e.preventDefault()

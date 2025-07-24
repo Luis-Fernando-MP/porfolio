@@ -22,87 +22,14 @@
     @include d.flex($dir: row, $ali: center, $gap: v.$big-padding * 1.5);
   }
 
-  &-currentWork {
-    @include d.flex($dir: row, $ali: center);
+  &-point {
+    display: block;
 
-    text-align: center;
-
-    &::before {
-      content: '';
-
-      display: block;
-
-      width: 5px;
-      height: 5px;
-      margin-left: v.$min-padding;
-      border-radius: 50%;
-
-      background-color: rgb(v.$fnA);
-
-      animation: pulse-work-status 3s infinite ease-in-out;
-    }
-
-    @keyframes pulse-work-status {
-      0%,
-      100% {
-        transform: scale(1.2);
-        box-shadow: 0 0 10px 5px rgba(v.$fnA, 0.5);
-      }
-
-      50% {
-        transform: scale(0.8);
-        box-shadow: 0 0 0 0 transparent;
-      }
-    }
-  }
-
-  // Music style
-  &-music {
-    position: relative;
-
-    overflow: hidden;
-
-    max-width: 37px;
-    max-height: 37px;
+    width: 5px;
+    height: 5px;
+    margin-left: v.$min-padding;
     border-radius: 50%;
 
-    &::after {
-      content: '';
-
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-
-      display: block;
-
-      width: 15px;
-      height: 15px;
-      border-radius: 50%;
-
-      background-color: rgb(v.$bg1);
-    }
-
-    img {
-      pointer-events: none;
-      user-select: none;
-
-      width: 100%;
-      height: 100%;
-
-      object-fit: cover;
-
-      animation: rotate 15s infinite linear;
-    }
-
-    @keyframes rotate {
-      from {
-        transform: rotateZ(0);
-      }
-
-      to {
-        transform: rotateZ(360deg);
-      }
-    }
+    background-color: rgb(v.$fnA);
   }
 }

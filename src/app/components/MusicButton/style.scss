@@ -1,0 +1,28 @@
+@use '@sass/config/vars' as v;
+@use '@sass/utils/defs' as d;
+
+.musicBtn {
+  padding: 0 v.$padding;
+
+  &-image {
+    position: relative;
+
+    overflow: hidden;
+
+    width: fit-content;
+    height: fit-content;
+    border-radius: v.$min-radius;
+
+    img {
+      object-fit: cover;
+    }
+  }
+
+  &-icon {
+    position: absolute;
+    z-index: 2;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+}
