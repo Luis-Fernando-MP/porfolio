@@ -1,7 +1,7 @@
 'use client'
 
+import HauiDevLogo from '@/shared/ui/HauiDevLogo'
 import IconButton from '@/shared/ui/IconButton'
-import MiShumDev from '@/shared/ui/MiShumDev'
 import { ArrowLeftIcon } from 'lucide-react'
 import { useRouter } from 'next/navigation'
 import type { FC } from 'react'
@@ -12,7 +12,7 @@ const BackButton: FC = () => {
   return (
     <IconButton onClick={back} contentClass='mainApp-backContent' className='mainApp-back'>
       <ArrowLeftIcon />
-      <MiShumDev size='md' />
+      <HauiDevLogo size='md' />
     </IconButton>
   )
 }
