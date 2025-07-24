@@ -2,7 +2,7 @@
 @use '@sass/utils/defs' as d;
 
 .hauidev {
-  @include d.flex($dir: row, $ali: center, $gap: v.$padding * 0.5);
+  @include d.flex($dir: row, $ali: center, $gap: v.$min-padding);
 
   justify-content: center;
 

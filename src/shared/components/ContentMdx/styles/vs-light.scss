@@ -11,7 +11,7 @@ html[data-theme='light'] {
 
   .rehype-code-title {
     width: fit-content;
-    padding: v.$padding * 0.5 v.$padding;
+    padding: v.$min-padding v.$padding;
     border: 1px solid rgb(v.$bg3);
     border-radius: v.$radius !important;
 

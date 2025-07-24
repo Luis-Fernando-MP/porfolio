@@ -3,7 +3,7 @@
 @use '@sass/utils/scrollbar' as *;
 
 .navLinks {
-  @include d.flex($dir: row, $gap: v.$padding * 0.5);
+  @include d.flex($dir: row, $gap: v.$min-padding);
 
   flex-wrap: wrap;
 

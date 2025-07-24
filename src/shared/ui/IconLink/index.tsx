@@ -7,10 +7,10 @@ import './style.scss'
 
 interface Props extends React.HTMLAttributes<HTMLAnchorElement> {
   href: string
-  children?: Readonly<ReactNode[]> | null | Readonly<ReactNode>
+  children?: ReactNode | ReactNode[] | null
   label?: string
-  position?: 'top' | 'bottom' | 'left' | 'right'
-  outline?: boolean
+  label_position?: 'top' | 'bottom' | 'left' | 'right'
+  border?: boolean
   className?: string
   transparent?: boolean
   active?: boolean
@@ -18,39 +18,38 @@ interface Props extends React.HTMLAttributes<HTMLAnchorElement> {
 }
 
 /**
- * @param {ReactNode} children - The content of the link.
- * @param {string} href - The URL the link points to.
- * @param {string} label - The label of the link.
- * @param {string} position - The position of the label.
- * @param {boolean} outline - Whether the link is outlined.
- * @param {string} className - The class name of the link.
- * @param {boolean} transparent - Whether the link is transparent.
- * @param {boolean} active - Whether the link is active.
- * @param {string} contentClass - The class name of the content.
+ * IconLink component with optional tooltip label and style modifiers.
+ *
+ * @param children - The content inside the link (usually an icon or text).
+ * @param href - Destination URL or route.
+ * @param label - Optional tooltip label to describe the link.
+ * @param label_position - Tooltip position ('top' | 'bottom' | 'left' | 'right').
+ * @param border - Adds a border around the link container.
+ * @param className - Additional class names for the link.
+ * @param transparent - Removes background color when true.
+ * @param active - Applies active style.
+ * @param contentClass - Additional class names for the content wrapper.
  */
-
 const IconLink: FC<Props> = ({
   children,
   href,
   label,
-  position = 'top',
-  outline = false,
+  label_position = 'top',
+  border = false,
   className = '',
   transparent = false,
   active = false,
   contentClass = '',
   ...props
 }) => {
-  const parsedClassName = `iconLink ${acl(outline, 'outline')} ${acl(transparent, 'transparent')} ${acl(active, 'active')} ${className}`
+  const parsedClassName = ['iconLink', acl(border, 'border'), acl(transparent, 'transparent'), acl(active, 'active'), className]
+    .filter(Boolean)
+    .join(' ')
 
   return (
     <Link href={href} className={parsedClassName} {...props}>
       <div className={`iconLink-content ${contentClass}`}>{children}</div>
-      {label && (
-        <LabelText type='darken' className={`iconLink-label ${position}`}>
-          {label}
-        </LabelText>
-      )}
+      {label && <LabelText className={`iconLink-label ${label_position}`}>{label}</LabelText>}
     </Link>
   )
 }

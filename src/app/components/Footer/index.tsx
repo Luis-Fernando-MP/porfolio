@@ -1,5 +1,5 @@
+import { INFO } from '@/constants'
 import IconLink from '@/shared/ui/IconLink'
-import ShinyText from '@/shared/ui/ShinyText'
 import Social from '@/shared/ui/Social'
 import { CoffeeIcon, CuboidIcon, LayoutIcon, MailMinusIcon, VenetianMaskIcon } from 'lucide-react'
 import Link from 'next/link'
@@ -8,96 +8,97 @@ import type { FC } from 'react'
 import './style.scss'
 import './userMobile.scss'
 
-const GENERAL_LINKS = {
-  '': 'Inicio',
-  blog: 'Blog',
-  projects: 'Proyectos',
-  short: 'Shorts',
-  about: 'Acerca de mí'
-}
-
-const EXTRA_LINKS = {
-  stack: 'Stack',
-  attribution: 'Atribuciones'
-}
-
-const RESOURCES_LINKS = {
-  webs: 'Páginas web',
-  templates: 'Plantillas'
-}
+const LINK_GROUPS = [
+  {
+    title: 'General',
+    icon: LayoutIcon,
+    links: {
+      '': 'Inicio',
+      blog: 'Blog',
+      projects: 'Proyectos',
+      short: 'Shorts',
+      about: 'Acerca de mí'
+    },
+    className: 'footer-generalLinks'
+  },
+  {
+    title: 'Extras',
+    icon: VenetianMaskIcon,
+    links: {
+      stack: 'Stack',
+      attribution: 'Atribuciones'
+    },
+    className: 'footer-extraLinks'
+  },
+  {
+    title: 'Recursos',
+    icon: CuboidIcon,
+    links: {
+      webs: 'Páginas web',
+      templates: 'Plantillas'
+    },
+    className: 'footer-resources'
+  }
+]
 
 const Footer: FC = () => {
   return (
-    <footer className='footer'>
-      <div className='footer-wrapper'>
+    <footer className='footer' aria-label='Footer navigation and contact'>
+      <div className='footer-info'>
         <section className='footer-section footer-user'>
-          <ShinyText>#Myshum</ShinyText>
-          <h2 className='footer-title'>LUIS FERNANDO</h2>
+          <div className='footer-user__name'>
+            <h4 className='footer-haui'>#HAUI</h4>
+            <div className='dualTitle' aria-label='Author name'>
+              <h2 className='dualTitle-bold'>LUIS</h2>
+              <h2 className='dualTitle-especial'>FERNANDO</h2>
+            </div>
+          </div>
           <Social />
         </section>
 
-        <nav className='footer-nav footer-generalLinks'>
-          <div className='footer-navTitle'>
-            <h4>General</h4>
-            <LayoutIcon />
-          </div>
-          <div className='footer-links'>
-            {Object.entries(GENERAL_LINKS).map(([key, value]) => (
-              <Link key={key} href={`/${key}`} className='footer-link titleLink'>
-                {value}
-              </Link>
-            ))}
-          </div>
-        </nav>
-        <nav className='footer-nav footer-extraLinks'>
-          <div className='footer-navTitle'>
-            <h4>Extras</h4>
-            <VenetianMaskIcon />
-          </div>
-          <div className='footer-links'>
-            {Object.entries(EXTRA_LINKS).map(([key, value]) => (
-              <Link key={key} href={`/${key}`} className='footer-link titleLink'>
-                {value}
-              </Link>
-            ))}
-          </div>
-        </nav>
-        <nav className='footer-nav footer-resources'>
-          <div className='footer-navTitle'>
-            <h4>Recursos</h4>
-            <CuboidIcon />
-          </div>
-          <div className='footer-links'>
-            {Object.entries(RESOURCES_LINKS).map(([key, value]) => (
-              <Link key={key} href={`/${key}`} className='footer-link titleLink'>
-                {value}
-              </Link>
-            ))}
-          </div>
-        </nav>
+        {LINK_GROUPS.map(({ title, icon: Icon, links, className }) => (
+          <nav key={title} className={`footer-nav ${className}`} aria-label={title}>
+            <div className='footer-navTitle'>
+              <Icon aria-hidden='true' />
+              <h5>{title}</h5>
+            </div>
+            <ul className='footer-links'>
+              {Object.entries(links).map(([key, label]) => (
+                <li key={key}>
+                  <Link href={`/${key}`} className='footer-link titleLink'>
+                    {label}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </nav>
+        ))}
 
         <section className='footer-section footer-say'>
-          <ShinyText>Charlemos, estaré encantado de conocerte</ShinyText>
-          <IconLink href='#' className='inverse'>
-            <h3>luigfmp@gmail.com</h3>
-            <MailMinusIcon />
-          </IconLink>
-          <p>
-            Puedes apoyarme
-            <br />
-            comprándome un café
-          </p>
-          <IconLink href='#'>
-            <CoffeeIcon />
-            <h3>Buy now!</h3>
-          </IconLink>
+          <div className='footer-say__group'>
+            <h4 className='footer-say__paragraph'>Charlemos, estaré encantado de conocerte</h4>
+            <IconLink href='mailto:luigfmp@gmail.com' className='' border label='Hablemos!!' active>
+              <MailMinusIcon />
+              <address>
+                <p>luigfmp@gmail.com</p>
+              </address>
+            </IconLink>
+          </div>
+
+          <div className='footer-say__group'>
+            <h5 className='footer-say__paragraph'>Puedes apoyarme comprándome un café</h5>
+            <IconLink href='#' border>
+              <CoffeeIcon />
+              <h4>Buy now!</h4>
+            </IconLink>
+          </div>
         </section>
       </div>
 
-      <div className='footer-copyright'>
-        <h3>Copyright © 2025 Luis Fernando.</h3>
-        <h4>Derechos reservados a sus respectivos creadores.</h4>
-      </div>
+      <section className='footer-copyright'>
+        <p>&copy; 2025 {INFO.name}. All rights reserved.</p>
+        <h5>All content belongs to their respective creators.</h5>
+      </section>
     </footer>
   )
 }

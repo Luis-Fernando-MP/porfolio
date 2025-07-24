@@ -6,28 +6,17 @@
   user-select: none;
 
   display: inline-flex;
-  gap: v.$padding * 0.5;
+  gap: v.$min-padding;
   align-items: center;
   justify-content: center;
 
-  padding: 3px 7px;
-  border: 1.5px solid transparent;
-  border-radius: 8px;
+  padding: v.$btn-padding;
+  border-radius: v.$min-radius;
 
-  font-size: v.$fP;
   text-wrap: nowrap;
 
-  label {
-    color: rgb(v.$fn1);
-  }
-
-  &.luminosity {
-    border-color: rgb(v.$bg1);
+  &:not(&.transparent) {
+    border: 1px solid rgb(v.$bg3);
     background-color: rgb(v.$bg3);
-  }
-
-  &.darken {
-    border-color: rgb(v.$bg3);
-    background-color: rgb(v.$bg1);
   }
 }

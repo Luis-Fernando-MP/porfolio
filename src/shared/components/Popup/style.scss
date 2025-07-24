@@ -20,7 +20,7 @@
   background-color: rgb(v.$bg1, 0.75);
   backdrop-filter: blur(10px);
 
-  @include d.flex($gap: v.$padding * 0.5);
+  @include d.flex($gap: v.$min-padding);
 
   &-container {
     @include scroll-hidden;

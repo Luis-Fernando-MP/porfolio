@@ -11,7 +11,7 @@
     }
 
     &-language {
-      padding: v.$padding * 0.5;
+      padding: v.$min-padding;
       border-radius: v.$radius * 0.7;
 
       img {

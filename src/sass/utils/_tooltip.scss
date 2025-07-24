@@ -14,7 +14,7 @@
     left: 50%;
     transform: translateX(-50%);
 
-    padding: v.$padding * 0.5;
+    padding: v.$min-padding;
     border-radius: v.$radius;
 
     font-size: 0.8rem;

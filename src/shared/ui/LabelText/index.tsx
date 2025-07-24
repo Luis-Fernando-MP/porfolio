@@ -1,3 +1,4 @@
+import { acl } from '@/shared/acl'
 import type { FC, JSX } from 'react'
 
 import './style.scss'
@@ -6,20 +7,22 @@ interface Props {
   children?: string
   Icon?: JSX.Element
   className?: string
-  type?: 'luminosity' | 'darken'
+  transparent?: boolean
 }
 
 /**
- * @param {string} children - The children of the label text, accepts a string or a React node.
- * @param {JSX.Element} Icon - The icon of the label text is optional.
- * @param {string} type - The type of the label text, accepts 'luminosity' or 'darken'.
+ * @param {string} children - The label content. Accepts plain text.
+ * @param {JSX.Element} Icon - Optional icon element displayed before the text.
+ * @param {string} className - Additional custom classes for styling.
+ * @param {boolean} transparent - If true, applies the transparent style.
  */
+const LabelText: FC<Props> = ({ children, Icon, className = '', transparent = false }) => {
+  const parsedClass = `label ${className} ${acl(transparent, 'transparent')}`
 
-const LabelText: FC<Props> = ({ children, Icon, type = 'luminosity', className = '' }) => {
   return (
-    <div className={`label ${type} ${className}`}>
+    <div className={parsedClass.trim()}>
       {Icon}
-      {children && <label>{children}</label>}
+      {children && <p>{children}</p>}
     </div>
   )
 }

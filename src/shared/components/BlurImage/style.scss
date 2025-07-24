@@ -12,7 +12,7 @@
   height: fit-content;
 
   &-error {
-    padding: v.$padding * 0.5;
+    padding: v.$min-padding;
     border-radius: 50%;
     background-color: rgb(v.$fn1);
 

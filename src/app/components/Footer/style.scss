@@ -5,28 +5,34 @@
 .footer {
   width: 100%;
   height: fit-content;
-  background-color: rgb(v.$bg2);
+  padding: v.$big-padding 0;
+
+  &-haui {
+    width: fit-content;
+    font-weight: 400;
+  }
+
+  &-info {
+    display: grid;
+    grid-template-areas: 'user generalLinks extraLinks resources say';
+    gap: v.$big-padding;
+
+    width: fit-content;
+    height: fit-content;
+    margin: auto;
+  }
 
   &-title {
     font-size: 1.5rem;
     font-weight: 900;
   }
 
-  &-wrapper {
-    display: grid;
-    grid-template-areas: 'user generalLinks extraLinks resources say';
-    gap: v.$big-padding * 1.5;
-
-    width: fit-content;
-    height: fit-content;
-    margin: auto;
-    padding: v.$big-padding * 2 0;
-    border: 1px solid transparent;
-    border-image: linear-gradient(to right, rgba(v.$bg3, 0) 0%, rgb(v.$bg3) 50%, rgba(v.$bg3, 0) 100%) 1;
-  }
-
   &-user {
     grid-area: user;
+
+    &__name {
+      @include d.flex($gap: v.$padding);
+    }
   }
 
   &-generalLinks {
@@ -43,25 +49,28 @@
 
   &-say {
     grid-area: say;
+
+    &__paragraph {
+      max-width: 260px;
+    }
+
+    &__group {
+      @include d.flex;
+    }
   }
 
-  &-section,
-  &-copyright {
-    @include d.flex;
+  &-section {
+    @include d.flex($gap: v.$padding * 3);
   }
 
   &-nav {
-    @include d.flex($gap: v.$padding * 2);
-  }
+    height: min-content;
 
-  &-copyright {
-    width: 100%;
-    padding: v.$big-padding 0;
-    text-align: center;
+    @include d.flex($gap: v.$padding * 3);
   }
 
   &-navTitle {
-    @include d.flex($dir: row, $ali: center, $gap: v.$padding * 0.5);
+    @include d.flex($dir: row, $ali: center, $gap: v.$min-padding);
 
     h4 {
       color: rgb(v.$fn2);
@@ -74,5 +83,33 @@
 
   &-links {
     @include d.flex;
+  }
+
+  // copyright
+
+  &-copyright {
+    width: 100%;
+    margin-top: 100px;
+    text-align: center;
+
+    h5 {
+      color: rgb(v.$fn1);
+    }
+  }
+}
+
+.dualTitle {
+  h2 {
+    display: inline;
+  }
+
+  &-bold {
+    font-weight: bold;
+  }
+
+  &-especial {
+    font-family: v.$font2;
+    font-weight: lighter;
+    font-style: italic;
   }
 }

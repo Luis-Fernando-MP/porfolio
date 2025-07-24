@@ -1,8 +1,6 @@
 @use '@sass/config/vars' as v;
 @use '@sass/utils/defs' as d;
 
-@use '@sass/utils/tooltip' as tol;
-
 .iconLink {
   position: relative;
 
@@ -12,40 +10,52 @@
   width: fit-content;
   min-width: 35px;
   height: fit-content;
-  padding: v.$padding * 0.8;
-  border-radius: v.$radius * 0.5;
+  padding: v.$btn-padding;
+  border-radius: v.$min-radius;
 
-  background-color: rgb(v.$bg2, 0.8);
-  backdrop-filter: blur(10px);
+  background-color: rgb(v.$bg2);
+
+  transition: background-color 0.3s ease;
 
   &.transparent {
     background-color: transparent;
   }
 
-  &.outline {
-    border: 2px dashed rgba(v.$tn1);
+  &.border {
+    border: 1.5px solid rgb(v.$bg3);
+  }
+
+  &-content {
+    @include d.flex($dir: row, $ali: center, $gap: v.$min-padding);
   }
 
   &-label {
-    pointer-events: none;
-    user-select: none;
+    $transition: 0.5s cubic-bezier(0.68, -0.55, 0.27, 1.55);
 
     position: absolute;
-    z-index: 2;
-
-    min-width: fit-content;
-    min-height: fit-content;
+    z-index: 3;
 
     visibility: hidden;
     opacity: 0;
-    background-color: rgb(v.$bg1);
 
-    transition: all 0.5s cubic-bezier(0.68, -0.55, 0.27, 1.55);
+    transition:
+      opacity $transition,
+      top $transition,
+      visibility $transition,
+      left $transition,
+      right $transition,
+      bottom $transition;
 
     &.top,
     &.bottom {
       left: 50%;
       transform: translateX(-50%);
+    }
+
+    &.left,
+    &.right {
+      top: 50%;
+      transform: translateY(-50%);
     }
 
     &.top {
@@ -56,14 +66,8 @@
       bottom: 0;
     }
 
-    &.left,
-    &.right {
-      top: 50%;
-      transform: translateY(-50%);
-    }
-
     &.left {
-      left: 0;
+      right: 0;
     }
 
     &.right {
@@ -71,28 +75,28 @@
     }
   }
 
-  &-content {
-    @include d.flex($dir: row, $ali: center, $gap: v.$padding * 0.7);
-  }
+  &:hover {
+    background-color: rgb(v.$bg3);
 
-  &:hover &-label {
-    visibility: visible;
-    opacity: 1;
+    .iconLink-label {
+      visibility: visible;
+      opacity: 1;
 
-    &.top {
-      top: v.$padding * -3;
-    }
+      &.top {
+        top: calc(-100% - v.$padding);
+      }
 
-    &.bottom {
-      bottom: v.$padding * -3;
-    }
+      &.bottom {
+        bottom: calc(-100% - v.$padding);
+      }
 
-    &.left {
-      left: v.$padding * -3;
-    }
+      &.left {
+        right: calc(100% + v.$padding);
+      }
 
-    &.right {
-      left: 100%;
+      &.right {
+        left: calc(100% + v.$padding);
+      }
     }
   }
 }

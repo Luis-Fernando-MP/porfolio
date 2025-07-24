@@ -38,8 +38,8 @@ export const THEMES = {
     styles: {
       gris: {
         'bg-primary': '25, 26, 27',
-        'bg-secondary': '32, 33, 34',
-        'bg-tertiary': '44, 45, 47',
+        'bg-secondary': '40, 41, 43',
+        'bg-tertiary': '50, 51, 53',
         'fnt-primary': '237, 237, 237',
         'fnt-secondary': '169, 171, 173',
         'fnt-active': '255, 255, 255',

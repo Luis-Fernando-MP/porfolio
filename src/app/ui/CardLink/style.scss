@@ -15,7 +15,7 @@
     transform-origin: center;
     transform: translate(-1 * v.$padding, v.$padding * 2) scale(0.5);
 
-    padding: v.$padding * 0.5;
+    padding: v.$min-padding;
     border-radius: 50%;
 
     opacity: 0;
