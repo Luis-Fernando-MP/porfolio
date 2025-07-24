@@ -1,31 +1,13 @@
-import type { FC } from 'react'
+import type { FC, HtmlHTMLAttributes } from 'react'
 
-interface Props {
-  className?: string
-  showShadow?: boolean
-}
+interface Props extends HtmlHTMLAttributes<HTMLOrSVGElement> {}
 
-const HauiDev: FC<Props> = ({ className = '', showShadow = false }) => {
+const HauiDev: FC<Props> = ({ className = '', ...props }) => {
   return (
-    <svg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 114 108' className={className}>
-      <g fill='rgb(var(--bg-primary))' filter='url(#a)'>
-        <path d='M49.094 86.237h-5.078v-61.28c0-9.67-8.045-17.51-17.97-17.51-9.923 0-17.968 7.84-17.968 17.51 0 9.67 8.045 17.509 17.969 17.509.394 0 .784-.013 1.172-.037v4.956c-.388.02-.78.029-1.172.029C13.317 47.414 3 37.359 3 24.957 3 12.554 13.318 2.5 26.047 2.5c12.467 0 22.622 9.646 23.034 21.696h.013v62.041ZM56.906 2.5h5.078v61.28c0 9.67 8.045 17.508 17.97 17.508 9.923 0 17.968-7.838 17.968-17.508 0-.255-.006-.51-.017-.762h5.082c.01.253.013.507.013.762 0 12.402-10.318 22.456-23.047 22.456-12.467 0-22.622-9.645-23.034-21.695h-.016V2.5Z' />
-        <path d='M59.09 94.001 35.888 71.393l-3.591 3.499L55.499 97.5l3.59-3.499Z' />
-      </g>
-      {showShadow && (
-        <defs>
-          <filter id='a' width='112.4' height='107.4' x='.8' y='.3' colorInterpolationFilters='sRGB' filterUnits='userSpaceOnUse'>
-            <feFlood floodOpacity='0' result='BackgroundImageFix' />
-            <feColorMatrix in='SourceAlpha' result='hardAlpha' type='matrix' values='0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0' />
-            <feOffset dx='4' dy='4' />
-            <feGaussianBlur stdDeviation='3.1' />
-            <feComposite in2='hardAlpha' operator='out' />
-            <feColorMatrix type='matrix' values='0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.7 0' />
-            <feBlend in2='BackgroundImageFix' mode='normal' result='effect1_dropShadow_660_669' />
-            <feBlend in='SourceGraphic' in2='effect1_dropShadow_660_669' mode='normal' result='shape' />
-          </filter>
-        </defs>
-      )}
+    <svg viewBox='0 0 210 195' className={className} {...props}>
+      <path d='M92.1875 171.882H82.0312V46.0957C82.0312 26.2471 65.9415 10.1567 46.0938 10.1567C26.246 10.1567 10.1562 26.2471 10.1562 46.0957C10.1562 65.9443 26.246 82.0348 46.0938 82.0348C46.8812 82.0348 47.6626 82.0094 48.4375 81.9595V92.1329C47.6611 92.1717 46.8798 92.1914 46.0938 92.1914C20.6368 92.1914 0 71.5537 0 46.0957C0 20.6378 20.6368 0 46.0938 0C71.0278 0 91.3377 19.7986 92.1616 44.5331H92.1875V171.882Z' />
+      <path d='M117.812 0H127.969V96.9188L127.969 125.698L127.969 125.787C127.969 145.635 144.059 161.726 163.906 161.726C183.754 161.726 199.844 145.635 199.844 125.787C199.844 125.263 199.833 124.742 199.81 124.224H209.974C209.991 124.743 210 125.264 210 125.787C210 151.245 189.363 171.882 163.906 171.882C138.972 171.882 118.662 152.084 117.838 127.349H117.812V0Z' />
+      <path d='M112.179 187.818L65.7753 141.412L58.5938 148.594L104.998 195L112.179 187.818Z' />
     </svg>
   )
 }

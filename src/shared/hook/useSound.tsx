@@ -1,4 +1,4 @@
-import { AUDIOS } from '@/constants/audio'
+import { AUDIOS, type Audio } from '@/constants/audio'
 import { Howl } from 'howler'
 
 import useAppStore from '../store/app.store'
@@ -30,7 +30,7 @@ export interface ExposedData {
 
 const soundCache: Record<string, Howl> = {}
 
-const useSound = (audio: keyof typeof AUDIOS, options: HookOptions = {}): [(options?: PlayOptions) => void, ExposedData] => {
+const useSound = (audio: Audio, options: HookOptions = {}): [(options?: PlayOptions) => void, ExposedData] => {
   const soundEnabled = useAppStore(s => s.soundEnabled)
   const src = AUDIOS[audio]?.path
 

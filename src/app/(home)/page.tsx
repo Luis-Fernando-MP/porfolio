@@ -13,13 +13,13 @@ const Home = (): JSX.Element => {
   return (
     <main className='home' aria-label={`Página principal de ${INFO.fullName}`}>
       <MainBar />
-      <div className='home-wrapper'>
+      {/* <div className='home-wrapper'>
         <HomeBackground />
         <article className='home-body'>
           <HomeContent />
           <DevCardInfo />
         </article>
-      </div>
+      </div> */}
       <Footer />
     </main>
   )

@@ -5,6 +5,11 @@
 @use 'default' as *;
 
 body {
+  .font2 {
+    font-family: $font2;
+    font-style: italic;
+  }
+
   .loading {
     @include loader.boxLoader;
   }

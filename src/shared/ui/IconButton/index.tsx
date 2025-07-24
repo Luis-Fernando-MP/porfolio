@@ -1,10 +1,13 @@
+import { type Audio } from '@/constants/audio'
 import { acl } from '@/shared/acl'
-import type { FC, ReactNode } from 'react'
+import useSound from '@/shared/hook/useSound'
+import Link from 'next/link'
+import type { AnchorHTMLAttributes, ButtonHTMLAttributes, FC, MouseEvent, ReactNode } from 'react'
 
 import LabelText from '../LabelText'
 import './style.scss'
 
-interface Props extends React.HTMLAttributes<HTMLButtonElement> {
+type CommonProps = {
   children?: Readonly<ReactNode[]> | null | Readonly<ReactNode>
   label?: string
   position?: 'top' | 'bottom' | 'left' | 'right'
@@ -13,19 +16,71 @@ interface Props extends React.HTMLAttributes<HTMLButtonElement> {
   transparent?: boolean
   active?: boolean
   contentClass?: string
+  isLink?: boolean
+  disable?: boolean
+  noSound?: boolean
+  soundType?: Audio
 }
 
-/**
- * @param {ReactNode} children - The content of the button.
- * @param {string} label - The label of the button.
- * @param {string} position - The position of the label.
- * @param {boolean} outline - Whether the button is outlined.
- * @param {string} className - The class name of the button.
- * @param {boolean} transparent - Whether the button is transparent.
- * @param {boolean} active - Whether the button is active.
- * @param {string} contentClass - The class name of the content
- */
+type ButtonProps = CommonProps & {
+  isLink?: false
+} & ButtonHTMLAttributes<HTMLButtonElement>
 
+type LinkProps = CommonProps & {
+  isLink: true
+  href: string
+} & AnchorHTMLAttributes<HTMLAnchorElement>
+
+type Props = ButtonProps | LinkProps
+
+/**
+ * IconButton component
+ *
+ * Renders a styled button or a Next.js link with optional label and icon.
+ * By default, plays a sound on click unless explicitly disabled.
+ *
+ * @param {ReactNode} children - The icon or visual element inside the button.
+ * @param {string} label - Optional text label displayed around the icon.
+ * @param {'top' | 'bottom' | 'left' | 'right'} position - Where the label appears relative to the icon.
+ * @param {boolean} outline - Applies outline style.
+ * @param {boolean} transparent - Applies transparent style.
+ * @param {boolean} active - Applies active style.
+ * @param {string} className - Additional custom class names.
+ * @param {string} contentClass - Class name for the inner content wrapper.
+ * @param {boolean} isLink - When true, renders a Next.js link instead of a button.
+ * @param {boolean} disable - Prevents any interaction and applies disabled style.
+ * @param {boolean} noSound - If true, prevents sound from playing on click.
+ * @param {Audio} soundType - Type of sound to play. Defaults to 'BUTTON2'.
+ * @param {string} href - URL destination for the link (required if isLink is true).
+ *
+ * @example
+ * // Render as a button with sound
+ * <IconButton
+ *   label="Play"
+ *   position="bottom"
+ *   outline
+ * >
+ *   <PlayIcon />
+ * </IconButton>
+ *
+ * // Render as a link with no sound
+ * <IconButton
+ *   label="Go"
+ *   isLink
+ *   href="/dashboard"
+ *   noSound
+ * >
+ *   <ArrowIcon />
+ * </IconButton>
+ *
+ * // Render with a custom sound type
+ * <IconButton
+ *   label="Menu!"
+ *   soundType="MENU_OPEN"
+ * >
+ *   <MenuIcon />
+ * </IconButton>
+ */
 const IconButton: FC<Props> = ({
   children,
   label,
@@ -35,18 +90,50 @@ const IconButton: FC<Props> = ({
   transparent = false,
   active = false,
   contentClass = '',
+  isLink = false,
+  disable = false,
+  noSound = false,
+  soundType = 'BUTTON',
   ...props
 }) => {
-  const parsedClassName = `iconButton ${acl(outline, 'outline')} ${acl(transparent, 'transparent')} ${acl(active, 'active')} ${className}`
+  const [playSound] = useSound(soundType, { interrupt: true })
+
+  const parsedClassName = `iconButton ${acl(outline, 'outline')} ${acl(transparent, 'transparent')} ${acl(active, 'active')} ${acl(disable, 'disabled')} ${className}`
+
+  const handleClick = (e: MouseEvent<HTMLElement>) => {
+    if (disable) return e.preventDefault()
+    if (!noSound) playSound()
+    props.onClick?.(e as any)
+  }
+
+  const content = (
+    <>
+      <div className={`iconButton-content ${contentClass}`}>{children}</div>
+      {label && <LabelText className={`iconButton-label ${position}`}>{label}</LabelText>}
+    </>
+  )
+
+  if (isLink && 'href' in props && !disable) {
+    return (
+      <Link
+        href={props.href}
+        className={parsedClassName}
+        onClick={handleClick}
+        {...(props as AnchorHTMLAttributes<HTMLAnchorElement>)}
+      >
+        {content}
+      </Link>
+    )
+  }
 
   return (
-    <button className={parsedClassName} {...props}>
-      <div className={`iconButton-content ${contentClass}`}>{children}</div>
-      {label && (
-        <LabelText type='darken' className={`iconButton-label ${position}`}>
-          {label}
-        </LabelText>
-      )}
+    <button
+      className={parsedClassName}
+      disabled={disable}
+      onClick={handleClick}
+      {...(props as ButtonHTMLAttributes<HTMLButtonElement>)}
+    >
+      {content}
     </button>
   )
 }

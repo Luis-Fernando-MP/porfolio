@@ -11,10 +11,21 @@ interface Props {
 }
 
 /**
- * @param {string} children - The label content. Accepts plain text.
- * @param {JSX.Element} Icon - Optional icon element displayed before the text.
- * @param {string} className - Additional custom classes for styling.
- * @param {boolean} transparent - If true, applies the transparent style.
+ * LabelText component
+ * A small utility component that displays a label with optional icon support.
+ * Useful for annotations, button tooltips, or informative microtexts.
+ *
+ * @param {string} [children] - The text content of the label. Accepts plain text only.
+ * @param {JSX.Element} [Icon] - Optional React element displayed before the label text (e.g., an icon).
+ * @param {string} [className] - Additional class names for custom styling.
+ * @param {boolean} [transparent=false] - If true, applies a transparent style variant.
+ *
+ * @returns {JSX.Element} A styled label element with optional icon and text.
+ *
+ * @example
+ * <LabelText Icon={<InfoIcon />} transparent>
+ *   More details
+ * </LabelText>
  */
 const LabelText: FC<Props> = ({ children, Icon, className = '', transparent = false }) => {
   const parsedClass = `label ${className} ${acl(transparent, 'transparent')}`

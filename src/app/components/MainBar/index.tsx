@@ -32,29 +32,34 @@ const MainBar: FC<Props> = ({ className = '' }) => {
 
   return (
     <article className={`mainBar ${className}`}>
-      <div className='mainBar-wrapper'>
-        <Link href='/' aria-label='Página principal' className='mainBar-logo'>
-          <HauiDevLogo size='md' />
-          <div className='mainBar-logo__devName btn border'>
-            <ShinyText>{INFO.devName}</ShinyText>
-          </div>
+      <div className='mainBar-wrapper border'>
+        <Link href='/' aria-label='Página principal' className='mainBar-logo frow'>
+          <HauiDevLogo size='md' animate />
+          <h3 className='font2'>{INFO.devName}</h3>
         </Link>
 
-        <IconButton className='border' onClick={handleToggleMenu}>
-          <MenuIcon />
-          <h4>Menu</h4>
-        </IconButton>
+        <div className='mainBar-group frow'>
+          <IconButton onClick={handleToggleMenu} transparent noSound>
+            <MenuIcon />
+            <h4>Menu</h4>
+          </IconButton>
 
-        <DevCardToggle />
+          <DevCardToggle />
 
-        <div className='mainBar-currentWork btn active'>
-          {INFO.working.state && <h4>Creando ideas con {INFO.working.enterprise}</h4>}
-          {!INFO.working.state && <h4>Listo para desarrollar contigo</h4>}
+          <IconButton className='events-none' active>
+            {INFO.working.state && <h4>Creando ideas con {INFO.working.enterprise}</h4>}
+            {!INFO.working.state && <h4>Listo para desarrollar contigo</h4>}
+          </IconButton>
+
+          <div className='mainBar-currentWork btn active'>
+            {INFO.working.state && <h4>Creando ideas con {INFO.working.enterprise}</h4>}
+            {!INFO.working.state && <h4>Listo para desarrollar contigo</h4>}
+          </div>
+
+          <button className='mainBar-music'>
+            <Image src='/assets/pages/music.webp' width={37} height={37} alt='resonance music' />
+          </button>
         </div>
-
-        <button className='mainBar-music'>
-          <Image src='/assets/pages/music.webp' width={37} height={37} alt='resonance music' />
-        </button>
 
         {show && <UserPreferences />}
       </div>

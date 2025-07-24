@@ -5,30 +5,26 @@
   position: sticky;
   z-index: 10;
   top: 0;
-  width: 100%;
+  width: auto;
 
   &-wrapper {
     position: relative;
 
     flex-wrap: wrap;
 
-    width: v.$max-w;
+    width: fit-content;
     margin: 0 auto;
-    padding: v.$padding 0;
+    padding: v.$padding;
+    border-radius: v.$radius;
 
-    @include d.flex($dir: row, $ali: center, $gap: v.$padding * 2);
+    background-color: rgb(v.$bg1);
+
+    @include d.flex($dir: row, $ali: center, $gap: v.$big-padding * 1.5);
   }
 
-  &-logo,
   &-currentWork {
     @include d.flex($dir: row, $ali: center);
-  }
 
-  &-logo__devName {
-    background-color: rgb(v.$bg2);
-  }
-
-  &-currentWork {
     text-align: center;
 
     &::before {
