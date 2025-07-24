@@ -7,13 +7,11 @@ import './style.scss'
 import DevCardInfo from './ui/DevCardInfo'
 import HomeBackground from './ui/HomeBackground'
 import HomeContent from './ui/HomeContent'
-import QuickAccess from './ui/QuickAccess'
 import './userMobile.scss'
 
 const Home = (): JSX.Element => {
   return (
     <main className='home' aria-label={`Página principal de ${INFO.fullName}`}>
-      <QuickAccess />
       <MainBar />
       <div className='home-wrapper'>
         <HomeBackground />
