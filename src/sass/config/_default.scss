@@ -51,7 +51,6 @@ body {
   // Typography
   @each $tag, $props in $typography {
     #{$tag} {
-      font-family: map.get($props, family);
       font-size: map.get($props, size);
       font-weight: map.get($props, weight);
       color: map.get($props, color);
@@ -61,11 +60,9 @@ body {
   textarea,
   button,
   select {
-    font-family: map.get(map.get($typography, 'a'), family);
     font-size: map.get(map.get($typography, 'a'), size);
     font-weight: map.get(map.get($typography, 'a'), weight);
     color: map.get(map.get($typography, 'a'), color);
-
     background: none;
   }
 
@@ -76,7 +73,7 @@ body {
   small,
   label,
   input {
-    font-family: $font2;
+    font-family: $font1;
     font-size: map.get(map.get($typography, 'p'), size);
     font-weight: map.get(map.get($typography, 'p'), weight);
     color: map.get(map.get($typography, 'p'), color);

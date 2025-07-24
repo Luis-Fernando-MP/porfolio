@@ -1,21 +1,15 @@
-import { Charm, Open_Sans, Poppins } from 'next/font/google'
+import { Instrument_Serif, Roboto } from 'next/font/google'
 
-export const font1 = Poppins({
+export const font1 = Roboto({
   subsets: ['latin'],
-  weight: ['500', '600', '700', '800'],
+  weight: ['400', '500', '600', '700', '800'],
   variable: '--family1'
 })
 
-export const font2 = Open_Sans({
+export const especial1 = Instrument_Serif({
   subsets: ['latin'],
-  weight: ['400', '500', '600'],
+  weight: ['400'],
   variable: '--family2'
 })
 
-export const especial1 = Charm({
-  subsets: ['latin'],
-  weight: ['400'],
-  variable: '--especial1'
-})
-
-export const bodyFonts = `${font1.variable} ${font2.variable}  ${especial1.variable}`
+export const bodyFonts = `${font1.variable} ${especial1.variable}`

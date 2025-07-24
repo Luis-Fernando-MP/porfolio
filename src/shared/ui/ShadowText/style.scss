@@ -20,9 +20,12 @@
   opacity: 0.1;
 
   &-title {
-    font-family: v.$fontE1;
     font-size: 10rem;
-    color: rgb(v.$fn2, 0.3);
+
+    // font-family: v.$fontE1;
+    color: green;
+
+    // color: rgb(v.$fn2, 0.3);
     text-align: center;
     text-transform: uppercase;
   }

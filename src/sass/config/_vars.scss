@@ -1,4 +1,4 @@
-$family-size: 14px;
+$family-size: 16px;
 
 :root {
   --bg-primary: 25, 26, 27;
@@ -16,13 +16,13 @@ $family-size: 14px;
   --tn-tertiary: 255, 255, 255;
 
   // Fuentes
-  --xl-font-size: 2.25rem;
-  --h1-font-size: 1.125rem;
-  --h2-font-size: 1rem;
-  --h3-font-size: 0.975rem;
-  --h4-font-size: 0.9375rem;
-  --h5-font-size: 0.9125rem;
-  --p-font-size: 0.9125rem;
+  --xl-font-size: 3rem; /* text-5xl (48px) */
+  --h1-font-size: 1.5rem; /* text-4xl (24px) */
+  --h2-font-size: 1.375rem; /* text-3xl (22px) */
+  --h3-font-size: 1.25rem; /* text-2xl (20px) */
+  --h4-font-size: 1.125rem; /* text-xl (18px) */
+  --h5-font-size: 1rem; /* text-base (16px) */
+  --p-font-size: 0.875rem; /* text-sm (14px) */
 }
 
 $fXl: var(--xl-font-size);
@@ -41,7 +41,6 @@ $fn2: var(--fnt-secondary);
 $fnA: var(--fnt-active);
 $tn1: var(--tn-primary);
 $tn2: var(--tn-secondary);
-$tn3: var(--tn-tertiary);
 
 // Window
 $min-small-screen: 375px;
@@ -52,14 +51,13 @@ $extra-large-screen: 1200px;
 $big-screen: 1350px;
 
 // Other
-$radius: 10px;
+$radius: 5px;
 $padding: 10px;
-$big-padding: 40px;
+$big-padding: 20px;
 $icon: 17px;
-$fontBase: 'Segoe UI Mono', 'Roboto Mono';
+$fontBase: 'Roboto', 'Georgia', 'Segoe UI Mono';
 $font1: var(--family1);
 $font2: var(--family2);
-$fontE1: var(--especial1);
 
 // Basic colors
 $error: rgb(228 30 56);

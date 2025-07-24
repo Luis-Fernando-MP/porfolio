@@ -5,10 +5,6 @@
 @use 'default' as *;
 
 body {
-  .fne {
-    font-family: $fontE1;
-  }
-
   .loading {
     @include loader.boxLoader;
   }
@@ -19,18 +15,6 @@ body {
 
   .svg-active {
     stroke: rgb($tn1) !important;
-  }
-
-  .inverse {
-    background-color: rgb($fn1) !important;
-
-    * {
-      color: rgb($bg1) !important;
-    }
-
-    svg {
-      stroke: rgb($bg1) !important;
-    }
   }
 
   .toast {
@@ -81,67 +65,6 @@ body {
     padding: 7px $padding;
     border-radius: $radius;
   }
-}
-
-.paragraph {
-  &-normal,
-  &-highlight,
-  &-link,
-  &-emphasis {
-    display: inline;
-    margin: 0;
-    padding: 0;
-  }
-
-  &-emphasis {
-    font-size: $fH3;
-    font-weight: bolder;
-    color: rgb($fn1) !important;
-  }
-
-  &-break {
-    display: block;
-    margin-top: $padding * 0.5;
-  }
-
-  &-normal {
-    color: rgb($fn2);
-  }
-
-  &-highlight {
-    color: rgb($fn1);
-  }
-
-  &-link {
-    color: rgb($fn1);
-    text-decoration: wavy underline rgb($tn1) 1.5px;
-    text-underline-offset: 3px;
-  }
-
-  &-precaution {
-    cursor: help;
-    font-style: italic;
-    text-decoration: dotted underline rgb($tn1) 3px;
-    text-underline-offset: 5px;
-  }
-}
-
-.titleLink {
-  text-decoration: none;
-
-  &:hover {
-    text-decoration: underline;
-    text-decoration-color: rgb($fn1);
-  }
-}
-
-.borderIcon {
-  width: fit-content;
-  padding: $padding;
-  border: 1px solid transparent;
-  border-radius: $radius * 0.7;
-
-  background: linear-gradient(155deg, rgb($bg2) 10%, rgb($bg3) 30%, rgb($bg3), rgb($bg2) 80%);
 }
 
 @keyframes fade {
