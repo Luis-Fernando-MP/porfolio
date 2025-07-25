@@ -85,16 +85,23 @@
     @include d.flex;
   }
 
+  &-link {
+    &:not(.completed) {
+      pointer-events: none;
+      user-select: none;
+    }
+
+    &.completed h5 {
+      color: rgb(v.$fn1);
+    }
+  }
+
   // copyright
 
   &-copyright {
     width: 100%;
     margin-top: 100px;
     text-align: center;
-
-    h5 {
-      color: rgb(v.$fn1);
-    }
   }
 }
 

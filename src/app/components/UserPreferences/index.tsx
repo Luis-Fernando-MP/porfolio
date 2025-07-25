@@ -16,13 +16,12 @@ import './userMobile.scss'
 const UserPreferences: FC = () => {
   return (
     <section className='UPreferences border'>
-      <MusicButton />
-
+      {/* <MusicButton />
       <IconButton className='events-none' active>
         <div className='mainBar-point' />
         {INFO.working.state && <h4>Creando ideas con {INFO.working.enterprise}</h4>}
         {!INFO.working.state && <h4>Trabajemos juntos</h4>}
-      </IconButton>
+      </IconButton> */}
 
       <NavLinks />
 

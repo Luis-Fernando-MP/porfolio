@@ -1,4 +1,16 @@
-import { BookOpenIcon, GaugeIcon, RocketIcon, UserIcon } from 'lucide-react'
+import {
+  BadgeInfoIcon,
+  BookOpenIcon,
+  CopyIcon,
+  CuboidIcon,
+  GaugeIcon,
+  GlobeIcon,
+  LayersIcon,
+  LayoutIcon,
+  RocketIcon,
+  UserIcon,
+  VenetianMaskIcon
+} from 'lucide-react'
 
 export enum DEV_MODE {
   PROD = 'production',
@@ -31,25 +43,78 @@ export const APP = {
       path: '/blog',
       label: 'Blog',
       image: '/assets/pages/blog.webp',
-      Icon: BookOpenIcon
-    },
-    {
-      path: '/shorts',
-      label: 'Shorts',
-      image: '/assets/pages/shorts.webp',
-      Icon: GaugeIcon
+      Icon: BookOpenIcon,
+      isCompleted: true
     },
     {
       path: '/projects',
       label: 'Proyectos',
       image: '/assets/pages/projects.webp',
-      Icon: RocketIcon
+      Icon: RocketIcon,
+      isCompleted: true
+    },
+    {
+      path: '/shorts',
+      label: 'Shorts',
+      image: '/assets/pages/shorts.webp',
+      Icon: GaugeIcon,
+      isCompleted: true
     },
     {
       path: '/about',
-      label: 'Sobre mi',
+      label: 'Acerca de mí',
       image: '/assets/pages/about.webp',
-      Icon: UserIcon
+      Icon: UserIcon,
+      isCompleted: true
+    },
+    {
+      path: '/stack',
+      label: 'Stack',
+      image: '/assets/pages/stack.webp',
+      Icon: LayersIcon,
+      isCompleted: false
+    },
+    {
+      path: '/attribution',
+      label: 'Atribuciones',
+      image: '/assets/pages/attribution.webp',
+      Icon: BadgeInfoIcon,
+      isCompleted: false
+    },
+    {
+      path: '/webs',
+      label: 'Páginas web',
+      image: '/assets/pages/webs.webp',
+      Icon: GlobeIcon,
+      isCompleted: false
+    },
+    {
+      path: '/templates',
+      label: 'Plantillas',
+      image: '/assets/pages/templates.webp',
+      Icon: CopyIcon,
+      isCompleted: false
     }
   ]
 } as const
+
+export const LINK_GROUPS = [
+  {
+    title: 'General',
+    icon: LayoutIcon,
+    links: APP.pages.filter(page => ['/', '/blog', '/projects', '/shorts', '/about'].includes(page.path)),
+    className: 'footer-generalLinks'
+  },
+  {
+    title: 'Extras',
+    icon: VenetianMaskIcon,
+    links: APP.pages.filter(page => ['/stack', '/attribution'].includes(page.path)),
+    className: 'footer-extraLinks'
+  },
+  {
+    title: 'Recursos',
+    icon: CuboidIcon,
+    links: APP.pages.filter(page => ['/webs', '/templates'].includes(page.path)),
+    className: 'footer-resources'
+  }
+]

@@ -1,45 +1,13 @@
-import { INFO } from '@/constants'
+import { INFO, LINK_GROUPS } from '@/constants'
+import { acl } from '@/shared/acl'
 import IconLink from '@/shared/ui/IconLink'
 import Social from '@/shared/ui/Social'
-import { CoffeeIcon, CuboidIcon, LayoutIcon, MailMinusIcon, VenetianMaskIcon } from 'lucide-react'
+import { CoffeeIcon, MailMinusIcon } from 'lucide-react'
 import Link from 'next/link'
 import type { FC } from 'react'
 
 import './style.scss'
 import './userMobile.scss'
-
-const LINK_GROUPS = [
-  {
-    title: 'General',
-    icon: LayoutIcon,
-    links: {
-      '': 'Inicio',
-      blog: 'Blog',
-      projects: 'Proyectos',
-      short: 'Shorts',
-      about: 'Acerca de mí'
-    },
-    className: 'footer-generalLinks'
-  },
-  {
-    title: 'Extras',
-    icon: VenetianMaskIcon,
-    links: {
-      stack: 'Stack',
-      attribution: 'Atribuciones'
-    },
-    className: 'footer-extraLinks'
-  },
-  {
-    title: 'Recursos',
-    icon: CuboidIcon,
-    links: {
-      webs: 'Páginas web',
-      templates: 'Plantillas'
-    },
-    className: 'footer-resources'
-  }
-]
 
 const Footer: FC = () => {
   return (
@@ -63,10 +31,10 @@ const Footer: FC = () => {
               <h5>{title}</h5>
             </div>
             <ul className='footer-links'>
-              {Object.entries(links).map(([key, label]) => (
-                <li key={key}>
-                  <Link href={`/${key}`} className='footer-link titleLink'>
-                    {label}
+              {links.map(({ path, label, isCompleted }) => (
+                <li key={path}>
+                  <Link href={path} className={`footer-link ${acl(isCompleted, 'completed')}`}>
+                    <h5>{label}</h5>
                   </Link>
                 </li>
               ))}
@@ -97,7 +65,7 @@ const Footer: FC = () => {
 
       <section className='footer-copyright'>
         <p>&copy; 2025 {INFO.name}. All rights reserved.</p>
-        <h5>All content belongs to their respective creators.</h5>
+        <h4>All content belongs to their respective creators.</h4>
       </section>
     </footer>
   )

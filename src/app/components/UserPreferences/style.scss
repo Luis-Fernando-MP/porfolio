@@ -12,10 +12,10 @@
 
   width: 350px;
   height: 550px;
-  padding: v.$padding * 1.5;
-  border-radius: v.$radius + v.$padding;
+  padding: v.$padding * 2;
+  border-radius: v.$radius;
 
-  background-color: rgb(v.$bg2);
+  background-color: rgb(v.$bg1);
 
   @include d.flex($gap: v.$big_padding);
   @include scroll-hidden;
