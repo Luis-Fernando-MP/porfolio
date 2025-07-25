@@ -1,7 +1,8 @@
 import { NotionRenderer } from '@notion-render/client'
-import { Client } from '@notionhq/client'
 import chalk from 'chalk'
 import path from 'path'
+import readingTime from 'reading-time'
+import { stripHtml } from 'string-strip-html'
 
 import notion from '../api'
 import { escapeHTML } from './escapeHTML'
@@ -12,11 +13,20 @@ import clog from './log'
 
 const renderer = new NotionRenderer({ client: notion })
 
-export interface MdxContentProps {
+export interface MdxImageContentProps {
   blurhash: string
   placeholder: string
-  width: number
-  height: number
+  bannerWidth: number
+  bannerHeight: number
+  thumbWidth: number
+  thumbHeight: number
+  aspectRatio: number
+}
+
+export interface MdxContentProps {
+  words?: number
+  readingTime?: number
+  imageProps: MdxImageContentProps
 }
 
 interface Props {
@@ -54,29 +64,38 @@ export async function generateBlock(props: Props) {
     console.log(chalk.blueBright('\n━━━━━━━━━━━━━━━━━━━━━━━━━━━━━'))
     clog.info(`Generando bloque: ${cutTitle}`, '')
 
-    let blurhash = '',
-      placeholder = '',
-      width = 0,
-      height = 0
+    let imageProps = {
+      blurhash: '',
+      placeholder: '',
+      bannerWidth: 0,
+      bannerHeight: 0,
+      thumbWidth: 0,
+      thumbHeight: 0,
+      aspectRatio: 0
+    }
 
     if (coverImage) {
-      const blurData = await handleImageProcessing({
+      const processImage = await handleImageProcessing({
         blockId,
         mdxImagesPath,
         coverImage,
         lastEditedTimeMs,
         cutTitle
       })
-      blurhash = blurData.blurhash
-      placeholder = blurData.placeholder
-      width = blurData.width
-      height = blurData.height
+      if (processImage) imageProps = processImage
     }
 
-    let content = `${mdxContent({ blurhash, placeholder, width, height })}`
+    let content = `${mdxContent({ imageProps })}`
+
     if (generateContent) {
       const blocks = await getAllBlocks({ blockID: blockId })
       const html = await renderer.render(...blocks)
+
+      const plainText = stripHtml(html).result
+      const stats = readingTime(plainText)
+
+      content = `${mdxContent({ readingTime: Math.ceil(stats.minutes), words: stats.words, imageProps })}`
+
       content += escapeHTML(html.replaceAll('   ', '').replaceAll('\n\n\n', ''))
     }
 

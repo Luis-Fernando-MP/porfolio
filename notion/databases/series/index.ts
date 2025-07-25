@@ -1,6 +1,6 @@
 import { env } from '@notion/constants'
 import type { NotionGroupVisibility } from '@notion/types/notion.type'
-import type { NotionGroup, NotionSeriesDB } from '@notion/types/series.type'
+import type { NotionSeriesDB } from '@notion/types/series.type'
 import cleanObsoleteFiles from '@notion/utils/cleanObsoleteFiles'
 import { createDirectories } from '@notion/utils/fs'
 import { generateBlock } from '@notion/utils/generateBlock'
@@ -19,17 +19,15 @@ export const generateSeries = async () => {
       query: {
         database_id: env.SERIES_ID,
         filter: {
-          and: [
-            { property: 'Grupo', status: { equals: 'Series' as NotionGroup } },
-            { property: 'Visibilidad', status: { equals: 'Portafolio' as NotionGroupVisibility } }
-          ]
+          property: 'Visibilidad',
+          status: { equals: 'Portafolio' as NotionGroupVisibility }
         }
       }
     })
 
     clog.success(`${series.length} series cargadas\n`)
 
-    const [mdxFolderPath, mdxImagesPath] = await createDirectories('content/series', 'public/blog/series')
+    const [mdxFolderPath, mdxImagesPath] = await createDirectories('content/series', 'public/content/series')
 
     const generatedIds = await Promise.all(
       series.map(async serie => {

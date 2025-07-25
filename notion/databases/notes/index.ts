@@ -29,7 +29,7 @@ export const generateNotes = async () => {
 
     clog.success(`${books.length} apuntes cargados\n`)
 
-    const [mdxFolderPath, mdxImagesPath] = await createDirectories('content/notes', 'public/blog/notes')
+    const [mdxFolderPath, mdxImagesPath] = await createDirectories('content/notes', 'public/content/notes')
 
     const generatedIds = await Promise.all(
       books.map(async book => {

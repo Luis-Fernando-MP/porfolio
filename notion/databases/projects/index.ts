@@ -1,49 +1,48 @@
 import { env } from '@notion/constants'
-import type { NotionGroupVisibility } from '@notion/types/notion.type'
-import type { NotionGroup, NotionSeriesDB } from '@notion/types/series.type'
+import type { NotionSeriesDB } from '@notion/types/series.type'
 import cleanObsoleteFiles from '@notion/utils/cleanObsoleteFiles'
 import { createDirectories } from '@notion/utils/fs'
 import { generateBlock } from '@notion/utils/generateBlock'
 import { getAllMarksDB } from '@notion/utils/getAllMarks'
 import clog from '@notion/utils/log'
 
-import { bookContent } from './content'
+import { projectContent } from './content'
 
-export const generateBooks = async () => {
+export const generateProjects = async () => {
   try {
-    clog.block('GENERANDO LIBROS')
+    clog.block('GENERANDO PROYECTOS')
     const startAll = Date.now()
 
-    clog.info('Cargando libros desde Notion...')
-    const books = await getAllMarksDB<NotionSeriesDB>({
+    clog.info('Cargando proyectos desde Notion...')
+    const projects = await getAllMarksDB<NotionSeriesDB>({
       query: {
-        database_id: env.SERIES_ID,
+        database_id: env.PROJECTS_ID,
         filter: {
           and: [
-            { property: 'Grupo', status: { equals: 'Libros' as NotionGroup } },
-            { property: 'Visibilidad', status: { equals: 'Portafolio' as NotionGroupVisibility } }
+            { property: 'Estado', status: { equals: 'Completado' } },
+            { property: 'Progreso', number: { greater_than_or_equal_to: 0.8 } }
           ]
         }
       }
     })
 
-    clog.success(`${books.length} libros cargados\n`)
+    clog.success(`${projects.length} proyectos cargados\n`)
 
-    const [mdxFolderPath, mdxImagesPath] = await createDirectories('content/books', 'public/blog/books')
+    const [mdxFolderPath, mdxImagesPath] = await createDirectories('content/projects', 'public/content/projects')
 
     const generatedIds = await Promise.all(
-      books.map(async book => {
-        const { id, cover } = book
+      projects.map(async project => {
+        const { id, cover } = project
         const coverUrl = cover?.external.url
 
         await generateBlock({
           blockId: id,
           coverImage: coverUrl,
-          lastEditedTime: book.properties['Última edición'].last_edited_time,
+          lastEditedTime: project.properties['Última edición'].last_edited_time,
           mdxFolderPath,
           mdxImagesPath,
-          title: book.properties.Name.title[0].plain_text,
-          mdxContent: imageProps => bookContent(book, coverUrl, imageProps)
+          title: project.properties.Name.title[0].plain_text,
+          mdxContent: imageProps => projectContent(project, coverUrl, imageProps)
         })
 
         return id
@@ -59,6 +58,6 @@ export const generateBooks = async () => {
     ])
     clog.timer('Tiempo total de limpieza', Date.now() - startAll)
   } catch {
-    clog.error('Error generando libros:')
+    clog.error('Error generando los proyectos:')
   }
 }

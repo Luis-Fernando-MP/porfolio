@@ -33,17 +33,17 @@ export default async function downloadImage({ folderPath, url, bannerImagePath, 
     clog.success(`Temporal creado`)
 
     // Guardar imagen grande
-    await sharp(tempPath).resize({ width: 1500 }).webp({ quality: 80 }).toFile(bannerImagePath)
+    const bannerImage = await sharp(tempPath).resize({ width: 1500 }).webp({ quality: 80 }).toFile(bannerImagePath)
     clog.success('Banner listo')
 
     // Guardar imagen pequeña
-    await sharp(tempPath).resize({ width: 400 }).webp({ quality: 70 }).toFile(thumbImagePath)
+    const thumbImage = await sharp(tempPath).resize({ width: 400 }).webp({ quality: 70 }).toFile(thumbImagePath)
     clog.success('Thumb listo')
 
     await fs.promises.unlink(tempPath)
     clog.success('Temporal eliminado 🧹')
 
-    return { bannerImagePath, thumbImagePath }
+    return { bannerImage, thumbImage }
   } catch (error) {
     clog.error(`Error al procesar imagen: ${url}`)
     throw error

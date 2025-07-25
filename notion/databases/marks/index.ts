@@ -34,7 +34,7 @@ export const generateMarks = async () => {
 
     clog.success(`${marks.length} marks cargadas\n`)
 
-    const [mdxFolderPath, mdxImagesPath] = await createDirectories('content/marks', 'public/blog/marks')
+    const [mdxFolderPath, mdxImagesPath] = await createDirectories('content/marks', 'public/content/marks')
 
     const generatedIds = await Promise.all(
       marks.map(async mark => {
@@ -48,7 +48,7 @@ export const generateMarks = async () => {
           mdxFolderPath,
           mdxImagesPath,
           title: mark.properties.Name.title[0].plain_text,
-          mdxContent: imageProps => markContent(mark, coverUrl, imageProps)
+          mdxContent: contentProps => markContent(mark, coverUrl, contentProps)
         })
 
         return id

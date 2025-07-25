@@ -2,7 +2,7 @@ import path from 'path'
 
 import blurHashAndGradient from '../utils/blurHashAndGradient'
 import downloadImage from '../utils/downloadImage'
-import { deleteFileIfExists, fileExists, geFileTime } from '../utils/fs'
+import { deleteFileIfExists, fileExists, getFileTime } from '../utils/fs'
 import clog from '../utils/log'
 
 interface Props {
@@ -24,15 +24,15 @@ export async function handleImageProcessing(props: Props) {
   const bannerExist = await fileExists(bannerImagePath)
   const thumbExist = await fileExists(thumbImagePath)
 
-  const imageModifiedTime = bannerExist ? geFileTime(bannerImagePath) : 0
+  const imageModifiedTime = bannerExist ? getFileTime(bannerImagePath) : 0
 
-  if (bannerExist && thumbExist && imageModifiedTime === lastEditedTimeMs) return defaultBlurhash
+  if (bannerExist && thumbExist && imageModifiedTime === lastEditedTimeMs) return
 
   await deleteFileIfExists(bannerImagePath)
   await deleteFileIfExists(thumbImagePath)
 
   try {
-    await downloadImage({
+    const { bannerImage, thumbImage } = await downloadImage({
       folderPath: path.join(mdxImagesPath, `/${blockId}`),
       bannerImagePath,
       thumbImagePath,
@@ -40,7 +40,17 @@ export async function handleImageProcessing(props: Props) {
       title: cutTitle
     })
 
-    return blurHashAndGradient(thumbImagePath)
+    const { blurhash, placeholder } = await blurHashAndGradient(thumbImagePath)
+
+    return {
+      blurhash,
+      placeholder,
+      bannerWidth: bannerImage.width,
+      bannerHeight: bannerImage.height,
+      thumbWidth: thumbImage.width,
+      thumbHeight: thumbImage.height,
+      aspectRatio: thumbImage.width / thumbImage.height
+    }
   } catch (error) {
     clog.error(`Descarga fallida: ${cutTitle}`)
     throw new Error(`Image download failed: ${error}`)

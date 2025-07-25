@@ -10,7 +10,7 @@ export async function fileExists(filePath: string) {
   }
 }
 
-export async function geFileTime(filePath: string) {
+export async function getFileTime(filePath: string) {
   try {
     const file = await fs.promises.stat(filePath)
     return file.mtime.getTime()
