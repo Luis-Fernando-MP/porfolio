@@ -23,33 +23,36 @@ const UserPreferences: FC = () => {
         {!INFO.working.state && <h4>Trabajemos juntos</h4>}
       </IconButton> */}
 
-      <NavLinks />
+      <section className='UPreferences-section'>
+        <h5># Páginas</h5>
+        <NavLinks />
+      </section>
 
       <section className='UPreferences-section'>
-        <h3># Temas</h3>
+        <h5># Temas</h5>
         <ThemesSelector />
       </section>
 
       <section className='UPreferences-section'>
-        <h3># Background</h3>
+        <h5># Background</h5>
         <BackgroundSelector />
       </section>
 
       <section className='UPreferences-section'>
         <div className='UPreferences-group'>
-          <h3># Redes</h3>
+          <h5># Redes</h5>
           <Social />
         </div>
         <div className='UPreferences-group'>
-          <h3># Fuente</h3>
+          <h5># Fuente</h5>
           <FontSizeComponent />
         </div>
         <div className='UPreferences-group'>
-          <h3># Fondo ruidoso</h3>
+          <h5># Fondo ruidoso</h5>
           <NoiseOptionsComponent />
         </div>
         <div className='UPreferences-group'>
-          <h3># Sonidos</h3>
+          <h5># Sonidos</h5>
           <SoundOptionsComponent />
         </div>
       </section>

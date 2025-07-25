@@ -1,45 +1,52 @@
-import { ThemeColorKeys, ThemeKeys } from '@/constants/themes'
+import { ThemeColorKeys, ThemeColors, ThemeKeys } from '@/constants/themes'
 import { PlayOptions } from '@/shared/hook/useSound'
 import useAppThemeStore, { ISetThemeProps } from '@/shared/store/appTheme.store'
 import useBackgroundImageStore from '@/shared/store/backgroundImage.store'
+import IconButton from '@/shared/ui/IconButton'
 import { type FC } from 'react'
 
 interface Props {
-  style: string
-  name: string
-  colors: Record<string, string>
-  playOn: (options?: PlayOptions) => void
-  playOff: (options?: PlayOptions) => void
+  themeKey: ThemeKeys
+  name: ThemeColorKeys
+  colors: ThemeColors
 }
 
-const ThemeButton: FC<Props> = ({ style, name, colors, playOff, playOn }) => {
+const ThemeButton: FC<Props> = ({ themeKey, name, colors }) => {
   const theme = useAppThemeStore(s => s.theme)
   const setAppTheme = useAppThemeStore(s => s.setAppTheme)
   const setBg = useBackgroundImageStore(s => s.setBackgroundKey)
 
   const handleSetTheme = (props: ISetThemeProps): void => {
     if (theme === props.theme) return
-    if (['light', 'default'].includes(props.style)) playOn()
-    else playOff()
+    // if (['light', 'default'].includes(props.style)) playOn()
     setAppTheme(props)
     setBg(props.theme)
   }
 
   return (
-    <button
-      className='themesSelector-theme'
+    <IconButton
+      transparent
+      label={name}
       style={{ backgroundColor: `rgb(${colors['tn-primary']})` }}
-      aria-label={`Select ${name} theme`}
-      title={`${name} theme`}
+      className='themesSelector-theme'
       onClick={() => {
         handleSetTheme({
-          style: style as ThemeKeys,
-          theme: name as ThemeColorKeys
+          style: themeKey,
+          theme: name
         })
       }}
     >
       <div style={{ backgroundColor: `rgb(${colors['bg-primary']})` }} />
-    </button>
+    </IconButton>
+    // <button
+    //
+    //   style={{ backgroundColor: `rgb(${colors['tn-primary']})` }}
+    //   aria-label={`Select ${name} theme`}
+    //   title={`${name} theme`}
+
+    // >
+    //
+    // </button>
   )
 }
 

@@ -31,7 +31,7 @@ const LabelText: FC<Props> = ({ children, Icon, className = '', transparent = fa
   const parsedClass = `label ${className} ${acl(transparent, 'transparent')}`
 
   return (
-    <div className={parsedClass.trim()}>
+    <div className={parsedClass}>
       {Icon}
       {children && <p>{children}</p>}
     </div>

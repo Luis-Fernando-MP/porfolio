@@ -6,22 +6,16 @@
 
   &-style {
     width: fit-content;
-    border-radius: v.$radius;
 
     @include d.flex($dir: row, $gap: v.$padding * 2, $ali: center);
   }
 
-  &-icon {
-    min-width: fit-content;
-  }
-
   &-list {
-    overflow: hidden;
+    // overflow: hidden;
     flex-wrap: wrap;
-
     width: fit-content;
-    max-width: 270px;
-    border-radius: v.$radius;
+    padding: 0 5px;
+    border-radius: v.$min-radius;
 
     @include d.flex($dir: row, $gap: 0);
   }
@@ -30,14 +24,15 @@
     justify-content: center;
     width: 30px;
     height: 30px;
+    border-radius: 0;
 
     @include d.flex($ali: center);
 
-    div {
-      width: 10px;
-      height: 10px;
-      border-radius: 2px;
-    }
+    // div {
+    //   width: 10px;
+    //   height: 10px;
+    //   border-radius: 2px;
+    // }
 
     &:last-child {
       border-bottom-right-radius: v.$radius;

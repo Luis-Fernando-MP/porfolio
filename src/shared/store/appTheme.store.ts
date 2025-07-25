@@ -1,4 +1,4 @@
-import { DEFAULT_THEME, THEMES, Theme, ThemeColorKeys, ThemeKeys } from '@/constants/themes'
+import { DEFAULT_THEME, THEMES, ThemeColorKeys, ThemeColors, ThemeKeys } from '@/constants/themes'
 import { StateCreator, create } from 'zustand'
 import { persist } from 'zustand/middleware'
 
@@ -13,7 +13,7 @@ interface IAppThemeStore {
 
   setAppTheme: (_: ISetThemeProps) => void
   resetTheme: () => void
-  currentTheme: () => { style: ThemeKeys; theme: ThemeColorKeys; colors: Theme }
+  currentTheme: () => { style: ThemeKeys; theme: ThemeColorKeys; colors: ThemeColors }
 }
 
 const state: StateCreator<IAppThemeStore> = (set, get) => ({

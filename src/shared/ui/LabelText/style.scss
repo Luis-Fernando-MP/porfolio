@@ -5,15 +5,17 @@
   pointer-events: none;
   user-select: none;
 
-  display: inline-flex;
   gap: v.$min-padding;
   align-items: center;
   justify-content: center;
 
+  width: fit-content;
   padding: v.$btn-padding;
   border-radius: v.$min-radius;
 
   text-wrap: nowrap;
+
+  @include d.flex($dir: row, $gap: v.$min-padding);
 
   &:not(&.transparent) {
     border: 1px solid rgb(v.$bg3);

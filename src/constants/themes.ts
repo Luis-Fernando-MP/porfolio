@@ -1,25 +1,5 @@
 import { MonitorDotIcon, MoonStarIcon, SunIcon, ZapIcon } from 'lucide-react'
 
-export interface Theme {
-  'bg-primary': string
-  'bg-secondary': string
-  'bg-tertiary': string
-  'fnt-primary': string
-  'fnt-secondary': string
-  'fnt-active': string
-  'tn-primary': string
-  'tn-secondary': string
-}
-
-export type ThemeKeys = keyof typeof THEMES
-export type ThemeColorKeys =
-  | keyof typeof THEMES.default.styles
-  | keyof typeof THEMES.dark.styles
-  | keyof typeof THEMES.light.styles
-  | keyof typeof THEMES.chaotic.styles
-
-export type BackgroundImage = { path: string; hash: string }
-
 export const themeBackgroundImages: Record<ThemeColorKeys, BackgroundImage[]> = {
   gris: [
     { path: '/backgrounds/gris/bg1.webp', hash: 'LHExFS~BEM9b03Io%1-oR+I=niV@' },
@@ -108,10 +88,32 @@ export const THEMES = {
   }
 } as const
 
+export interface ThemeColors {
+  'bg-primary': string
+  'bg-secondary': string
+  'bg-tertiary': string
+  'fnt-primary': string
+  'fnt-secondary': string
+  'fnt-active': string
+  'tn-primary': string
+  'tn-secondary': string
+}
+
 export const DEFAULT_THEME = {
   style: 'gris' as ThemeKeys,
   theme: 'gris' as ThemeColorKeys,
   colors: THEMES.default.styles.gris,
   bgs: themeBackgroundImages['gris'],
   bg: themeBackgroundImages['gris'][0] ?? { path: '/backgrounds/gris/bg1.webp', hash: 'LHExFS~BEM9b03Io%1-oR+I=niV@' }
-}
+} as const
+
+export type ThemeParent = (typeof THEMES)['default']
+
+export type ThemeKeys = keyof typeof THEMES
+export type ThemeColorKeys =
+  | keyof typeof THEMES.default.styles
+  | keyof typeof THEMES.dark.styles
+  | keyof typeof THEMES.light.styles
+  | keyof typeof THEMES.chaotic.styles
+
+export type BackgroundImage = { path: string; hash: string }
