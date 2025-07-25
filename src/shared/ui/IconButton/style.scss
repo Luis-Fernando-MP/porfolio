@@ -55,6 +55,7 @@
       left $transition,
       right $transition,
       bottom $transition;
+    transition-delay: 0.3s;
 
     &.top,
     &.bottom {
@@ -89,7 +90,7 @@
     background-color: rgb(v.$bg3);
     transition: background-color 0.3s ease;
 
-    .iconLink-label {
+    .iconButton-label {
       visibility: visible;
       opacity: 1;
 

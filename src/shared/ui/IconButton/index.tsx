@@ -10,7 +10,7 @@ import './style.scss'
 type CommonProps = {
   children?: Readonly<ReactNode[]> | null | Readonly<ReactNode>
   label?: string
-  position?: 'top' | 'bottom' | 'left' | 'right'
+  label_position?: 'top' | 'bottom' | 'left' | 'right'
   outline?: boolean
   className?: string
   transparent?: boolean
@@ -42,7 +42,7 @@ type Props = ButtonProps | LinkProps
  *
  * @param {ReactNode} children - The icon or visual element inside the button.
  * @param {string} label - Optional text label displayed around the icon.
- * @param {'top' | 'bottom' | 'left' | 'right'} position - Where the label appears relative to the icon.
+ * @param {'top' | 'bottom' | 'left' | 'right'} label_position - Where the label appears relative to the icon.
  * @param {boolean} outline - Applies outline style.
  * @param {boolean} transparent - Applies transparent style.
  * @param {boolean} active - Applies active style.
@@ -59,7 +59,7 @@ type Props = ButtonProps | LinkProps
  * // Render as a button with sound
  * <IconButton
  *   label="Play"
- *   position="bottom"
+ *   label_position="bottom"
  *   outline
  * >
  *   <PlayIcon />
@@ -93,7 +93,7 @@ type Props = ButtonProps | LinkProps
 const IconButton: FC<Props> = ({
   children,
   label,
-  position = 'top',
+  label_position = 'top',
   outline = false,
   className = '',
   transparent = false,
@@ -121,7 +121,7 @@ const IconButton: FC<Props> = ({
   const content = (
     <>
       <div className={`iconButton-content ${contentClass}`}>{children}</div>
-      {label && <LabelText className={`iconButton-label ${position}`}>{label}</LabelText>}
+      {label && <LabelText className={`iconButton-label ${label_position}`}>{label}</LabelText>}
     </>
   )
 
