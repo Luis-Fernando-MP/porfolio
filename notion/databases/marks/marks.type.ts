@@ -1,4 +1,4 @@
-import type { NotionDB, NotionMDVisibility, NotionRichText } from './notion.type'
+import type { NotionDB, NotionMDVisibility, NotionRichText } from '@notion/types/notion.type'
 
 export type NotionMarkStatus = 'Sin empezar' | 'Editando' | 'Completado'
 

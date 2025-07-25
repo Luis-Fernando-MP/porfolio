@@ -1,7 +1,7 @@
-import { NotionSeriesDB } from '@notion/types/series.type'
 import type { MdxContentProps } from '@notion/utils/generateBlock'
 
 import { imageContentStr } from '../imageContentStr'
+import { NotionSeriesDB } from './series.type'
 
 export const serieContent = (book: NotionSeriesDB, coverUrl: string | undefined, contentProps: MdxContentProps) => {
   const { id, properties, created_time } = book
@@ -12,7 +12,7 @@ export const serieContent = (book: NotionSeriesDB, coverUrl: string | undefined,
 
   const { imageProps, readingTime, words } = contentProps
 
-  const imagePropsStr = imageContentStr(imageProps, coverUrl ? id : undefined)
+  const imagePropsStr = imageContentStr(imageProps, 'series', coverUrl ? id : undefined)
 
   return `---
 id: '${id}'

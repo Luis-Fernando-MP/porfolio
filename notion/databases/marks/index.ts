@@ -1,5 +1,4 @@
 import { env } from '@notion/constants'
-import { NotionMarkStatus, NotionMarksDB } from '@notion/types/marks.type'
 import { NotionGroupVisibility } from '@notion/types/notion.type'
 import cleanObsoleteFiles from '@notion/utils/cleanObsoleteFiles'
 import { createDirectories } from '@notion/utils/fs'
@@ -8,6 +7,7 @@ import { getAllMarksDB } from '@notion/utils/getAllMarks'
 import clog from '@notion/utils/log'
 
 import { markContent } from './content'
+import { NotionMarkStatus, NotionMarksDB } from './marks.type'
 
 export const generateMarks = async () => {
   try {
@@ -63,7 +63,8 @@ export const generateMarks = async () => {
       cleanObsoleteFiles(generatedIds, mdxImagesPath)
     ])
     clog.timer('Tiempo total de limpieza', Date.now() - startAll)
-  } catch {
+  } catch (e: any) {
     clog.error('Error generando libros:')
+    console.log(e?.message ?? e)
   }
 }

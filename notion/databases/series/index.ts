@@ -1,6 +1,5 @@
 import { env } from '@notion/constants'
 import type { NotionGroupVisibility } from '@notion/types/notion.type'
-import type { NotionSeriesDB } from '@notion/types/series.type'
 import cleanObsoleteFiles from '@notion/utils/cleanObsoleteFiles'
 import { createDirectories } from '@notion/utils/fs'
 import { generateBlock } from '@notion/utils/generateBlock'
@@ -8,6 +7,7 @@ import { getAllMarksDB } from '@notion/utils/getAllMarks'
 import clog from '@notion/utils/log'
 
 import { serieContent } from './content'
+import { NotionSeriesDB } from './series.type'
 
 export const generateSeries = async () => {
   try {
@@ -57,7 +57,8 @@ export const generateSeries = async () => {
       cleanObsoleteFiles(generatedIds, mdxImagesPath)
     ])
     clog.timer('Tiempo total de limpieza', Date.now() - startAll)
-  } catch {
+  } catch (e: any) {
     clog.error('Error generando libros:')
+    console.log(e?.message ?? e)
   }
 }

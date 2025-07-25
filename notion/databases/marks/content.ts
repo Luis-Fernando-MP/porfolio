@@ -1,16 +1,16 @@
-import { NotionMarksDB } from '@notion/types/marks.type'
 import type { MdxContentProps } from '@notion/utils/generateBlock'
 
 import { imageContentStr } from '../imageContentStr'
+import { NotionMarksDB } from './marks.type'
 
-export const markContent = (book: NotionMarksDB, coverUrl: string | undefined, contentProps: MdxContentProps) => {
-  const { id, properties, created_time } = book
+export const markContent = (mark: NotionMarksDB, coverUrl: string | undefined, contentProps: MdxContentProps) => {
+  const { id, properties, created_time } = mark
   const title = properties.Name.title[0].plain_text
   const lastEditedTime = properties['Última edición'].last_edited_time
 
   const { imageProps, readingTime, words } = contentProps
 
-  const imagePropsStr = imageContentStr(imageProps, coverUrl ? id : undefined)
+  const imagePropsStr = imageContentStr(imageProps, 'marks', coverUrl ? id : undefined)
 
   return `---
 id: '${id}'
