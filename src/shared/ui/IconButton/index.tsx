@@ -104,6 +104,7 @@ const IconButton: FC<Props> = ({
   noSound = false,
   soundType = 'BUTTON',
   noPadding = false,
+  onClick,
   ...props
 }) => {
   const [playSound] = useSound(soundType, { interrupt: true })
@@ -113,7 +114,7 @@ const IconButton: FC<Props> = ({
   const handleClick = (e: MouseEvent<HTMLElement>) => {
     if (disable) return e.preventDefault()
     if (!noSound) playSound()
-    props.onClick?.(e as any)
+    onClick?.(e as any)
   }
 
   const content = (

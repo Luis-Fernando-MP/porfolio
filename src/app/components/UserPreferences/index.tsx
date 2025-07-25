@@ -1,8 +1,11 @@
 import NavLinks from '@/app/ui/NavLinks'
+import { INFO } from '@/constants'
+import IconButton from '@/shared/ui/IconButton'
 import Social from '@/shared/ui/Social'
 import type { FC } from 'react'
 
 import BackgroundSelector from '../BackgroundSelector'
+import MusicButton from '../MusicButton'
 import ThemesSelector from '../ThemesSelector'
 import FontSizeComponent from './FontSizeComponent'
 import NoiseOptionsComponent from './NoiseOptionsComponent'
@@ -13,6 +16,14 @@ import './userMobile.scss'
 const UserPreferences: FC = () => {
   return (
     <section className='UPreferences border'>
+      <MusicButton />
+
+      <IconButton className='events-none' active>
+        <div className='mainBar-point' />
+        {INFO.working.state && <h4>Creando ideas con {INFO.working.enterprise}</h4>}
+        {!INFO.working.state && <h4>Trabajemos juntos</h4>}
+      </IconButton>
+
       <NavLinks />
 
       <section className='UPreferences-section'>

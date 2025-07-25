@@ -2,27 +2,30 @@
 @use '@sass/utils/media' as m;
 @use '@sass/utils/defs' as d;
 
-@include m.largeScreen {
+@include m.extraLargeScreen {
   .mainBar {
+    max-width: 100%;
+    padding: 0 v.$padding;
+
     &-wrapper {
-      justify-content: center;
-      width: 100%;
-      padding: v.$padding;
+      margin: auto !important;
     }
   }
 }
 
-@include m.smallScreen {
+@include m.mediumScreen {
+  .mainBar {
+    &-hidden {
+      display: none;
+    }
+  }
+}
+
+@include m.smallerScreen {
   .mainBar {
     &-wrapper {
       gap: v.$padding;
-      padding: 5px;
-    }
-
-    &-currentWork {
-      &::before {
-        display: none;
-      }
+      width: 100%;
     }
   }
 }

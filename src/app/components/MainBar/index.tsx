@@ -43,11 +43,11 @@ const MainBar: FC<Props> = ({ className = '' }) => {
             <h4>Menu</h4>
           </IconButton>
 
-          <MusicButton />
+          <MusicButton className='mainBar-hidden' />
 
           <DevCardToggle />
 
-          <IconButton className='events-none' active>
+          <IconButton className='events-none mainBar-hidden' active>
             <div className='mainBar-point' />
             {INFO.working.state && <h4>Creando ideas con {INFO.working.enterprise}</h4>}
             {!INFO.working.state && <h4>Trabajemos juntos</h4>}
