@@ -1,31 +1,22 @@
 import { APP } from '@/constants'
-import ImageLayer from '@/shared/components/ImageLayer'
-import Link from 'next/link'
+import IconButton from '@/shared/ui/IconButton'
+import { Image } from '@unpic/react'
 import type { FC } from 'react'
 
 import './style.scss'
 import './userMobile.scss'
 
-type PageLabel = (typeof APP.pages)[number]['label']
-
-interface Props {
-  include?: 'all' | PageLabel[]
-}
-
-const NavLinks: FC<Props> = ({ include = 'all' }) => {
-  const filteredPages = include === 'all' ? APP.pages : APP.pages.filter(page => include.includes(page.label))
-
+const NavLinks: FC = () => {
   return (
     <nav className='navLinks'>
-      {filteredPages.map(({ Icon, image, label, path }) => (
-        <Link key={path} href={path} className='navLinks-link fade border'>
-          <ImageLayer src={image} className='navLinks-background' alt={label} />
-          <div className='navLinks-content'>
-            <Icon />
-            <h4>{label}</h4>
-          </div>
-        </Link>
-      ))}
+      {APP.pages.map(({ image, label, path, isCompleted }) => {
+        return (
+          <IconButton isLink key={`${path}-navLinks`} href={path} className='navLinks-link' disable={!isCompleted}>
+            <Image src={image} className='navLinks-image' alt={label} width={30} height={30} loading='lazy' />
+            <h5>{label}</h5>
+          </IconButton>
+        )
+      })}
     </nav>
   )
 }

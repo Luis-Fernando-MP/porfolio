@@ -47,7 +47,6 @@ const ImageLayer: FC<Props> = ({
   blur,
   style,
   alt = '',
-  title,
   enableParallax = false,
   lazy = false,
   ...props
@@ -146,7 +145,7 @@ const ImageLayer: FC<Props> = ({
       style={{ ...style, ...(blur ? { background: blur } : {}) }}
       role='img'
       aria-label={alt}
-      title={title}
+      title={alt}
     >
       {renderLayer(prevSrc, isLoaded ? 'imageLayer-layer__fadeOut' : 'imageLayer-layer__visible')}
       {renderLayer(currentSrc, isLoaded ? 'imageLayer-layer__fadeIn' : 'imageLayer-layer__hidden')}

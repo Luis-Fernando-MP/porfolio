@@ -3,7 +3,7 @@ import {
   BookOpenIcon,
   CopyIcon,
   CuboidIcon,
-  GaugeIcon,
+  FileBadgeIcon,
   GlobeIcon,
   LayersIcon,
   LayoutIcon,
@@ -40,13 +40,6 @@ export const INFO = {
 export const APP = {
   pages: [
     {
-      path: '/blog',
-      label: 'Blog',
-      image: '/assets/pages/blog.webp',
-      Icon: BookOpenIcon,
-      isCompleted: true
-    },
-    {
       path: '/projects',
       label: 'Proyectos',
       image: '/assets/pages/projects.webp',
@@ -54,24 +47,17 @@ export const APP = {
       isCompleted: true
     },
     {
-      path: '/shorts',
-      label: 'Shorts',
-      image: '/assets/pages/shorts.webp',
-      Icon: GaugeIcon,
+      path: '/achievements',
+      label: 'Certificados y Títulos',
+      image: '/assets/pages/achievements.webp',
+      Icon: FileBadgeIcon,
       isCompleted: true
     },
     {
-      path: '/about',
-      label: 'Acerca de mí',
-      image: '/assets/pages/about.webp',
-      Icon: UserIcon,
-      isCompleted: true
-    },
-    {
-      path: '/stack',
-      label: 'Stack',
-      image: '/assets/pages/stack.webp',
-      Icon: LayersIcon,
+      path: '/webs',
+      label: 'Páginas web',
+      image: '/assets/pages/webs.webp',
+      Icon: GlobeIcon,
       isCompleted: false
     },
     {
@@ -82,12 +68,29 @@ export const APP = {
       isCompleted: false
     },
     {
-      path: '/webs',
-      label: 'Páginas web',
-      image: '/assets/pages/webs.webp',
-      Icon: GlobeIcon,
+      path: '/about',
+      label: 'Acerca de mí',
+      image: '/assets/pages/about.webp',
+      Icon: UserIcon,
+      isCompleted: true
+    },
+
+    {
+      path: '/blog',
+      label: 'Blog',
+      image: '/assets/pages/blog.webp',
+      Icon: BookOpenIcon,
+      isCompleted: true
+    },
+
+    {
+      path: '/stack',
+      label: 'Stack',
+      image: '/assets/pages/stack.webp',
+      Icon: LayersIcon,
       isCompleted: false
     },
+
     {
       path: '/templates',
       label: 'Plantillas',

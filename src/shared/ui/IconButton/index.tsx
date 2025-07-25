@@ -112,7 +112,8 @@ const IconButton: FC<Props> = ({
   const parsedClassName = `iconButton ${acl(outline, 'outline')} ${acl(transparent, 'transparent')} ${acl(active, 'active')} ${acl(disable, 'disabled')} ${acl(noPadding, 'noPadding')} ${className}`
 
   const handleClick = (e: MouseEvent<HTMLElement>) => {
-    if (disable) return e.preventDefault()
+    e.preventDefault()
+    if (disable) return
     if (!noSound) playSound()
     onClick?.(e as any)
   }

@@ -17,7 +17,11 @@
 
   background-color: rgb(v.$bg2);
 
-  transition: background-color 0.3s ease;
+  &.disabled {
+    pointer-events: none;
+    user-select: none;
+    opacity: 0.5;
+  }
 
   &.noPadding {
     padding: 0 !important;
@@ -83,6 +87,7 @@
 
   &:hover {
     background-color: rgb(v.$bg3);
+    transition: background-color 0.3s ease;
 
     .iconLink-label {
       visibility: visible;
