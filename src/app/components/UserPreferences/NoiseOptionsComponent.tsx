@@ -1,5 +1,5 @@
-import { acl } from '@/shared/acl'
 import useAppStore, { NOISE_OPTIONS, NoiseOptions } from '@/shared/store/app.store'
+import IconButton from '@/shared/ui/IconButton'
 import { type FC } from 'react'
 
 const NoiseOptionsComponent: FC = () => {
@@ -11,18 +11,24 @@ const NoiseOptionsComponent: FC = () => {
   }
 
   return (
-    <fieldset className='UPreferences-options' aria-label='Selector de tamaño de fuente'>
+    <fieldset className='UPreferences-options' aria-label='Selector de estilo de ruido'>
       <legend className='sr-only'>Selecciona el estilo del noise de la aplicación</legend>
-      {Object.keys(NOISE_OPTIONS).map(style => (
-        <button
-          key={`${style}-noise`}
-          className={`UPreferences-option border ${acl(style === noiseStyle)}`}
-          onClick={() => handleChangeStyle(style as NoiseOptions)}
-          aria-pressed={style === noiseStyle}
-        >
-          {style}
-        </button>
-      ))}
+      {Object.keys(NOISE_OPTIONS).map(style => {
+        const isActive = style === noiseStyle
+
+        return (
+          <IconButton
+            key={`${style}-noise`}
+            active={isActive}
+            onClick={() => handleChangeStyle(style as NoiseOptions)}
+            aria-pressed={isActive}
+            aria-label={`Seleccionar estilo ${style}`}
+            title={`Seleccionar estilo ${style}`}
+          >
+            <h5 aria-hidden='true'>{style}</h5>
+          </IconButton>
+        )
+      })}
     </fieldset>
   )
 }
