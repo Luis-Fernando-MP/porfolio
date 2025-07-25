@@ -8,9 +8,16 @@
 
   @include d.flex;
 
+  &-nav,
   &-wrapper {
     width: v.$max-w;
     margin: 0 auto;
+  }
+
+  &-nav {
+    .mainBar-wrapper {
+      margin: initial;
+    }
   }
 
   &-body {

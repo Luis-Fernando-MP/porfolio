@@ -12,14 +12,15 @@ import './userMobile.scss'
 const Home = (): JSX.Element => {
   return (
     <main className='home' aria-label={`Página principal de ${INFO.fullName}`}>
-      <MainBar />
-      {/* <div className='home-wrapper'>
-        <HomeBackground />
+      <HomeBackground />
+      <MainBar className='home-nav' />
+
+      <div className='home-wrapper'>
         <article className='home-body'>
           <HomeContent />
           <DevCardInfo />
         </article>
-      </div> */}
+      </div>
       <Footer />
     </main>
   )

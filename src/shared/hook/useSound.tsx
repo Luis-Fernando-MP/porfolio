@@ -34,15 +34,25 @@ const useSound = (audio: Audio, options: HookOptions = {}): [(options?: PlayOpti
   const soundEnabled = useAppStore(s => s.soundEnabled)
   const src = AUDIOS[audio]?.path
 
-  const sound = (() => {
-    if (!soundCache[src]) {
-      soundCache[src] = new Howl({
-        src: [src],
-        ...options
-      })
-    }
-    return soundCache[src]
-  })()
+  // If already cached, reuse
+  let sound = soundCache[src]
+
+  if (!sound) {
+    sound = new Howl({
+      src: [src],
+      volume: options.volume ?? 1,
+      rate: options.playbackRate ?? 1,
+      sprite: options.sprite,
+      onload: options.onload
+    })
+
+    // Preload silently
+    sound.once('load', () => {
+      // No-op, it's just to warm the cache
+    })
+
+    soundCache[src] = sound
+  }
 
   const play = (opts?: PlayOptions) => {
     if (!soundEnabled && !opts?.forceSoundEnabled) return

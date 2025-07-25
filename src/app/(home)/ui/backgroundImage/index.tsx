@@ -1,6 +1,6 @@
 'use client'
 
-import { BackImage } from '@/shared/components/BackImage'
+import ImageLayer from '@/shared/components/ImageLayer'
 import useBackgroundImageStore from '@/shared/store/backgroundImage.store'
 import { CSSProperties, type FC } from 'react'
 
@@ -18,10 +18,11 @@ export const BackgroundImage: FC<Props> = ({ height = 400, className, style }) =
   const { path, hash } = background
 
   return (
-    <BackImage
+    <ImageLayer
       className={`backgroundImage ${className}`}
       src={path}
       blur={hash}
+      enableParallax
       style={{
         height: `${height}px`,
         ...style

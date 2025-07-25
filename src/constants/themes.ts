@@ -21,7 +21,10 @@ export type ThemeColorKeys =
 export type BackgroundImage = { path: string; hash: string }
 
 export const themeBackgroundImages: Record<ThemeColorKeys, BackgroundImage[]> = {
-  gris: [{ path: '/backgrounds/dev-dark/1.webp', hash: 'L4F5gBK$00EL.jot^*_M00%2-;Ns' }],
+  gris: [
+    { path: '/backgrounds/gris/bg1.webp', hash: 'LHExFS~BEM9b03Io%1-oR+I=niV@' },
+    { path: '/backgrounds/gris/bg2.webp', hash: 'LdGQtVS5E2%1~Ut7M|fi-:xtRkjF' }
+  ],
   'dev dark': [
     { path: '/backgrounds/dev-dark/1.webp', hash: 'L4F5gBK$00EL.jot^*_M00%2-;Ns' },
     { path: '/backgrounds/dev-dark/2.webp', hash: 'L4F5gBK$00EL.jot^*_M00%2-;Ns' },
@@ -110,5 +113,5 @@ export const DEFAULT_THEME = {
   theme: 'gris' as ThemeColorKeys,
   colors: THEMES.default.styles.gris,
   bgs: themeBackgroundImages['gris'],
-  bg: themeBackgroundImages['gris'][0] ?? { path: '/backgrounds/dev-dark/2.webp', hash: 'L4F5gBK$00EL.jot^*_M00%2-;Ns' }
+  bg: themeBackgroundImages['gris'][0] ?? { path: '/backgrounds/gris/bg1.webp', hash: 'LHExFS~BEM9b03Io%1-oR+I=niV@' }
 }

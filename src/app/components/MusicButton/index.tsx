@@ -9,7 +9,7 @@ const MusicButton: FC = () => {
   return (
     <IconButton transparent className='musicBtn'>
       <div className='musicBtn-image border'>
-        <Image src='/assets/pages/music.webp' width={35} height={35} alt='resonance music' />
+        <Image src='/assets/pages/music.webp' width={30} height={30} alt='resonance music' />
         <PlayIcon className='musicBtn-icon' />
       </div>
       <h5>&nbsp;Armando Trovajo...</h5>

@@ -9,7 +9,7 @@
   flex-wrap: wrap;
 
   &-link {
-    padding: v.$padding / 2;
+    padding: v.$padding * 0.5;
     border-radius: v.$min-radius;
     background-color: rgb(v.$bg2);
 

@@ -8,9 +8,11 @@
     position: relative;
 
     overflow: hidden;
+    display: grid;
+    place-content: center;
 
-    width: fit-content;
-    height: fit-content;
+    width: min-content;
+    height: min-content;
     border-radius: v.$min-radius;
 
     img {
