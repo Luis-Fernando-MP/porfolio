@@ -33,7 +33,7 @@ const Social: FC<Props> = ({ className = '', ...props }) => {
           rel='noopener noreferrer'
           key={`${label}-social-link`}
           aria-label={title}
-          title={title}
+          className='social-option'
         >
           {icon}
         </IconButton>

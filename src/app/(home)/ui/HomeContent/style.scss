@@ -3,7 +3,7 @@
 
 .content {
   height: 100vh;
-  margin-top: 120px;
+  padding: v.$big-padding 0;
 
   &-section {
     @include d.flex;

@@ -123,7 +123,7 @@ const IconButton: FC<Props> = ({
   const content = (
     <>
       <div className={`iconButton-content ${contentClass}`}>{children}</div>
-      {label && <LabelText className={`iconButton-label ${label_position}`}>{label}</LabelText>}
+      {label && <LabelText className={`iconButton-label border ${label_position}`}>{label}</LabelText>}
     </>
   )
 

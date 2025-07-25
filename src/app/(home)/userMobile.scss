@@ -2,7 +2,7 @@
 @use '@sass/utils/media' as m;
 @use '@sass/utils/defs' as d;
 
-@include m.largeScreen {
+@include m.extraLargeScreen {
   .home {
     &-wrapper {
       width: 100%;

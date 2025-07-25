@@ -2,7 +2,7 @@
 @use '@sass/utils/media' as m;
 @use '@sass/utils/defs' as d;
 
-@include m.largeScreen {
+@include m.extraLargeScreen {
   .devCard {
     position: fixed;
     z-index: 10;
@@ -10,7 +10,6 @@
     left: 0;
 
     display: none;
-    justify-content: center;
 
     max-width: 100vw;
     height: 100%;
@@ -19,18 +18,39 @@
     background-color: rgb(v.$bg1, 0.8);
     backdrop-filter: blur(10px);
 
+    &-closeButton {
+      display: block;
+    }
+
     &-content {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+
       max-width: 350px;
     }
 
     &.show {
-      @include d.flex($ali: center);
+      display: block;
     }
   }
 }
 
-@include m.smallScreen {
+@include m.smallerScreen {
   .devCard {
     padding: v.$padding;
+
+    &-content {
+      width: calc(100% - v.$padding * 2);
+    }
+
+    &-wrapper {
+      padding: v.$padding;
+    }
+
+    .social {
+      justify-content: left;
+    }
   }
 }

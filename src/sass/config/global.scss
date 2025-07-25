@@ -7,6 +7,7 @@
 body {
   .font2 {
     font-family: $font2;
+    font-weight: 400;
     font-style: italic;
   }
 
@@ -62,6 +63,12 @@ body {
 
   .frow {
     @include d.flex($ali: center, $dir: row);
+
+    flex-wrap: wrap;
+  }
+
+  .min-frow {
+    @include d.flex($ali: center, $dir: row, $gap: $min-padding);
 
     flex-wrap: wrap;
   }

@@ -20,7 +20,7 @@ const HomeContent: FC = () => {
           <h4>Mira mis posts</h4>
           <ArrowRightIcon />
         </IconLink>
-        {/* <LastedPosts /> */}
+        <LastedPosts />
       </section>
     </article>
   )
