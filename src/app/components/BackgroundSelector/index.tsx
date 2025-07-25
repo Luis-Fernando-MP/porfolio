@@ -10,13 +10,12 @@ import './style.scss'
 const BackgroundSelector: FC = () => {
   const theme = useAppThemeStore(s => s.theme)
   const getThemeBackgrounds = useBackgroundImageStore(s => s.getThemeBackgrounds)
-
-  const bgs = getThemeBackgrounds(theme)
+  const images = getThemeBackgrounds(theme)
 
   return (
     <div className='frow backgroundSelector'>
-      {bgs.map(bg => {
-        return <ThemeBackgroundOption key={`${bg.path}-circular-option-theme-image`} {...bg} />
+      {images.map(bg => {
+        return <ThemeBackgroundOption key={`${bg.path}-option-image`} {...bg} />
       })}
     </div>
   )

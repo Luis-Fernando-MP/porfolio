@@ -10,7 +10,7 @@
 
   overflow: auto;
 
-  width: 400px;
+  width: 390px;
   height: 550px;
   padding: v.$padding * 2;
   border-radius: v.$radius;
@@ -35,7 +35,7 @@
   }
 
   &-section {
-    @include d.flex($gap: v.$padding);
+    @include d.flex($gap: v.$padding * 2);
   }
 
   &-group {
