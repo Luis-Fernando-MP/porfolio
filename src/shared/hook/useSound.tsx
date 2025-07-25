@@ -1,3 +1,5 @@
+'use client'
+
 import { AUDIOS, type Audio } from '@/constants/audio'
 import { Howl } from 'howler'
 
@@ -11,13 +13,13 @@ type HookOptions = {
   playbackRate?: number
   interrupt?: boolean
   soundEnabled?: boolean
+  forceSoundEnabled?: boolean
   sprite?: SpriteMap
   onload?: () => void
 }
 
 export interface PlayOptions {
   id?: string
-  forceSoundEnabled?: boolean
   playbackRate?: number
 }
 
@@ -28,17 +30,14 @@ export interface ExposedData {
   duration: number | null
 }
 
-const soundCache: Record<string, Howl> = {}
+// Cache shared across hook instances
+const soundCache: Record<string, Howl | undefined> = {}
 
-const useSound = (audio: Audio, options: HookOptions = {}): [(options?: PlayOptions) => void, ExposedData] => {
-  const soundEnabled = useAppStore(s => s.soundEnabled)
-  const src = AUDIOS[audio]?.path
+function initializeSound(src: string, options: HookOptions, preload: boolean) {
+  soundCache[src] = undefined
 
-  // If already cached, reuse
-  let sound = soundCache[src]
-
-  if (!sound) {
-    sound = new Howl({
+  const load = () => {
+    const instance = new Howl({
       src: [src],
       volume: options.volume ?? 1,
       rate: options.playbackRate ?? 1,
@@ -46,16 +45,57 @@ const useSound = (audio: Audio, options: HookOptions = {}): [(options?: PlayOpti
       onload: options.onload
     })
 
-    // Preload silently
-    sound.once('load', () => {
-      // No-op, it's just to warm the cache
+    instance.once('load', () => {
+      // warming cache
     })
 
-    soundCache[src] = sound
+    soundCache[src] = instance
   }
 
+  preload ? load() : setTimeout(load, 3000)
+}
+
+/**
+ * Custom hook to manage and play audio effects with Howler.js.
+ * It caches sounds and respects global and local sound-enabled flags.
+ *
+ * @param {Audio} audio - Key of the audio resource from AUDIOS map.
+ * @param {HookOptions} [options] - Optional config for volume, rate, etc.
+ * @returns {[Function, ExposedData]} - A tuple: [playFn, soundControlHelpers]
+ *
+ * @example
+ * const [play, { stop }] = useSound('MENU_CLOSE', { volume: 0.5 })
+ * play()
+ */
+const useSound = (audio: Audio, options: HookOptions = {}): [(options?: PlayOptions) => void, ExposedData] => {
+  const globalSoundEnabled = useAppStore(s => s.soundEnabled)
+  const src = AUDIOS[audio]?.path
+
+  if (!src) {
+    return [
+      () => {},
+      {
+        sound: null,
+        stop: () => {},
+        pause: () => {},
+        duration: null
+      }
+    ]
+  }
+
+  const shouldPreload = options.forceSoundEnabled || options.soundEnabled || globalSoundEnabled
+
+  if (!(src in soundCache)) {
+    initializeSound(src, options, shouldPreload)
+  }
+
+  const sound = soundCache[src] || null
+
   const play = (opts?: PlayOptions) => {
-    if (!soundEnabled && !opts?.forceSoundEnabled) return
+    const isEnabled = options.forceSoundEnabled || options.soundEnabled || globalSoundEnabled
+
+    if (!isEnabled || !sound) return
+
     const id = sound.play(opts?.id)
     if (opts?.playbackRate) sound.rate(opts.playbackRate, id)
   }
@@ -64,9 +104,9 @@ const useSound = (audio: Audio, options: HookOptions = {}): [(options?: PlayOpti
     play,
     {
       sound,
-      stop: (id?: number) => sound.stop(id),
-      pause: (id?: number) => sound.pause(id),
-      duration: sound.duration()
+      stop: (id?: number) => sound?.stop(id),
+      pause: (id?: number) => sound?.pause(id),
+      duration: sound?.duration() ?? null
     }
   ]
 }
