@@ -1,4 +1,5 @@
 import { BackgroundImage } from '@/constants/themes'
+import useSound from '@/shared/hook/useSound'
 import useBackgroundImageStore from '@/shared/store/backgroundImage.store'
 import { Image } from '@unpic/react'
 import type { FC } from 'react'
@@ -8,9 +9,11 @@ interface Props extends BackgroundImage {}
 const ThemeBackgroundOption: FC<Props> = background => {
   const { path } = background
   const setBackground = useBackgroundImageStore(s => s.setBackground)
+  const [play] = useSound('BUTTON_ON')
 
   const handleClick = (): void => {
     setBackground(background)
+    play()
   }
 
   return (

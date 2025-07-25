@@ -7,14 +7,4 @@
   @include d.flex($dir: row, $ali: center);
 
   flex-wrap: wrap;
-
-  &-link {
-    padding: v.$padding * 0.5;
-    border-radius: v.$min-radius;
-    background-color: rgb(v.$bg2);
-
-    svg {
-      stroke: rgb(v.$fn2);
-    }
-  }
 }

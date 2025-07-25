@@ -17,13 +17,6 @@ import './userMobile.scss'
 const UserPreferences: FC = () => {
   return (
     <section className='UPreferences border'>
-      {/* <MusicButton />
-      <IconButton className='events-none' active>
-        <div className='mainBar-point' />
-        {INFO.working.state && <h4>Creando ideas con {INFO.working.enterprise}</h4>}
-        {!INFO.working.state && <h4>Trabajemos juntos</h4>}
-      </IconButton> */}
-
       <section className='UPreferences-section'>
         <h5># Páginas</h5>
         <NavLinks />
@@ -40,10 +33,25 @@ const UserPreferences: FC = () => {
         <BackgroundSelector />
       </section>
 
+      <div className='UPreferences-section'>
+        <h5># Redes</h5>
+        <Social />
+      </div>
+
+      <div className='UPreferences-section'>
+        <h5># Otros</h5>
+        <MusicButton />
+        <IconButton className='events-none' active>
+          <div className='mainBar-point' />
+          {INFO.working.state && <h4>Creando ideas con {INFO.working.enterprise}</h4>}
+          {!INFO.working.state && <h4>Trabajemos juntos</h4>}
+        </IconButton>
+      </div>
+
       <section className='UPreferences-section'>
         <div className='UPreferences-group'>
-          <h5># Redes</h5>
-          <Social />
+          <h5># Sonidos</h5>
+          <SoundOptionsComponent />
         </div>
         <div className='UPreferences-group'>
           <h5># Fuente</h5>
@@ -52,10 +60,6 @@ const UserPreferences: FC = () => {
         <div className='UPreferences-group'>
           <h5># Fondo ruidoso</h5>
           <NoiseOptionsComponent />
-        </div>
-        <div className='UPreferences-group'>
-          <h5># Sonidos</h5>
-          <SoundOptionsComponent />
         </div>
       </section>
     </section>

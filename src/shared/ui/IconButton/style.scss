@@ -37,6 +37,8 @@
 
   &-content {
     @include d.flex($dir: row, $ali: center, $gap: v.$min-padding);
+
+    flex-wrap: wrap;
   }
 
   &-label {
@@ -55,7 +57,7 @@
       left $transition,
       right $transition,
       bottom $transition;
-    transition-delay: 0.3s;
+    transition-delay: 0.5s;
 
     &.top,
     &.bottom {

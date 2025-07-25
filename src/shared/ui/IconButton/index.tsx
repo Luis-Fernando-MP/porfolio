@@ -1,3 +1,5 @@
+'use client'
+
 import { type Audio } from '@/constants/audio'
 import { acl } from '@/shared/acl'
 import useSound from '@/shared/hook/useSound'
@@ -51,7 +53,7 @@ type Props = ButtonProps | LinkProps
  * @param {boolean} isLink - When true, renders a Next.js link instead of a button.
  * @param {boolean} disable - Prevents any interaction and applies disabled style.
  * @param {boolean} noSound - If true, prevents sound from playing on click.
- * @param {Audio} soundType - Type of sound to play. Defaults to 'BUTTON'.
+ * @param {Audio} soundType - Type of sound to play. Defaults to 'BUTTON_ON'.
  * @param {boolean} noPadding - If true, removes default padding from the button.
  * @param {string} href - URL destination for the link (required if isLink is true).
  *
@@ -102,7 +104,7 @@ const IconButton: FC<Props> = ({
   isLink = false,
   disable = false,
   noSound = false,
-  soundType = 'BUTTON',
+  soundType = 'BUTTON_ON',
   noPadding = false,
   onClick,
   ...props
@@ -112,8 +114,8 @@ const IconButton: FC<Props> = ({
   const parsedClassName = `iconButton ${acl(outline, 'outline')} ${acl(transparent, 'transparent')} ${acl(active, 'active')} ${acl(disable, 'disabled')} ${acl(noPadding, 'noPadding')} ${className}`
 
   const handleClick = (e: MouseEvent<HTMLElement>) => {
-    e.preventDefault()
     if (disable) return
+    if (e.target instanceof HTMLButtonElement) e.preventDefault()
     if (!noSound) playSound()
     onClick?.(e as any)
   }

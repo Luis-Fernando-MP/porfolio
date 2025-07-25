@@ -1,7 +1,7 @@
 'use client'
 
-import { acl } from '@/shared/acl'
 import useAppStore, { FONTSIZE_OPTIONS, FontSizeOptions } from '@/shared/store/app.store'
+import IconButton from '@/shared/ui/IconButton'
 import type { FC } from 'react'
 
 const FontSizeComponent: FC = () => {
@@ -14,18 +14,26 @@ const FontSizeComponent: FC = () => {
   }
 
   return (
-    <fieldset className='UPreferences-options' aria-label='Selector de tamaño de fuente'>
-      <legend className='sr-only'>Selecciona el tamaño de fuente preferido</legend>
-      {Object.entries(FONTSIZE_OPTIONS).map(([name, value]) => (
-        <button
-          key={`${name}-fontSize`}
-          className={`UPreferences-option border ${acl(name === styleFontSize)}`}
-          onClick={() => handleChangeFontSize(name as FontSizeOptions, value)}
-          aria-pressed={name === styleFontSize}
-        >
-          {name}
-        </button>
-      ))}
+    <fieldset className='UPreferences-options' aria-labelledby='font-size-title'>
+      <legend id='font-size-title' className='sr-only'>
+        Selecciona el tamaño de fuente preferido
+      </legend>
+
+      {Object.entries(FONTSIZE_OPTIONS).map(([name, value]) => {
+        const isActive = name === styleFontSize
+        return (
+          <IconButton
+            key={`${name}-fontSize`}
+            active={isActive}
+            onClick={() => handleChangeFontSize(name as FontSizeOptions, value)}
+            aria-pressed={isActive}
+            aria-label={`Cambiar tamaño de fuente a ${name}`}
+            title={`Cambiar tamaño de fuente a ${name}`}
+          >
+            <h5 aria-hidden='true'>{name}</h5>
+          </IconButton>
+        )
+      })}
     </fieldset>
   )
 }
