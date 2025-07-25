@@ -7,6 +7,7 @@ import type { FC } from 'react'
 import BackgroundSelector from '../BackgroundSelector'
 import MusicButton from '../MusicButton'
 import ThemesSelector from '../ThemesSelector'
+import CurrentThemeName from '../ThemesSelector/CurrentThemeName'
 import FontSizeComponent from './FontSizeComponent'
 import NoiseOptionsComponent from './NoiseOptionsComponent'
 import SoundOptionsComponent from './SoundOptionsComponent'
@@ -31,6 +32,7 @@ const UserPreferences: FC = () => {
       <section className='UPreferences-section'>
         <h5># Temas</h5>
         <ThemesSelector />
+        <CurrentThemeName />
       </section>
 
       <section className='UPreferences-section'>

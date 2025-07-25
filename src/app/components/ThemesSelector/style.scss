@@ -11,31 +11,46 @@
   }
 
   &-list {
-    // overflow: hidden;
     flex-wrap: wrap;
-    width: fit-content;
-    padding: 0 5px;
-    border-radius: v.$min-radius;
 
     @include d.flex($dir: row, $gap: 0);
   }
 
   &-theme {
-    justify-content: center;
-    width: 30px;
-    height: 30px;
+    width: fit-content;
+    min-width: 30px;
+    height: fit-content;
     border-radius: 0;
 
-    @include d.flex($ali: center);
-
-    // div {
-    //   width: 10px;
-    //   height: 10px;
-    //   border-radius: 2px;
-    // }
-
     &:last-child {
-      border-bottom-right-radius: v.$radius;
+      border-top-right-radius: v.$min-radius;
+      border-bottom-right-radius: v.$min-radius;
+    }
+
+    &:first-child {
+      border-top-left-radius: v.$min-radius;
+      border-bottom-left-radius: v.$min-radius;
+    }
+
+    &__content {
+      position: relative;
+      overflow: hidden;
+      width: 30px;
+      height: 30px;
+    }
+
+    &__point {
+      pointer-events: none;
+
+      position: absolute;
+      bottom: -50%;
+      left: -30%;
+
+      width: 80%;
+      height: 80%;
+      border-radius: 50%;
+
+      filter: blur(10px);
     }
   }
 }
