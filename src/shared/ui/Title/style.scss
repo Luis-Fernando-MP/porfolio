@@ -6,17 +6,9 @@
   width: fit-content;
   height: fit-content;
 
-  @include d.flex($dir: row, $ali: center);
+  @include d.flex($dir: row, $ali: center, $gap: 7px);
 
-  &-sub {
-    font-size: 3rem;
-    font-weight: 400;
-  }
-
-  &-title {
-    font-size: 3rem;
-    font-weight: 900;
-    // font-family: v.$fontE1;
-    color: purple;
+  h2 {
+    font-size: v.$fXl;
   }
 }

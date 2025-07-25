@@ -9,7 +9,7 @@
       padding: v.$padding;
     }
 
-    &-body {
+    &-presentation {
       @include d.flex($dir: column-reverse);
 
       position: relative;

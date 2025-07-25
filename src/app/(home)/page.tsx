@@ -5,8 +5,8 @@ import Footer from '../components/Footer'
 import MainBar from '../components/MainBar'
 import './style.scss'
 import DevCardInfo from './ui/DevCardInfo'
-import HomeContent from './ui/HomeContent'
 import HomeHero from './ui/HomeHero'
+import ProjectsContent from './ui/ProjectsContent'
 import './userMobile.scss'
 
 const Home = (): JSX.Element => {
@@ -16,8 +16,8 @@ const Home = (): JSX.Element => {
       <MainBar className='home-nav' />
 
       <div className='home-wrapper'>
-        <article className='home-body'>
-          <HomeContent />
+        <article className='home-presentation'>
+          <ProjectsContent />
           <DevCardInfo />
         </article>
       </div>

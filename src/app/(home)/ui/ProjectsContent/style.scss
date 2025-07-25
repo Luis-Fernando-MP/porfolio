@@ -1,9 +1,11 @@
 @use '@sass/config/vars' as v;
 @use '@sass/utils/defs' as d;
 
-.content {
+.projects {
   height: 100vh;
-  padding: v.$big-padding 0;
+  padding-top: v.$big-padding;
+
+  @include d.flex($gap: v.$padding * 2);
 
   &-section {
     @include d.flex;
@@ -11,6 +13,6 @@
 
   &-description {
     width: 100%;
-    max-width: 350px;
+    max-width: 650px;
   }
 }

@@ -20,7 +20,7 @@
     }
   }
 
-  &-body {
+  &-presentation {
     display: grid;
     grid-template-columns: 1fr 350px;
     gap: v.$big-padding;
