@@ -2,7 +2,8 @@
 @use '@sass/utils/defs' as d;
 
 .projects {
-  height: 100vh;
+  overflow: hidden;
+  min-height: 100vh;
   padding-top: v.$big-padding;
 
   @include d.flex($gap: v.$padding * 2);

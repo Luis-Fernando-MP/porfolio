@@ -18,7 +18,7 @@ interface IRootLayout {
 const RootLayout = async ({ children }: IRootLayout): Promise<JSX.Element> => {
   return (
     <html lang='es' suppressHydrationWarning>
-      <body className={`${bodyFonts} app antialiased`}>
+      <body className={`${bodyFonts} app antialiased`} suppressHydrationWarning>
         <NextTopLoader color='rgb(var(--tn-primary))' showSpinner={false} />
         <Offline />
         {/* <SplashCursorComponent /> */}

@@ -1,4 +1,4 @@
-import { FieldDefs, defineDocumentType } from 'contentlayer/source-files'
+import { FieldDefs, defineDocumentType } from 'contentlayer2/source-files'
 
 import { commonLayerConfigFields } from '../commonLayerConfigFields'
 

@@ -17,20 +17,16 @@ id: '${id}'
 title: '${title}'
 reading_time: ${readingTime ?? 30}
 words: ${words ?? 0}
-
 folder: '${properties.Folder?.select?.name}'
 folder_color: '${properties.Folder?.select?.color}'
 status: '${properties.Estado?.status?.name}'
 level: '${properties.Nivel?.select?.name}'
-
-sessions:
-${properties['Sesión']?.multi_select.map(item => `  - ${item.name}`).join('\n')}
-tags:
-${properties.Tags?.multi_select.map(item => `  - ${item.name}`).join('\n')}
-
+sessions: [${properties['Sesión']?.multi_select.map(item => `'${item.name}'`).join(', ')}]
 ${imagePropsStr}
-
 created_time: '${created_time}'
 last_edited_time: '${lastEditedTime}'
+tags: [${properties.Tags?.multi_select.map(item => `'${item.name}'`).join(', ')}]
+
+
 ---`
 }

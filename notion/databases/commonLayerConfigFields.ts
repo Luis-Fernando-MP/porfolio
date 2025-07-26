@@ -1,4 +1,4 @@
-import { FieldDefs } from 'contentlayer/source-files'
+import { FieldDefs } from 'contentlayer2/source-files'
 
 export const commonLayerConfigFields: FieldDefs = {
   id: {

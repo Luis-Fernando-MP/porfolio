@@ -1,0 +1,66 @@
+@use '@sass/config/vars' as v;
+@use '@sass/utils/scrollbar' as *;
+
+%prism-base {
+  font-family: Monaco, Consolas, 'Andale Mono', 'Ubuntu Mono', 'Courier New', monospace;
+  font-size: v.$fP;
+  line-height: 1.5;
+  hyphens: none; // Sin guiones
+  text-shadow: none; // Sin sombra de texto
+  word-break: normal; // Sin quiebres forzados
+  tab-size: 4;
+  white-space: pre; // Respetar espacios y saltos
+
+  pre[class*='language-'],
+  code[class*='language-'] {
+    @extend %prism-base;
+
+    // Fondo de los bloques
+    background: none;
+  }
+
+  // Estilos de bloque PRE
+  pre[class*='language-'] {
+    @include scroll-hidden;
+
+    overflow: auto;
+    padding: v.$padding * 1.5;
+    border-radius: v.$radius;
+  }
+
+  // Estilos de código inline
+  :not(pre) > code[class*='language-'] {
+    @extend %prism-base;
+
+    padding: 0.15em 0.35em; // Espaciado compacto
+    border-radius: 0.4em; // Bordes redondeados
+  }
+
+  // Selección de texto dentro de <pre> o <code>
+  pre::selection,
+  code::selection,
+  pre *::selection,
+  code *::selection {
+    color: #000; // Texto negro al seleccionar
+  }
+
+  // Posicionamiento para resalte de línea
+  pre[class*='language-'] > code[class*='language-'] {
+    position: relative;
+    z-index: 1;
+  }
+
+  // Barra de resalte de línea
+  .line-highlight {
+    z-index: 0;
+    box-shadow: inset 5px 0 0 rgba(v.$tn1, 0.4);
+  }
+
+  // Quitar sombras en impresión
+  @media print {
+    pre[class*='language-'],
+    code[class*='language-'] {
+      text-shadow: none;
+    }
+  }
+}

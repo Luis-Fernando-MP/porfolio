@@ -1,0 +1,112 @@
+// cherry-blossom.scss
+@use '@sass/config/vars' as v;
+
+@forward 'prism-base';
+
+html[data-theme='Cherry Blossom'] {
+  // Estructura desde el componente
+  @extend %prism-base;
+
+  // Bloque de código coloreado
+  pre[class*='language-'] {
+    background: rgb(v.$bg2);
+  }
+
+  :not(pre) > code[class*='language-'] {
+    color: rgb(v.$tn1);
+    background: rgba(v.$bg3, 0.9);
+  }
+
+  pre::selection,
+  code::selection,
+  pre *::selection,
+  code *::selection {
+    background: rgba(v.$tn2, 0.3);
+  }
+
+  /* Colores de tokens */
+  .token.comment,
+  .token.prolog,
+  .token.cdata {
+    color: #c297a0;
+  }
+
+  .token.punctuation {
+    color: rgb(v.$fn1);
+  }
+
+  .token.property,
+  .token.tag,
+  .token.constant,
+  .token.symbol {
+    color: #ff95b6;
+  }
+
+  .token.deleted {
+    color: #d73a49;
+    background: rgb(215 58 73 / 10%);
+  }
+
+  .token.boolean,
+  .token.number {
+    color: #ff6d9c;
+  }
+
+  .token.selector,
+  .token.attr-name {
+    color: #fca9c2;
+  }
+
+  .token.string,
+  .token.char,
+  .token.builtin,
+  .token.inserted {
+    color: #ffe2ec;
+  }
+
+  .token.operator,
+  .token.entity,
+  .token.url {
+    color: #ffdce5;
+  }
+
+  .token.atrule,
+  .token.attr-value,
+  .token.keyword {
+    font-weight: 600;
+    color: #ff8ab3;
+  }
+
+  .token.function,
+  .token.class-name {
+    color: #f3c0cf;
+  }
+
+  .token.regex,
+  .token.important,
+  .token.variable {
+    color: #ff4d85;
+  }
+
+  .token.namespace {
+    color: #fbb8ce;
+    opacity: 0.8;
+  }
+
+  /* HTML específico */
+  .language-html .token.tag {
+    color: #ff91ac;
+  }
+
+  .language-html .token.attr-name {
+    color: #fdbdd6;
+  }
+
+  .language-html .token.attr-value {
+    color: #ffd6e5;
+  }
+
+  .language-html .token.punctuation {
+    color: #ce8ea3;
+  }
+}

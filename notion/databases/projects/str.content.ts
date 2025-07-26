@@ -18,16 +18,14 @@ id: '${id}'
 title: '${title}'
 reading_time: ${readingTime ?? 30}
 words: ${words ?? 0}
-
 priority: '${Prioridad?.select?.name ?? ''}'
 team: '${Equipo?.select?.name ?? ''}'
 progress: ${Progreso?.number ?? 0}
-tags:
-${Tags?.multi_select.map(item => `  - ${item.name}`).join('\n')}
-
 ${imagePropsStr}
-
 created_time: '${created_time}'
 last_edited_time: '${lastEditedTime}'
+tags: [${Tags?.multi_select.map(item => `'${item.name}'`).join(', ')}]
+
+
 ---`
 }

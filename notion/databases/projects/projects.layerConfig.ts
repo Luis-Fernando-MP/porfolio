@@ -1,4 +1,4 @@
-import { FieldDefs, defineDocumentType } from 'contentlayer/source-files'
+import { FieldDefs, defineDocumentType } from 'contentlayer2/source-files'
 
 import { commonLayerConfigFields } from '../commonLayerConfigFields'
 
@@ -26,7 +26,7 @@ const marksFields: FieldDefs = {
 }
 
 const ProjectsDocument = defineDocumentType(() => ({
-  name: 'Project',
+  name: 'Projects',
   filePathPattern: `projects/**/*.mdx`,
   contentType: 'mdx',
   fields: marksFields,

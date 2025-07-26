@@ -94,9 +94,8 @@ export async function generateBlock(props: Props) {
       const plainText = stripHtml(html).result
       const stats = readingTime(plainText)
 
-      content = `${mdxContent({ readingTime: Math.ceil(stats.minutes), words: stats.words, imageProps })}`
-
-      content += escapeHTML(html.replaceAll('   ', '').replaceAll('\n\n\n', ''))
+      content = `${mdxContent({ readingTime: Math.ceil(stats.minutes), words: stats.words, imageProps })}\n`
+      content += escapeHTML(html)
     }
 
     await writeFile(mdxFilePath, content)

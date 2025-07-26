@@ -19,16 +19,14 @@ id: '${id}'
 title: '${title}'
 reading_time: ${readingTime ?? 30}
 words: ${words ?? 0}
-
 folder: '${properties.Folder?.select?.name}'
 folder_color: '${properties.Folder?.select?.color}'
 profesor(s): '${teacher}'
-tags:
-${properties.Tags?.multi_select.map(item => `  - ${item.name}`).join('\n')}
-
 ${imagePropsStr}
-
 created_time: '${created_time}'
 last_edited_time: '${lastEditedTime}'
+tags: [${properties.Tags?.multi_select.map(item => `'${item.name}'`).join(', ')}]
+
+
 ---`
 }

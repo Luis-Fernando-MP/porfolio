@@ -1,0 +1,208 @@
+@use '@sass/config/vars' as v;
+@use '@sass/utils/defs' as d;
+
+.rehype {
+  background-color: red !important;
+
+  @include d.flex;
+
+  // Image Styles
+  &-image {
+    content-visibility: auto;
+    display: block;
+    border-radius: v.$radius;
+  }
+
+  // Checkbox Styles
+  input[type='checkbox'] {
+    cursor: pointer;
+
+    position: relative;
+
+    display: inline-block;
+
+    width: 20px;
+    height: 20px;
+    border: 1px solid rgb(v.$bg3);
+    border-radius: 4px;
+
+    vertical-align: middle;
+
+    appearance: none;
+    background-color: rgb(v.$bg2);
+  }
+
+  input[type='checkbox']:checked {
+    background-color: rgb(v.$tn1);
+  }
+
+  input[type='checkbox']::after {
+    content: '';
+
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) rotate(45deg);
+
+    display: none;
+
+    width: 6px;
+    height: 10px;
+    border: solid rgb(v.$fnA);
+    border-width: 0 2px 2px 0;
+  }
+
+  input[type='checkbox']:checked::after {
+    display: block;
+  }
+
+  // Table Styles
+  table {
+    border-collapse: collapse;
+    width: 100%;
+    border-radius: v.$radius;
+    font-size: v.$fP;
+  }
+
+  .table-wrapper {
+    overflow-x: auto; // Habilita el desplazamiento horizontal
+    width: 100%;
+  }
+
+  th,
+  td {
+    width: fit-content;
+    min-width: fit-content;
+    padding: 0.75rem;
+    border: 1px solid rgb(v.$bg3, 0.5);
+
+    text-align: left;
+  }
+
+  th {
+    background-color: rgb(v.$bg2, 0.8);
+  }
+
+  tr:nth-child(even) {
+    background-color: rgb(v.$bg1, 0.9);
+  }
+
+  tr:hover {
+    background-color: rgb(v.$bg2, 0.7);
+  }
+
+  // List Styles
+  ul,
+  ol {
+    @include d.flex;
+
+    padding-left: 1.5rem;
+  }
+
+  li {
+    list-style: initial;
+  }
+
+  // Link Styles
+  a {
+    color: rgb(v.$fn1, 1);
+    text-decoration: solid underline 1.5px;
+    text-decoration-color: rgb(v.$tn2);
+    text-underline-offset: 3px;
+
+    transition: text-decoration-color 0.2s;
+
+    &:hover {
+      text-decoration-color: rgb(v.$fn1);
+    }
+  }
+
+  // Copy button Styles
+  &-copy-button {
+    pointer-events: none;
+
+    position: absolute;
+    z-index: 2;
+    top: -1 * v.$padding;
+    right: v.$padding;
+
+    padding: 5px;
+    border: 1px solid rgb(v.$bg3, 0.5);
+    border-radius: 5px;
+
+    font-size: 0.8rem;
+
+    opacity: 0;
+    background-color: rgb(v.$bg1, 0.6);
+    backdrop-filter: blur(10px);
+
+    transition:
+      opacity 0.2s ease-in-out,
+      top 0.2s ease-in-out;
+    transition-delay: 0.3s;
+  }
+
+  // Code block Styles
+  pre[class*='language-'],
+  code[class*='language-'] {
+    position: relative;
+    overflow-x: auto;
+    word-wrap: break-word;
+    white-space: pre-wrap;
+
+    &:hover .rehype-copy-button {
+      pointer-events: all;
+      top: v.$padding;
+      opacity: 1;
+    }
+  }
+
+  pre[class*='language-'] .code-line::before {
+    content: attr(line);
+    counter-increment: line;
+    user-select: none;
+
+    display: inline-block;
+
+    width: 1.5rem;
+    margin-right: 1rem;
+
+    color: rgb(v.$fn2, 0.5);
+    text-align: right;
+  }
+
+  // Nav Styles
+  .toc {
+    z-index: 3;
+
+    overflow-y: auto;
+
+    width: 100%;
+    padding: 1rem;
+
+    background-color: rgb(v.$bg1, 0.6);
+    backdrop-filter: blur(10px);
+  }
+
+  .toc-list {
+    padding: 0;
+
+    @include d.flex($dir: row, $ali: center);
+
+    list-style: none;
+  }
+
+  .toc-item {
+    margin-bottom: 0.5rem;
+  }
+
+  .toc-link {
+    color: rgb(v.$fn2, 1);
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+
+  .toc-link:hover {
+    color: rgb(v.$fn1, 1);
+  }
+}
