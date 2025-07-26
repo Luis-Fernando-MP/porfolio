@@ -5,8 +5,8 @@ import { generateBlock } from '@notion/utils/generateBlock'
 import { getAllMarksDB } from '@notion/utils/getAllMarks'
 import clog from '@notion/utils/log'
 
-import { NotionSeriesDB } from '../series/series.type'
-import { projectContent } from './content'
+import { NotionProjectsDB } from './projects.type'
+import { projectContent } from './str.content'
 
 export const generateProjects = async () => {
   try {
@@ -14,7 +14,7 @@ export const generateProjects = async () => {
     const startAll = Date.now()
 
     clog.info('Cargando proyectos desde Notion...')
-    const projects = await getAllMarksDB<NotionSeriesDB>({
+    const projects = await getAllMarksDB<NotionProjectsDB>({
       query: {
         database_id: env.PROJECTS_ID,
         filter: {

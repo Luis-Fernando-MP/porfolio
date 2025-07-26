@@ -7,7 +7,7 @@ import { getAllMarksDB } from '@notion/utils/getAllMarks'
 import clog from '@notion/utils/log'
 
 import { NotionGroup, NotionSeriesDB } from '../series/series.type'
-import { noteContent } from './content'
+import { noteContent } from './str.content'
 
 export const generateNotes = async () => {
   try {

@@ -1,8 +1,8 @@
 import { makeSource } from 'contentlayer/source-files'
 
-import MarksDocument from './content/marks.config'
-import NotesDocument from './content/notes.config'
-import SeriesDocument from './content/series.config'
+import MarksDocument from './notion/databases/marks/marks.content'
+import NotesDocument from './notion/databases/notes/notes.content'
+import SeriesDocument from './notion/databases/series/series.content'
 
 export default makeSource({
   contentDirPath: 'content',

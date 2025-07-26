@@ -6,8 +6,8 @@ import { generateBlock } from '@notion/utils/generateBlock'
 import { getAllMarksDB } from '@notion/utils/getAllMarks'
 import clog from '@notion/utils/log'
 
-import { markContent } from './content'
 import { NotionMarkStatus, NotionMarksDB } from './marks.type'
+import { markContent } from './str.content'
 
 export const generateMarks = async () => {
   try {
