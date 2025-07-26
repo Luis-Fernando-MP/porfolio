@@ -1,11 +1,11 @@
 import { makeSource } from 'contentlayer/source-files'
 
-import MarksDocument from './notion/databases/marks/marks.content'
-import NotesDocument from './notion/databases/notes/notes.content'
-import SeriesDocument from './notion/databases/series/series.content'
+import MarksDocument from './notion/databases/marks/marks.layerConfig'
+import ProjectsDocument from './notion/databases/projects/projects.layerConfig'
+import SeriesDocument from './notion/databases/series/series.layerConfig'
 
 export default makeSource({
   contentDirPath: 'content',
 
-  documentTypes: [NotesDocument, SeriesDocument, MarksDocument]
+  documentTypes: [ProjectsDocument, SeriesDocument, MarksDocument]
 })

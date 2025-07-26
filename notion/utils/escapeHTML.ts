@@ -53,12 +53,15 @@ export function escapeHTML(html: string): string {
       node.set_content(inner.toString())
       return
     }
-    node.childNodes.forEach(child => {
-      if (child instanceof TextNode) {
-        child.rawText = escape(child.rawText)
-      }
+
+    // ⚠️ Aquí escapamos todo lo demás como texto plano
+    node.childNodes.forEach((child, index) => {
       if (child instanceof HTMLElement) {
-        walk(child)
+        // Convertimos el HTML a texto plano escapado
+        const rawText = escape(child.toString())
+        node.childNodes[index] = new TextNode(rawText, (child.range as any)[0])
+      } else if (child instanceof TextNode) {
+        child.rawText = escape(child.rawText)
       }
     })
   }

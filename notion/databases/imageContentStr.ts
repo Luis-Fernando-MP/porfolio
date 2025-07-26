@@ -4,8 +4,8 @@ export const imageContentStr = (imageProps: MdxImageContentProps, folder: string
   const { aspectRatio, bannerHeight, bannerWidth, blurhash, placeholder, thumbHeight, thumbWidth } = imageProps
 
   return `banner: ${id ? `'/content/${folder}/${id}/banner.webp'` : "'/fallback.webp'"}
-image_width: ${bannerWidth}
-image_height: ${bannerHeight}
+banner_width: ${bannerWidth}
+banner_height: ${bannerHeight}
 aspectRatio: ${aspectRatio}
 image_hash: '${blurhash}'
 image_blur: '${placeholder}'

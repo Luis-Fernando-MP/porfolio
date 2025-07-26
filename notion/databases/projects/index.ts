@@ -20,7 +20,8 @@ export const generateProjects = async () => {
         filter: {
           and: [
             { property: 'Estado', status: { equals: 'Completado' } },
-            { property: 'Progreso', number: { greater_than_or_equal_to: 0.8 } }
+            { property: 'Progreso', number: { greater_than_or_equal_to: 0.8 } },
+            { property: 'Visibilidad', status: { equals: 'Portafolio' } }
           ]
         }
       }

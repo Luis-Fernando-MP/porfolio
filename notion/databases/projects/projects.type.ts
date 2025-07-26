@@ -31,6 +31,11 @@ interface Properties {
     } | null
   } | null
 
+  Tags: {
+    type: 'multi_select'
+    multi_select: { name: string; color: string }[]
+  } | null
+
   'Fecha de creación': {
     type: 'created_time'
     created_time: string

@@ -1,14 +1,8 @@
 import { FieldDefs, defineDocumentType } from 'contentlayer/source-files'
 
+import { commonLayerConfigFields } from '../commonLayerConfigFields'
+
 const marksFields: FieldDefs = {
-  id: {
-    type: 'string',
-    required: true
-  },
-  title: {
-    type: 'string',
-    required: true
-  },
   folder: {
     type: 'string',
     required: true
@@ -39,43 +33,8 @@ const marksFields: FieldDefs = {
     required: false,
     default: []
   },
-  // banner
-  banner: {
-    type: 'string',
-    default: '/images/default-banner.png'
-  },
-  thumb: {
-    type: 'string',
-    default: '/images/default-thumb.png'
-  },
-  image_width: {
-    type: 'number',
-    default: 0,
-    required: false
-  },
-  image_height: {
-    type: 'number',
-    default: 0,
-    required: false
-  },
-  image_hash: {
-    type: 'string',
-    default: '/images/default-banner.png',
-    required: false
-  },
-  image_blur: {
-    type: 'string',
-    default: '/images/default-banner.png',
-    required: false
-  },
-  created_time: {
-    type: 'date',
-    required: false
-  },
-  last_edited_time: {
-    type: 'date',
-    required: false
-  }
+
+  ...commonLayerConfigFields
 }
 
 const MarksDocument = defineDocumentType(() => ({
