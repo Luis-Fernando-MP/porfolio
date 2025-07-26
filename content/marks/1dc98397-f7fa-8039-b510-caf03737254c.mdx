@@ -1,0 +1,886 @@
+---
+id: '1dc98397-f7fa-8039-b510-caf03737254c'
+title: 'Proceso de compilación'
+reading_time: 11
+words: 2101
+
+folder: 'Teoría de la computación'
+folder_color: 'blue'
+status: 'Completado'
+level: 'Normal'
+
+sessions:
+  - 02
+tags:
+  - Teoría de la computación
+
+banner: '/content/marks/1dc98397-f7fa-8039-b510-caf03737254c/banner.webp'
+banner_width: 1500
+banner_height: 1925
+aspectRatio: 0.7797270955165692
+image_hash: 'U38:*KaJ00AaInEhOE=d00r?_N$$=|$*E1WC'
+image_blur: 'radial-gradient(at 0 0,#3a230d,#00000000 50%),radial-gradient(at 33% 0,#412715,#00000000 50%),radial-gradient(at 67% 0,#4f3224,#00000000 50%),radial-gradient(at 100% 0,#473022,#00000000 50%),radial-gradient(at 0 50%,#25200b,#00000000 50%),radial-gradient(at 33% 50%,#483c31,#00000000 50%),radial-gradient(at 67% 50%,#564f48,#00000000 50%),radial-gradient(at 100% 50%,#4b413a,#00000000 50%),radial-gradient(at 0 100%,#3d281f,#00000000 50%),radial-gradient(at 33% 100%,#654d44,#00000000 50%),radial-gradient(at 67% 100%,#6b5e5a,#00000000 50%),radial-gradient(at 100% 100%,#4f4745,#00000000 50%)'
+
+thumb: '/content/marks/1dc98397-f7fa-8039-b510-caf03737254c/thumb.webp'
+thumb_width: 400
+thumb_height: 513
+
+created_time: '2025-04-21T22:43:00.000Z'
+last_edited_time: '2025-07-22T21:17:00.000Z'
+---
+&lt;h1 class=&quot;notion-heading&#95;1 notion-color-default&quot;&gt;
+ Lenguaje natural vs. Lenguaje de programación
+&lt;/h1&gt;
+  
+&lt;table class=&quot;notion-table&quot;&gt;
+ 
+&lt;tr class=&quot;notion-table&#95;row&quot;&gt;
+ &lt;td class=&quot;notion-table&#95;cell&quot;&gt;Característica&lt;/td&gt;&lt;td class=&quot;notion-table&#95;cell&quot;&gt;Lenguaje Natural&lt;/td&gt;&lt;td class=&quot;notion-table&#95;cell&quot;&gt;Lenguaje de Programación&lt;/td&gt;
+&lt;/tr&gt;
+  
+&lt;tr class=&quot;notion-table&#95;row&quot;&gt;
+ &lt;td class=&quot;notion-table&#95;cell&quot;&gt;Uso&lt;/td&gt;&lt;td class=&quot;notion-table&#95;cell&quot;&gt;Comunicación humana cotidiana&lt;/td&gt;&lt;td class=&quot;notion-table&#95;cell&quot;&gt;Son un medio entre el lenguaje natural y el lenguaje máquina&lt;/td&gt;
+&lt;/tr&gt;
+  
+&lt;tr class=&quot;notion-table&#95;row&quot;&gt;
+ &lt;td class=&quot;notion-table&#95;cell&quot;&gt;Forma&lt;/td&gt;&lt;td class=&quot;notion-table&#95;cell&quot;&gt;&lt;b class=&quot;notion-text-bold&quot;&gt;Ambigua&lt;/b&gt;&#44; flexible&lt;/td&gt;&lt;td class=&quot;notion-table&#95;cell&quot;&gt;Precisa&#44; estructurada&lt;/td&gt;
+&lt;/tr&gt;
+  
+&lt;tr class=&quot;notion-table&#95;row&quot;&gt;
+ &lt;td class=&quot;notion-table&#95;cell&quot;&gt;Ejemplos&lt;/td&gt;&lt;td class=&quot;notion-table&#95;cell&quot;&gt;Español&#44; inglés&#44; francés&lt;/td&gt;&lt;td class=&quot;notion-table&#95;cell&quot;&gt;Python&#44; JavaScript&#44; C&#43;&#43;&lt;/td&gt;
+&lt;/tr&gt;
+  
+&lt;tr class=&quot;notion-table&#95;row&quot;&gt;
+ &lt;td class=&quot;notion-table&#95;cell&quot;&gt;Interpretación&lt;/td&gt;&lt;td class=&quot;notion-table&#95;cell&quot;&gt;Contexto social y cultural&lt;/td&gt;&lt;td class=&quot;notion-table&#95;cell&quot;&gt;Sintaxis estricta y semántica formal&lt;/td&gt;
+&lt;/tr&gt;
+  
+&lt;tr class=&quot;notion-table&#95;row&quot;&gt;
+ &lt;td class=&quot;notion-table&#95;cell&quot;&gt;Error permitido&lt;/td&gt;&lt;td class=&quot;notion-table&#95;cell&quot;&gt;Acepta errores o malentendidos&lt;/td&gt;&lt;td class=&quot;notion-table&#95;cell&quot;&gt;No acepta errores de sintaxis&lt;/td&gt;
+&lt;/tr&gt;
+  
+&lt;/table&gt;
+  
+&lt;h2 class=&quot;notion-heading&#95;2 notion-color-default&quot;&gt;
+ &lt;b class=&quot;notion-text-bold&quot;&gt;Ejemplo:&lt;/b&gt;
+&lt;/h2&gt;
+  &lt;ul class=&quot;notion-bulleted&#95;list&quot;&gt;
+&lt;li class=&quot;notion-bulleted&#95;list&#95;item notion-color-default&quot;&gt;
+ &lt;b class=&quot;notion-text-bold&quot;&gt;Lenguaje natural:&lt;/b&gt; &lt;i class=&quot;notion-text-italic&quot;&gt;&quot;Si mañana hace calor&#44; vamos a la playa.&quot;&lt;/i&gt;
+&lt;/li&gt;
+  
+&lt;li class=&quot;notion-bulleted&#95;list&#95;item notion-color-default&quot;&gt;
+ &lt;b class=&quot;notion-text-bold&quot;&gt;Lenguaje de programación:&lt;/b&gt;
+&lt;/li&gt;
+  &lt;/ul&gt;
+&lt;div class=&quot;notion-code&quot;&gt;
+ &lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;if temperatura &#62; 30:
+ print&#40;&quot;Vamos a la playa&quot;&#41;&lt;/code&gt;&lt;/pre&gt;
+ 
+&lt;/div&gt;
+  
+&lt;h1 class=&quot;notion-heading&#95;1 notion-color-default&quot;&gt;
+ Lenguaje de programación
+&lt;/h1&gt;
+  
+&lt;p&gt;
+ Es un &lt;b class=&quot;notion-text-bold&quot;&gt;sistema formal&lt;/b&gt; con el que le damos instrucciones a una computadora para que realice tareas. Tiene:
+&lt;/p&gt;
+  &lt;ul class=&quot;notion-bulleted&#95;list&quot;&gt;
+&lt;li class=&quot;notion-bulleted&#95;list&#95;item notion-color-default&quot;&gt;
+ &lt;b class=&quot;notion-text-bold&quot;&gt;Sintaxis&lt;/b&gt;: Reglas de cómo se escriben las instrucciones &#40;como la gramática en español&#41;.
+&lt;/li&gt;
+  
+&lt;li class=&quot;notion-bulleted&#95;list&#95;item notion-color-default&quot;&gt;
+ &lt;b class=&quot;notion-text-bold&quot;&gt;Semántica&lt;/b&gt;: El significado de las instrucciones.
+&lt;/li&gt;
+  &lt;/ul&gt;
+&lt;h3 class=&quot;notion-heading&#95;3 notion-color-default&quot;&gt;
+ &lt;b class=&quot;notion-text-bold&quot;&gt;Ejemplo práctico:&lt;/b&gt;
+&lt;/h3&gt;
+  
+&lt;div class=&quot;notion-code&quot;&gt;
+ &lt;pre&gt;&lt;code class=&quot;language-javascript&quot;&gt;let nombre = &quot;Ana&quot;;
+console.log&#40;&quot;Hola &quot; &#43; nombre&#41;;&lt;/code&gt;&lt;/pre&gt;
+ 
+&lt;/div&gt;
+  
+&lt;h1 class=&quot;notion-heading&#95;1 notion-color-default&quot;&gt;
+ Alfabeto&#44; Cadena&#44; Longitud de cadena y Lenguaje
+&lt;/h1&gt;
+  
+&lt;h3 class=&quot;notion-heading&#95;3 notion-color-default&quot;&gt;
+ &lt;b class=&quot;notion-text-bold&quot;&gt;1. Alfabeto &#40;Σ&#41;&lt;/b&gt;
+&lt;/h3&gt;
+  
+&lt;p&gt;
+ Es un &lt;b class=&quot;notion-text-bold&quot;&gt;conjunto finito de símbolos que sirve como base para formar cadenas y lenguajes&lt;/b&gt;.
+&lt;/p&gt;
+  
+&lt;table class=&quot;notion-table&quot;&gt;
+ 
+&lt;tr class=&quot;notion-table&#95;row&quot;&gt;
+ &lt;td class=&quot;notion-table&#95;cell&quot;&gt;Tipo de Alfabeto&lt;/td&gt;&lt;td class=&quot;notion-table&#95;cell&quot;&gt;Notación &#40;Σ&#41;&lt;/td&gt;
+&lt;/tr&gt;
+  
+&lt;tr class=&quot;notion-table&#95;row&quot;&gt;
+ &lt;td class=&quot;notion-table&#95;cell&quot;&gt;&lt;b class=&quot;notion-text-bold&quot;&gt;Binario&lt;/b&gt;&lt;/td&gt;&lt;td class=&quot;notion-table&#95;cell&quot;&gt;&lt;code class=&quot;notion-text-code&quot;&gt;Σ = &#123;0&#44; 1&#125;&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+  
+&lt;tr class=&quot;notion-table&#95;row&quot;&gt;
+ &lt;td class=&quot;notion-table&#95;cell&quot;&gt;&lt;b class=&quot;notion-text-bold&quot;&gt;Decimal&lt;/b&gt;&lt;/td&gt;&lt;td class=&quot;notion-table&#95;cell&quot;&gt;&lt;code class=&quot;notion-text-code&quot;&gt;Σ = &#123;0–9&#125;&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+  
+&lt;tr class=&quot;notion-table&#95;row&quot;&gt;
+ &lt;td class=&quot;notion-table&#95;cell&quot;&gt;&lt;b class=&quot;notion-text-bold&quot;&gt;ASCII &#40;simplificado&#41;&lt;/b&gt;&lt;/td&gt;&lt;td class=&quot;notion-table&#95;cell&quot;&gt;&lt;code class=&quot;notion-text-code&quot;&gt;Σ = &#123;A-Z&#44; a-z&#44; 0-9&#44; !&#44; &quot;&#44; %&#44; ;&#44; &#40;&#44; &#41;&#44; ...&#125;&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+  
+&lt;tr class=&quot;notion-table&#95;row&quot;&gt;
+ &lt;td class=&quot;notion-table&#95;cell&quot;&gt;&lt;b class=&quot;notion-text-bold&quot;&gt;Abecedario Español&lt;/b&gt;&lt;/td&gt;&lt;td class=&quot;notion-table&#95;cell&quot;&gt;&lt;code class=&quot;notion-text-code&quot;&gt;Σ = &#123;a-z&#44; á&#44; é&#44; í&#44; ó&#44; ú&#44; ñ&#44; ü&#44; ...&#125;&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+  
+&lt;tr class=&quot;notion-table&#95;row&quot;&gt;
+ &lt;td class=&quot;notion-table&#95;cell&quot;&gt;&lt;b class=&quot;notion-text-bold&quot;&gt;Lenguaje C &#40;léxico&#41;&lt;/b&gt;&lt;/td&gt;&lt;td class=&quot;notion-table&#95;cell&quot;&gt;&lt;code class=&quot;notion-text-code&quot;&gt;Σ = &#123;id&#44; num&#44; int&#44; if&#44; &#40;&#44; &#41;&#44; =&#44; ;&#44; ...&#125;&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+  
+&lt;/table&gt;
+  
+&lt;h2 class=&quot;notion-heading&#95;2 notion-color-default&quot;&gt;
+ &lt;b class=&quot;notion-text-bold&quot;&gt;2. Cadena&lt;/b&gt;
+&lt;/h2&gt;
+  
+&lt;p&gt;
+ Es una &lt;b class=&quot;notion-text-bold&quot;&gt;secuencia finita de símbolos&lt;/b&gt; tomados de un alfabeto específico&#44; si el alfabeto es el abecedario&#44; la cadena es la oración que escrita.
+&lt;/p&gt;
+  
+&lt;table class=&quot;notion-table&quot;&gt;
+ 
+&lt;tr class=&quot;notion-table&#95;row&quot;&gt;
+ &lt;td class=&quot;notion-table&#95;cell&quot;&gt;Alfabeto&lt;/td&gt;&lt;td class=&quot;notion-table&#95;cell&quot;&gt;Cadena&lt;/td&gt;
+&lt;/tr&gt;
+  
+&lt;tr class=&quot;notion-table&#95;row&quot;&gt;
+ &lt;td class=&quot;notion-table&#95;cell&quot;&gt;Binario&lt;/td&gt;&lt;td class=&quot;notion-table&#95;cell&quot;&gt;&lt;code class=&quot;notion-text-code&quot;&gt;101101&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+  
+&lt;tr class=&quot;notion-table&#95;row&quot;&gt;
+ &lt;td class=&quot;notion-table&#95;cell&quot;&gt;Decimal&lt;/td&gt;&lt;td class=&quot;notion-table&#95;cell&quot;&gt;&lt;code class=&quot;notion-text-code&quot;&gt;7493201&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+  
+&lt;tr class=&quot;notion-table&#95;row&quot;&gt;
+ &lt;td class=&quot;notion-table&#95;cell&quot;&gt;ASCII&lt;/td&gt;&lt;td class=&quot;notion-table&#95;cell&quot;&gt;&lt;code class=&quot;notion-text-code&quot;&gt;%A1#56B$&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+  
+&lt;tr class=&quot;notion-table&#95;row&quot;&gt;
+ &lt;td class=&quot;notion-table&#95;cell&quot;&gt;Español&lt;/td&gt;&lt;td class=&quot;notion-table&#95;cell&quot;&gt;&lt;code class=&quot;notion-text-code&quot;&gt;pingüino&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+  
+&lt;tr class=&quot;notion-table&#95;row&quot;&gt;
+ &lt;td class=&quot;notion-table&#95;cell&quot;&gt;Lenguaje C &#40;léxico&#41;&lt;/td&gt;&lt;td class=&quot;notion-table&#95;cell&quot;&gt;&lt;code class=&quot;notion-text-code&quot;&gt;for&#40;i=0;i&lt;n;i&#43;&#43;&#41;&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+  
+&lt;/table&gt;
+  
+&lt;h2 class=&quot;notion-heading&#95;2 notion-color-default&quot;&gt;
+ &lt;b class=&quot;notion-text-bold&quot;&gt;3. Longitud de una cadena&lt;/b&gt;
+&lt;/h2&gt;
+  
+&lt;p&gt;
+ Es el &lt;b class=&quot;notion-text-bold&quot;&gt;número total de símbolos que contiene una cadena&lt;/b&gt;&#44; y se representa como |s|. 
+&lt;/p&gt;
+  
+&lt;table class=&quot;notion-table&quot;&gt;
+ 
+&lt;tr class=&quot;notion-table&#95;row&quot;&gt;
+ &lt;td class=&quot;notion-table&#95;cell&quot;&gt;Cadena&lt;/td&gt;&lt;td class=&quot;notion-table&#95;cell&quot;&gt;Longitud&lt;/td&gt;
+&lt;/tr&gt;
+  
+&lt;tr class=&quot;notion-table&#95;row&quot;&gt;
+ &lt;td class=&quot;notion-table&#95;cell&quot;&gt;101101&lt;/td&gt;&lt;td class=&quot;notion-table&#95;cell&quot;&gt;6&lt;/td&gt;
+&lt;/tr&gt;
+  
+&lt;tr class=&quot;notion-table&#95;row&quot;&gt;
+ &lt;td class=&quot;notion-table&#95;cell&quot;&gt;7493201 &lt;/td&gt;&lt;td class=&quot;notion-table&#95;cell&quot;&gt;7&lt;/td&gt;
+&lt;/tr&gt;
+  
+&lt;tr class=&quot;notion-table&#95;row&quot;&gt;
+ &lt;td class=&quot;notion-table&#95;cell&quot;&gt;%A1#56B$&lt;/td&gt;&lt;td class=&quot;notion-table&#95;cell&quot;&gt;8&lt;/td&gt;
+&lt;/tr&gt;
+  
+&lt;tr class=&quot;notion-table&#95;row&quot;&gt;
+ &lt;td class=&quot;notion-table&#95;cell&quot;&gt;pingüino &lt;/td&gt;&lt;td class=&quot;notion-table&#95;cell&quot;&gt;8&lt;/td&gt;
+&lt;/tr&gt;
+  
+&lt;tr class=&quot;notion-table&#95;row&quot;&gt;
+ &lt;td class=&quot;notion-table&#95;cell&quot;&gt;for&#40;i=0;i&lt;n;i&#43;&#43;&#41;&lt;/td&gt;&lt;td class=&quot;notion-table&#95;cell&quot;&gt;15&lt;/td&gt;
+&lt;/tr&gt;
+  
+&lt;/table&gt;
+  
+&lt;h2 class=&quot;notion-heading&#95;2 notion-color-default&quot;&gt;
+ &lt;b class=&quot;notion-text-bold&quot;&gt;4. Lenguaje&lt;/b&gt;
+&lt;/h2&gt;
+  
+&lt;p&gt;
+ Es &lt;b class=&quot;notion-text-bold&quot;&gt;cualquier conjunto de cadenas&lt;/b&gt; construidas a partir de un alfabeto Σ y siguiendo ciertas reglas o condiciones. 
+&lt;/p&gt;
+  &lt;ul class=&quot;notion-bulleted&#95;list&quot;&gt;
+&lt;li class=&quot;notion-bulleted&#95;list&#95;item notion-color-default&quot;&gt;
+ Si el alfabeto son las letras y las cadenas son las palabras&#44; el lenguaje son todas las frases posibles con sentido.
+&lt;/li&gt;
+  
+&lt;li class=&quot;notion-bulleted&#95;list&#95;item notion-color-default&quot;&gt;
+ L = Φ: Lenguaje vacío
+&lt;/li&gt;
+  
+&lt;li class=&quot;notion-bulleted&#95;list&#95;item notion-color-default&quot;&gt;
+ L = &#123; &lt;b class=&quot;notion-text-bold&quot;&gt;ε &lt;/b&gt;&#125;: Lenguaje que contiene una cadena vacía
+&lt;/li&gt;
+  &lt;/ul&gt;
+&lt;table class=&quot;notion-table&quot;&gt;
+ 
+&lt;tr class=&quot;notion-table&#95;row&quot;&gt;
+ &lt;td class=&quot;notion-table&#95;cell&quot;&gt;Tipo de lenguaje&lt;/td&gt;&lt;td class=&quot;notion-table&#95;cell&quot;&gt;Alfabeto &#40;Σ&#41;&lt;/td&gt;&lt;td class=&quot;notion-table&#95;cell&quot;&gt;Reglas / Descripción&lt;/td&gt;&lt;td class=&quot;notion-table&#95;cell&quot;&gt;Resultado&lt;/td&gt;
+&lt;/tr&gt;
+  
+&lt;tr class=&quot;notion-table&#95;row&quot;&gt;
+ &lt;td class=&quot;notion-table&#95;cell&quot;&gt;Lenguaje natural &#40;español&#41;&lt;/td&gt;&lt;td class=&quot;notion-table&#95;cell&quot;&gt;&lt;code class=&quot;notion-text-code&quot;&gt;Letras&#44; signos y tildes&lt;/code&gt;&lt;/td&gt;&lt;td class=&quot;notion-table&#95;cell&quot;&gt;Las que siguen gramática del español&lt;/td&gt;&lt;td class=&quot;notion-table&#95;cell&quot;&gt;&lt;code class=&quot;notion-text-code&quot;&gt;&quot;Hola&#44; ¿cómo estás&#63;&quot;&#44; &quot;Perú es bonito&quot;&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+  
+&lt;tr class=&quot;notion-table&#95;row&quot;&gt;
+ &lt;td class=&quot;notion-table&#95;cell&quot;&gt;Lenguaje binario válido&lt;/td&gt;&lt;td class=&quot;notion-table&#95;cell&quot;&gt;&lt;code class=&quot;notion-text-code&quot;&gt;&#123;0&#44; 1&#125;&lt;/code&gt;&lt;/td&gt;&lt;td class=&quot;notion-table&#95;cell&quot;&gt;Cadenas que comienzan con 1 y terminan en 0&lt;/td&gt;&lt;td class=&quot;notion-table&#95;cell&quot;&gt;&lt;code class=&quot;notion-text-code&quot;&gt;&quot;10&quot;&#44; &quot;110&quot;&#44; &quot;11111110&quot;&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+  
+&lt;tr class=&quot;notion-table&#95;row&quot;&gt;
+ &lt;td class=&quot;notion-table&#95;cell&quot;&gt;Lenguaje de números pares&lt;/td&gt;&lt;td class=&quot;notion-table&#95;cell&quot;&gt;&lt;code class=&quot;notion-text-code&quot;&gt;&#123;0–9&#125;&lt;/code&gt;&lt;/td&gt;&lt;td class=&quot;notion-table&#95;cell&quot;&gt;Terminan en 0&#44; 2&#44; 4&#44; 6&#44; u 8&lt;/td&gt;&lt;td class=&quot;notion-table&#95;cell&quot;&gt;&lt;code class=&quot;notion-text-code&quot;&gt;&quot;24&quot;&#44; &quot;58&quot;&#44; &quot;100&quot;&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+  
+&lt;tr class=&quot;notion-table&#95;row&quot;&gt;
+ &lt;td class=&quot;notion-table&#95;cell&quot;&gt;Lenguaje en C de declaraciones&lt;/td&gt;&lt;td class=&quot;notion-table&#95;cell&quot;&gt;&lt;code class=&quot;notion-text-code&quot;&gt;Palabras reservadas &#43; ;&lt;/code&gt;&lt;/td&gt;&lt;td class=&quot;notion-table&#95;cell&quot;&gt;Comienzan con tipo de dato y terminan en ;&lt;/td&gt;&lt;td class=&quot;notion-table&#95;cell&quot;&gt;&lt;code class=&quot;notion-text-code&quot;&gt;&quot;int x;&quot;&#44; &quot;float precio;&quot;&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+  
+&lt;/table&gt;
+  
+&lt;h1 class=&quot;notion-heading&#95;1 notion-color-default&quot;&gt;
+ Componentes léxicos&#44; patrones y lexemas
+&lt;/h1&gt;
+  
+&lt;p&gt;
+ Cuando un compilador o intérprete analiza un programa&#44; lo primero que hace es identificar sus &lt;b class=&quot;notion-text-bold&quot;&gt;componentes&lt;/b&gt;&#44; que son las &quot;piezas básicas&quot; del lenguaje.
+&lt;/p&gt;
+  
+&lt;h2 class=&quot;notion-heading&#95;2 notion-color-default&quot;&gt;
+ 1. Léxico o Tokens o Scaning 
+&lt;/h2&gt;
+  
+&lt;p&gt;
+ Son las &lt;b class=&quot;notion-text-bold&quot;&gt;unidades mínimas con significado&lt;/b&gt; dentro del código. Pueden ser palabras clave&#44; identificadores&#44; operadores&#44; literales&#44; etc.
+&lt;/p&gt;
+  
+&lt;table class=&quot;notion-table&quot;&gt;
+ 
+&lt;tr class=&quot;notion-table&#95;row&quot;&gt;
+ &lt;td class=&quot;notion-table&#95;cell&quot;&gt;Tipo de token&lt;/td&gt;&lt;td class=&quot;notion-table&#95;cell&quot;&gt;Ejemplo&lt;/td&gt;
+&lt;/tr&gt;
+  
+&lt;tr class=&quot;notion-table&#95;row&quot;&gt;
+ &lt;td class=&quot;notion-table&#95;cell&quot;&gt;Palabra clave&lt;/td&gt;&lt;td class=&quot;notion-table&#95;cell&quot;&gt;&lt;code class=&quot;notion-text-code&quot;&gt;if&#44; for&#44; def&#44; return&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+  
+&lt;tr class=&quot;notion-table&#95;row&quot;&gt;
+ &lt;td class=&quot;notion-table&#95;cell&quot;&gt;Identificador&lt;/td&gt;&lt;td class=&quot;notion-table&#95;cell&quot;&gt;&lt;code class=&quot;notion-text-code&quot;&gt;suma&#44; mi&#95;variable&#44; usuario&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+  
+&lt;tr class=&quot;notion-table&#95;row&quot;&gt;
+ &lt;td class=&quot;notion-table&#95;cell&quot;&gt;Operador&lt;/td&gt;&lt;td class=&quot;notion-table&#95;cell&quot;&gt;&lt;code class=&quot;notion-text-code&quot;&gt;&#43;&#44; -&#44; =&#44; ==&#44; *&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+  
+&lt;tr class=&quot;notion-table&#95;row&quot;&gt;
+ &lt;td class=&quot;notion-table&#95;cell&quot;&gt;Literal&lt;/td&gt;&lt;td class=&quot;notion-table&#95;cell&quot;&gt;&lt;code class=&quot;notion-text-code&quot;&gt;42&#44; &quot;Hola mundo&quot;&#44; True&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+  
+&lt;/table&gt;
+  
+&lt;h2 class=&quot;notion-heading&#95;2 notion-color-default&quot;&gt;
+ 2. Patrones
+&lt;/h2&gt;
+  
+&lt;p&gt;
+ Son las &lt;b class=&quot;notion-text-bold&quot;&gt;reglas formales&lt;/b&gt; que definen cómo deben lucir los tokens. Se suelen expresar mediante expresiones regulares.
+&lt;/p&gt;
+  
+&lt;div class=&quot;notion-code&quot;&gt;
+ &lt;pre&gt;&lt;code class=&quot;language-bash&quot;&gt;# N&#250;meros del 0 al 6
+[0-9]&#43;
+
+&#35; Palabras de la A a la Z
+[a-zA-z]&#43;&lt;/code&gt;&lt;/pre&gt;
+ 
+&lt;/div&gt;
+  
+&lt;h2 class=&quot;notion-heading&#95;2 notion-color-default&quot;&gt;
+ 3. Lexemas
+&lt;/h2&gt;
+  
+&lt;p&gt;
+ Es una &lt;b class=&quot;notion-text-bold&quot;&gt;instancia concreta&lt;/b&gt; que cumple con un patrón. Si el patrón es [a-zA-Z&#95;][a-zA-Z0-9&#95;]* &#40;para los nombres de una variable&#41;&#44; entonces:
+&lt;/p&gt;
+  &lt;ul class=&quot;notion-bulleted&#95;list&quot;&gt;
+&lt;li class=&quot;notion-bulleted&#95;list&#95;item notion-color-default&quot;&gt;
+ edad → es un lexema válido
+&lt;/li&gt;
+  
+&lt;li class=&quot;notion-bulleted&#95;list&#95;item notion-color-default&quot;&gt;
+ 1&#95;variable → no es válido &#40;no empieza con letra o &#95;&#41;
+&lt;/li&gt;
+  &lt;/ul&gt;
+&lt;h2 class=&quot;notion-heading&#95;2 notion-color-default&quot;&gt;
+ Resumen:
+&lt;/h2&gt;
+  
+&lt;table class=&quot;notion-table&quot;&gt;
+ 
+&lt;tr class=&quot;notion-table&#95;row&quot;&gt;
+ &lt;td class=&quot;notion-table&#95;cell&quot;&gt;&lt;b class=&quot;notion-text-bold&quot;&gt;Componente léxico&lt;/b&gt;&lt;/td&gt;&lt;td class=&quot;notion-table&#95;cell&quot;&gt;&lt;b class=&quot;notion-text-bold&quot;&gt;Lexemas &#40;Ejemplos reales&#41;&lt;/b&gt;&lt;/td&gt;&lt;td class=&quot;notion-table&#95;cell&quot;&gt;&lt;b class=&quot;notion-text-bold&quot;&gt;Patrones &#40;Expresión regular&#41;&lt;/b&gt;&lt;/td&gt;
+&lt;/tr&gt;
+  
+&lt;tr class=&quot;notion-table&#95;row&quot;&gt;
+ &lt;td class=&quot;notion-table&#95;cell&quot;&gt;Palabra clave&lt;/td&gt;&lt;td class=&quot;notion-table&#95;cell&quot;&gt;&lt;code class=&quot;notion-text-code&quot;&gt;const&#44; if&#44; while&lt;/code&gt;&lt;/td&gt;&lt;td class=&quot;notion-table&#95;cell&quot;&gt;&lt;code class=&quot;notion-text-code&quot;&gt;const&#44; if&#44; while&lt;/code&gt; &lt;i class=&quot;notion-text-italic&quot;&gt;&#40;Son definidas por el lenguaje&#41;&lt;/i&gt;&lt;/td&gt;
+&lt;/tr&gt;
+  
+&lt;tr class=&quot;notion-table&#95;row&quot;&gt;
+ &lt;td class=&quot;notion-table&#95;cell&quot;&gt;Identificador&lt;/td&gt;&lt;td class=&quot;notion-table&#95;cell&quot;&gt;&lt;code class=&quot;notion-text-code&quot;&gt;mi&#95;variable&#44; nombre1&#44; &#95;x&lt;/code&gt;&lt;/td&gt;&lt;td class=&quot;notion-table&#95;cell&quot;&gt;&lt;code class=&quot;notion-text-code&quot;&gt;[a-zA-Z&#95;][a-zA-Z0-9&#95;]*&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+  
+&lt;tr class=&quot;notion-table&#95;row&quot;&gt;
+ &lt;td class=&quot;notion-table&#95;cell&quot;&gt;Números&lt;/td&gt;&lt;td class=&quot;notion-table&#95;cell&quot;&gt;&lt;code class=&quot;notion-text-code&quot;&gt;23&#44; 0&#44; 45.67&lt;/code&gt;&lt;/td&gt;&lt;td class=&quot;notion-table&#95;cell&quot;&gt;&lt;code class=&quot;notion-text-code&quot;&gt;[0-9]&#43;&#40;\.[0-9]&#43;&#41;&#63;&lt;/code&gt; &lt;i class=&quot;notion-text-italic&quot;&gt;&#40;enteros y decimales&#41;&lt;/i&gt;&lt;/td&gt;
+&lt;/tr&gt;
+  
+&lt;tr class=&quot;notion-table&#95;row&quot;&gt;
+ &lt;td class=&quot;notion-table&#95;cell&quot;&gt;Operador&lt;/td&gt;&lt;td class=&quot;notion-table&#95;cell&quot;&gt;&lt;code class=&quot;notion-text-code&quot;&gt;&#43;&#44; -&#44; *&#44; /&#44; ==&#44; &gt;=&lt;/code&gt;&lt;/td&gt;&lt;td class=&quot;notion-table&#95;cell&quot;&gt;Cualquier símbolo que represente a un operador&lt;/td&gt;
+&lt;/tr&gt;
+  
+&lt;/table&gt;
+  
+&lt;h1 class=&quot;notion-heading&#95;1 notion-color-default&quot;&gt;
+ Estructura de un compilador
+&lt;/h1&gt;
+  
+&lt;p&gt;
+ Es un programa que traduce todo el código fuente de un lenguaje de alto nivel a un lenguaje de bajo nivel como assembly o código máquina u objeto. Asimismo&#44; el proceso de traducción  &#40;dependiendo de su complejidad del lenguaje&#41; puede incluir dos fases:
+&lt;/p&gt;
+  
+&lt;figure class=&quot;notion-image&quot;&gt;
+ &lt;img src=&quot;https://prod-files-secure.s3.us-west-2.amazonaws.com/c2f43583-bfff-4628-a419-9efa17ce2a9d/7af45eab-0f88-404d-9aad-fb53bc03416b/image.png&#63;X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Credential=ASIAZI2LB466VPKYSMIN%2F20250726%2Fus-west-2%2Fs3%2Faws4&#95;request&X-Amz-Date=20250726T044556Z&X-Amz-Expires=3600&X-Amz-Security-Token=IQoJb3JpZ2luX2VjECoaCXVzLXdlc3QtMiJGMEQCIBZTFH3pXJrhCKuR9eOG3VZUK1qE%2FyQ7yg2cLV%2B31O8qAiBgRpG3tV8oKyFOX%2FaEwMwTYauK8wy%2F5c8CMOrHmrjvcSr%2FAwhTEAAaDDYzNzQyMzE4MzgwNSIMc19iQzr5ROXsJRTUKtwDuVgESekxsEgAsdkiVfchJ4QTQjqCBhWdY9u8dEFUG1iwEPPHXQofOMIyAwlr3r0cLQFRMkqybz%2B9poeqbGZWytUil45ntGxXAzvHTh%2BI7QRl7C3o%2F3zNAe%2FrCHSQxxeVUYwGKGzl4xKsD3R2ephzn2LaMOFWO4wKZUg0elGpGFQ%2FFpX6n8L7JV%2Flg4qJ9v6dVhnUiIurghB6gFdu52cu0vyADBiS4w5RHYOL%2B5PSZgNW7MuMNMiqiUwN4iomFKoj%2F1%2FmjIk9pupAqSfjz1NszOPM49EM1DCz9i%2BZjS8fPO%2FyQYhpQ65fZhA7XgACeds46F0IFazIBi9CWx1VxCXvP5IpcvoVQvR54kBuDKK0BTdOH8RzUMZc7np81bOs14fAUdZzWrdHQxn3TJeBYJztEkjSbLcir1UeXwUzEhrFSrVoyn7CD49sFYmQFeZ6zkCkbAlBD%2Bq7j4%2BshP3LWAjLw5F6Sao2ZjIe8VCpBZW98NUOPA1T9W3OeqJNLFPHCfph2d%2FsyNc8rqFnb7gDORscri1hA5oy1dXNiyjtsVCUSE5c1L19SCTnknhgvycwTAoqsPK5%2FOHBlJ8Bf6%2FR5AThG67r2%2F6sTcSZW0s0gzLqiPSg%2FoB6GcPijg46YvcwvfWQxAY6pgFZsmU9uCsZ6ZRwSv58OxcdYELG2W%2BVWFH1rNGgwK6QmVEiJeDNIF46lm54bw63i%2F8j2a21ChjtSJKMw4R%2Bep774sbK%2FCVNAAKI4quQVrqBaTWBn4XAyX9wFPU%2FGlISjTfFUdaBHsiH0WNDFh3AQuopFg82%2BJq3XzZpiWB2XfHGboWfsi8xIimHtuULuX4PKG1Xom8%2BLOG8ZKg1F7bPEU7E%2FIitAk7J&X-Amz-Signature=6459338fcf82cdbea5c8db2f9a387414cac1c95eb140628f2a44809406df8d84&X-Amz-SignedHeaders=host&x-amz-checksum-mode=ENABLED&x-id=GetObject&quot; /&gt;
+ 
+&lt;/figure&gt;
+  
+&lt;h2 class=&quot;notion-heading&#95;2 notion-color-default&quot;&gt;
+ Fase 1: Análisis o Frontend
+&lt;/h2&gt;
+  
+&lt;p&gt;
+ Busca la comprobación y corrección código fuente&#44; descomponiéndolo en estructuras comprensibles para el compilador. Según la definición del “lenguaje en términos de teoría de lenguajes formales”&#44; se divide en: 
+&lt;/p&gt;
+  
+&lt;h3 class=&quot;notion-heading&#95;3 notion-color-default&quot;&gt;
+ &lt;b class=&quot;notion-text-bold&quot;&gt;Análisis léxico:&lt;/b&gt; 
+&lt;/h3&gt;
+  
+&lt;p&gt;
+ Identifica y clasifica los elementos básicos del código fuente&#44; llamados &lt;i class=&quot;notion-text-italic&quot;&gt;lexemas&lt;/i&gt;&#44; y los convierte en unidades reconocibles llamadas &lt;i class=&quot;notion-text-italic&quot;&gt;tokens&#44; &lt;/i&gt;
+&lt;/p&gt;
+  &lt;ul class=&quot;notion-bulleted&#95;list&quot;&gt;
+&lt;li class=&quot;notion-bulleted&#95;list&#95;item notion-color-default&quot;&gt;
+ Elimina espacios&#44; comentarios y otros elementos irrelevantes. Preparando la entrada para el análisis sintáctico.
+&lt;/li&gt;
+  
+&lt;li class=&quot;notion-bulleted&#95;list&#95;item notion-color-default&quot;&gt;
+ Además&#44; comprueba la correcta escritura de los símbolos&#44; palabras reservadas&#44; operadores&#44; etc. Y los agrupa según su tipo &#40;palabras reservadas&#44; identificadores&#44; literales&#44; etc.&#41;
+&lt;/li&gt;
+  &lt;/ul&gt;
+&lt;p&gt;
+ Un token léxico está constituido por una clave &#40;Nombre del token&#41; y un valor &#40;Valor del token&#41;. Algunos nombres comunes son:
+&lt;/p&gt;
+  &lt;ul class=&quot;notion-bulleted&#95;list&quot;&gt;
+&lt;li class=&quot;notion-bulleted&#95;list&#95;item notion-color-default&quot;&gt;
+ &lt;b class=&quot;notion-text-bold&quot;&gt;Identificadores&lt;/b&gt;: nombres definidos por el programador.
+&lt;/li&gt;
+  
+&lt;li class=&quot;notion-bulleted&#95;list&#95;item notion-color-default&quot;&gt;
+ &lt;b class=&quot;notion-text-bold&quot;&gt;Palabras clave&lt;/b&gt;: términos reservados por el lenguaje.
+&lt;/li&gt;
+  
+&lt;li class=&quot;notion-bulleted&#95;list&#95;item notion-color-default&quot;&gt;
+ &lt;b class=&quot;notion-text-bold&quot;&gt;Separadores&lt;/b&gt;: signos de puntuación y delimitadores &#40;como: ; &#40;&#41; &#123;&#125;&#41;.
+&lt;/li&gt;
+  
+&lt;li class=&quot;notion-bulleted&#95;list&#95;item notion-color-default&quot;&gt;
+ &lt;b class=&quot;notion-text-bold&quot;&gt;Operadores&lt;/b&gt;: símbolos que realizan operaciones &#40;&#43; -  / *&#41;.
+&lt;/li&gt;
+  
+&lt;li class=&quot;notion-bulleted&#95;list&#95;item notion-color-default&quot;&gt;
+ &lt;b class=&quot;notion-text-bold&quot;&gt;Literales&lt;/b&gt;: valores constantes como números&#44; textos o booleanos.
+&lt;/li&gt;
+  
+&lt;li class=&quot;notion-bulleted&#95;list&#95;item notion-color-default&quot;&gt;
+ &lt;b class=&quot;notion-text-bold&quot;&gt;Comentarios&lt;/b&gt;: líneas o bloques ignorados por el compilador; algunos se procesan como tokens&#44; otros se eliminan.
+&lt;/li&gt;
+  &lt;/ul&gt;
+&lt;h3 class=&quot;notion-heading&#95;3 notion-color-default&quot;&gt;
+ Ejemplo:
+&lt;/h3&gt;
+  
+&lt;div class=&quot;notion-code&quot;&gt;
+ &lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;int suma = 5 &#43; 3;&lt;/code&gt;&lt;/pre&gt;
+ 
+&lt;/div&gt;
+  
+&lt;p&gt;
+ Se convierte en:
+&lt;/p&gt;
+  
+&lt;div class=&quot;notion-code&quot;&gt;
+ &lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;[&#8216;int&#8217;&#44; &#8216;suma&#8217;&#44; &#8216;=&#8217;&#44; &#8216;5&#8217;&#44; &#8216;&#43;&#8217;&#44; &#8216;3&#8217;&#44; &#8216;;&#8217;]&lt;/code&gt;&lt;/pre&gt;
+ 
+&lt;/div&gt;
+  
+&lt;p&gt;
+ los tokens generados son:
+&lt;/p&gt;
+  &lt;ul class=&quot;notion-bulleted&#95;list&quot;&gt;
+&lt;li class=&quot;notion-bulleted&#95;list&#95;item notion-color-default&quot;&gt;
+ Token 1: int Tipo de dato entero
+&lt;/li&gt;
+  
+&lt;li class=&quot;notion-bulleted&#95;list&#95;item notion-color-default&quot;&gt;
+ Token 2: suma Identificador 
+&lt;/li&gt;
+  
+&lt;li class=&quot;notion-bulleted&#95;list&#95;item notion-color-default&quot;&gt;
+ Token 3: = Operador de asignación
+&lt;/li&gt;
+  
+&lt;li class=&quot;notion-bulleted&#95;list&#95;item notion-color-default&quot;&gt;
+ Token 4: 5 Literal numérico
+&lt;/li&gt;
+  
+&lt;li class=&quot;notion-bulleted&#95;list&#95;item notion-color-default&quot;&gt;
+ Token 5: &#43; Operador aritmético	
+&lt;/li&gt;
+  
+&lt;li class=&quot;notion-bulleted&#95;list&#95;item notion-color-default&quot;&gt;
+ Token 5: 3 Literal numérico
+&lt;/li&gt;
+  
+&lt;li class=&quot;notion-bulleted&#95;list&#95;item notion-color-default&quot;&gt;
+ Token 5:; Delimitador de sentencia
+&lt;/li&gt;
+  &lt;/ul&gt;
+&lt;h3 class=&quot;notion-heading&#95;3 notion-color-default&quot;&gt;
+ &lt;b class=&quot;notion-text-bold&quot;&gt;Análisis sintáctico: &lt;/b&gt;
+&lt;/h3&gt;
+  
+&lt;p&gt;
+ Se comprueba si lo obtenido de la fase anterior conforman estructuras sintácticamente correctas&#44; es decir si obedecen la gramática del lenguaje empleado. Por lo general&#44; las fases gramaticales del programa fuente se representan mediante un árbol de análisis sintáctico o un automata finito. 
+&lt;/p&gt;
+  
+&lt;h2 class=&quot;notion-heading&#95;2 notion-color-default&quot;&gt;
+ &lt;b class=&quot;notion-text-bold&quot;&gt;🌲 Árboles de sintaxis abstracta:&lt;/b&gt; 
+&lt;/h2&gt;
+  
+&lt;p&gt;
+ Es una forma simplificada con base en un árbol que representa la estructura del código&#44; donde cada nodo muestra una construcción del programa sin incluir detalles como paréntesis o palabras clave.
+&lt;/p&gt;
+  
+&lt;p&gt;
+ Ejemplo de un árbol de sintaxis abstracta&#44; usando como ejemplo en el Algoritmo de Euclides &#40;Es un método eficiente para calcular el máximo común divisor MCD de dos números enteros&#41;
+&lt;/p&gt;
+  
+&lt;div class=&quot;notion-code&quot;&gt;
+ &lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;def MCD&#40;a: int&#44; b: int&#41; -&#62; int:
+  &quot;&quot;&quot;
+  Calcula el M&#225;ximo Com&#250;n Divisor usando el algoritmo de sustracci&#243;n.
+  &quot;&quot;&quot;
+  while b != 0:
+ if a &#62; b:
+a = a - b
+ else:
+b = b - a
+  return a&lt;/code&gt;&lt;/pre&gt;
+ 
+&lt;/div&gt;
+  
+&lt;figure class=&quot;notion-image&quot;&gt;
+ &lt;img src=&quot;https://prod-files-secure.s3.us-west-2.amazonaws.com/c2f43583-bfff-4628-a419-9efa17ce2a9d/01933735-509d-4a61-bc94-922663922d7e/9ea283c1-e2a1-48db-820a-8e0ccfaa7c21.png&#63;X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Credential=ASIAZI2LB466VPKYSMIN%2F20250726%2Fus-west-2%2Fs3%2Faws4&#95;request&X-Amz-Date=20250726T044556Z&X-Amz-Expires=3600&X-Amz-Security-Token=IQoJb3JpZ2luX2VjECoaCXVzLXdlc3QtMiJGMEQCIBZTFH3pXJrhCKuR9eOG3VZUK1qE%2FyQ7yg2cLV%2B31O8qAiBgRpG3tV8oKyFOX%2FaEwMwTYauK8wy%2F5c8CMOrHmrjvcSr%2FAwhTEAAaDDYzNzQyMzE4MzgwNSIMc19iQzr5ROXsJRTUKtwDuVgESekxsEgAsdkiVfchJ4QTQjqCBhWdY9u8dEFUG1iwEPPHXQofOMIyAwlr3r0cLQFRMkqybz%2B9poeqbGZWytUil45ntGxXAzvHTh%2BI7QRl7C3o%2F3zNAe%2FrCHSQxxeVUYwGKGzl4xKsD3R2ephzn2LaMOFWO4wKZUg0elGpGFQ%2FFpX6n8L7JV%2Flg4qJ9v6dVhnUiIurghB6gFdu52cu0vyADBiS4w5RHYOL%2B5PSZgNW7MuMNMiqiUwN4iomFKoj%2F1%2FmjIk9pupAqSfjz1NszOPM49EM1DCz9i%2BZjS8fPO%2FyQYhpQ65fZhA7XgACeds46F0IFazIBi9CWx1VxCXvP5IpcvoVQvR54kBuDKK0BTdOH8RzUMZc7np81bOs14fAUdZzWrdHQxn3TJeBYJztEkjSbLcir1UeXwUzEhrFSrVoyn7CD49sFYmQFeZ6zkCkbAlBD%2Bq7j4%2BshP3LWAjLw5F6Sao2ZjIe8VCpBZW98NUOPA1T9W3OeqJNLFPHCfph2d%2FsyNc8rqFnb7gDORscri1hA5oy1dXNiyjtsVCUSE5c1L19SCTnknhgvycwTAoqsPK5%2FOHBlJ8Bf6%2FR5AThG67r2%2F6sTcSZW0s0gzLqiPSg%2FoB6GcPijg46YvcwvfWQxAY6pgFZsmU9uCsZ6ZRwSv58OxcdYELG2W%2BVWFH1rNGgwK6QmVEiJeDNIF46lm54bw63i%2F8j2a21ChjtSJKMw4R%2Bep774sbK%2FCVNAAKI4quQVrqBaTWBn4XAyX9wFPU%2FGlISjTfFUdaBHsiH0WNDFh3AQuopFg82%2BJq3XzZpiWB2XfHGboWfsi8xIimHtuULuX4PKG1Xom8%2BLOG8ZKg1F7bPEU7E%2FIitAk7J&X-Amz-Signature=4ef5d5c998ee5c63da415a708f230fd9e8a15b30d4124142ba1632e30fe8ff0f&X-Amz-SignedHeaders=host&x-amz-checksum-mode=ENABLED&x-id=GetObject&quot; /&gt;
+ 
+&lt;/figure&gt;
+  
+&lt;h3 class=&quot;notion-heading&#95;3 notion-color-default&quot;&gt;
+ &lt;b class=&quot;notion-text-bold&quot;&gt;Análisis semántico: &lt;/b&gt;
+&lt;/h3&gt;
+  
+&lt;p&gt;
+ El análisis semántico &lt;b class=&quot;notion-text-bold&quot;&gt;verifica que el significado del programa sea válido&lt;/b&gt; según las reglas del lenguaje. No basta con que la sintaxis sea correcta: ahora se revisa &lt;b class=&quot;notion-text-bold&quot;&gt;que todo tenga lógica en su contexto&lt;/b&gt;.
+&lt;/p&gt;
+  &lt;ul class=&quot;notion-bulleted&#95;list&quot;&gt;
+&lt;li class=&quot;notion-bulleted&#95;list&#95;item notion-color-default&quot;&gt;
+  Comprueba que las operaciones se realicen entre datos compatibles.
+&lt;/li&gt;
+  
+&lt;li class=&quot;notion-bulleted&#95;list&#95;item notion-color-default&quot;&gt;
+ Revisa que las variables estén declaradas y usadas correctamente.
+&lt;/li&gt;
+  
+&lt;li class=&quot;notion-bulleted&#95;list&#95;item notion-color-default&quot;&gt;
+ Asegura que las funciones&#44; arreglos&#44; condicionales&#44; etc.&#44; tengan sentido según el contexto.
+&lt;/li&gt;
+  &lt;/ul&gt;
+&lt;table class=&quot;notion-table&quot;&gt;
+ 
+&lt;tr class=&quot;notion-table&#95;row&quot;&gt;
+ &lt;td class=&quot;notion-table&#95;cell&quot;&gt;Situación&lt;/td&gt;&lt;td class=&quot;notion-table&#95;cell&quot;&gt;Análisis semántico&lt;/td&gt;
+&lt;/tr&gt;
+  
+&lt;tr class=&quot;notion-table&#95;row&quot;&gt;
+ &lt;td class=&quot;notion-table&#95;cell&quot;&gt;float matriz[10.5];&lt;/td&gt;&lt;td class=&quot;notion-table&#95;cell&quot;&gt;❌ El índice debe ser entero. Detecta un error: no se puede declarar un arreglo con tamaño decimal.&lt;/td&gt;
+&lt;/tr&gt;
+  
+&lt;tr class=&quot;notion-table&#95;row&quot;&gt;
+ &lt;td class=&quot;notion-table&#95;cell&quot;&gt;int x = 10 &#43; &quot;hola&quot;;&lt;/td&gt;&lt;td class=&quot;notion-table&#95;cell&quot;&gt;❌ Error de tipos: no se puede sumar un entero con un string.&lt;/td&gt;
+&lt;/tr&gt;
+  
+&lt;tr class=&quot;notion-table&#95;row&quot;&gt;
+ &lt;td class=&quot;notion-table&#95;cell&quot;&gt;if &#40;true&#41; &#123; int a = 5; &#125; print&#40;a&#41;;&lt;/td&gt;&lt;td class=&quot;notion-table&#95;cell&quot;&gt;❌ Error de ámbito: la variable a no existe fuera del if.&lt;/td&gt;
+&lt;/tr&gt;
+  
+&lt;tr class=&quot;notion-table&#95;row&quot;&gt;
+ &lt;td class=&quot;notion-table&#95;cell&quot;&gt;int z = x &#43; y;&lt;/td&gt;&lt;td class=&quot;notion-table&#95;cell&quot;&gt;❌ Incompatibilidad: se intenta sumar un número con un texto.&lt;/td&gt;
+&lt;/tr&gt;
+  
+&lt;tr class=&quot;notion-table&#95;row&quot;&gt;
+ &lt;td class=&quot;notion-table&#95;cell&quot;&gt;bool bandera = 5 &lt; 3;&lt;/td&gt;&lt;td class=&quot;notion-table&#95;cell&quot;&gt;✅ Correcto: la expresión booleana tiene sentido.&lt;/td&gt;
+&lt;/tr&gt;
+  
+&lt;/table&gt;
+  
+&lt;hr class=&quot;notion-divider&quot; /&gt;
+  
+&lt;h2 class=&quot;notion-heading&#95;2 notion-color-default&quot;&gt;
+ Fase 2: Síntesis o Backend
+&lt;/h2&gt;
+  
+&lt;p&gt;
+ Consiste en generar ya el&lt;a href=&quot;https://es.wikipedia.org/wiki/C%C3%B3digo&#95;objeto&quot; class=&quot;notion-text-href&quot;&gt; &lt;/a&gt;código objeto&#44; este paso solo se dará cuando el programa fuente está libre de errores de análisis.
+&lt;/p&gt;
+  &lt;ul class=&quot;notion-bulleted&#95;list&quot;&gt;
+&lt;li class=&quot;notion-bulleted&#95;list&#95;item notion-color-default&quot;&gt;
+ Las posiciones de memoria se seleccionan para cada una de las variables usadas por el programa. 
+&lt;/li&gt;
+  
+&lt;li class=&quot;notion-bulleted&#95;list&#95;item notion-color-default&quot;&gt;
+ Cada una de las instrucciones intermedias se traduce a una secuencia de instrucciones de máquina que ejecuta la misma tarea.
+&lt;/li&gt;
+  
+&lt;li class=&quot;notion-bulleted&#95;list&#95;item notion-color-default&quot;&gt;
+  Un aspecto decisivo es la asignación de variables a &lt;a href=&quot;https://es.wikipedia.org/wiki/Registro&#95;&#40;hardware&#41;&quot; class=&quot;notion-text-href&quot;&gt;registros&lt;/a&gt;.
+&lt;/li&gt;
+  &lt;/ul&gt;
+&lt;h3 class=&quot;notion-heading&#95;3 notion-color-default&quot;&gt;
+ Código intermedio
+&lt;/h3&gt;
+  
+&lt;p&gt;
+ Se genera una representación intermedia explícita del programa fuente antes de generar el código objeto:
+&lt;/p&gt;
+  &lt;ul class=&quot;notion-bulleted&#95;list&quot;&gt;
+&lt;li class=&quot;notion-bulleted&#95;list&#95;item notion-color-default&quot;&gt;
+ debe ser fácil de producir y fácil de traducir al programa objeto
+&lt;/li&gt;
+  &lt;/ul&gt;
+&lt;p&gt;
+ La representación intermedia puede tener diversas formas. Existe una forma intermedia llamada código de tres direcciones&#44; similar al &lt;a href=&quot;https://es.wikipedia.org/wiki/Lenguaje&#95;ensamblador&quot; class=&quot;notion-text-href&quot;&gt;lenguaje ensamblador&lt;/a&gt;&#44; en la que cada instrucción lleva a cabo una sola operación. 
+&lt;/p&gt;
+  
+&lt;h3 class=&quot;notion-heading&#95;3 notion-color-default&quot;&gt;
+ Notación de tres direcciones &#40;T&lt;b class=&quot;notion-text-bold&quot;&gt;hree address code&#41;&lt;/b&gt;
+&lt;/h3&gt;
+  
+&lt;p&gt;
+ Es un lenguaje intermedio usado por compiladores optimizadores para ayudar en las transformaciones de mejora de código. 
+&lt;/p&gt;
+  
+&lt;p&gt;
+ Ya que es usado como un lenguaje intermedio en los compiladores&#44; los operandos normalmente no contendrán direcciones de memoria o &lt;a href=&quot;https://es.wikipedia.org/wiki/Registro&#95;&#40;hardware&#41;&quot; class=&quot;notion-text-href&quot;&gt;registros&lt;/a&gt; concretos&#44; sino que direcciones simbólicas que serán convertidas en direcciones reales durante la asignación de registros.
+&lt;/p&gt;
+  
+&lt;p&gt;
+ Consiste en una secuencia de instrucciones&#44; sus propiedades son:
+&lt;/p&gt;
+  &lt;ul class=&quot;notion-bulleted&#95;list&quot;&gt;
+&lt;li class=&quot;notion-bulleted&#95;list&#95;item notion-color-default&quot;&gt;
+ &lt;b class=&quot;notion-text-bold&quot;&gt;Primera:&lt;/b&gt; cada instrucción de tres direcciones tiene a lo sumo un operador&#44; además de la asignación.
+&lt;/li&gt;
+  
+&lt;li class=&quot;notion-bulleted&#95;list&#95;item notion-color-default&quot;&gt;
+ &lt;b class=&quot;notion-text-bold&quot;&gt;Segunda:&lt;/b&gt; el traductor debe generar un nombre temporal para guardar los valores calculados por cada instrucción.
+&lt;/li&gt;
+  
+&lt;li class=&quot;notion-bulleted&#95;list&#95;item notion-color-default&quot;&gt;
+ &lt;b class=&quot;notion-text-bold&quot;&gt;Tercera: &lt;/b&gt;algunas instrucciones «de tres direcciones» tienen menos de tres operandos.
+&lt;/li&gt;
+  &lt;/ul&gt;
+&lt;p&gt;
+ &lt;b class=&quot;notion-text-bold&quot;&gt;Ejemplo:&lt;/b&gt;
+&lt;/p&gt;
+  &lt;ol class=&quot;notion-numbered&#95;list&quot;&gt;
+&lt;li class=&quot;notion-numbered&#95;list&#95;item notion-color-default&quot;&gt;
+ Ecuación cuadrática
+&lt;/li&gt;
+  &lt;/ol&gt;
+&lt;div class=&quot;notion-code&quot;&gt;
+ &lt;pre&gt;&lt;code class=&quot;language-plain text&quot;&gt;x = &#40;-b &#43; sqrt&#40;b&#94;2 - 4*a*c&#41;&#41; / &#40;2*a&#41;
+
+&#35;Salida:
+t1 := b * b
+t2 := 4 * a
+t3 := t2 * c
+t4 := t1 - t3
+t5 := sqrt&#40;t4&#41;
+t6 := 0 - b
+t7 := t5 &#43; t6
+t8 := 2 * a
+t9 := t7 / t8
+x := t9&lt;/code&gt;&lt;/pre&gt;
+ 
+&lt;/div&gt;
+  &lt;ol class=&quot;notion-numbered&#95;list&quot;&gt;
+&lt;li class=&quot;notion-numbered&#95;list&#95;item notion-color-default&quot;&gt;
+ Bucle
+&lt;/li&gt;
+  &lt;/ol&gt;
+&lt;div class=&quot;notion-code&quot;&gt;
+ &lt;pre&gt;&lt;code class=&quot;language-plain text&quot;&gt;for &#40;i = 0; i &#60; 10; &#43;&#43;i&#41; &#123;
+ b[i] = i*i; 
+&#125;
+&#35;Salida:
+  t1 := 0 ; inicializa i
+L1:  if t1 &#62;= 10 goto L2 ; salto condicional
+  t2 := t1 * t1 ; cuadrado de i
+  t3 := t1 * 4  ; reserva de cuatro bytes para el almacenamiento
+  t4 := b &#43; t3  ; direcci&#243;n para almacenar i*i
+  *t4 := t2  ; almacenar mediante puntero
+  t1 := t1 &#43; 1  ; incrementar i
+  goto L1 ; repetir bucle
+L2:&lt;/code&gt;&lt;/pre&gt;
+ 
+&lt;/div&gt;
+  
+&lt;h3 class=&quot;notion-heading&#95;3 notion-color-default&quot;&gt;
+ Optimización de código
+&lt;/h3&gt;
+  
+&lt;p&gt;
+ Consiste en mejorar el código intermedio&#44; de modo que resulte un código máquina más rápido de ejecutar:
+&lt;/p&gt;
+  &lt;ol class=&quot;notion-numbered&#95;list&quot;&gt;
+&lt;li class=&quot;notion-numbered&#95;list&#95;item notion-color-default&quot;&gt;
+ Eliminacion de codigo muerto
+&lt;/li&gt;
+  
+&lt;li class=&quot;notion-numbered&#95;list&#95;item notion-color-default&quot;&gt;
+ Propagacion de constantes
+&lt;/li&gt;
+  
+&lt;li class=&quot;notion-numbered&#95;list&#95;item notion-color-default&quot;&gt;
+ Eliminacion de subexpresiones comunes
+&lt;/li&gt;
+  &lt;/ol&gt;
+&lt;h2 class=&quot;notion-heading&#95;2 notion-color-default&quot;&gt;
+ Fase 2: Síntesis o Backend
+&lt;/h2&gt;
+  
+&lt;p&gt;
+ Esta fase toma el código intermedio y lo convierte en &lt;b class=&quot;notion-text-bold&quot;&gt;código objeto&lt;/b&gt; &#40;también llamado código de máquina o ensamblador&#41;. Pero &lt;b class=&quot;notion-text-bold&quot;&gt;solo se ejecuta si el programa ya pasó todas las fases de análisis sin errores&lt;/b&gt;.
+&lt;/p&gt;
+  
+&lt;h3 class=&quot;notion-heading&#95;3 notion-color-default&quot;&gt;
+ Tareas que realiza :
+&lt;/h3&gt;
+  
+&lt;table class=&quot;notion-table&quot;&gt;
+ 
+&lt;tr class=&quot;notion-table&#95;row&quot;&gt;
+ &lt;td class=&quot;notion-table&#95;cell&quot;&gt;&lt;b class=&quot;notion-text-bold&quot;&gt;Asignación de memoria&lt;/b&gt;&lt;/td&gt;&lt;td class=&quot;notion-table&#95;cell&quot;&gt;Se reserva espacio en memoria para todas las variables del programa.&lt;/td&gt;
+&lt;/tr&gt;
+  
+&lt;tr class=&quot;notion-table&#95;row&quot;&gt;
+ &lt;td class=&quot;notion-table&#95;cell&quot;&gt;&lt;b class=&quot;notion-text-bold&quot;&gt;Traducción a instrucciones&lt;/b&gt;&lt;/td&gt;&lt;td class=&quot;notion-table&#95;cell&quot;&gt;Cada instrucción del código intermedio se transforma en una o varias instrucciones de máquina reales.&lt;/td&gt;
+&lt;/tr&gt;
+  
+&lt;tr class=&quot;notion-table&#95;row&quot;&gt;
+ &lt;td class=&quot;notion-table&#95;cell&quot;&gt;&lt;b class=&quot;notion-text-bold&quot;&gt;Asignación de registros&lt;/b&gt;&lt;/td&gt;&lt;td class=&quot;notion-table&#95;cell&quot;&gt;Se intenta usar registros del procesador &#40;más rápidos&#41; para almacenar variables temporales.&lt;/td&gt;
+&lt;/tr&gt;
+  
+&lt;/table&gt;
+  
+&lt;h3 class=&quot;notion-heading&#95;3 notion-color-default&quot;&gt;
+ Representación Intermedia
+&lt;/h3&gt;
+  
+&lt;p&gt;
+ Antes de generar el código máquina&#44; se genera una &lt;b class=&quot;notion-text-bold&quot;&gt;versión intermedia del programa&lt;/b&gt;&#44; que:
+&lt;/p&gt;
+  &lt;ul class=&quot;notion-bulleted&#95;list&quot;&gt;
+&lt;li class=&quot;notion-bulleted&#95;list&#95;item notion-color-default&quot;&gt;
+ Sea &lt;b class=&quot;notion-text-bold&quot;&gt;fácil de analizar y optimizar&lt;/b&gt;.
+&lt;/li&gt;
+  
+&lt;li class=&quot;notion-bulleted&#95;list&#95;item notion-color-default&quot;&gt;
+ No esté atada a una máquina específica.
+&lt;/li&gt;
+  &lt;/ul&gt;
+&lt;p&gt;
+ Para ello emplea diferentes formas&#44; la mas popular es el &lt;b class=&quot;notion-text-bold&quot;&gt;código de tres direcciones&lt;/b&gt;.
+&lt;/p&gt;
+  
+&lt;h3 class=&quot;notion-heading&#95;3 notion-color-default&quot;&gt;
+ Notación de Tres Direcciones &#40;Three Address Code - TAC&#41;
+&lt;/h3&gt;
+  
+&lt;p&gt;
+ Es un lenguaje intermedio donde: &#44; y guarda el resultado en una variable temporal:
+&lt;/p&gt;
+  &lt;ul class=&quot;notion-bulleted&#95;list&quot;&gt;
+&lt;li class=&quot;notion-bulleted&#95;list&#95;item notion-color-default&quot;&gt;
+ Cada instrucción hace una sola operación entre como máximo dos operandos.
+&lt;/li&gt;
+  
+&lt;li class=&quot;notion-bulleted&#95;list&#95;item notion-color-default&quot;&gt;
+ Cada resultado intermedio se guarda en una variable temporal para poder usarse después.
+&lt;/li&gt;
+  
+&lt;li class=&quot;notion-bulleted&#95;list&#95;item notion-color-default&quot;&gt;
+ Puede tener menos de tres operandos: Por ejemplo t1 := -b
+&lt;/li&gt;
+  &lt;/ul&gt;&lt;ol class=&quot;notion-numbered&#95;list&quot;&gt;
+&lt;li class=&quot;notion-numbered&#95;list&#95;item notion-color-default&quot;&gt;
+ &lt;b class=&quot;notion-text-bold&quot;&gt;Fórmula cuadrática&lt;/b&gt;
+&lt;/li&gt;
+  &lt;/ol&gt;
+&lt;div class=&quot;notion-code&quot;&gt;
+ &lt;pre&gt;&lt;code class=&quot;language-c&quot;&gt;x = &#40;-b &#43; sqrt&#40;b&#94;2 - 4*a*c&#41;&#41; / &#40;2*a&#41;&lt;/code&gt;&lt;/pre&gt;
+ 
+&lt;/div&gt;
+  
+&lt;p&gt;
+ &lt;b class=&quot;notion-text-bold&quot;&gt;Código en tres direcciones&lt;/b&gt;
+&lt;/p&gt;
+  
+&lt;div class=&quot;notion-code&quot;&gt;
+ &lt;pre&gt;&lt;code class=&quot;language-plain text&quot;&gt;t1 := b * b
+t2 := 4 * a
+t3 := t2 * c
+t4 := t1 - t3
+t5 := sqrt&#40;t4&#41;
+t6 := 0 - b
+t7 := t5 &#43; t6
+t8 := 2 * a
+t9 := t7 / t8&lt;/code&gt;&lt;/pre&gt;
+ 
+&lt;/div&gt;
+  &lt;ol class=&quot;notion-numbered&#95;list&quot;&gt;
+&lt;li class=&quot;notion-numbered&#95;list&#95;item notion-color-default&quot;&gt;
+ &lt;b class=&quot;notion-text-bold&quot;&gt;Bucle&lt;/b&gt;
+&lt;/li&gt;
+  &lt;/ol&gt;
+&lt;div class=&quot;notion-code&quot;&gt;
+ &lt;pre&gt;&lt;code class=&quot;language-c&quot;&gt;for &#40;i = 0; i &#60; 10; i&#43;&#43;&#41; &#123;
+ b[i] = i * i;
+&#125;&lt;/code&gt;&lt;/pre&gt;
+ 
+&lt;/div&gt;
+  
+&lt;p&gt;
+ &lt;b class=&quot;notion-text-bold&quot;&gt;Código en tres direcciones:&lt;/b&gt;
+&lt;/p&gt;
+  
+&lt;div class=&quot;notion-code&quot;&gt;
+ &lt;pre&gt;&lt;code class=&quot;language-plain text&quot;&gt;t1 := 0 ; i = 0
+L1: if t1 &#62;= 10 goto L2
+t2 := t1 * t1
+t3 := t1 * 4  ; para acceder al arreglo &#40;4 bytes por int&#41;
+t4 := b &#43; t3  ; puntero a b[i]
+*t4 := t2  ; asigna valor a b[i]
+t1 := t1 &#43; 1
+goto L1
+L2:&lt;/code&gt;&lt;/pre&gt;
+ 
+&lt;/div&gt;
+  
+&lt;h3 class=&quot;notion-heading&#95;3 notion-color-default&quot;&gt;
+ Optimización de Código
+&lt;/h3&gt;
+  
+&lt;p&gt;
+ Antes de generar el código final&#44; el compilador mejora el intermedio con técnicas de &lt;b class=&quot;notion-text-bold&quot;&gt;optimización&lt;/b&gt;:
+&lt;/p&gt;
+  &lt;ol class=&quot;notion-numbered&#95;list&quot;&gt;
+&lt;li class=&quot;notion-numbered&#95;list&#95;item notion-color-default&quot;&gt;
+ &lt;b class=&quot;notion-text-bold&quot;&gt;Eliminación de código muerto&lt;/b&gt;
+&lt;/li&gt;
+  &lt;/ol&gt;
+&lt;div class=&quot;notion-code&quot;&gt;
+ &lt;pre&gt;&lt;code class=&quot;language-c&quot;&gt;x = 10;
+y = 20;
+x = 15;  &#47;&#47;la asignaci&#243;n anterior a x = 10 es in&#250;til
+print&#40;x&#41;;
+
+&#47;&#47;Salida
+y = 20;
+x = 15;
+print&#40;x&#41;;&lt;/code&gt;&lt;/pre&gt;
+ 
+&lt;/div&gt;
+  &lt;ol class=&quot;notion-numbered&#95;list&quot;&gt;
+&lt;li class=&quot;notion-numbered&#95;list&#95;item notion-color-default&quot;&gt;
+ &lt;b class=&quot;notion-text-bold&quot;&gt;Propagación de constantes&lt;/b&gt;
+&lt;/li&gt;
+  &lt;/ol&gt;
+&lt;p&gt;
+ Sustituye variables que contienen valores constantes directamente por ese valor en todo el código
+&lt;/p&gt;
+  
+&lt;div class=&quot;notion-code&quot;&gt;
+ &lt;pre&gt;&lt;code class=&quot;language-c&quot;&gt;const int a = 3;
+int b = a &#43; 2;
+int c = b * a;
+
+//Salida
+int b = 3 &#43; 2;&#47;&#47;se reemplaza &#39;a&#39;
+int c = b * 3;&#47;&#47;tambi&#233;n aqu&#237;&lt;/code&gt;&lt;/pre&gt;
+ 
+&lt;/div&gt;
+  &lt;ol class=&quot;notion-numbered&#95;list&quot;&gt;
+&lt;li class=&quot;notion-numbered&#95;list&#95;item notion-color-default&quot;&gt;
+ &lt;b class=&quot;notion-text-bold&quot;&gt;Eliminación de subexpresiones comunes&lt;/b&gt;
+&lt;/li&gt;
+  &lt;/ol&gt;
+&lt;p&gt;
+ Detecta y reutiliza cálculos repetidos para evitar hacerlos de nuevo.
+&lt;/p&gt;
+  
+&lt;div class=&quot;notion-code&quot;&gt;
+ &lt;pre&gt;&lt;code class=&quot;language-c&quot;&gt;x = a * b &#43; c;
+y = a * b &#43; d;
+
+&#47;&#47;Salida
+t1 = a * b;
+x = t1 &#43; c;
+y = t1 &#43; d;&lt;/code&gt;&lt;/pre&gt;
+ 
+&lt;/div&gt;
+  
+&lt;p&gt;
+ 
+&lt;/p&gt;
+  

@@ -1,0 +1,227 @@
+---
+id: '1e898397-f7fa-8057-a3d4-c2d0df8f0aa3'
+title: 'Programación lógica'
+reading_time: 2
+words: 381
+
+folder: 'LDP'
+folder_color: 'pink'
+status: 'Completado'
+level: 'undefined'
+
+sessions:
+  - 04
+tags:
+
+
+banner: '/content/marks/1e898397-f7fa-8057-a3d4-c2d0df8f0aa3/banner.webp'
+banner_width: 1500
+banner_height: 971
+aspectRatio: 1.5444015444015444
+image_hash: 'UDEMax_2Mx-;Xo%M-;IU~qoyNFxt4nIURiWB'
+image_blur: 'radial-gradient(at 0 0,#969f9f,#00000000 50%),radial-gradient(at 33% 0,#89939a,#00000000 50%),radial-gradient(at 67% 0,#818c99,#00000000 50%),radial-gradient(at 100% 0,#76808e,#00000000 50%),radial-gradient(at 0 50%,#a3a6ac,#00000000 50%),radial-gradient(at 33% 50%,#91979c,#00000000 50%),radial-gradient(at 67% 50%,#7d888d,#00000000 50%),radial-gradient(at 100% 50%,#717a86,#00000000 50%),radial-gradient(at 0 100%,#625f5e,#00000000 50%),radial-gradient(at 33% 100%,#535556,#00000000 50%),radial-gradient(at 67% 100%,#656d72,#00000000 50%),radial-gradient(at 100% 100%,#5b5e68,#00000000 50%)'
+
+thumb: '/content/marks/1e898397-f7fa-8057-a3d4-c2d0df8f0aa3/thumb.webp'
+thumb_width: 400
+thumb_height: 259
+
+created_time: '2025-05-03T16:58:00.000Z'
+last_edited_time: '2025-05-29T16:16:00.000Z'
+---
+&lt;h1 class=&quot;notion-heading&#95;1 notion-color-default&quot;&gt;
+ Definición
+&lt;/h1&gt;
+  
+&lt;p&gt;
+ La &lt;b class=&quot;notion-text-bold&quot;&gt;programación lógica&lt;/b&gt; es un paradigma de programación que forma parte de la programación declarativa. Se fundamenta en la separación clara entre la lógica del problema y su mecanismo de resolución&#44; está expresada mediante la ecuación:
+&lt;/p&gt;
+  
+&lt;blockquote class=&quot;notion-callout notion-color-brown&#95;background&quot;&gt;
+ &lt;div class=&quot;icon&quot;&gt;
+ null
+ &lt;/div&gt; 
+ &lt;div class=&quot;content&quot;&gt;
+Programa = Lógica &#43; Control
+ &lt;/div&gt;
+&lt;/blockquote&gt;
+  
+&lt;h1 class=&quot;notion-heading&#95;1 notion-color-default&quot;&gt;
+ Componentes Principales
+&lt;/h1&gt;
+  
+&lt;table class=&quot;notion-table&quot;&gt;
+ 
+&lt;tr class=&quot;notion-table&#95;row&quot;&gt;
+ &lt;td class=&quot;notion-table&#95;cell&quot;&gt;&lt;b class=&quot;notion-text-bold&quot;&gt;Componente&lt;/b&gt;&lt;/td&gt;&lt;td class=&quot;notion-table&#95;cell&quot;&gt;&lt;b class=&quot;notion-text-bold&quot;&gt;Realiza&lt;/b&gt;&lt;/td&gt;&lt;td class=&quot;notion-table&#95;cell&quot;&gt;&lt;b class=&quot;notion-text-bold&quot;&gt;Función&lt;/b&gt;&lt;/td&gt;&lt;td class=&quot;notion-table&#95;cell&quot;&gt;&lt;b class=&quot;notion-text-bold&quot;&gt;Quién lo define&lt;/b&gt;&lt;/td&gt;
+&lt;/tr&gt;
+  
+&lt;tr class=&quot;notion-table&#95;row&quot;&gt;
+ &lt;td class=&quot;notion-table&#95;cell&quot;&gt;&lt;b class=&quot;notion-text-bold&quot;&gt;Lógica&lt;/b&gt;&lt;/td&gt;&lt;td class=&quot;notion-table&#95;cell&quot;&gt;Determina las soluciones&lt;/td&gt;&lt;td class=&quot;notion-table&#95;cell&quot;&gt;Define &lt;b class=&quot;notion-text-bold&quot;&gt;qué&lt;/b&gt; problema resolver&lt;/td&gt;&lt;td class=&quot;notion-table&#95;cell&quot;&gt;Programador: con hechos y reglas para representar la base de conocimiento&lt;/td&gt;
+&lt;/tr&gt;
+  
+&lt;tr class=&quot;notion-table&#95;row&quot;&gt;
+ &lt;td class=&quot;notion-table&#95;cell&quot;&gt;&lt;b class=&quot;notion-text-bold&quot;&gt;Control&lt;/b&gt;&lt;/td&gt;&lt;td class=&quot;notion-table&#95;cell&quot;&gt;Ejecuta el proceso de búsqueda&lt;/td&gt;&lt;td class=&quot;notion-table&#95;cell&quot;&gt;Define &lt;b class=&quot;notion-text-bold&quot;&gt;cómo&lt;/b&gt; resolver el problema&lt;/td&gt;&lt;td class=&quot;notion-table&#95;cell&quot;&gt;Intérprete: deducción lógica para dar respuestas&lt;/td&gt;
+&lt;/tr&gt;
+  
+&lt;/table&gt;
+  
+&lt;h1 class=&quot;notion-heading&#95;1 notion-color-default&quot;&gt;
+ Proceso
+&lt;/h1&gt;
+  
+&lt;div class=&quot;notion-code&quot;&gt;
+ &lt;pre&gt;&lt;code class=&quot;language-mermaid&quot;&gt;graph BT
+ subgraph &quot;Programaci&#243;n Imperativa&quot;
+  A1[Problema] --&#62; A2[An&#225;lisis algor&#237;tmico]
+  A2 --&#62; A3[Secuencia de instrucciones]
+  A3 --&#62; A4[Ejecuci&#243;n paso a paso]
+  A4 --&#62; A5[Resultado]
+ end
+
+ subgraph &quot;Programaci&#243;n L&#243;gica&quot;
+  B1[Problema] --&#62; B2[Modelado del dominio]
+  B2 --&#62; B3[Base de conocimiento]
+  B3 --&#62; B4[Proceso de inferencia]
+  B4 --&#62; B5[Resultado]
+ end
+&lt;/code&gt;&lt;/pre&gt;
+ 
+&lt;/div&gt;
+  
+&lt;h1 class=&quot;notion-heading&#95;1 notion-color-default&quot;&gt;
+ Principios Fundamentales
+&lt;/h1&gt;
+  
+&lt;p&gt;
+ Se centra en &lt;b class=&quot;notion-text-bold&quot;&gt;declarar qué se sabe y qué se quiere saber&#44;&lt;/b&gt; permitiendo que el sistema encuentre automáticamente las respuestas mediante razonamiento lógico. 
+&lt;/p&gt;
+  
+&lt;p&gt;
+ Su filosofía central es:
+&lt;/p&gt;
+  
+&lt;blockquote class=&quot;notion-quote notion-color-brown&quot;&gt;
+ &lt;i class=&quot;notion-text-italic&quot;&gt;Modelar problemas por medio de la abstracción&#44; utilizando un sistema de lógica formal que permite llegar a una conclusión por medio de hechos y reglas.&lt;/i&gt;
+&lt;/blockquote&gt;
+  
+&lt;h3 class=&quot;notion-heading&#95;3 notion-color-default&quot;&gt;
+ Elementos Base
+&lt;/h3&gt;
+  
+&lt;div class=&quot;notion-code&quot;&gt;
+ &lt;pre&gt;&lt;code class=&quot;language-mermaid&quot;&gt;graph TD
+ Q&#40;Consulta del usuario&#41; --&#62; p1&#40;Motor de Inferencia&#41;
+ p1 --&#62;|usa| p3&#40;Base de Conocimiento&#41;
+
+ p3 --&#62;|contiene| x2&#40;Hechos&#41;
+ p3 --&#62;|contiene| x3&#40;Reglas&#41;
+
+ x2 --&#62;|usan| D&#40;Predicados&#41;
+ x3 --&#62;|usan| D
+
+ p1 --&#62;|genera| F&#40;Soluciones&#41;
+ F --&#62;|proporciona| flow2&#40;Respuestas&#41;
+&lt;/code&gt;&lt;/pre&gt;
+ 
+&lt;/div&gt;
+  
+&lt;h1 class=&quot;notion-heading&#95;1 notion-color-default&quot;&gt;
+ Características Principales del P.L.
+&lt;/h1&gt;
+  &lt;ol class=&quot;notion-numbered&#95;list&quot;&gt;
+&lt;li class=&quot;notion-numbered&#95;list&#95;item notion-color-default&quot;&gt;
+ &lt;b class=&quot;notion-text-bold&quot;&gt;Naturaleza Declarativa&lt;/b&gt;
+&lt;/li&gt;
+  
+&lt;li class=&quot;notion-numbered&#95;list&#95;item notion-color-default&quot;&gt;
+ &lt;b class=&quot;notion-text-bold&quot;&gt;Orientada a Reglas&lt;/b&gt;
+&lt;/li&gt;
+  
+&lt;li class=&quot;notion-numbered&#95;list&#95;item notion-color-default&quot;&gt;
+ &lt;b class=&quot;notion-text-bold&quot;&gt;Capacidad de Inferencia&lt;/b&gt;
+&lt;/li&gt;
+  
+&lt;li class=&quot;notion-numbered&#95;list&#95;item notion-color-default&quot;&gt;
+ &lt;b class=&quot;notion-text-bold&quot;&gt;Exploración No Determinista&lt;/b&gt;
+&lt;/li&gt;
+  
+&lt;li class=&quot;notion-numbered&#95;list&#95;item notion-color-default&quot;&gt;
+ &lt;b class=&quot;notion-text-bold&quot;&gt;Capacidad Recursiva&lt;/b&gt;
+&lt;/li&gt;
+  
+&lt;li class=&quot;notion-numbered&#95;list&#95;item notion-color-default&quot;&gt;
+ &lt;b class=&quot;notion-text-bold&quot;&gt;Búsqueda Exhaustiva con Retroceso&lt;/b&gt;
+&lt;/li&gt;
+  &lt;/ol&gt;
+&lt;h2 class=&quot;notion-heading&#95;2 notion-color-default&quot;&gt;
+ Ejemplo Práctico: Sistema de Diagnóstico Médico
+&lt;/h2&gt;
+  
+&lt;p&gt;
+ Busquemos determinar posibles diagnósticos basándose en síntomas presentados por x pacientes.
+&lt;/p&gt;
+  
+&lt;h3 class=&quot;notion-heading&#95;3 notion-color-default&quot;&gt;
+ Base de Conocimiento
+&lt;/h3&gt;
+  
+&lt;div class=&quot;notion-code&quot;&gt;
+ &lt;pre&gt;&lt;code class=&quot;language-java&quot;&gt;&#60;b class=&quot;notion-text-bold&quot;&#62;Hechos:
+&#60;/b&#62;
+Haui -&#62; presenta fiebre
+Haui -&#62; presenta dolor&#95;garganta
+Haui -&#62; presenta ganglios&#95;inflamados
+
+Juli -&#62; presenta tos&#95;seca
+Juli -&#62; presenta fiebre
+Juli -&#62; presenta dolor&#95;pecho&lt;/code&gt;&lt;/pre&gt;
+ 
+&lt;/div&gt;
+  
+&lt;h3 class=&quot;notion-heading&#95;3 notion-color-default&quot;&gt;
+ &lt;b class=&quot;notion-text-bold&quot;&gt;Reglas de Diagnóstico:&lt;/b&gt;
+&lt;/h3&gt;
+  
+&lt;div class=&quot;notion-code&quot;&gt;
+ &lt;pre&gt;&lt;code class=&quot;language-java&quot;&gt;Si &#40;X presenta fiebre&#41; Y &#40;X presenta dolor&#95;garganta&#41; Y 
+	 &#40;X presenta ganglios&#95;inflamados&#41; 
+	 Entonces: X tiene posible&#95;amigdalitis
+
+Si &#40;X presenta tos&#95;seca&#41; Y &#40;X presenta fiebre&#41; Y 
+	 &#40;X presenta dolor&#95;pecho&#41;
+	 Entonces: X tiene posible&#95;bronquitis
+	 
+Si &#40;X posible&#95;amigdalitis&#41; Entonces: X requiere&#95;antibiotico
+Si &#40;X posible&#95;bronquitis&#41; Entonces: X requiere&#95;expectorante&lt;/code&gt;&lt;/pre&gt;
+ 
+&lt;/div&gt;
+  
+&lt;h3 class=&quot;notion-heading&#95;3 notion-color-default&quot;&gt;
+ &lt;b class=&quot;notion-text-bold&quot;&gt;Consulta:&lt;/b&gt;
+&lt;/h3&gt;
+  
+&lt;div class=&quot;notion-code&quot;&gt;
+ &lt;pre&gt;&lt;code class=&quot;language-java&quot;&gt;&#191;Qu&#233; tratamiento requiere Haui&#63;&lt;/code&gt;&lt;/pre&gt;
+ 
+&lt;/div&gt;
+  
+&lt;p&gt;
+ Las reglas médicas planteadas quedan de forma explícita y son fáciles de auditar&#44; modificar o expandir&#44; a diferencia de los algoritmos complejos de otros paradigmas de programación&#44; que seguramente aplicaríamos lógica dispersa para optimizar el código.
+&lt;/p&gt;
+  
+&lt;h1 class=&quot;notion-heading&#95;1 notion-color-default&quot;&gt;
+ FUENTES
+&lt;/h1&gt;
+  
+  &lt;a href=&quot;https://keepcoding.io/blog/que-es-la-programacion-logica/&quot; target=&quot;&#95;blank&quot; class=&quot;notion-bookmark&quot; target=&quot;&#95;blank&quot;&gt;https://keepcoding.io/blog/que-es-la-programacion-logica/&lt;/a&gt;
+ 
+  &lt;a href=&quot;https://es.wikipedia.org/wiki/Programaci%C3%B3n&#95;l%C3%B3gica&quot; target=&quot;&#95;blank&quot; class=&quot;notion-bookmark&quot; target=&quot;&#95;blank&quot;&gt;https://es.wikipedia.org/wiki/Programaci%C3%B3n&#95;l%C3%B3gica&lt;/a&gt;
+ 
+  &lt;a href=&quot;https://ferestrepoca.github.io/paradigmas-de-programacion/proglogica/logica&#95;teoria/proglogica.html&quot; target=&quot;&#95;blank&quot; class=&quot;notion-bookmark&quot; target=&quot;&#95;blank&quot;&gt;https://ferestrepoca.github.io/paradigmas-de-programacion/proglogica/logica&#95;teoria/proglogica.html&lt;/a&gt;
+ 
+  &lt;a href=&quot;https://en.wikipedia.org/wiki/Warren&#95;Abstract&#95;Machine&#63;utm&#95;source=chatgpt.com&quot; target=&quot;&#95;blank&quot; class=&quot;notion-bookmark&quot; target=&quot;&#95;blank&quot;&gt;https://en.wikipedia.org/wiki/Warren&#95;Abstract&#95;Machine&#63;utm&#95;source=chatgpt.com&lt;/a&gt;
+ 
+&lt;p&gt;
+ 
+&lt;/p&gt;
+  
