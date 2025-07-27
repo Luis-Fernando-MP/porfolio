@@ -1,0 +1,191 @@
+@forward 'synth-wave-84';
+@forward 'candy';
+@forward 'cherry-blossom';
+@forward 'gris';
+@forward 'dev-dark';
+
+@use '@sass/config/vars' as v;
+
+$prism-primary-text: rgb(v.$fn1);
+$prism-background: rgb(v.$bg2, 0.8);
+$prism-shadow-base: none;
+$prism-inline-bg-base: rgba(v.$bg2, 0.85);
+$prism-selection-base: rgba(v.$tn1, 0.35);
+$prism-highlight-shadow-base: rgba(v.$tn1, 0.4);
+$prism-punctuation: rgb(v.$fn1);
+$prism-operator: rgb(v.$fn1);
+
+// Variables del tema
+$prism-inline-code: var(--prism-inline-code);
+$prism-comment: var(--prism-comment);
+$prism-property: var(--prism-property);
+$prism-boolean: var(--prism-boolean);
+$prism-string: var(--prism-string);
+$prism-keyword: var(--prism-keyword);
+$prism-function: var(--prism-function);
+$prism-variable: var(--prism-variable);
+$prism-namespace: var(--prism-namespace);
+$prism-html-base: var(--prism-html-base);
+$prism-html-tag: var(--prism-html-tag);
+$prism-html-attr-name: var(--prism-html-attr-name);
+$prism-html-attr-value: var(--prism-html-attr-value);
+$prism-html-punctuation: var(--prism-html-punctuation);
+$prism-line-highlight: var(--prism-line-highlight);
+
+pre[class*='language-'],
+code[class*='language-'] {
+  direction: ltr;
+
+  font-family: Menlo, Monaco, Consolas, 'Andale Mono', 'Ubuntu Mono', 'Courier New', monospace;
+  font-size: 13px;
+  line-height: 1.5;
+  hyphens: none;
+  color: $prism-primary-text; // texto principal
+  text-align: left;
+  text-shadow: none;
+  word-break: normal;
+  word-spacing: normal;
+  tab-size: 4;
+  white-space: pre;
+}
+
+pre[class*='language-'] {
+  overflow: auto;
+
+  margin: 0.5em 0;
+  padding: 1em;
+  border-radius: 0.5em;
+
+  background: $prism-background;
+  box-shadow: 0 0 10px $prism-shadow-base;
+}
+
+code[class*='language-'] {
+  background: transparent;
+}
+
+:not(pre) > code[class*='language-'] {
+  padding: 0.1em 0.3em;
+  border-radius: 0.3em;
+  color: $prism-inline-code;
+  background: $prism-inline-bg-base;
+}
+
+pre[class*='language-']::selection,
+code[class*='language-']::selection,
+pre[class*='language-'] *::selection,
+code[class*='language-'] *::selection {
+  text-shadow: none;
+  background: $prism-selection-base;
+}
+
+// TOKENS
+.token.comment,
+.token.prolog,
+.token.cdata {
+  font-style: italic;
+  color: $prism-comment;
+}
+
+.token.punctuation {
+  color: $prism-punctuation;
+}
+
+.token.property,
+.token.tag,
+.token.constant,
+.token.symbol,
+.token.deleted {
+  color: $prism-property;
+}
+
+.token.boolean,
+.token.number {
+  color: $prism-boolean;
+}
+
+.token.selector,
+.token.attr-name,
+.token.string,
+.token.char,
+.token.builtin,
+.token.inserted {
+  color: $prism-string;
+}
+
+.token.operator,
+.token.entity,
+.token.url {
+  color: $prism-operator;
+}
+
+.token.atrule,
+.token.attr-value,
+.token.keyword {
+  color: $prism-keyword;
+}
+
+.token.function,
+.token.class-name {
+  color: $prism-function;
+}
+
+.token.regex,
+.token.important,
+.token.variable {
+  color: $prism-variable;
+}
+
+.token.bold {
+  font-weight: bold;
+}
+
+.token.italic {
+  font-style: italic;
+}
+
+.token.namespace {
+  color: $prism-namespace;
+  opacity: 0.8;
+}
+
+// ESPECÍFICOS
+pre[class*='language-html'],
+code[class*='language-html'] {
+  color: $prism-html-base;
+}
+
+.language-html .token.tag {
+  color: $prism-html-tag;
+}
+
+.language-html .token.attr-name {
+  color: $prism-html-attr-name;
+}
+
+.language-html .token.attr-value {
+  color: $prism-html-attr-value;
+}
+
+.language-html .token.punctuation {
+  color: $prism-html-punctuation;
+}
+
+// Line Highlighting
+pre[class*='language-'] > code[class*='language-'] {
+  position: relative;
+  z-index: 1;
+}
+
+.line-highlight.line-highlight {
+  z-index: 0;
+  background: $prism-line-highlight;
+  box-shadow: inset 5px 0 0 $prism-highlight-shadow-base;
+}
+
+@media print {
+  pre[class*='language-'],
+  code[class*='language-'] {
+    text-shadow: none;
+  }
+}

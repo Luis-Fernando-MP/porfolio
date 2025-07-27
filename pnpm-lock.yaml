@@ -30,7 +30,7 @@ importers:
         specifier: 2.0.5
         version: 2.0.5
       contentlayer2:
-        specifier: ^0.5.8
+        specifier: 0.5.8
         version: 0.5.8(acorn@8.15.0)(esbuild@0.18.20)
       dayjs:
         specifier: 1.11.13
@@ -60,11 +60,8 @@ importers:
         specifier: 3.8.16
         version: 3.8.16(next@15.3.0(@opentelemetry/api@1.9.0)(react-dom@19.1.0(react@19.1.0))(react@19.1.0)(sass@1.86.3))(react-dom@19.1.0(react@19.1.0))(react@19.1.0)
       prism-themes:
-        specifier: ^1.9.0
+        specifier: 1.9.0
         version: 1.9.0
-      prismjs:
-        specifier: ^1.30.0
-        version: 1.30.0
       react:
         specifier: 19.1.0
         version: 19.1.0
@@ -84,10 +81,10 @@ importers:
         specifier: 2.5.2
         version: 2.5.2(react-dom@19.1.0(react@19.1.0))(react@19.1.0)
       rehype-code-titles:
-        specifier: ^1.2.0
+        specifier: 1.2.0
         version: 1.2.0
       rehype-prism-plus:
-        specifier: ^2.0.1
+        specifier: 2.0.1
         version: 2.0.1
       sass:
         specifier: 1.86.3
@@ -3224,10 +3221,6 @@ packages:
 
   prism-themes@1.9.0:
     resolution: {integrity: sha512-tX2AYsehKDw1EORwBps+WhBFKc2kxfoFpQAjxBndbZKr4fRmMkv47XN0BghC/K1qwodB1otbe4oF23vUTFDokw==}
-
-  prismjs@1.30.0:
-    resolution: {integrity: sha512-DEvV2ZF2r2/63V+tK8hQvrR2ZGn10srHbXviTlcv7Kpzw8jWiNTqbVgjO3IY8RxrrOUF8VPMQQFysYYYv0YZxw==}
-    engines: {node: '>=6'}
 
   prop-types@15.8.1:
     resolution: {integrity: sha512-oj87CgZICdulUohogVAR7AjlC0327U4el4L6eAvOqCeudMDVU0NThNaV+b9Df4dXgSP1gXMTnPdhfe/2qDH5cg==}
@@ -7339,8 +7332,6 @@ snapshots:
   prettier@3.5.3: {}
 
   prism-themes@1.9.0: {}
-
-  prismjs@1.30.0: {}
 
   prop-types@15.8.1:
     dependencies:

@@ -1,0 +1,17 @@
+html[data-theme='dev dark'] {
+  --prism-inline-code: #6daaff;
+  --prism-comment: #7fdbb6;
+  --prism-property: #5cd1ff;
+  --prism-boolean: #ff6bb5;
+  --prism-string: #b9ff66;
+  --prism-keyword: #7d9bff;
+  --prism-function: #ffe66d;
+  --prism-variable: #c78aff;
+  --prism-namespace: #4ddbff;
+  --prism-html-base: #f8f8f8;
+  --prism-html-tag: #6daaff;
+  --prism-html-attr-name: #7fdbb6;
+  --prism-html-attr-value: #5cd1ff;
+  --prism-html-punctuation: #ccc;
+  --prism-line-highlight: rgb(0 85 255 / 20%);
+}

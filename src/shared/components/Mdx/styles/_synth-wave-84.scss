@@ -1,0 +1,49 @@
+html[data-theme='Synth wave 84'] {
+  // Color de código inline (rosa brillante)
+  --prism-inline-code: #ff6ce0;
+
+  // Comentarios, prolog y cdata (verde claro)
+  --prism-comment: #8affc1;
+
+  // Properties, tags, constants, symbols, deleted (rosa)
+  --prism-property: #ff7edb;
+
+  // Números y booleanos (púrpura)
+  --prism-boolean: #da70ff;
+
+  // Strings, selectors, attr-name, char, builtin, inserted (cyan)
+  --prism-string: #00fff7;
+
+  // Keywords, atrules, attr-value (púrpura claro)
+  --prism-keyword: #b084ff;
+
+  // Funciones y nombres de clase (amarillo)
+  --prism-function: #ffe24d;
+
+  // Regex, important, variables (rosa claro)
+  --prism-variable: #ff92df;
+
+  // Namespaces (verde azulado)
+  --prism-namespace: #4ec9b0;
+
+  /* Colores específicos para HTML */
+
+  // Color base para archivos HTML
+  --prism-html-base: #ffd6ff;
+
+  // Tags HTML específicos
+  --prism-html-tag: #ff91ff;
+
+  // Nombres de atributos HTML
+  --prism-html-attr-name: #9efeff;
+
+  // Valores de atributos HTML
+  --prism-html-attr-value: #ffee80;
+
+  // Puntuación específica en HTML
+  --prism-html-punctuation: #808080;
+
+  /* Colores de highlighting */
+  // Fondo de líneas resaltadas
+  --prism-line-highlight: red;
+}

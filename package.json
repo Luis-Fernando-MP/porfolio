@@ -3,7 +3,7 @@
   "version": "0.2.1",
   "private": true,
   "scripts": {
-    "dev": "rimraf .next && pnpm store prune && next dev --turbopack",
+    "dev": "rimraf .next && pnpm store prune && next dev",
     "build": "pnpm lint && next build",
     "start": "next start",
     "lint": "pnpx stylelint '**/*.{css,scss}' && next lint",
@@ -34,7 +34,6 @@
     "next-contentlayer2": "0.5.8",
     "nextjs-toploader": "3.8.16",
     "prism-themes": "1.9.0",
-    "prismjs": "1.30.0",
     "react": "19.1.0",
     "react-blurhash": "0.3.0",
     "react-dom": "19.1.0",
