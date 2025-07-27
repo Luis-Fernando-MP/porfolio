@@ -4,6 +4,31 @@
 @use '@sass/utils/scrollbar' as *;
 @use 'sass:map';
 
+:root {
+  --bg-primary: 25, 26, 27;
+  --bg-secondary: 40, 41, 43;
+  --bg-tertiary: 50, 51, 53;
+
+  // Fuentes
+  --fnt-primary: 237, 237, 237;
+  --fnt-secondary: 169, 171, 173;
+  --fnt-active: 255, 255, 255;
+
+  // Principales
+  --tn-primary: 55, 115, 236;
+  --tn-secondary: 92, 142, 245;
+  --tn-tertiary: 255, 255, 255;
+
+  // Fuentes
+  --xl-font-size: 3.5rem;
+  --h1-font-size: 1.6rem;
+  --h2-font-size: 1.4rem;
+  --h3-font-size: 1.2rem;
+  --h4-font-size: 1rem;
+  --h5-font-size: 1rem;
+  --p-font-size: 0.95rem;
+}
+
 *,
 ::before,
 ::after {

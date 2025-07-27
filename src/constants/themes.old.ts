@@ -105,17 +105,7 @@ export const THEMES = {
         'tn-secondary': '0, 220, 130',
         'tn-tertiary': '240, 255, 248'
       },
-      Red: {
-        'bg-primary': '5, 5, 5',
-        'bg-secondary': '15, 15, 15',
-        'bg-tertiary': '25, 25, 25',
-        'fnt-primary': '235, 235, 235',
-        'fnt-secondary': '170, 170, 170',
-        'fnt-active': '255, 255, 255',
-        'tn-primary': '245, 48, 48',
-        'tn-secondary': '230, 150, 60',
-        'tn-tertiary': '255, 245, 245'
-      },
+
       StarryNight: {
         'bg-primary': '8, 8, 18',
         'bg-secondary': '18, 18, 28',
@@ -231,17 +221,8 @@ export const THEMES = {
         'tn-secondary': '245, 90, 110',
         'tn-tertiary': '255, 213, 226'
       },
-      'Cotton Candy': {
-        'bg-primary': '255, 200, 240',
-        'bg-secondary': '255, 180, 220',
-        'bg-tertiary': '255, 160, 200',
-        'fnt-primary': '50, 30, 50',
-        'fnt-secondary': '80, 50, 80',
-        'fnt-active': '255, 255, 255',
-        'tn-primary': '235, 130, 180',
-        'tn-secondary': '225, 120, 170',
-        'tn-tertiary': '255, 238, 250'
-      },
+      'Cotton Candy': {},
+
       'Pastel Pink': {
         'bg-primary': '255, 200, 200',
         'bg-secondary': '255, 180, 180',
@@ -253,52 +234,12 @@ export const THEMES = {
         'tn-secondary': '245, 140, 140',
         'tn-tertiary': '255, 224, 234'
       },
-      'Rose Quartz': {
-        'bg-primary': '255, 248, 250',
-        'bg-secondary': '255, 228, 235',
-        'bg-tertiary': '255, 208, 220',
-        'fnt-primary': '45, 25, 35',
-        'fnt-secondary': '85, 45, 65',
-        'fnt-active': '255, 255, 255',
-        'tn-primary': '255, 105, 135',
-        'tn-secondary': '255, 85, 115',
-        'tn-tertiary': '255, 228, 236'
-      },
-      Candy: {
-        'bg-primary': '255, 245, 250',
-        'bg-secondary': '255, 225, 240',
-        'bg-tertiary': '250, 205, 230',
-        'fnt-primary': '50, 25, 40',
-        'fnt-secondary': '80, 50, 70',
-        'fnt-active': '255, 255, 255',
-        'tn-primary': '255, 120, 180',
-        'tn-secondary': '235, 100, 160',
-        'tn-tertiary': '255, 250, 253'
-      },
-      'Aurora Day': {
-        'bg-primary': '245, 245, 250',
-        'bg-secondary': '230, 235, 250',
-        'bg-tertiary': '210, 220, 240',
-        'fnt-primary': '20, 20, 40',
-        'fnt-secondary': '60, 90, 130',
-        'fnt-active': '255, 255, 255',
-        'tn-primary': '255, 100, 150',
-        'tn-secondary': '200, 150, 180',
-        'tn-tertiary': '255, 236, 249'
-      },
+
+      Candy: {},
+      'Aurora Day': {},
 
       // === FAMILIA PÚRPURA/LAVANDA ===
-      Lavender: {
-        'bg-primary': '240, 230, 255',
-        'bg-secondary': '220, 210, 245',
-        'bg-tertiary': '200, 190, 235',
-        'fnt-primary': '50, 30, 70',
-        'fnt-secondary': '100, 80, 120',
-        'fnt-active': '255, 255, 255',
-        'tn-primary': '150, 100, 200',
-        'tn-secondary': '130, 80, 180',
-        'tn-tertiary': '233, 211, 255'
-      },
+      Lavender: {},
       'Lilac Breeze': {
         'bg-primary': '245, 235, 255',
         'bg-secondary': '235, 215, 250',
@@ -311,17 +252,7 @@ export const THEMES = {
         'tn-tertiary': '230, 212, 243'
       },
       // === FAMILIA AZUL ===
-      'Icy Blue': {
-        'bg-primary': '180, 220, 255',
-        'bg-secondary': '160, 200, 245',
-        'bg-tertiary': '140, 180, 235',
-        'fnt-primary': '20, 30, 50',
-        'fnt-secondary': '40, 50, 70',
-        'fnt-active': '255, 255, 255',
-        'tn-primary': '0, 120, 240',
-        'tn-secondary': '0, 100, 220',
-        'tn-tertiary': '208, 231, 255'
-      },
+      'Icy Blue': {},
       // === FAMILIA VERDE ===
       Emerald: {
         'bg-primary': '150, 220, 180',
@@ -473,28 +404,7 @@ export const THEMES = {
         'tn-secondary': '0, 200, 200',
         'tn-tertiary': '240, 255, 250'
       },
-      'Rave Night': {
-        'bg-primary': '0, 0, 30',
-        'bg-secondary': '20, 0, 50',
-        'bg-tertiary': '40, 20, 70',
-        'fnt-primary': '255, 255, 0',
-        'fnt-secondary': '255, 0, 255',
-        'fnt-active': '0, 0, 0',
-        'tn-primary': '0, 255, 255',
-        'tn-secondary': '255, 100, 255',
-        'tn-tertiary': '255, 255, 184'
-      },
-      'Cosmic Storm': {
-        'bg-primary': '5, 0, 20',
-        'bg-secondary': '15, 10, 40',
-        'bg-tertiary': '25, 20, 60',
-        'fnt-primary': '255, 100, 255',
-        'fnt-secondary': '100, 255, 255',
-        'fnt-active': '255, 255, 255',
-        'tn-primary': '255, 0, 128',
-        'tn-secondary': '128, 255, 255',
-        'tn-tertiary': '255, 248, 255'
-      },
+
       Vaporwave: {
         'bg-primary': '30, 15, 45',
         'bg-secondary': '50, 25, 65',

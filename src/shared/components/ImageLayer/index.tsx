@@ -99,7 +99,7 @@ const ImageLayer: FC<Props> = ({
       const layers = container.querySelectorAll('.imageLayer-parallax')
       const rect = container.getBoundingClientRect()
       const progress = rect.top / window.innerHeight
-      const maxOffset = container.offsetHeight * 0.5
+      const maxOffset = container.offsetHeight
       const translateY = Math.max(-maxOffset, Math.min(maxOffset, progress * maxOffset))
 
       layers.forEach(layer => {

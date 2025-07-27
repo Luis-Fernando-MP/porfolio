@@ -2,7 +2,7 @@ import { Image } from '@unpic/react'
 import type { MDXComponents } from 'mdx/types'
 import { useMDXComponent } from 'next-contentlayer2/hooks'
 // import 'prismjs/plugins/line-numbers/prism-line-numbers.css'
-import React from 'react'
+import React, { FC } from 'react'
 
 import './styles/base.scss'
 
@@ -11,7 +11,11 @@ const components: MDXComponents = {
   p: () => null // Remueve el frontmatter xd?
 }
 
-export default function Mdx({ code }: { code: string }) {
+interface Props {
+  code: string
+}
+
+const Mdx: FC<Props> = ({ code }) => {
   const Component = useMDXComponent(code)
 
   return (
@@ -20,3 +24,5 @@ export default function Mdx({ code }: { code: string }) {
     </section>
   )
 }
+
+export default Mdx

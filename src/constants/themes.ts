@@ -1,18 +1,43 @@
 import { MonitorDotIcon, MoonStarIcon, SunIcon, ZapIcon } from 'lucide-react'
 
+const tmp = [
+  { path: '/backgrounds/lavender/1.webp', hash: 'L4F5gBK$00EL.jot^*_M00%2-;Ns' },
+  { path: '/backgrounds/lavender/2.webp', hash: 'L4F5gBK$00EL.jot^*_M00%2-;Ns' },
+  { path: '/backgrounds/lavender/3.jpg', hash: 'L4F5gBK$00EL.jot^*_M00%2-;Ns' },
+  { path: '/backgrounds/lavender/4.jpg', hash: 'L4F5gBK$00EL.jot^*_M00%2-;Ns' }
+]
+
 export const themeBackgroundImages: Record<ThemeColorKeys, BackgroundImage[]> = {
   gris: [
-    { path: '/backgrounds/gris/bg1.webp', hash: 'LHExFS~BEM9b03Io%1-oR+I=niV@' },
-    { path: '/backgrounds/gris/bg2.webp', hash: 'LdGQtVS5E2%1~Ut7M|fi-:xtRkjF' }
+    { path: '/backgrounds/gris/1.webp', hash: 'LHExFS~BEM9b03Io%1-oR+I=niV@' },
+    { path: '/backgrounds/gris/2.webp', hash: 'LdGQtVS5E2%1~Ut7M|fi-:xtRkjF' },
+    { path: '/backgrounds/gris/3.webp', hash: 'LdGQtVS5E2%1~Ut7M|fi-:xtRkjF' },
+    { path: '/backgrounds/gris/4.gif', hash: 'LdGQtVS5E2%1~Ut7M|fi-:xtRkjF' },
+    { path: '/backgrounds/gris/5.gif', hash: 'LdGQtVS5E2%1~Ut7M|fi-:xtRkjF' }
   ],
-  'dev dark': [
+  'haui dark': [
     { path: '/backgrounds/dev-dark/1.webp', hash: 'L4F5gBK$00EL.jot^*_M00%2-;Ns' },
     { path: '/backgrounds/dev-dark/2.webp', hash: 'L4F5gBK$00EL.jot^*_M00%2-;Ns' },
     { path: '/backgrounds/dev-dark/3.webp', hash: 'L4F5gBK$00EL.jot^*_M00%2-;Ns' }
   ],
-  'Cherry Blossom': [],
-  Candy: [],
-  'Synth wave 84': []
+  'haui light': [{ path: '/backgrounds/haui-light/1.jpg', hash: 'L4F5gBK$00EL.jot^*_M00%2-;Ns' }],
+  Candy: [
+    { path: '/backgrounds/candy/1.jpg', hash: 'L4F5gBK$00EL.jot^*_M00%2-;Ns' },
+    { path: '/backgrounds/candy/2.jpg', hash: 'L4F5gBK$00EL.jot^*_M00%2-;Ns' },
+    { path: '/backgrounds/candy/3.jpg', hash: 'L4F5gBK$00EL.jot^*_M00%2-;Ns' }
+  ],
+  Electric: [{ path: '/backgrounds/electric/1.jpg', hash: 'L4F5gBK$00EL.jot^*_M00%2-;Ns' }],
+  Lavender: [
+    { path: '/backgrounds/lavender/1.webp', hash: 'L4F5gBK$00EL.jot^*_M00%2-;Ns' },
+    { path: '/backgrounds/lavender/2.webp', hash: 'L4F5gBK$00EL.jot^*_M00%2-;Ns' }
+  ],
+
+  'Synth wave 84': [
+    { path: '/backgrounds/synth-wave-84/1.jpg', hash: 'L4F5gBK$00EL.jot^*_M00%2-;Ns' },
+    { path: '/backgrounds/synth-wave-84/2.jpg', hash: 'L4F5gBK$00EL.jot^*_M00%2-;Ns' },
+    { path: '/backgrounds/synth-wave-84/3.jpg', hash: 'L4F5gBK$00EL.jot^*_M00%2-;Ns' },
+    { path: '/backgrounds/synth-wave-84/4.jpg', hash: 'L4F5gBK$00EL.jot^*_M00%2-;Ns' }
+  ]
 }
 
 export const THEMES = {
@@ -29,7 +54,23 @@ export const THEMES = {
         'tn-primary': '55, 115, 236',
         'tn-secondary': '92, 142, 245'
       },
-      'dev dark': {
+      'haui light': {
+        'bg-primary': '230, 240, 255',
+        'bg-secondary': '210, 230, 250',
+        'bg-tertiary': '190, 220, 245',
+        'fnt-primary': '30, 40, 60',
+        'fnt-secondary': '60, 80, 120',
+        'fnt-active': '255, 255, 255',
+        'tn-primary': '0, 102, 254',
+        'tn-secondary': '244, 248, 255',
+        'tn-tertiary': '244, 248, 255'
+      }
+    }
+  },
+  dark: {
+    Icon: MoonStarIcon,
+    styles: {
+      'haui dark': {
         'bg-primary': '10, 10, 10',
         'bg-secondary': '16, 16, 16',
         'bg-tertiary': '44, 42, 42',
@@ -41,33 +82,31 @@ export const THEMES = {
       }
     }
   },
-  dark: {
-    Icon: MoonStarIcon,
-    styles: {
-      'Cherry Blossom': {
-        'bg-primary': '35, 20, 25',
-        'bg-secondary': '50, 30, 40',
-        'bg-tertiary': '70, 45, 60',
-        'fnt-primary': '255, 230, 240',
-        'fnt-secondary': '220, 180, 200',
-        'fnt-active': '0, 0, 0',
-        'tn-primary': '255, 140, 180',
-        'tn-secondary': '230, 120, 160'
-      }
-    }
-  },
   light: {
     Icon: SunIcon,
     styles: {
       Candy: {
-        'bg-primary': '255, 245, 250',
-        'bg-secondary': '255, 225, 240',
-        'bg-tertiary': '250, 205, 230',
-        'fnt-primary': '50, 25, 40',
-        'fnt-secondary': '80, 50, 70',
+        'bg-primary': '255, 200, 240',
+        'bg-secondary': '255, 180, 220',
+        'bg-tertiary': '255, 160, 200',
+        'fnt-primary': '50, 30, 50',
+        'fnt-secondary': '80, 50, 80',
         'fnt-active': '255, 255, 255',
-        'tn-primary': '255, 120, 180',
-        'tn-secondary': '235, 100, 160'
+        'tn-primary': '235, 130, 180',
+        'tn-secondary': '225, 120, 170',
+        'tn-tertiary': '255, 238, 250'
+      },
+      // === FAMILIA PÚRPURA/LAVANDA ===
+      Lavender: {
+        'bg-primary': '240, 230, 255',
+        'bg-secondary': '220, 210, 245',
+        'bg-tertiary': '200, 190, 235',
+        'fnt-primary': '50, 30, 70',
+        'fnt-secondary': '100, 80, 120',
+        'fnt-active': '255, 255, 255',
+        'tn-primary': '150, 100, 200',
+        'tn-secondary': '130, 80, 180',
+        'tn-tertiary': '233, 211, 255'
       }
     }
   },
@@ -75,14 +114,26 @@ export const THEMES = {
     Icon: ZapIcon,
     styles: {
       'Synth wave 84': {
-        'bg-primary': '8, 8, 25',
-        'bg-secondary': '18, 18, 35',
-        'bg-tertiary': '28, 28, 45',
+        'bg-primary': '5, 0, 20',
+        'bg-secondary': '15, 10, 40',
+        'bg-tertiary': '25, 20, 60',
         'fnt-primary': '255, 100, 255',
-        'fnt-secondary': '100, 240, 255',
+        'fnt-secondary': '100, 255, 255',
         'fnt-active': '255, 255, 255',
-        'tn-primary': '172, 9, 255',
-        'tn-secondary': '220, 90, 180'
+        'tn-primary': '255, 0, 128',
+        'tn-secondary': '128, 255, 255',
+        'tn-tertiary': '255, 248, 255'
+      },
+      Electric: {
+        'bg-primary': '0, 0, 30',
+        'bg-secondary': '20, 0, 50',
+        'bg-tertiary': '40, 20, 70',
+        'fnt-primary': '255, 255, 0',
+        'fnt-secondary': '255, 0, 255',
+        'fnt-active': '0, 0, 0',
+        'tn-primary': '0, 255, 255',
+        'tn-secondary': '255, 100, 255',
+        'tn-tertiary': '255, 255, 184'
       }
     }
   }
