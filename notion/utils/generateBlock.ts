@@ -27,6 +27,7 @@ export interface MdxContentProps {
   words?: number
   readingTime?: number
   imageProps: MdxImageContentProps
+  allImagesBySections?: string[]
 }
 
 interface Props {
@@ -93,9 +94,10 @@ export async function generateBlock(props: Props) {
 
       const plainText = stripHtml(html).result
       const stats = readingTime(plainText)
+      const { result, allImages } = escapeHTML(html)
 
-      content = `${mdxContent({ readingTime: Math.ceil(stats.minutes), words: stats.words, imageProps })}\n`
-      content += escapeHTML(html)
+      content = `${mdxContent({ readingTime: Math.ceil(stats.minutes), words: stats.words, imageProps, allImagesBySections: allImages })}\n`
+      content += result
     }
 
     await writeFile(mdxFilePath, content)

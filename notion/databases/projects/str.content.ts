@@ -7,10 +7,10 @@ export const projectContent = (project: NotionProjectsDB, coverUrl: string | und
   const { id, properties, created_time } = project
   const title = properties.Name.title[0].plain_text
 
-  const { Prioridad, Equipo, Progreso, Tags } = properties
+  const { Prioridad, Equipo, Progreso, Tags, Logo, Estado, Github, Notion, Website, Figma } = properties
   const lastEditedTime = properties['Última edición'].last_edited_time
 
-  const { imageProps, readingTime, words } = contentProps
+  const { imageProps, readingTime, words, allImagesBySections = [] } = contentProps
   const imagePropsStr = imageContentStr(imageProps, 'projects', coverUrl ? id : undefined)
 
   return `---
@@ -21,9 +21,17 @@ words: ${words ?? 0}
 priority: '${Prioridad?.select?.name ?? ''}'
 team: '${Equipo?.select?.name ?? ''}'
 progress: ${Progreso?.number ?? 0}
+status: '${Estado?.status?.name}'
+github: '${Github?.url ?? ''}'
+website: '${Website?.url ?? ''}'
+figma: '${Figma?.url ?? ''}'
+notion: '${Notion?.url ?? ''}'
+logo: '${Logo?.url ?? ''}'
+
 ${imagePropsStr}
 created_time: '${created_time}'
 last_edited_time: '${lastEditedTime}'
+allImagesBySections: [${allImagesBySections?.map(img => `'${img}'`).join(', ')}]
 tags: [${Tags?.multi_select.map(item => `'${item.name}'`).join(', ')}]
 
 

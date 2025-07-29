@@ -37,6 +37,7 @@ export const generateProjects = async () => {
         const coverUrl = cover?.external.url
 
         await generateBlock({
+          generateContent: true,
           blockId: id,
           coverImage: coverUrl,
           lastEditedTime: project.properties['Última edición'].last_edited_time,

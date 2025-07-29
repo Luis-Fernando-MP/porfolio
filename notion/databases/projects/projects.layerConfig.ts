@@ -15,6 +15,38 @@ const marksFields: FieldDefs = {
     type: 'number',
     required: true
   },
+
+  status: {
+    type: 'string',
+    required: true
+  },
+  github: {
+    type: 'string',
+    required: false
+  },
+  website: {
+    type: 'string',
+    required: false
+  },
+  figma: {
+    type: 'string',
+    required: false
+  },
+  notion: {
+    type: 'string',
+    required: false
+  },
+  logo: {
+    type: 'string',
+    required: false
+  },
+  allImagesBySections: {
+    type: 'list',
+    of: { type: 'string' },
+    required: false,
+    default: []
+  },
+
   tags: {
     type: 'list',
     of: { type: 'string' },

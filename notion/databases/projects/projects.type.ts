@@ -8,6 +8,12 @@ interface Properties {
     title: NotionRichText[]
   }
 
+  Github: { id: string; type: 'url'; url?: string } | null
+  Website: { id: string; type: 'url'; url?: string } | null
+  Figma: { id: string; type: 'url'; url?: string } | null
+  Notion: { id: string; type: 'url'; url?: string } | null
+  Logo: { id: string; type: 'url'; url?: string } | null
+
   Prioridad: {
     type: 'select'
     select: { name: string; color: string } | null

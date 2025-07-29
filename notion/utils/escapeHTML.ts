@@ -1,13 +1,12 @@
 import { HTMLElement, TextNode, parse } from 'node-html-parser'
 
-export function escapeHTML(html: string): string {
-  html = html
-    .replace(/\s+(target="_blank")(?=.*\1)/g, '') // Borra el _blank duplicado (generado por Canva)
-    .replaceAll('   ', '')
-    .replaceAll('\n\n\n', '')
-    .trim()
+export function escapeHTML(html: string) {
+  html = html.replaceAll('   ', '').replaceAll('\n\n\n', '').trim()
+  html = removeAllDeleteSections(html)
 
-  // HTML de entrada en un árbol DOM manipulable
+  const { allImages, newStr: cleanedHtml } = getImagesFromCustomSection(html)
+  html = cleanedHtml
+
   const root = parse(html, {
     blockTextElements: {
       script: true,
@@ -22,93 +21,106 @@ export function escapeHTML(html: string): string {
       mark: true,
       span: true
     },
-
     voidTag: {
-      // Etiquetas que no tienen etiqueta de cierre
       tags: ['area', 'base', 'br', 'col', 'embed', 'hr', 'img', 'input', 'link', 'meta', 'param', 'source', 'track', 'wbr'],
       closingSlash: true
     }
   })
 
-  // Función para escapar caracteres especiales en el texto
-  const escape = (text: string) =>
-    text
-      .replace(/<!--/g, '&lt;!--') // <!--
-      .replace(/-->/g, '--&gt;') // -->
-      .replace(/\/\*/g, '&#47;&#42;') // /*
-      .replace(/\*\//g, '&#42;&#47;') // */
-      .replace(/\/\/\s/g, '&#47;&#47; ') // //
-      .replace(/^#/gm, '&#35;') // #
-      .replace(/_/g, '&#95;') // _
-      .replace(/</g, '&lt;') // <
-      .replace(/>/g, '&gt;') // >
-      .replace(/{/g, '&#123;') // {
-      .replace(/}/g, '&#125;') // }
-      .replace(/\(/g, '&#40;') // (
-      .replace(/\)/g, '&#41;') // )
-      .replace(/"/g, '&quot;') // "
-      .replace(/'/g, '&#39;') // '
-      .replace(/`/g, '&#96;') // `
-      .replace(/\?/g, '&#63;') // ?
-      .replace(/,/g, '&#44;') // ,
-      .replace(/\+/g, '&#43;') // +
-      .replace(/\^/g, '&#94;') // ^
+  walkAndTransform(root, escapeSpecialChars)
 
-  // Función para recorrer y procesar los nodos del árbol DOM
-  function walk(node: HTMLElement) {
-    node.childNodes.forEach(child => {
-      // Si es un elemento HTML, procesar recursivamente
-      if (child instanceof HTMLElement) {
-        // Convertir <img> a <Image ... />
-        if (child.tagName === 'IMG') {
-          const src = child.getAttribute('src') ?? '/fallback.webp'
-          const alt = child.getAttribute('alt') ?? 'haui bloc image'
-          const width = child.getAttribute('width') ?? ''
-          const height = child.getAttribute('height') ?? ''
+  const result = root
+    .toString()
+    .replace(/\s+(target="_blank")(?=.*\1)/g, '')
+    .replace(/>&#/g, '>\n&#')
+    .replaceAll('class', 'className')
 
-          // Aquí puedes personalizar cómo se inserta el componente Image
-          child.replaceWith(parse(`<Image layout='fullWidth' src="${src}" alt="${alt}" width="${width}" height="${height}" />`))
-        }
-
-        // Si es un <input>, ajustamos sus props para React
-        if (child.tagName === 'INPUT') {
-          child.setAttribute('readOnly', '')
-        }
-
-        // Manejo especial para nodos PRE
-        if (node.tagName === 'PRE') {
-          const inner = parse(node.innerHTML)
-          const codeNode = inner.querySelector('code')
-          if (!codeNode) return
-
-          // Extrae el lenguaje desde className (si lo hay)
-          const langMatch = codeNode.getAttribute('class')?.match(/language-(\w+)/)
-          const lang = langMatch ? langMatch[1] : ''
-
-          // Obtiene y limpia el contenido del <code>
-          const codeText = codeNode.text.trim()
-
-          // Reemplaza el nodo <pre> entero por el bloque markdown ```lang
-          node.replaceWith(parse(`\`\`\`${lang}\n${codeText}\n\`\`\``))
-          return
-        }
-
-        walk(child)
-      }
-      // Si es un nodo de texto, escapar su contenido
-      if (child instanceof TextNode) child.rawText = escape(child.rawText)
-    })
-  }
-
-  walk(root)
-
-  return root.toString().replace(/>&#/g, '>\n&#').replaceAll('class', 'className')
+  return { result, allImages }
 }
 
-const test = ` <pre><code className="language-bash">
-git clone https://github.com/Luis-Fernando-MP/coral.git
-cd coral
-</code></pre>
- `
+function getImagesFromCustomSection(html: string) {
+  const imageBlockRegex =
+    /<p[^>]*>\s*(<span[^>]*>)?#image-from(<\/span>)?\s*<\/p>[\s\S]*?<p[^>]*>\s*(<span[^>]*>)?#image-to(<\/span>)?\s*<\/p>/g
 
-console.log(escapeHTML(test))
+  let matches: RegExpExecArray | null = null
+  let allImages: string[] = []
+
+  while (true) {
+    matches = imageBlockRegex.exec(html)
+    if (!matches) break
+    const matchedBlock = matches[0]
+    const parsedBlock = parse(matchedBlock)
+    const imgElements = parsedBlock.querySelectorAll('img')
+    const imagesFromBlock = imgElements.filter(img => Boolean(img.getAttribute('src'))).map(img => img.getAttribute('src') ?? '')
+    allImages.push(...imagesFromBlock)
+    html = html.replace(matchedBlock, '')
+    imageBlockRegex.lastIndex = 0
+  }
+  return { allImages, newStr: html }
+}
+
+function removeAllDeleteSections(html: string): string {
+  const deleteRegex = /<p[^>]*>\s*(<span[^>]*>)?#delete-from(<\/span>)?[\s\S]*?(<span[^>]*>)?#delete-to(<\/span>)?\s*<\/p>/g
+  return html.replace(deleteRegex, '')
+}
+
+function escapeSpecialChars(text: string): string {
+  return text
+    .replace(/<!--/g, '&lt;!--')
+    .replace(/-->/g, '--&gt;')
+    .replace(/\/\*/g, '&#47;&#42;')
+    .replace(/\*\//g, '&#42;&#47;')
+    .replace(/\/\/\s/g, '&#47;&#47; ')
+    .replace(/^#/gm, '&#35;')
+    .replace(/_/g, '&#95;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;')
+    .replace(/{/g, '&#123;')
+    .replace(/}/g, '&#125;')
+    .replace(/\(/g, '&#40;')
+    .replace(/\)/g, '&#41;')
+    .replace(/"/g, '&quot;')
+    .replace(/'/g, '&#39;')
+    .replace(/`/g, '&#96;')
+    .replace(/\?/g, '&#63;')
+    .replace(/,/g, '&#44;')
+    .replace(/\+/g, '&#43;')
+    .replace(/\^/g, '&#94;')
+}
+
+function walkAndTransform(node: HTMLElement, escapeFn: (s: string) => string) {
+  node.childNodes.forEach(child => {
+    if (child instanceof HTMLElement) {
+      if (child.tagName === 'IMG') {
+        const src = child.getAttribute('src') ?? '/fallback.webp'
+        const alt = child.getAttribute('alt') ?? 'haui bloc image'
+        const width = child.getAttribute('width') ?? ''
+        const height = child.getAttribute('height') ?? ''
+        child.replaceWith(parse(`<Image layout='fullWidth' src="${src}" alt="${alt}" width="${width}" height="${height}" />`))
+      }
+
+      if (child.tagName === 'INPUT') {
+        child.setAttribute('readOnly', '')
+      }
+
+      if (node.tagName === 'PRE') {
+        const innerParsed = parse(node.innerHTML)
+        const codeElement = innerParsed.querySelector('code')
+        if (!codeElement) return
+
+        const langClass = codeElement.getAttribute('class')?.match(/language-(\w+)/)
+        const language = langClass ? langClass[1] : ''
+        const codeContent = codeElement.text.trim()
+
+        node.replaceWith(parse(`\`\`\`${language}\n${codeContent}\n\`\`\``))
+        return
+      }
+
+      walkAndTransform(child, escapeFn)
+    }
+
+    if (child instanceof TextNode) {
+      child.rawText = escapeFn(child.rawText)
+    }
+  })
+}
