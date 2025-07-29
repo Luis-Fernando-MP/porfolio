@@ -12,9 +12,10 @@ const useLoadStore = () => {
 
   useLayoutEffect(() => {
     const root = document.documentElement
-    const { colors, theme: curTheme } = currentTheme()
+    const { colors, theme: curTheme, style } = currentTheme()
     if (colors) {
       root.setAttribute('data-theme', curTheme)
+      root.setAttribute('data-style', style)
       Object.entries(colors).forEach(([name, color]) => {
         root.style.setProperty(`--${name}`, `${color}`)
       })
@@ -24,7 +25,6 @@ const useLoadStore = () => {
   useLayoutEffect(() => {
     const root = document.documentElement
     root.style.fontSize = `${fontSize()}px`
-    console.log('font', `${fontSize()}px`)
   }, [])
 
   return { theme }

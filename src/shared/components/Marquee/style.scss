@@ -1,0 +1,63 @@
+@use '@sass/config/vars' as v;
+@use '@sass/utils/defs' as d;
+
+.marquee {
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+
+  &::before,
+  &::after {
+    pointer-events: none;
+    content: '';
+
+    position: absolute;
+    z-index: 2;
+    top: 0;
+
+    width: 5rem;
+    height: 100%;
+  }
+
+  &::before {
+    left: 0;
+    background: linear-gradient(to right, rgb(v.$bg1) 0%, transparent 100%);
+  }
+
+  &::after {
+    right: 0;
+    background: linear-gradient(to left, rgb(v.$bg1) 0%, transparent 100%);
+  }
+
+  &-track {
+    will-change: transform;
+    width: max-content;
+    animation: scroll-left 40s linear infinite;
+
+    @include d.flex($dir: row);
+  }
+
+  &-pause &-track:hover {
+    animation-play-state: paused;
+  }
+}
+
+@keyframes scroll-left {
+  0% {
+    transform: translateX(0%);
+  }
+
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+@keyframes scroll-right {
+  0% {
+    transform: translateX(-50%);
+  }
+
+  100% {
+    transform: translateX(0%);
+  }
+}

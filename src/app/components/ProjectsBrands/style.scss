@@ -1,0 +1,54 @@
+@use '@sass/config/vars' as v;
+@use '@sass/utils/defs' as d;
+
+.projectsBrands {
+  width: 100%;
+
+  @include d.flex($dir: row);
+
+  &-marquee {
+    max-width: 400px;
+  }
+
+  &-item {
+    width: fit-content;
+    padding: v.$btn-padding;
+  }
+
+  &-brand {
+    width: fit-content;
+    max-width: 50px;
+    height: 25px;
+    max-height: 25px;
+
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain !important;
+    }
+  }
+}
+
+html[data-style='default'] {
+  .projectsBrands-brand {
+    filter: grayscale(1);
+  }
+}
+
+html[data-style='chaotic'] {
+  .projectsBrands-brand {
+    filter: grayscale(1);
+  }
+}
+
+html[data-style='dark'] {
+  .projectsBrands-brand {
+    filter: grayscale(1);
+  }
+}
+
+html[data-style='light'] {
+  .projectsBrands-brand {
+    filter: brightness(0.2) grayscale(1) opacity(0.9);
+  }
+}

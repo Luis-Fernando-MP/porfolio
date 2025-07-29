@@ -1,25 +1,25 @@
-'use client'
-
-import Mdx from '@/shared/components/Mdx'
+import Marquee from '@/shared/components/Marquee'
 import { Image } from '@unpic/react'
 import { allProjects } from 'contentlayer/generated'
 import type { FC } from 'react'
 
+import './style.scss'
+
 const ProjectsBrands: FC = () => {
   return (
-    <div>
-      {allProjects.map(project => {
-        return (
-          <section key={project.id}>
-            <Image src={project.thumb} width={project.thumb_width / 3} height={project.thumb_height / 3} alt={project.title} />
-            <h4>{project.title}</h4>
-            <p>Tags: {project.tags.join(',')}</p>
-            ----- Abajo ----
-            <Mdx code={project.body.code} />
-          </section>
-        )
-      })}
-    </div>
+    <section className='projectsBrands'>
+      <Marquee className='projectsBrands-marquee'>
+        {allProjects.map(project => (
+          <div key={`${project.id}-brand`} className='projectsBrands-item frow'>
+            <div className='projectsBrands-brand'>
+              <Image src={project.logo ?? ''} layout='fullWidth' alt={project.title} />
+            </div>
+
+            <h5 className='projectsBrands-brandName'>{project.title}</h5>
+          </div>
+        ))}
+      </Marquee>
+    </section>
   )
 }
 
