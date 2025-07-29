@@ -21,6 +21,18 @@
     }
   }
 
+  &-wrapper {
+    @include d.flex($gap: v.$section-padding);
+
+    margin-bottom: v.$section-padding;
+  }
+
+  &-section {
+    width: 100%;
+    height: fit-content;
+    min-height: 100vh;
+  }
+
   &-presentation {
     display: grid;
     grid-template-columns: 1fr 350px;

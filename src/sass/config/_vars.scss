@@ -31,10 +31,10 @@ $radius: 5px;
 $min-padding: 7px;
 $padding: 10px;
 $big-padding: 50px;
+$section-padding: 150px;
 $icon: 18px;
-$fontBase: 'Roboto', 'Georgia', 'Segoe UI Mono';
-$font1: var(--family1);
-$font2: var(--family2);
+$font1: var(--family1), arial, helvetica, sans-serif, 'Segoe UI Mono';
+$font2: var(--family2), georgia, 'Times New Roman', times, serif;
 
 // Basic colors
 $error: rgb(228 30 56);

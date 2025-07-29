@@ -3,7 +3,7 @@
 import useSound from '@/shared/hook/useSound'
 import IconButton from '@/shared/ui/IconButton'
 import { MoreHorizontalIcon } from 'lucide-react'
-import { type FC, type HTMLAttributes, type ReactNode, useState } from 'react'
+import { type FC, type HTMLAttributes, type ReactNode, useRef, useState } from 'react'
 
 import './style.scss'
 
@@ -47,13 +47,12 @@ const SliceContainer: FC<Props> = ({
   ...props
 }) => {
   const [isExtended, setIsExtended] = useState(false)
-  const [play] = useSound('BUTTON_ON', { interrupt: true })
   const exMaxHeight = extendedMaxHeight ? `${extendedMaxHeight}px` : '100%'
+  const $btn = useRef<HTMLButtonElement>(null)
 
   const toggle = () => {
     setIsExtended(prev => !prev)
     onExtend?.()
-    play()
   }
 
   return (
@@ -78,7 +77,7 @@ const SliceContainer: FC<Props> = ({
           <button
             type='button'
             className='sliceContainer-gradient'
-            onClick={toggle}
+            onClick={() => $btn?.current?.click()}
             aria-label='Expand content'
             style={{
               backgroundImage: `linear-gradient(rgb(${overlayColor}, 0) 60%, rgb(${overlayColor}))`
@@ -88,8 +87,9 @@ const SliceContainer: FC<Props> = ({
       </div>
 
       <IconButton
-        noSound
+        ref={$btn}
         onClick={toggle}
+        soundType={isExtended ? 'BUTTON_OFF' : 'BUTTON_ON'}
         className='sliceContainer-action'
         aria-pressed={isExtended}
         aria-label={isExtended ? 'Collapse content' : 'Expand content'}

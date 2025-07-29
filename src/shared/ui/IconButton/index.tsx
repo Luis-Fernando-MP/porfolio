@@ -4,7 +4,7 @@ import { type Audio } from '@/constants/audio'
 import { acl } from '@/shared/acl'
 import useSound from '@/shared/hook/useSound'
 import Link from 'next/link'
-import type { AnchorHTMLAttributes, ButtonHTMLAttributes, FC, MouseEvent, ReactNode } from 'react'
+import type { AnchorHTMLAttributes, ButtonHTMLAttributes, FC, MouseEvent, ReactNode, Ref } from 'react'
 
 import LabelText from '../LabelText'
 import './style.scss'
@@ -27,11 +27,13 @@ type CommonProps = {
 
 type ButtonProps = CommonProps & {
   isLink?: false
+  ref?: Ref<HTMLButtonElement>
 } & ButtonHTMLAttributes<HTMLButtonElement>
 
 type LinkProps = CommonProps & {
   isLink: true
   href: string
+  ref?: Ref<HTMLAnchorElement>
 } & AnchorHTMLAttributes<HTMLAnchorElement>
 
 type Props = ButtonProps | LinkProps
@@ -93,6 +95,7 @@ type Props = ButtonProps | LinkProps
  * </IconButton>
  */
 const IconButton: FC<Props> = ({
+  ref,
   children,
   label,
   label_position = 'top',
@@ -130,6 +133,7 @@ const IconButton: FC<Props> = ({
   if (isLink && 'href' in props && !disable) {
     return (
       <Link
+        ref={ref as Ref<HTMLAnchorElement>}
         href={props.href}
         className={parsedClassName}
         onClick={handleClick}
@@ -142,6 +146,7 @@ const IconButton: FC<Props> = ({
 
   return (
     <button
+      ref={ref as Ref<HTMLButtonElement>}
       className={parsedClassName}
       disabled={disable}
       onClick={handleClick}

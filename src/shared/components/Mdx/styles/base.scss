@@ -7,7 +7,7 @@
 @use '@sass/config/vars' as v;
 
 $prism-primary-text: rgb(v.$fn1);
-$prism-background: rgb(v.$bg2, 0.8);
+$prism-background: rgb(v.$bg2);
 $prism-shadow-base: none;
 $prism-inline-bg-base: rgba(v.$bg2, 0.85);
 $prism-selection-base: rgba(v.$tn1, 0.35);
