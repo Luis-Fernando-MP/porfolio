@@ -14,6 +14,14 @@ interface Properties {
   Notion: { id: string; type: 'url'; url?: string } | null
   Logo: { id: string; type: 'url'; url?: string } | null
 
+  Relevancia: {
+    type: 'status'
+    status: {
+      name: NotionProjectStatus
+      color: string
+    } | null
+  } | null
+
   Prioridad: {
     type: 'select'
     select: { name: string; color: string } | null

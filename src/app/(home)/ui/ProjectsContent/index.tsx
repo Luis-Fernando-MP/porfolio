@@ -6,6 +6,7 @@ import { ArrowRightIcon } from 'lucide-react'
 import type { FC } from 'react'
 
 import LastedPosts from '../../components/LastedPosts'
+import LatestProjects from '../../components/LatestProjects'
 import './style.scss'
 import './userMobile.scss'
 
@@ -30,7 +31,7 @@ const ProjectsContent: FC = () => {
       </IconButton>
 
       <ProjectsBrands />
-      {/* <LastedPosts /> */}
+      <LatestProjects />
     </article>
   )
 }

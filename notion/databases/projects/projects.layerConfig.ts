@@ -3,6 +3,11 @@ import { FieldDefs, defineDocumentType } from 'contentlayer2/source-files'
 import { commonLayerConfigFields } from '../commonLayerConfigFields'
 
 const marksFields: FieldDefs = {
+  relevance: {
+    type: 'number',
+    required: true,
+    default: 1
+  },
   priority: {
     type: 'string',
     required: true

@@ -13,8 +13,6 @@ interface Props {
   cutTitle: string
 }
 
-const defaultBlurhash = { blurhash: '', placeholder: '', width: 0, height: 0 }
-
 export async function handleImageProcessing(props: Props) {
   const { blockId, mdxImagesPath, coverImage, lastEditedTimeMs, cutTitle } = props
 
