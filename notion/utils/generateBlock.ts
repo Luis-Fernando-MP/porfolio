@@ -8,12 +8,13 @@ import notion from '../api'
 import { escapeHTML } from './escapeHTML'
 import { fileExists, lastEditedFile, writeFile } from './fs'
 import { getAllBlocks } from './getAllBlocks'
-import { handleImageProcessing } from './handleImageProcessing'
+import { SimpleAdditionalImages, handleImageProcessing, processMultipleImages } from './handleImageProcessing'
 import clog from './log'
 
 const renderer = new NotionRenderer({ client: notion })
 
 export interface MdxImageContentProps {
+  type: string
   blurhash: string
   placeholder: string
   bannerWidth: number
@@ -27,7 +28,7 @@ export interface MdxContentProps {
   words?: number
   readingTime?: number
   imageProps: MdxImageContentProps
-  allImagesBySections?: string[]
+  additionalImages?: SimpleAdditionalImages[]
 }
 
 interface Props {
@@ -65,7 +66,8 @@ export async function generateBlock(props: Props) {
     console.log(chalk.blueBright('\n━━━━━━━━━━━━━━━━━━━━━━━━━━━━━'))
     clog.info(`Generando bloque: ${cutTitle}`, '')
 
-    let imageProps = {
+    let imageProps: MdxImageContentProps = {
+      type: 'cover',
       blurhash: '',
       placeholder: '',
       bannerWidth: 0,
@@ -75,15 +77,18 @@ export async function generateBlock(props: Props) {
       aspectRatio: 0
     }
 
+    let additionalImages: SimpleAdditionalImages[] = []
+
     if (coverImage) {
-      const processImage = await handleImageProcessing({
+      const processed = await handleImageProcessing({
         blockId,
         mdxImagesPath,
-        coverImage,
+        imageUrl: coverImage,
         lastEditedTimeMs,
-        cutTitle
+        cutTitle,
+        imageKey: 'cover'
       })
-      if (processImage) imageProps = processImage
+      if (processed) imageProps = processed
     }
 
     let content = `${mdxContent({ imageProps })}`
@@ -96,7 +101,19 @@ export async function generateBlock(props: Props) {
       const stats = readingTime(plainText)
       const { result, allImages } = escapeHTML(html)
 
-      content = `${mdxContent({ readingTime: Math.ceil(stats.minutes), words: stats.words, imageProps, allImagesBySections: allImages })}\n`
+      if (allImages.length > 0) {
+        additionalImages = await processMultipleImages({
+          blockId,
+          mdxImagesPath,
+          lastEditedTimeMs,
+          cutTitle,
+          imageUrls: allImages
+        })
+
+        console.log('generado', additionalImages)
+      }
+
+      content = `${mdxContent({ readingTime: Math.ceil(stats.minutes), words: stats.words, imageProps, additionalImages })}\n`
       content += result
     }
 

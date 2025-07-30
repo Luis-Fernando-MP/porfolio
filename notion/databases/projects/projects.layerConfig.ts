@@ -1,6 +1,14 @@
-import { FieldDefs, defineDocumentType } from 'contentlayer2/source-files'
+import { FieldDefs, defineDocumentType, defineNestedType } from 'contentlayer2/source-files'
 
 import { commonLayerConfigFields } from '../commonLayerConfigFields'
+
+export const ImageSection = defineNestedType(() => ({
+  name: 'ImageSection',
+  fields: {
+    banner: { type: 'string', required: false },
+    thumb: { type: 'string', required: false }
+  }
+}))
 
 const marksFields: FieldDefs = {
   relevance: {
@@ -45,11 +53,15 @@ const marksFields: FieldDefs = {
     type: 'string',
     required: false
   },
+  summary: {
+    type: 'string',
+    required: false,
+    default: ''
+  },
   allImagesBySections: {
     type: 'list',
-    of: { type: 'string' },
-    required: false,
-    default: []
+    of: ImageSection,
+    required: false
   },
 
   tags: {

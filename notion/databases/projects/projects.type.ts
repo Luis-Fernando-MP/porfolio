@@ -14,6 +14,11 @@ interface Properties {
   Notion: { id: string; type: 'url'; url?: string } | null
   Logo: { id: string; type: 'url'; url?: string } | null
 
+  Resumen?: {
+    type: 'rich_text'
+    rich_text: (NotionRichText | null)[]
+  } | null
+
   Relevancia: {
     type: 'status'
     status: {

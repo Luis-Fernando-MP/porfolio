@@ -7,6 +7,8 @@ interface Props extends Projects {}
 
 const Project: FC<Props> = props => {
   const { thumb, aspectRatio, title, tags, id, allImagesBySections } = props
+
+  console.log('allImagesBySections', allImagesBySections)
   return (
     <div className='project'>
       <Image className='project-background' src={thumb} aspectRatio={aspectRatio} layout='fullWidth' />
@@ -29,13 +31,14 @@ const Project: FC<Props> = props => {
           </div>
 
           <div className='project-images'>
-            {allImagesBySections.map(extraImage => {
+            {allImagesBySections?.map(images => {
+              const { banner, thumb } = images
               return (
                 <Image
-                  key={extraImage}
+                  key={banner ?? ''}
                   width={50}
                   height={50}
-                  src={extraImage}
+                  src={banner ?? ''}
                   className='project-image'
                   loading='lazy'
                   fetchPriority='low'
