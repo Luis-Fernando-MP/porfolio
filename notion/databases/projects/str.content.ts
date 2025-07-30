@@ -29,12 +29,17 @@ website: '${Website?.url ?? ''}'
 figma: '${Figma?.url ?? ''}'
 notion: '${Notion?.url ?? ''}'
 logo: '${Logo?.url ?? ''}'
-summary: '${Resumen?.rich_text[0]?.text.content ?? ''}'
+summary: '${
+    Resumen?.rich_text
+      ?.map(rt => rt?.plain_text)
+      .join('')
+      .replace(/[\n\r]/g, '') ?? ''
+  }'
 created_time: '${created_time}'
 last_edited_time: '${lastEditedTime}'
-${additionalImgsStr}
-tags: [${Tags?.multi_select.map(item => `'${item.name}'`).join(', ')}]
 ${imagePropsStr}
+tags: [${Tags?.multi_select.map(item => `'${item.name}'`).join(', ')}]
+${additionalImgsStr}
 
 
 ---`

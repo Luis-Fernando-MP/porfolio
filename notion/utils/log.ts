@@ -1,7 +1,7 @@
 import chalk from 'chalk'
 
 const clog = {
-  info: (msg: string, prev: string = '\n') => console.log(chalk.blueBright(`${prev}🛈  ${msg}`)),
+  info: (msg: string, prev: string = '\n') => console.log(chalk.blueBright(`${prev}○  ${msg}`)),
   success: (msg: string, prev: string = '') => console.log(chalk.greenBright(`${prev}▎${msg}`)),
   warn: (msg: string, prev: string = '\n') => console.log(chalk.yellow(`${prev}▎${msg}`)),
   error: (msg: string) => console.log(chalk.red(`\n▎${msg}`)),

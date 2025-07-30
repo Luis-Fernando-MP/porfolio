@@ -14,7 +14,6 @@ import clog from './log'
 const renderer = new NotionRenderer({ client: notion })
 
 export interface MdxImageContentProps {
-  type: string
   blurhash: string
   placeholder: string
   bannerWidth: number
@@ -67,7 +66,6 @@ export async function generateBlock(props: Props) {
     clog.info(`Generando bloque: ${cutTitle}`, '')
 
     let imageProps: MdxImageContentProps = {
-      type: 'cover',
       blurhash: '',
       placeholder: '',
       bannerWidth: 0,
@@ -85,8 +83,7 @@ export async function generateBlock(props: Props) {
         mdxImagesPath,
         imageUrl: coverImage,
         lastEditedTimeMs,
-        cutTitle,
-        imageKey: 'cover'
+        cutTitle
       })
       if (processed) imageProps = processed
     }
@@ -109,8 +106,6 @@ export async function generateBlock(props: Props) {
           cutTitle,
           imageUrls: allImages
         })
-
-        console.log('generado', additionalImages)
       }
 
       content = `${mdxContent({ readingTime: Math.ceil(stats.minutes), words: stats.words, imageProps, additionalImages })}\n`

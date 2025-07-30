@@ -13,7 +13,6 @@ interface ProcessingImgProps {
   imageUrl: string
   lastEditedTimeMs: number
   cutTitle: string
-  imageKey: string
 }
 
 export type SimpleAdditionalImages = {
@@ -29,16 +28,17 @@ function toPublicRelativePath(fullPath: string): string {
 
 // Procesa imagen principal cover con blurhash
 export async function handleImageProcessing(props: ProcessingImgProps): Promise<MdxImageContentProps | undefined> {
-  const { blockId, mdxImagesPath, imageUrl, lastEditedTimeMs, cutTitle, imageKey } = props
+  const { blockId, mdxImagesPath, imageUrl, lastEditedTimeMs, cutTitle } = props
   const folder = path.join(mdxImagesPath, blockId)
-  const bannerFull = path.join(folder, `${imageKey}-banner.webp`)
-  const thumbFull = path.join(folder, `${imageKey}-thumb.webp`)
+  const bannerFull = path.join(folder, 'banner.webp')
+  const thumbFull = path.join(folder, 'thumb.webp')
 
   const bannerExists = await fileExists(bannerFull)
   const thumbExists = await fileExists(thumbFull)
   const modified = bannerExists ? getFileTime(bannerFull) : 0
 
   if (bannerExists && thumbExists && modified === lastEditedTimeMs) {
+    clog.warn(`Sin cambios en el cover de ${cutTitle}`)
     return
   }
 
@@ -55,6 +55,7 @@ export async function handleImageProcessing(props: ProcessingImgProps): Promise<
     })
 
     const { blurhash, placeholder } = await blurHashAndGradient(thumbFull)
+    clog.info(`Cover de ${cutTitle} descargado`, '')
 
     return {
       blurhash,
@@ -63,17 +64,18 @@ export async function handleImageProcessing(props: ProcessingImgProps): Promise<
       bannerHeight: bannerImage.height,
       thumbWidth: thumbImage.width,
       thumbHeight: thumbImage.height,
-      aspectRatio: thumbImage.width / thumbImage.height,
-      type: imageKey
+      aspectRatio: thumbImage.width / thumbImage.height
     }
   } catch (err) {
-    clog.error(`❌ Descarga fallida: ${cutTitle} (${imageKey})`)
+    clog.error(`Descarga fallida: ${cutTitle}`)
     throw new Error(`Image download failed: ${err}`)
   }
 }
 
 // Procesa una imagen dentro de las secciones #image-from, retorna rutas relativas
-async function processSingleGalleryImage(props: ProcessingImgProps): Promise<SimpleAdditionalImages | null> {
+async function processSingleGalleryImage(
+  props: ProcessingImgProps & { imageKey: string }
+): Promise<SimpleAdditionalImages | null> {
   const { blockId, mdxImagesPath, imageUrl, lastEditedTimeMs, cutTitle, imageKey } = props
   const folder = path.join(mdxImagesPath, blockId)
   const bannerFull = path.join(folder, `${imageKey}-banner.webp`)
@@ -84,6 +86,7 @@ async function processSingleGalleryImage(props: ProcessingImgProps): Promise<Sim
   const modified = bannerExists ? getFileTime(bannerFull) : 0
 
   if (bannerExists && thumbExists && modified === lastEditedTimeMs) {
+    clog.warn(`Sin cambios en la imagen: ${imageKey} de ${cutTitle}`)
     return {
       bannerImagePath: toPublicRelativePath(bannerFull),
       thumbImagePath: toPublicRelativePath(thumbFull)
@@ -102,12 +105,14 @@ async function processSingleGalleryImage(props: ProcessingImgProps): Promise<Sim
       title: cutTitle
     })
 
+    clog.info(`Imagen ${imageKey} de ${cutTitle} descargado`, '')
+
     return {
       bannerImagePath: toPublicRelativePath(bannerFull),
       thumbImagePath: toPublicRelativePath(thumbFull)
     }
   } catch (err) {
-    clog.error(`❌ Galería: no se descargó ${cutTitle} (${imageKey})`)
+    clog.error(`no se descargó ${cutTitle} (${imageKey})`)
     return null
   }
 }
