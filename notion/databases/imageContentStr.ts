@@ -1,4 +1,5 @@
 import type { MdxImageContentProps } from '@notion/utils/generateBlock'
+import { SimpleAdditionalImages } from '@notion/utils/handleImageProcessing'
 
 export const imageContentStr = (imageProps: MdxImageContentProps, folder: string, id?: string) => {
   const { aspectRatio, bannerHeight, bannerWidth, blurhash, placeholder, thumbHeight, thumbWidth } = imageProps
@@ -14,4 +15,10 @@ image_blur: '${encode(placeholder)}'
 thumb: ${id ? `'/content/${folder}/${id}/thumb.webp'` : "'/fallback.webp'"}
 thumb_width: ${thumbWidth}
 thumb_height: ${thumbHeight}`
+}
+
+export const additionalImagesStr = (images: SimpleAdditionalImages[]) => {
+  return `allImagesBySections:\n${images
+    .map(({ bannerImagePath, thumbImagePath }) => `  - banner: '${bannerImagePath}'\n    thumb: '${thumbImagePath}'`)
+    .join('\n')}`
 }

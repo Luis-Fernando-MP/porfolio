@@ -1,17 +1,18 @@
 import type { MdxContentProps } from '@notion/utils/generateBlock'
 
-import { imageContentStr } from '../imageContentStr'
+import { additionalImagesStr, imageContentStr } from '../imageContentStr'
 import { NotionProjectsDB } from './projects.type'
 
 export const projectContent = (project: NotionProjectsDB, coverUrl: string | undefined, contentProps: MdxContentProps) => {
   const { id, properties, created_time } = project
   const title = properties.Name.title[0].plain_text
 
-  const { Prioridad, Equipo, Progreso, Tags, Logo, Estado, Github, Notion, Website, Figma, Relevancia } = properties
+  const { Prioridad, Equipo, Progreso, Tags, Logo, Estado, Github, Notion, Website, Figma, Relevancia, Resumen } = properties
   const lastEditedTime = properties['Última edición'].last_edited_time
 
-  const { imageProps, readingTime, words, allImagesBySections = [] } = contentProps
+  const { imageProps, readingTime, words, additionalImages = [] } = contentProps
   const imagePropsStr = imageContentStr(imageProps, 'projects', coverUrl ? id : undefined)
+  const additionalImgsStr = additionalImagesStr(additionalImages)
 
   return `---
 id: '${id}'
@@ -28,11 +29,12 @@ website: '${Website?.url ?? ''}'
 figma: '${Figma?.url ?? ''}'
 notion: '${Notion?.url ?? ''}'
 logo: '${Logo?.url ?? ''}'
-${imagePropsStr}
+summary: '${Resumen?.rich_text[0]?.text.content ?? ''}'
 created_time: '${created_time}'
 last_edited_time: '${lastEditedTime}'
-allImagesBySections: [${allImagesBySections?.map(img => `'${img}'`).join(', ')}]
+${additionalImgsStr}
 tags: [${Tags?.multi_select.map(item => `'${item.name}'`).join(', ')}]
+${imagePropsStr}
 
 
 ---`
