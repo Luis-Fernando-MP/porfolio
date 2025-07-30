@@ -1,44 +1,60 @@
+// src/imageProcessor.ts
 import path from 'path'
 
 import blurHashAndGradient from '../utils/blurHashAndGradient'
 import downloadImage from '../utils/downloadImage'
 import { deleteFileIfExists, fileExists, getFileTime } from '../utils/fs'
 import clog from '../utils/log'
+import { MdxImageContentProps } from './generateBlock'
 
-interface Props {
+interface ProcessingImgProps {
   blockId: string
   mdxImagesPath: string
-  coverImage: string
+  imageUrl: string
   lastEditedTimeMs: number
   cutTitle: string
+  imageKey: string
 }
 
-export async function handleImageProcessing(props: Props) {
-  const { blockId, mdxImagesPath, coverImage, lastEditedTimeMs, cutTitle } = props
+export type SimpleAdditionalImages = {
+  bannerImagePath: string
+  thumbImagePath: string
+}
 
-  const bannerImagePath = path.join(mdxImagesPath, `${blockId}/banner.webp`)
-  const thumbImagePath = path.join(mdxImagesPath, `${blockId}/thumb.webp`)
+// ruta absoluta a ruta relativa desde /public
+function toPublicRelativePath(fullPath: string): string {
+  const publicDir = path.join(process.cwd(), 'public')
+  return '/' + path.relative(publicDir, fullPath).replace(/\\/g, '/')
+}
 
-  const bannerExist = await fileExists(bannerImagePath)
-  const thumbExist = await fileExists(thumbImagePath)
+// Procesa imagen principal cover con blurhash
+export async function handleImageProcessing(props: ProcessingImgProps): Promise<MdxImageContentProps | undefined> {
+  const { blockId, mdxImagesPath, imageUrl, lastEditedTimeMs, cutTitle, imageKey } = props
+  const folder = path.join(mdxImagesPath, blockId)
+  const bannerFull = path.join(folder, `${imageKey}-banner.webp`)
+  const thumbFull = path.join(folder, `${imageKey}-thumb.webp`)
 
-  const imageModifiedTime = bannerExist ? getFileTime(bannerImagePath) : 0
+  const bannerExists = await fileExists(bannerFull)
+  const thumbExists = await fileExists(thumbFull)
+  const modified = bannerExists ? getFileTime(bannerFull) : 0
 
-  if (bannerExist && thumbExist && imageModifiedTime === lastEditedTimeMs) return
+  if (bannerExists && thumbExists && modified === lastEditedTimeMs) {
+    return
+  }
 
-  await deleteFileIfExists(bannerImagePath)
-  await deleteFileIfExists(thumbImagePath)
+  await deleteFileIfExists(bannerFull)
+  await deleteFileIfExists(thumbFull)
 
   try {
     const { bannerImage, thumbImage } = await downloadImage({
-      folderPath: path.join(mdxImagesPath, `/${blockId}`),
-      bannerImagePath,
-      thumbImagePath,
-      url: coverImage,
+      folderPath: folder,
+      bannerImagePath: bannerFull,
+      thumbImagePath: thumbFull,
+      url: imageUrl,
       title: cutTitle
     })
 
-    const { blurhash, placeholder } = await blurHashAndGradient(thumbImagePath)
+    const { blurhash, placeholder } = await blurHashAndGradient(thumbFull)
 
     return {
       blurhash,
@@ -47,10 +63,84 @@ export async function handleImageProcessing(props: Props) {
       bannerHeight: bannerImage.height,
       thumbWidth: thumbImage.width,
       thumbHeight: thumbImage.height,
-      aspectRatio: thumbImage.width / thumbImage.height
+      aspectRatio: thumbImage.width / thumbImage.height,
+      type: imageKey
     }
-  } catch (error) {
-    clog.error(`Descarga fallida: ${cutTitle}`)
-    throw new Error(`Image download failed: ${error}`)
+  } catch (err) {
+    clog.error(`❌ Descarga fallida: ${cutTitle} (${imageKey})`)
+    throw new Error(`Image download failed: ${err}`)
   }
+}
+
+// Procesa una imagen dentro de las secciones #image-from, retorna rutas relativas
+async function processSingleGalleryImage(props: ProcessingImgProps): Promise<SimpleAdditionalImages | null> {
+  const { blockId, mdxImagesPath, imageUrl, lastEditedTimeMs, cutTitle, imageKey } = props
+  const folder = path.join(mdxImagesPath, blockId)
+  const bannerFull = path.join(folder, `${imageKey}-banner.webp`)
+  const thumbFull = path.join(folder, `${imageKey}-thumb.webp`)
+
+  const bannerExists = await fileExists(bannerFull)
+  const thumbExists = await fileExists(thumbFull)
+  const modified = bannerExists ? getFileTime(bannerFull) : 0
+
+  if (bannerExists && thumbExists && modified === lastEditedTimeMs) {
+    return {
+      bannerImagePath: toPublicRelativePath(bannerFull),
+      thumbImagePath: toPublicRelativePath(thumbFull)
+    }
+  }
+
+  await deleteFileIfExists(bannerFull)
+  await deleteFileIfExists(thumbFull)
+
+  try {
+    await downloadImage({
+      folderPath: folder,
+      bannerImagePath: bannerFull,
+      thumbImagePath: thumbFull,
+      url: imageUrl,
+      title: cutTitle
+    })
+
+    return {
+      bannerImagePath: toPublicRelativePath(bannerFull),
+      thumbImagePath: toPublicRelativePath(thumbFull)
+    }
+  } catch (err) {
+    clog.error(`❌ Galería: no se descargó ${cutTitle} (${imageKey})`)
+    return null
+  }
+}
+
+type MultipleImgsProps = {
+  blockId: string
+  mdxImagesPath: string
+  lastEditedTimeMs: number
+  cutTitle: string
+  imageUrls: string[]
+}
+// Procesa un arreglo de imágenes en secuencia
+export async function processMultipleImages({
+  blockId,
+  mdxImagesPath,
+  lastEditedTimeMs,
+  cutTitle,
+  imageUrls
+}: MultipleImgsProps) {
+  const results: SimpleAdditionalImages[] = []
+
+  for (let i = 0; i < imageUrls.length; i++) {
+    const imageKey = `img${i + 1}`
+    const single = await processSingleGalleryImage({
+      blockId,
+      mdxImagesPath,
+      imageUrl: imageUrls[i],
+      lastEditedTimeMs,
+      cutTitle,
+      imageKey
+    })
+    if (single) results.push(single)
+  }
+
+  return results
 }
