@@ -9,7 +9,7 @@ interface Props {
 const Comments: FC<Props> = ({ className = '' }) => {
   return (
     <article className={`${className}`}>
-      <Title sub='🌱 Algunas' title='Bonitas Palabras' />
+      <Title sub='🌱 Algunas' title='Bonitas Palabras' center />
       <p className='projects-description'>
         Fragmentos de gratitud, aprecio y confianza que he recibido de personas con las que he tenido el honor de construir algo.
       </p>

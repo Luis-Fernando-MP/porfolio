@@ -8,6 +8,15 @@
 
   @include d.flex($dir: row, $ali: center, $gap: 7px);
 
+  &.reverse {
+    flex-direction: row-reverse;
+  }
+
+  &.center {
+    justify-content: center;
+    width: 100%;
+  }
+
   h2 {
     font-size: v.$fXl;
   }
