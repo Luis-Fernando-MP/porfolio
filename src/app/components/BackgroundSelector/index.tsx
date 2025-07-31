@@ -12,13 +12,16 @@ const BackgroundSelector: FC = () => {
   const getThemeBackgrounds = useBackgroundImageStore(s => s.getThemeBackgrounds)
   const images = getThemeBackgrounds(theme)
 
-  return (
-    <div className='frow backgroundSelector'>
-      {images.map(bg => {
-        return <ThemeBackgroundOption key={`${bg.path}-option-image`} {...bg} />
-      })}
-    </div>
-  )
+  return images.length > 0 ? (
+    <section className='UPreferences-section'>
+      <h5># Background</h5>
+      <div className='frow backgroundSelector'>
+        {images.map(bg => {
+          return <ThemeBackgroundOption key={`${bg.path}-option-image`} {...bg} />
+        })}
+      </div>
+    </section>
+  ) : null
 }
 
 export default BackgroundSelector

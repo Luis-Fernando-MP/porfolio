@@ -28,10 +28,7 @@ const UserPreferences: FC = () => {
         <CurrentThemeName />
       </section>
 
-      <section className='UPreferences-section'>
-        <h5># Background</h5>
-        <BackgroundSelector />
-      </section>
+      <BackgroundSelector />
 
       <div className='UPreferences-section'>
         <h5># Redes</h5>
