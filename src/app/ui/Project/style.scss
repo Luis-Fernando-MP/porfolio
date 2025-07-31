@@ -1,44 +1,95 @@
 @use '@sass/config/vars' as v;
 @use '@sass/utils/defs' as d;
 
-.home {
-  width: 100%;
-  height: fit-content;
-  min-height: 100vh;
+.project {
+  position: relative;
+
+  overflow: hidden;
+  align-items: center;
+  justify-content: flex-end;
+
+  width: 260px;
+  height: auto;
+  min-height: 450px;
+  margin-bottom: v.$padding;
+  padding: v.$padding;
+  border-radius: v.$radius;
 
   @include d.flex;
 
-  &-nav,
-  &-wrapper {
-    width: v.$max-w;
-    max-width: v.$max-w;
-    margin: 0 auto;
+  &::before {
+    content: '';
+
+    position: absolute;
+    z-index: 1;
+    top: 0;
+    left: -10px;
+
+    width: 120%;
+    height: 100%;
+
+    background-image:
+      linear-gradient(
+        to top,
+        rgb(v.$bg1, 0.9) 40%,
+        rgb(v.$bg2, 0.6) 50%,
+        rgb(v.$bg2, 0.3) 60%,
+        rgb(v.$bg2, 0.1) 70%,
+        transparent
+      ),
+      radial-gradient(circle at 50% 100%, rgb(0 0 0 / 30%) 30%, rgb(v.$bg1, 0.2));
+    backdrop-filter: blur(0);
+
+    transition: backdrop-filter 0.3s ease-in-out;
   }
 
-  &-nav {
-    .mainBar-wrapper {
-      margin: initial;
-    }
+  &:hover::before {
+    backdrop-filter: blur(50px);
+    transition-delay: 0.5s;
   }
 
-  &-wrapper {
-    @include d.flex($gap: v.$section-padding);
+  &-background {
+    position: absolute;
+    top: 0;
+    left: 0;
 
-    margin-bottom: v.$section-padding;
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+  }
+
+  &-content {
+    position: relative;
+    z-index: 1;
+    width: 100%;
+    height: fit-content;
+
+    @include d.flex($gap: v.$padding * 2);
   }
 
   &-section {
-    width: 100%;
-    height: fit-content;
-    min-height: 100vh;
+    @include d.flex;
   }
 
-  &-presentation {
-    display: grid;
-    grid-template-columns: 1fr 350px;
-    gap: v.$big-padding;
+  &-title {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    text-transform: uppercase;
+    white-space: nowrap;
+  }
 
-    width: 100%;
-    height: fit-content;
+  &-summary {
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 3;
+    line-clamp: 3;
+
+    max-height: calc(v.$fP * 3 * 1.5);
+  }
+
+  &-thumbnail {
+    border-radius: v.$min-radius;
   }
 }

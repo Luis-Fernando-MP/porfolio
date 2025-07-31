@@ -1,55 +1,60 @@
+import IconButton from '@/shared/ui/IconButton'
 import { Image } from '@unpic/react'
 import { Projects } from 'contentlayer/generated'
 import Link from 'next/link'
 import type { FC } from 'react'
 
+import './style.scss'
+
 interface Props extends Projects {}
 
 const Project: FC<Props> = props => {
-  const { thumb, aspectRatio, title, tags, id, allImagesBySections } = props
+  const { banner, title, tags, id, allImagesBySections, summary } = props
 
-  console.log('allImagesBySections', allImagesBySections)
   return (
-    <div className='project'>
-      <Image className='project-background' src={thumb} aspectRatio={aspectRatio} layout='fullWidth' />
-      <div className='project-card'>
-        <h3>{title}</h3>
+    <Link href={`/project/${id}`} className='project border'>
+      <Image className='project-background' src={banner} layout='fullWidth' alt={`Vista previa del proyecto ${title}`} />
+
+      <div className='project-content'>
+        <header>
+          <h3 className='project-title'>{title}</h3>
+        </header>
 
         <div className='project-section'>
-          <p>
-            Lorem, ipsum dolor sit amet consectetur adipisicing elit. Incidunt, architecto vitae dolor nihil natus dolorum quos
-            iure
-          </p>
-          <div className='project-tags'>
-            {tags.map(tag => {
-              return (
-                <Link key={`${tag}-project-${id}`} href='/'>
-                  {tag}
-                </Link>
-              )
-            })}
-          </div>
+          <p className='project-summary'>{summary}</p>
 
-          <div className='project-images'>
-            {allImagesBySections?.map(images => {
-              const { banner, thumb } = images
-              return (
-                <Image
-                  key={banner ?? ''}
-                  width={50}
-                  height={50}
-                  src={banner ?? ''}
-                  className='project-image'
-                  loading='lazy'
-                  fetchPriority='low'
-                  background='/fallback.webp'
-                />
-              )
-            })}
-          </div>
+          <ul className='frow'>
+            {tags.slice(0, 2).map(tag => (
+              <IconButton isTag key={`${tag}-project-${id}`} className='project-tag'>
+                <p>{tag}</p>
+              </IconButton>
+            ))}
+
+            {tags.length > 2 && (
+              <IconButton isTag className='project-tag'>
+                <p>+{tags.length - 2} Tags</p>
+              </IconButton>
+            )}
+          </ul>
+        </div>
+
+        <div className='project-thumbnails frow'>
+          {allImagesBySections?.map(({ thumb }) => (
+            <Image
+              key={thumb ?? ''}
+              width={35}
+              height={35}
+              src={thumb ?? ''}
+              className='project-thumbnail border'
+              loading='lazy'
+              fetchPriority='low'
+              background='/fallback.webp'
+              alt='Vista en miniatura del proyecto'
+            />
+          ))}
         </div>
       </div>
-    </div>
+    </Link>
   )
 }
 

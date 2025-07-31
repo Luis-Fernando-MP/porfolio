@@ -1,0 +1,9 @@
+@use '@sass/config/vars' as v;
+@use '@sass/utils/defs' as d;
+
+.latestProjects {
+  align-items: center;
+  justify-content: center;
+  width: fit-content;
+  max-width: 100%;
+}

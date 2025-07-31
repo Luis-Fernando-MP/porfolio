@@ -1,7 +1,8 @@
 import Project from '@/app/ui/Project'
-import { Image } from '@unpic/react'
 import { allProjects } from 'contentlayer/generated'
 import type { FC } from 'react'
+
+import './style.scss'
 
 const priorities = { Simple: 0, Normal: 1, Regular: 2, Alta: 3 } as const
 const statuses = { 'Fase 3': 0, Completado: 1 } as const
@@ -27,11 +28,11 @@ const topProjects = allProjects
     // 4. Progreso descendente
     return b.progress - a.progress
   })
-  .slice(0, 4) // Top 4 proyectos
+  .slice(0, 3)
 
 const LatestProjects: FC = () => {
   return (
-    <section className='latestProjects'>
+    <section className='latestProjects frow'>
       {topProjects.map(project => (
         <Project key={`${project.id}-project-card`} {...project} />
       ))}

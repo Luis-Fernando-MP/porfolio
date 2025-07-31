@@ -35,6 +35,10 @@
     border: 1.5px solid rgb(v.$bg3);
   }
 
+  &.tag {
+    padding: v.$tag-padding;
+  }
+
   &-content {
     @include d.flex($dir: row, $ali: center, $gap: v.$min-padding);
 

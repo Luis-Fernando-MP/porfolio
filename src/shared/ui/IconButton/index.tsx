@@ -19,6 +19,7 @@ type CommonProps = {
   active?: boolean
   contentClass?: string
   isLink?: boolean
+  isTag?: boolean
   disable?: boolean
   noSound?: boolean
   soundType?: Audio
@@ -53,6 +54,7 @@ type Props = ButtonProps | LinkProps
  * @param {string} className - Additional custom class names.
  * @param {string} contentClass - Class name for the inner content wrapper.
  * @param {boolean} isLink - When true, renders a Next.js link instead of a button.
+ * @param {boolean} isTag - Applies tag style, used for tags or categories.
  * @param {boolean} disable - Prevents any interaction and applies disabled style.
  * @param {boolean} noSound - If true, prevents sound from playing on click.
  * @param {Audio} soundType - Type of sound to play. Defaults to 'BUTTON_ON'.
@@ -105,6 +107,7 @@ const IconButton: FC<Props> = ({
   active = false,
   contentClass = '',
   isLink = false,
+  isTag = false,
   disable = false,
   noSound = false,
   soundType = 'BUTTON_ON',
@@ -114,7 +117,7 @@ const IconButton: FC<Props> = ({
 }) => {
   const [playSound] = useSound(soundType, { interrupt: true })
 
-  const parsedClassName = `iconButton ${acl(outline, 'outline')} ${acl(transparent, 'transparent')} ${acl(active, 'active')} ${acl(disable, 'disabled')} ${acl(noPadding, 'noPadding')} ${className}`
+  const parsedClassName = `iconButton ${acl(outline, 'outline')} ${acl(transparent, 'transparent')} ${acl(active, 'active')} ${acl(disable, 'disabled')} ${acl(isTag, 'tag')} ${acl(noPadding, 'noPadding')} ${className}`
 
   const handleClick = (e: MouseEvent<HTMLElement>) => {
     if (disable) return
