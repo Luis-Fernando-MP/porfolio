@@ -67,7 +67,7 @@ body {
     flex-wrap: wrap;
   }
 
-  .min-frow {
+  .mfrow {
     @include d.flex($ali: center, $dir: row, $gap: $min-padding);
 
     flex-wrap: wrap;

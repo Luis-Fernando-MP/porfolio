@@ -1,34 +1,50 @@
+export type Testimony = {
+  id: string
+  autor: string
+  photo: string
+  role: string
+  profileLink?: string
+  degree: string
+  testimonial: string
+}
+
 export const testimonies = [
   {
-    id: 1,
-    autor: 'John Doe',
-    rol: 'Director de Innovación en TechSolutions Inc.',
+    id: 'testimony-1',
+    autor: 'María Rodríguez',
+    photo: '/assets/testimonies/john-doe.webp',
+    role: 'CTO en NovaLabs',
     profileLink: '/',
+    degree: 'MSc. en Ingeniería de Software',
     testimonial:
-      'Trabajar con Luis Fernando ha sido una experiencia excepcional. Su habilidad para crear interfaces intuitivas y su dedicación a la excelencia son realmente notables. Como Director de Innovación en TechSolutions Inc., he visto cómo su pasión y creatividad han llevado nuestros proyectos a otro nivel. ¡Sin duda, un profesional altamente recomendable!'
+      'Colaborar con Luis Fernando ha sido clave para impulsar nuestra estrategia digital. Su compromiso, visión estética y atención a los detalles marcaron una gran diferencia en la presentación de nuestra marca. ¡Un talento que destaca en cualquier equipo!'
   },
   {
-    id: 2,
-    autor: 'John Doe',
-    rol: 'Director de Innovación en TechSolutions Inc.',
+    id: 'testimony-2',
+    autor: 'Carlos Méndez',
+    photo: '/assets/testimonies/john-doe.webp',
+    role: 'Líder de Producto en ByteForge',
     profileLink: '/',
+    degree: 'MBA en Gestión de Proyectos Tecnológicos',
     testimonial:
-      'Trabajar con Luis Fernando ha sido una experiencia excepcional. Su habilidad para crear interfaces intuitivas y su dedicación a la excelencia son realmente notables. Como Director de Innovación en TechSolutions Inc., he visto cómo su pasión y creatividad han llevado nuestros proyectos a otro nivel. ¡Sin duda, un profesional altamente recomendable!'
+      'Luis Fernando aporta no solo habilidades técnicas, sino una sensibilidad especial para entender las necesidades del usuario. Su trabajo ha elevado la calidad y usabilidad de nuestros productos. ¡Una mente creativa y resolutiva!'
   },
   {
-    id: 3,
-    autor: 'John Doe',
-    rol: 'Director de Innovación en TechSolutions Inc.',
-    profileLink: '/',
+    id: 'testimony-3',
+    autor: 'Laura Sánchez',
+    photo: '/assets/testimonies/john-doe.webp',
+    role: 'UX Manager en Creatix Studio',
+    degree: 'Lic. en Diseño Digital',
     testimonial:
-      'Trabajar con Luis Fernando ha sido una experiencia excepcional. Su habilidad para crear interfaces intuitivas y su dedicación a la excelencia son realmente notables. Como Director de Innovación en TechSolutions Inc., he visto cómo su pasión y creatividad han llevado nuestros proyectos a otro nivel. ¡Sin duda, un profesional altamente recomendable!'
+      'Desde el primer momento, Luis demostró una capacidad impresionante para transformar ideas en experiencias funcionales. Su enfoque humano y profesional marcó la diferencia en cada entrega. ¡Recomiendo su trabajo sin dudarlo!'
   },
   {
-    id: 4,
-    autor: 'John Doe',
-    rol: 'Director de Innovación en TechSolutions Inc.',
-    profileLink: '/',
+    id: 'testimony-4',
+    autor: 'Andrés Navarro',
+    photo: '/assets/testimonies/john-doe.webp',
+    role: 'CEO en PixelBloom',
+    degree: 'Ing. en Sistemas Computacionales',
     testimonial:
-      'Trabajar con Luis Fernando ha sido una experiencia excepcional. Su habilidad para crear interfaces intuitivas y su dedicación a la excelencia son realmente notables. Como Director de Innovación en TechSolutions Inc., he visto cómo su pasión y creatividad han llevado nuestros proyectos a otro nivel. ¡Sin duda, un profesional altamente recomendable!'
+      'Con Luis Fernando encontramos a alguien que entiende la importancia del diseño enfocado en resultados. Su colaboración nos permitió lanzar un producto sólido, elegante y efectivo en tiempo récord. ¡Un verdadero aliado estratégico!'
   }
-]
+] as const

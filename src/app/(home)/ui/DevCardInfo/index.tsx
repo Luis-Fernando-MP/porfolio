@@ -64,14 +64,14 @@ const DevCardInfo = () => {
             <h1 className='devCard-name'>#{INFO.devShortName}</h1>
           </Link>
           <div className='devCard-section'>
-            <div className='min-frow'>
+            <div className='mfrow'>
               <UserCircle2Icon />
               <h4>Soy:</h4>
             </div>
             <p>{INFO.resumeAbout}</p>
           </div>
           <div className='devCard-section'>
-            <div className='min-frow'>
+            <div className='mfrow'>
               <InfinityIcon />
               <h4>Pasatiempos:</h4>
             </div>

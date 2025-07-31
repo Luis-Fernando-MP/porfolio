@@ -1,0 +1,16 @@
+@use '@sass/config/vars' as v;
+@use '@sass/utils/defs' as d;
+
+.comments {
+  @include d.flex($ali: center, $gap: v.$big-padding);
+
+  &-header {
+    @include d.flex($ali: center);
+  }
+
+  &-description {
+    width: 100%;
+    max-width: 530px;
+    text-align: center;
+  }
+}
