@@ -3,19 +3,25 @@
 
 @include m.largeScreen {
   .title {
-    margin: auto;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
     text-align: center;
   }
 }
 
 @include m.smallScreen {
   .title {
-    &-sub {
-      font-size: 1rem;
+    h2 {
+      font-size: calc(v.$fH1 * 1.5);
     }
+  }
+}
 
-    &-title {
-      font-size: 1.2rem;
+@include m.smallerScreen {
+  .title {
+    h2 {
+      font-size: v.$fH1;
     }
   }
 }

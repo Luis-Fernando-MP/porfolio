@@ -9,7 +9,7 @@ import IconButton from '@/shared/ui/IconButton'
 import Social from '@/shared/ui/Social'
 import { InfinityIcon, HandshakeIcon, UserCircle2Icon, XIcon } from 'lucide-react'
 import Link from 'next/link'
-import { MouseEvent, useEffect } from 'react'
+import { MouseEvent, useEffect, useRef } from 'react'
 import { useMediaQuery } from 'usehooks-ts'
 
 import { BackgroundImage } from './BackgroundImage'
@@ -18,13 +18,15 @@ import './userMobile.scss'
 
 const DevCardInfo = () => {
   const { isShowing, setIsShowing } = useDevCardStore()
-  const matches = useMediaQuery('(max-width: 1050px)')
+  const matches = useMediaQuery('(max-width: 1250px)')
+  const $closeBtn = useRef<HTMLButtonElement>(null)
 
   useEffect(() => {
     setIsShowing(!matches)
+    console.log(`isShowing=${isShowing}, matches=${matches}`)
   }, [matches, setIsShowing])
 
-  const handleOverlayClick = () => {
+  const handleClose = () => {
     if (!matches) return
     setIsShowing(false)
   }
@@ -34,13 +36,18 @@ const DevCardInfo = () => {
   }
 
   return (
-    <div role='dialog' aria-modal='true' className={`devCard ${acl(isShowing, 'show')}`} onClick={handleOverlayClick}>
+    <div
+      role='dialog'
+      aria-modal='true'
+      className={`devCard ${acl(isShowing, 'show')}`}
+      onClick={() => $closeBtn.current?.click()}
+    >
       <div role='button' tabIndex={0} className='devCard-content' onClick={handleContentClick}>
         <BackgroundImage className='devCard-background' />
 
         <section className='devCard-wrapper'>
           <div className='devCard-section devCard-closeButton'>
-            <IconButton active onClick={handleOverlayClick} soundType='BUTTON_OFF'>
+            <IconButton active onClick={handleClose} soundType='BUTTON_OFF' ref={$closeBtn}>
               <XIcon />
               <h4>Cerrar</h4>
             </IconButton>

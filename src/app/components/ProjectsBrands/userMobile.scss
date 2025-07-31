@@ -3,13 +3,7 @@
 @use '@sass/utils/defs' as d;
 
 @include m.largeScreen {
-  .projects {
-    align-items: center !important;
+  .projectsBrands {
     justify-content: center;
-    padding: v.$padding 0;
-
-    &-description {
-      text-align: center;
-    }
   }
 }

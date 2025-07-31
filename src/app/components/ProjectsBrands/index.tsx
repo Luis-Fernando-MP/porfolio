@@ -4,6 +4,7 @@ import { allProjects } from 'contentlayer/generated'
 import type { FC } from 'react'
 
 import './style.scss'
+import './userMobile.scss'
 
 const ProjectsBrands: FC = () => {
   return (

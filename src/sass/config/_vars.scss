@@ -21,7 +21,7 @@ $min-small-screen: 380px;
 $small-screen: 610px;
 $medium-screen: 820px;
 $large-screen: 1050px;
-$extra-large-screen: 1200px;
+$extra-large-screen: 1250px;
 $big-screen: 1350px;
 
 // Other
@@ -47,6 +47,12 @@ $active: rgb(150 211 50);
 
 // Max width application
 $max-w: 1200px;
+
+// Max width application on responsive
+$max-w-md: 1000px;
+
+// Max width application on responsive
+$max-w-min: 800px;
 
 // bezier
 $bezier: cubic-bezier(0.68, -0.55, 0.27, 1.55);

@@ -6,13 +6,15 @@
   .home {
     &-wrapper {
       width: 100%;
-      padding: v.$padding;
+      max-width: v.$max-w-md;
+      padding: v.$padding v.$padding * 2;
     }
 
     &-presentation {
-      @include d.flex($dir: column-reverse);
+      @include d.flex($ali: center);
 
       position: relative;
+      width: 100%;
     }
   }
 }
