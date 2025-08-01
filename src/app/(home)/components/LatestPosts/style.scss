@@ -1,0 +1,15 @@
+@use '@sass/config/vars' as v;
+@use '@sass/utils/defs' as d;
+
+.lastedPosts {
+  flex-wrap: wrap;
+  justify-content: center;
+  width: 100%;
+
+  @include d.flex($ali: center, $gap: v.$big-padding);
+
+  &-list {
+    justify-content: center;
+    width: fit-content;
+  }
+}

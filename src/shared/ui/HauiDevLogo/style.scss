@@ -11,13 +11,13 @@
   padding: v.$min-padding;
   border-radius: v.$min-radius;
 
-  background-color: rgb(v.$fn1);
+  background-color: rgb(v.$bg3);
 
   &.animate .hauidev-logo {
     overflow: visible;
 
     fill: none;
-    stroke: rgb(v.$bg1);
+    stroke: rgb(v.$fn1);
     stroke-dasharray: 500;
     stroke-dashoffset: 1000;
     stroke-width: 10;

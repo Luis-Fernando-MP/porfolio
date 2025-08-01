@@ -4,21 +4,9 @@
 .comments {
   @include d.flex($ali: center, $gap: v.$big-padding);
 
-  &-header {
-    @include d.flex($ali: center);
-
-    width: 100%;
-  }
-
   &-sliceContainer {
     align-items: center;
     width: 100%;
-  }
-
-  &-description {
-    width: 100%;
-    max-width: 530px;
-    text-align: center;
   }
 
   &-testimonies {

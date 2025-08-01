@@ -41,4 +41,16 @@
     width: 100%;
     height: fit-content;
   }
+
+  &-header {
+    @include d.flex($ali: center);
+
+    width: 100%;
+  }
+
+  &-description {
+    width: 100%;
+    max-width: 530px;
+    text-align: center;
+  }
 }

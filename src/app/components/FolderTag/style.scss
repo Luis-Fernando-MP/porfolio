@@ -1,0 +1,63 @@
+@use '@sass/config/vars' as v;
+@use '@sass/utils/defs' as d;
+@use 'sass:map';
+
+$pastel-colors: (
+  'default': (
+    color: #f0f0f0
+  ),
+  'gray': (
+    color: #cfcfcf
+  ),
+  'brown': (
+    color: #e0b089
+  ),
+  'orange': (
+    color: #fc9
+  ),
+  'yellow': (
+    color: #fff799
+  ),
+  'green': (
+    color: #a8e6a3
+  ),
+  'blue': (
+    color: #a3d8f4
+  ),
+  'purple': (
+    color: #d1a3ff
+  ),
+  'pink': (
+    color: #ffb3d9
+  ),
+  'red': (
+    color: #f99
+  )
+);
+
+@each $name, $props in $pastel-colors {
+  .folderTag-icon.#{$name} {
+    fill: map.get($props, color);
+  }
+}
+
+.folderTag {
+  width: min-content;
+  padding: v.$tag-padding;
+  background-color: rgb(v.$bg3);
+
+  @include d.flex($dir: row, $ali: center, $gap: v.$min-padding);
+
+  &-name {
+    max-width: 150px;
+  }
+
+  &-icon {
+    &,
+    path {
+      background: none;
+      stroke: rgb(v.$fn1);
+      stroke-width: 0.3px;
+    }
+  }
+}

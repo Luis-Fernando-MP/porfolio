@@ -73,20 +73,7 @@
   }
 
   &-title {
-    overflow: hidden;
-    text-overflow: ellipsis;
     text-transform: uppercase;
-    white-space: nowrap;
-  }
-
-  &-summary {
-    overflow: hidden;
-    display: -webkit-box;
-    -webkit-box-orient: vertical;
-    -webkit-line-clamp: 3;
-    line-clamp: 3;
-
-    max-height: calc(v.$fP * 3 * 1.5);
   }
 
   &-thumbnail {
