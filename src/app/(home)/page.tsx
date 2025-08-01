@@ -4,6 +4,7 @@ import type { JSX } from 'react'
 import Footer from '../components/Footer'
 import MainBar from '../components/MainBar'
 import Comments from './components/Comments'
+import LatestPosts from './components/LatestPosts'
 import './style.scss'
 import DevCardInfo from './ui/DevCardInfo'
 import HomeHero from './ui/HomeHero'
@@ -21,6 +22,7 @@ const Home = (): JSX.Element => {
           <ProjectsContent />
           <DevCardInfo />
         </article>
+        <LatestPosts className='home-section' />
         <Comments className='home-section' />
       </div>
       <Footer />

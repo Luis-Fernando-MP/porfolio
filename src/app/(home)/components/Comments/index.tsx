@@ -14,9 +14,9 @@ interface Props {
 const Comments: FC<Props> = ({ className = '' }) => {
   return (
     <article className={`comments ${className}`}>
-      <header className='comments-header'>
+      <header className='home-header'>
         <Title sub='🌱 Algunas' title='Bonitas Palabras' center />
-        <p className='comments-description'>
+        <p className='home-description'>
           Fragmentos de gratitud, aprecio y confianza que he recibido de personas con las que he tenido el honor de construir
           algo.
         </p>

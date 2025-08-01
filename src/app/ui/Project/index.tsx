@@ -17,21 +17,21 @@ const Project: FC<Props> = props => {
 
       <div className='project-content'>
         <header>
-          <h3 className='project-title'>{title}</h3>
+          <h3 className='ellipsis'>{title}</h3>
         </header>
 
         <div className='project-section'>
-          <p className='project-summary'>{summary}</p>
+          <p className='clampText'>{summary}</p>
 
           <ul className='frow'>
             {tags.slice(0, 2).map(tag => (
-              <IconButton isTag key={`${tag}-project-${id}`} className='project-tag'>
+              <IconButton isTag key={`${tag}-project-${id}`}>
                 <p>{tag}</p>
               </IconButton>
             ))}
 
             {tags.length > 2 && (
-              <IconButton isTag className='project-tag'>
+              <IconButton isTag>
                 <p>+{tags.length - 2} Tags</p>
               </IconButton>
             )}

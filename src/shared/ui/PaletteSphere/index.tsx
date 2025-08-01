@@ -36,7 +36,7 @@ const PaletteSphere: FC<Props> = ({ title, theme, className = '', selected = fal
         <div className='paletteSphere-sphere' style={{ backgroundColor: parseColor(theme['bg-primary']) }} />
       </div>
 
-      <p className='paletteSphere-title'>{title}</p>
+      <p className='ellipsis paletteSphere-title'>{title}</p>
     </IconButton>
   )
 }
