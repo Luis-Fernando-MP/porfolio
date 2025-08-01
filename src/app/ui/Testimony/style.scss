@@ -1,0 +1,52 @@
+@use '@sass/config/vars' as v;
+@use '@sass/utils/defs' as d;
+
+.testimony {
+  justify-content: center;
+
+  width: 100%;
+  max-width: v.$max-w-min;
+  padding: v.$padding * 2;
+  border-radius: v.$radius;
+
+  background-color: rgb(v.$bg2);
+
+  @include d.flex($dir: row, $ali: center, $gap: v.$padding * 2);
+
+  &.isLink:hover {
+    background-color: rgb(v.$bg3);
+  }
+
+  &-header {
+    width: 100%;
+    max-width: 200px;
+
+    @include d.flex($ali: flex-end);
+  }
+
+  &-image {
+    border-radius: v.$min-radius;
+    object-fit: cover;
+  }
+
+  &-author {
+    text-align: right;
+
+    h5 {
+      font-style: italic;
+    }
+  }
+
+  &-body {
+    @include d.flex;
+
+    width: 100%;
+    max-width: 550px;
+  }
+
+  &-degree {
+    svg {
+      stroke: rgb(v.$fn2);
+    }
+  }
+}

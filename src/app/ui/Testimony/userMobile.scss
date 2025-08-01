@@ -1,0 +1,36 @@
+@use '@sass/config/vars' as v;
+@use '@sass/utils/media' as m;
+@use '@sass/utils/defs' as d;
+
+@include m.mediumScreen {
+  .testimony {
+    flex-direction: column;
+    justify-content: center;
+    max-width: 330px;
+    min-height: 350px;
+
+    &-header {
+      align-items: center;
+      max-width: 100%;
+    }
+
+    &-author {
+      text-align: center;
+    }
+
+    &-body {
+      justify-content: center;
+    }
+
+    &-degree {
+      flex-direction: column !important;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+    }
+
+    &-text {
+      text-align: center;
+    }
+  }
+}

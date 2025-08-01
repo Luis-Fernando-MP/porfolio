@@ -5,6 +5,7 @@ import Title from '@/shared/ui/Title'
 import type { FC } from 'react'
 
 import './style.scss'
+import './userMobile.scss'
 
 interface Props {
   className?: string
@@ -20,7 +21,7 @@ const Comments: FC<Props> = ({ className = '' }) => {
           algo.
         </p>
       </header>
-      <SliceContainer maxHeight={500} reverse>
+      <SliceContainer parentClassName='comments-sliceContainer' maxHeight={500} reverse overlayColor='var(--bg-primary)'>
         <ul className='comments-testimonies'>
           {testimonies.map(testimony => {
             return <TestimonyComponent key={testimony.id} testimony={testimony} />

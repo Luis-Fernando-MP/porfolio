@@ -1,6 +1,5 @@
 'use client'
 
-import useSound from '@/shared/hook/useSound'
 import IconButton from '@/shared/ui/IconButton'
 import { MoreHorizontalIcon } from 'lucide-react'
 import { type FC, type HTMLAttributes, type ReactNode, useRef, useState } from 'react'
@@ -14,6 +13,7 @@ interface Props extends HTMLAttributes<HTMLDivElement> {
   extendedMaxHeight?: number
   reverse?: boolean
   overlayColor?: string
+  parentClassName?: string
 }
 
 /**
@@ -28,6 +28,7 @@ interface Props extends HTMLAttributes<HTMLDivElement> {
  * @param {number} [extendedMaxHeight] - Expanded height in pixels.
  * @param {boolean} [reverse=false] - If true, reverses the content flow direction.
  * @param {string} [overlayColor='var(--bg-secondary)'] - Background color for the overlay gradient.
+ * @param {string} [parentClassName=''] - Additional class name for the parent container.
  * @extends HTMLAttributes<HTMLDivElement>
  *
  * @example
@@ -44,6 +45,7 @@ const SliceContainer: FC<Props> = ({
   reverse = false,
   overlayColor = 'var(--bg-secondary)',
   style,
+  parentClassName = '',
   ...props
 }) => {
   const [isExtended, setIsExtended] = useState(false)
@@ -57,7 +59,7 @@ const SliceContainer: FC<Props> = ({
 
   return (
     <section
-      className='sliceContainer'
+      className={`sliceContainer ${parentClassName}`}
       {...props}
       style={{
         ...style,
