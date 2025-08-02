@@ -45,8 +45,8 @@
   }
 
   &-degree {
-    svg {
-      stroke: rgb(v.$fn2);
+    .lucide {
+      stroke: rgb(v.$fn1);
     }
   }
 }

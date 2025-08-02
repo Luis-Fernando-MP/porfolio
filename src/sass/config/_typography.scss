@@ -14,7 +14,7 @@ $typography: (
   'h3': (
     size: $fH3,
     weight: 500,
-    color: rgb($fn3)
+    color: rgb($fn1)
   ),
   'h4': (
     size: $fH4,
@@ -25,6 +25,11 @@ $typography: (
     size: $fH5,
     weight: 400,
     color: rgb($fn2)
+  ),
+  'h6': (
+    size: $fH5,
+    weight: 400,
+    color: rgb($fn3)
   ),
   'p': (
     size: $fP,

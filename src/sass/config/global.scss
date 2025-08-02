@@ -60,7 +60,14 @@ body {
 
   .active {
     background-color: rgb($tn1) !important;
+  }
 
+  .secondary {
+    background-color: rgb($tn2) !important;
+  }
+
+  .secondary,
+  .active {
     &,
     h3,
     h4,

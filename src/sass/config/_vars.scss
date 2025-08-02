@@ -17,24 +17,24 @@ $fnA: var(--fnt-active);
 $tn1: var(--tn-primary);
 $tn2: var(--tn-secondary);
 
-// Window
-$min-small-screen: 380px;
-$small-screen: 610px;
-$medium-screen: 850px;
-$large-screen: 1050px;
-$extra-large-screen: 1250px;
-$big-screen: 1350px;
+// Icons
+$icon: 1rem;
 
-// Other
-$btn-padding: 7px 10px;
-$tag-padding: 3px 5px;
+// Radius
 $min-radius: 3px;
 $radius: 5px;
-$min-padding: 7px;
+
+// Padding tags
+$btn-padding: 7px 10px;
+$tag-padding: 3px 5px;
+
+// Spacing
 $padding: 10px;
+$min-padding: 7px;
 $big-padding: 50px;
 $section-padding: 100px;
-$icon: 18px;
+
+// Font families
 $font1: var(--family1), arial, helvetica, sans-serif, 'Segoe UI Mono';
 $font2: var(--family2), georgia, 'Times New Roman', times, serif;
 
@@ -46,6 +46,14 @@ $info: rgb(42 42 42);
 $focus: rgb(66 133 244);
 $active: rgb(150 211 50);
 
+// Media queries
+$min-small-screen: 380px;
+$small-screen: 610px;
+$medium-screen: 850px;
+$large-screen: 1050px;
+$extra-large-screen: 1250px;
+$big-screen: 1350px;
+
 // Max width application
 $max-w: 1200px;
 
@@ -54,10 +62,3 @@ $max-w-md: 1000px;
 
 // Max width application on responsive
 $max-w-min: 800px;
-
-// bezier
-$bezier: cubic-bezier(0.68, -0.55, 0.27, 1.55);
-
-// Gradients
-
-$txtGradient: linear-gradient(125deg, rgb($fn2) 14%, rgb($fn1), rgb($fn2) 100%);

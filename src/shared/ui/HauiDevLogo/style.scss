@@ -13,9 +13,12 @@
 
   background-color: rgb(v.$bg3);
 
-  &.animate .hauidev-logo {
+  .hauidev-logo {
     overflow: visible;
+    fill: rgb(v.$fn1);
+  }
 
+  &.animate .hauidev-logo {
     fill: none;
     stroke: rgb(v.$fn1);
     stroke-dasharray: 500;

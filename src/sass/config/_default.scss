@@ -17,8 +17,7 @@
 
   // Principales
   --tn-primary: 55, 115, 236;
-  --tn-secondary: 92, 142, 245;
-  --tn-tertiary: 255, 255, 255;
+  --tn-secondary: 36, 66, 125;
 
   // Fuentes
   --xl-font-size: 3.5rem;
@@ -83,8 +82,6 @@ body {
     }
   }
 
-  address,
-  textarea,
   button,
   select {
     font-size: map.get(map.get($typography, 'a'), size);
@@ -95,17 +92,16 @@ body {
     background: none;
   }
 
-  span {
-    font-size: map.get(map.get($typography, 'a'), size);
-  }
-
+  span,
+  address,
+  textarea,
   small,
   label,
   input {
     font-family: $font1;
     font-size: map.get(map.get($typography, 'p'), size);
     font-weight: map.get(map.get($typography, 'p'), weight);
-    color: map.get(map.get($typography, 'p'), color);
+    color: rgb($fn3);
   }
 
   .icon,
