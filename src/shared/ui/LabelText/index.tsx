@@ -33,7 +33,7 @@ const LabelText: FC<Props> = ({ children, Icon, className = '', transparent = fa
   return (
     <div className={parsedClass}>
       {Icon}
-      {children && <p>{children}</p>}
+      {children && <label>{children}</label>}
     </div>
   )
 }

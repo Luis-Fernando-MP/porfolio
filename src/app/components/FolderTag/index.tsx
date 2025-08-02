@@ -12,7 +12,7 @@ const FolderTag: FC<Props> = ({ color, name }) => {
   return (
     <div className='folderTag'>
       <FolderIcon size={10} className={`folderTag-icon ${color}`} />
-      <p className='folderTag-name ellipsis'>{name}</p>
+      <label className='folderTag-name ellipsis'>{name}</label>
     </div>
   )
 }

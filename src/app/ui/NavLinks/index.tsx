@@ -13,7 +13,7 @@ const NavLinks: FC = () => {
         return (
           <IconButton isLink key={`${path}-navLinks`} href={path} className='navLinks-link' disable={!isCompleted}>
             <Image src={image} className='navLinks-image' alt={label} width={30} height={30} loading='lazy' />
-            <h5>{label}</h5>
+            <h4>{label}</h4>
           </IconButton>
         )
       })}

@@ -23,7 +23,6 @@ const DevCardInfo = () => {
 
   useEffect(() => {
     setIsShowing(!matches)
-    console.log(`isShowing=${isShowing}, matches=${matches}`)
   }, [matches, setIsShowing])
 
   const handleClose = () => {
@@ -59,10 +58,17 @@ const DevCardInfo = () => {
             </div>
             <h2 className='font2'>{INFO.name}</h2>
           </IconButton>
+
           <Social />
+
           <Link href={INFO.github} target='_blank' rel='noopener noreferrer'>
             <h1 className='devCard-name'>#{INFO.devShortName}</h1>
           </Link>
+          <IconButton isLink href={INFO.phone} label='Por WhatsApp' className='active'>
+            <HandshakeIcon />
+            <h4>Charlemos</h4>
+          </IconButton>
+
           <div className='devCard-section'>
             <div className='mfrow'>
               <UserCircle2Icon />
@@ -71,7 +77,7 @@ const DevCardInfo = () => {
             <p>{INFO.resumeAbout}</p>
           </div>
           <div className='devCard-section'>
-            <div className='mfrow'>
+            <div className='mfrow'> 
               <InfinityIcon />
               <h4>Pasatiempos:</h4>
             </div>
@@ -79,16 +85,12 @@ const DevCardInfo = () => {
               <ul className='devCard-hobbies'>
                 {INFO.hobbies.map(hobby => (
                   <li key={hobby} className='devCard-hobby'>
-                    <p>{hobby}</p>
+                    <label>{hobby}</label>
                   </li>
                 ))}
               </ul>
             </SliceContainer>
           </div>
-          <IconButton isLink href={INFO.phone} label='Por WhatsApp' className='active'>
-            <HandshakeIcon />
-            <h4>Charlemos</h4>
-          </IconButton>
         </section>
       </div>
     </div>

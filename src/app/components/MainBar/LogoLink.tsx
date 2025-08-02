@@ -8,12 +8,8 @@ import Link from 'next/link'
 const LogoLink: React.FC = () => {
   const [play] = useSound('BUTTON_OFF', { interrupt: true })
 
-  const handleClick = (): void => {
-    play()
-  }
-
   return (
-    <Link href='/' aria-label='Página principal' className='mainBar-logo frow' onClick={handleClick}>
+    <Link href='/' aria-label={`Página principal de ${INFO.devName}`} className='mainBar-logo frow' onClick={() => play()}>
       <HauiDevLogo size='md' animate />
       <h3 className='font2'>{INFO.devName}</h3>
     </Link>

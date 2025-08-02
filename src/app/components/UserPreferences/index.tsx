@@ -38,7 +38,7 @@ const UserPreferences: FC = () => {
       <div className='UPreferences-section'>
         <h5># Otros</h5>
         <MusicButton />
-        <IconButton className='events-none' active>
+        <IconButton noSound className='events-none' active>
           <div className='mainBar-point' />
           {INFO.working.state && <h4>Creando ideas con {INFO.working.enterprise}</h4>}
           {!INFO.working.state && <h4>Trabajemos juntos</h4>}

@@ -26,13 +26,13 @@ const Project: FC<Props> = props => {
           <ul className='frow'>
             {tags.slice(0, 2).map(tag => (
               <IconButton isTag key={`${tag}-project-${id}`}>
-                <p>{tag}</p>
+                <label>{tag}</label>
               </IconButton>
             ))}
 
             {tags.length > 2 && (
               <IconButton isTag>
-                <p>+{tags.length - 2} Tags</p>
+                <label>+{tags.length - 2} Tags</label>
               </IconButton>
             )}
           </ul>

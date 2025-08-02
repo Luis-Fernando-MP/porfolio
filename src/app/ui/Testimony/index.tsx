@@ -32,14 +32,14 @@ const TestimonyComponent: FC<Props> = ({ testimony }) => {
         />
         <div className='testimony-author'>
           <h3>{autor}</h3>
-          <h5>{role}</h5>
+          <h6>{role}</h6>
         </div>
       </header>
 
       <section className='testimony-body'>
         <div className='testimony-degree mfrow' aria-label='Academic degree'>
           <GraduationCapIcon aria-hidden='true' />
-          <p>{degree}</p>
+          <h4>{degree}</h4>
         </div>
         <blockquote className='testimony-text'>
           <p>{testimonial}</p>

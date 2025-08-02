@@ -30,7 +30,7 @@ const SoundOptionsComponent: FC = () => {
             aria-label={`Sonido ${label}`}
             title={`Sonido ${label}`}
           >
-            <h5 aria-hidden='true'>{val ? 'On' : 'Off'}</h5>
+            <h4 aria-hidden='true'>{val ? 'On' : 'Off'}</h4>
           </IconButton>
         )
       })}

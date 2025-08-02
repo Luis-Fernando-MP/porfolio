@@ -30,7 +30,7 @@ const FontSizeComponent: FC = () => {
             aria-label={`Cambiar tamaño de fuente a ${name}`}
             title={`Cambiar tamaño de fuente a ${name}`}
           >
-            <h5 aria-hidden='true'>{name}</h5>
+            <h4 aria-hidden='true'>{name}</h4>
           </IconButton>
         )
       })}

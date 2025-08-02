@@ -25,7 +25,7 @@ const NoiseOptionsComponent: FC = () => {
             aria-label={`Seleccionar estilo ${style}`}
             title={`Seleccionar estilo ${style}`}
           >
-            <h5 aria-hidden='true'>{style}</h5>
+            <h4 aria-hidden='true'>{style}</h4>
           </IconButton>
         )
       })}

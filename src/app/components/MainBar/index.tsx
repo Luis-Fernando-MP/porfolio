@@ -31,7 +31,7 @@ const MainBar: React.FC<Props> = ({ className = '' }) => {
 
           <DevCardToggle />
 
-          <IconButton className='events-none mainBar-hidden' active>
+          <IconButton noSound className='events-none mainBar-hidden' active>
             <div className='mainBar-point' />
             {INFO.working.state && <h4>Creando ideas con {INFO.working.enterprise}</h4>}
             {!INFO.working.state && <h4>Trabajemos juntos</h4>}

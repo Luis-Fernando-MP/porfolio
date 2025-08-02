@@ -23,7 +23,7 @@ const ProjectsContent: FC = () => {
         </p>
       </section>
 
-      <IconButton href='/projects' className='active'>
+      <IconButton isLink href='/projects' className='active'>
         <ArrowRightIcon />
         <h4>Ver más</h4>
       </IconButton>

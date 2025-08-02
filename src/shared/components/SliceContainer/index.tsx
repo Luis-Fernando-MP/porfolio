@@ -96,8 +96,8 @@ const SliceContainer: FC<Props> = ({
         aria-pressed={isExtended}
         aria-label={isExtended ? 'Collapse content' : 'Expand content'}
       >
-        {isExtended ? 'Colapsar' : 'Expandir'}
         <MoreHorizontalIcon />
+        <h4>{isExtended ? 'Colapsar' : 'Expandir'}</h4>
       </IconButton>
     </section>
   )

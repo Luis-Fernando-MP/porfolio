@@ -7,9 +7,9 @@ const CurrentThemeName: FC = () => {
 
   return (
     <div className='frow'>
-      <h5 className='capitalize'>{style}</h5>
-      <h5>•</h5>
-      <h4>{theme.toUpperCase()}</h4>
+      <h6 className='capitalize'>{style}</h6>
+      <h6>•</h6>
+      <h5 className='capitalize'>{theme}</h5>
     </div>
   )
 }

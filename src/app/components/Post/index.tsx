@@ -35,7 +35,7 @@ const Post: FC<Props> = mark => {
       </ul>
 
       <Link href={`/posts/${id}`}>
-        <h3 className='post-title'>{title}</h3>
+        <h3 className='post-title ellipsis'>{title}</h3>
       </Link>
 
       <div className='post-info'>

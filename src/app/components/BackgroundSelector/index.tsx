@@ -14,7 +14,7 @@ const BackgroundSelector: FC = () => {
 
   return images.length > 0 ? (
     <section className='UPreferences-section'>
-      <h5># Background</h5>
+      <h5># Backgrounds</h5>
       <div className='frow backgroundSelector'>
         {images.map(bg => {
           return <ThemeBackgroundOption key={`${bg.path}-option-image`} {...bg} />

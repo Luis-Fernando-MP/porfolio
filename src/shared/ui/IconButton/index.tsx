@@ -17,6 +17,7 @@ type CommonProps = {
   className?: string
   transparent?: boolean
   active?: boolean
+  secondary?: boolean
   contentClass?: string
   isLink?: boolean
   isTag?: boolean
@@ -51,6 +52,7 @@ type Props = ButtonProps | LinkProps
  * @param {boolean} outline - Applies outline style.
  * @param {boolean} transparent - Applies transparent style.
  * @param {boolean} active - Applies active style.
+ * @param {boolean} secondary - Applies secondary style.
  * @param {string} className - Additional custom class names.
  * @param {string} contentClass - Class name for the inner content wrapper.
  * @param {boolean} isLink - When true, renders a Next.js link instead of a button.
@@ -105,6 +107,7 @@ const IconButton: FC<Props> = ({
   className = '',
   transparent = false,
   active = false,
+  secondary = false,
   contentClass = '',
   isLink = false,
   isTag = false,
@@ -117,7 +120,7 @@ const IconButton: FC<Props> = ({
 }) => {
   const [playSound] = useSound(soundType, { interrupt: true })
 
-  const parsedClassName = `iconButton ${acl(outline, 'outline')} ${acl(transparent, 'transparent')} ${acl(active, 'active')} ${acl(disable, 'disabled')} ${acl(isTag, 'tag')} ${acl(noPadding, 'noPadding')} ${className}`
+  const parsedClassName = `iconButton ${acl(outline, 'outline')} ${acl(transparent, 'transparent')} ${acl(active, 'active')} ${acl(secondary, 'secondary')} ${acl(disable, 'disabled')} ${acl(isTag, 'tag')} ${acl(noPadding, 'noPadding')} ${className}`
 
   const handleClick = (e: MouseEvent<HTMLElement>) => {
     if (disable) return
