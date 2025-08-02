@@ -72,17 +72,7 @@ export const THEMES = {
         'tn-secondary': '20, 100, 200',
         'tn-tertiary': '217, 234, 255'
       },
-      Midnight: {
-        'bg-primary': '12, 20, 40',
-        'bg-secondary': '18, 30, 55',
-        'bg-tertiary': '25, 45, 75',
-        'fnt-primary': '190, 210, 255',
-        'fnt-secondary': '150, 180, 230',
-        'fnt-active': '255, 255, 255',
-        'tn-primary': '40, 90, 200',
-        'tn-secondary': '30, 70, 180',
-        'tn-tertiary': '200, 215, 255'
-      },
+
       Carbon: {
         'bg-primary': '10, 10, 10',
         'bg-secondary': '20, 20, 20',

@@ -105,7 +105,7 @@ export const LINK_GROUPS = [
   {
     title: 'General',
     icon: LayoutIcon,
-    links: APP.pages.filter(page => ['/', '/blog', '/projects', '/shorts', '/about'].includes(page.path)),
+    links: APP.pages.filter(page => ['/blog', '/projects', '/shorts', '/about'].includes(page.path)),
     className: 'footer-generalLinks'
   },
   {

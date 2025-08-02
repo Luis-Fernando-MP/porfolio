@@ -15,7 +15,7 @@
   &-info {
     display: grid;
     grid-template-areas: 'user generalLinks extraLinks resources say';
-    gap: v.$big-padding;
+    gap: v.$big-padding * 2;
 
     width: fit-content;
     height: fit-content;
@@ -72,12 +72,8 @@
   &-navTitle {
     @include d.flex($dir: row, $ali: center, $gap: v.$min-padding);
 
-    h4 {
-      color: rgb(v.$fn2);
-    }
-
     .lucide {
-      stroke: rgb(v.$fn2);
+      stroke: rgb(v.$fn3);
     }
   }
 
@@ -102,6 +98,8 @@
     width: 100%;
     margin-top: 100px;
     text-align: center;
+
+    @include d.flex;
   }
 }
 
