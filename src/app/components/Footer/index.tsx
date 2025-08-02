@@ -15,7 +15,7 @@ const Footer: FC = () => {
       <div className='footer-info'>
         <section className='footer-section footer-user'>
           <div className='footer-user__name'>
-            <h4 className='footer-haui'>#HAUI</h4>
+            <h6 className='footer-haui'>#HAUI</h6>
             <div className='dualTitle' aria-label='Author name'>
               <h2 className='dualTitle-bold'>LUIS</h2>
               <h2 className='dualTitle-especial'>FERNANDO</h2>
@@ -28,7 +28,7 @@ const Footer: FC = () => {
           <nav key={title} className={`footer-nav ${className}`} aria-label={title}>
             <div className='footer-navTitle'>
               <Icon aria-hidden='true' />
-              <h5>{title}</h5>
+              <h6>{title}</h6>
             </div>
             <ul className='footer-links'>
               {links.map(({ path, label, isCompleted }) => (
@@ -64,8 +64,8 @@ const Footer: FC = () => {
       </div>
 
       <section className='footer-copyright'>
-        <p>&copy; 2025 {INFO.name}. All rights reserved.</p>
-        <h4>All content belongs to their respective creators.</h4>
+        <h4>Copyright &copy; 2025 {INFO.name.toUpperCase()}</h4>
+        <h5>All content belongs to their respective creators</h5>
       </section>
     </footer>
   )
