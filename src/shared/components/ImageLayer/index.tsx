@@ -1,6 +1,7 @@
 'use client'
 
 import { acl } from '@/shared/acl'
+import lottie from 'lottie-web'
 import { FC, HtmlHTMLAttributes, useEffect, useRef, useState } from 'react'
 
 import './style.scss'
@@ -12,32 +13,34 @@ interface Props extends HtmlHTMLAttributes<HTMLDivElement> {
   title?: string
   enableParallax?: boolean
   lazy?: boolean
+  isLottie?: boolean
 }
 
 /**
- * ImageLayer is a React component that renders a background image with optional parallax
- * and lazy-loading behavior. It supports transitions between previous and current images
- * using smooth fade effects.
+ * ImageLayer is a React component that renders a background image or a Lottie animation,
+ * with optional parallax and lazy-loading behavior. It supports transitions between previous
+ * and current images using smooth fade effects. If `isLottie` is enabled, the component fetches
+ * and renders a Lottie animation in a separate layer.
  *
  * @component
- * @param {string} src - The source URL of the main image.
+ * @param {string} src - The source URL of the main image or Lottie JSON file.
  * @param {string} [blur] - Optional CSS background value to show as a blurred placeholder.
  * @param {string} [alt] - Alternative text for accessibility.
  * @param {string} [title] - Tooltip text shown on hover.
  * @param {boolean} [enableParallax=false] - Enables vertical parallax effect on scroll.
  * @param {boolean} [lazy=false] - Enables lazy loading with IntersectionObserver.
+ * @param {boolean} [isLottie=false] - Enables Lottie rendering using lottie-web in a separate layer.
  * @param {HtmlHTMLAttributes<HTMLDivElement>} props - Additional div props.
  *
  * @example
  * ```tsx
  * <ImageLayer
- *   src="/images/hero.jpg"
- *   blur="linear-gradient(#00000055, #00000055)"
- *   alt="Scenic mountain"
- *   title="Mountain View"
- *   enableParallax={false}
- *   lazy={true}
- *   className="my-image"
+ *   src="/animations/clouds.json"
+ *   alt="Animated clouds"
+ *   title="Cloud Animation"
+ *   isLottie={true}
+ *   enableParallax={true}
+ *   className="my-animation"
  * />
  * ```
  */
@@ -49,13 +52,18 @@ const ImageLayer: FC<Props> = ({
   alt = '',
   enableParallax = false,
   lazy = false,
+  isLottie = false,
   ...props
 }) => {
+  const wrapperRef = useRef<HTMLDivElement>(null)
+  const lottieRef = useRef<HTMLDivElement>(null)
+
   const [prevSrc, setPrevSrc] = useState<string | null>(null)
   const [currentSrc, setCurrentSrc] = useState<string | null>(null)
   const [isLoaded, setIsLoaded] = useState(false)
-  const containerRef = useRef<HTMLDivElement>(null)
+  const [animationData, setAnimationData] = useState<any>(null)
 
+  // Imagen estática
   const loadImage = () => {
     const img = new Image()
     img.src = src
@@ -69,9 +77,9 @@ const ImageLayer: FC<Props> = ({
     }
   }
 
+  // Lazy-load para imágenes (no Lottie)
   useEffect(() => {
-    const container = containerRef.current
-    if (!src || !container) return
+    if (!src || !wrapperRef.current || isLottie) return
     if (!lazy) return loadImage()
 
     const observer = new IntersectionObserver(
@@ -82,48 +90,70 @@ const ImageLayer: FC<Props> = ({
       },
       { threshold: 0.1 }
     )
-
-    observer.observe(container)
+    observer.observe(wrapperRef.current)
     return () => observer.disconnect()
-  }, [src, lazy])
+  }, [src, lazy, isLottie])
 
+  // Parallax (aplica a todas las capas con .imageLayer-parallax)
   useEffect(() => {
-    if (!enableParallax || !containerRef.current) return
+    if (!enableParallax || !wrapperRef.current) return
 
     let ticking = false
-
     const updateParallax = () => {
-      const container = containerRef.current
-      if (!container) return
-
-      const layers = container.querySelectorAll('.imageLayer-parallax')
-      const rect = container.getBoundingClientRect()
+      const rect = wrapperRef.current!.getBoundingClientRect()
       const progress = rect.top / window.innerHeight
-      const maxOffset = container.offsetHeight
+      const maxOffset = wrapperRef.current!.offsetHeight
       const translateY = Math.max(-maxOffset, Math.min(maxOffset, progress * maxOffset))
 
-      layers.forEach(layer => {
-        ;(layer as HTMLElement).style.transform = `translateY(${translateY}px)`
+      wrapperRef.current!.querySelectorAll<HTMLElement>('.imageLayer-parallax').forEach(layer => {
+        layer.style.transform = `translateY(${translateY}px)`
       })
 
       ticking = false
     }
 
-    const handleScroll = () => {
+    const onScroll = () => {
       if (ticking) return
       requestAnimationFrame(updateParallax)
       ticking = true
     }
-
-    handleScroll()
-
-    window.addEventListener('scroll', handleScroll)
-    window.addEventListener('resize', handleScroll)
+    onScroll()
+    window.addEventListener('scroll', onScroll)
+    window.addEventListener('resize', onScroll)
     return () => {
-      window.removeEventListener('scroll', handleScroll)
-      window.removeEventListener('resize', handleScroll)
+      window.removeEventListener('scroll', onScroll)
+      window.removeEventListener('resize', onScroll)
     }
   }, [enableParallax])
+
+  // Carga del JSON Lottie
+  useEffect(() => {
+    if (!isLottie || !src) return
+    fetch(src)
+      .then(res => res.json())
+      .then(setAnimationData)
+      .catch(console.error)
+  }, [src, isLottie])
+
+  // Inicializa Lottie
+  useEffect(() => {
+    if (!isLottie || !animationData || !lottieRef.current) return
+
+    const anim = lottie.loadAnimation({
+      container: lottieRef.current,
+      renderer: 'svg',
+      loop: true,
+      autoplay: true,
+      animationData,
+      rendererSettings: {
+        preserveAspectRatio: 'xMidYMid slice'
+      }
+    })
+
+    anim.setSpeed(5)
+
+    return () => anim.destroy()
+  }, [animationData, isLottie])
 
   const renderLayer = (src: string | null, fadeClass: string) => {
     if (!src) return null
@@ -139,16 +169,21 @@ const ImageLayer: FC<Props> = ({
 
   return (
     <div
-      ref={containerRef}
+      ref={wrapperRef}
       {...props}
       className={`imageLayer ${className}`}
-      style={{ ...style, ...(blur ? { background: blur } : {}) }}
+      style={{ ...style, ...(blur && !isLottie ? { background: blur } : {}) }}
       role='img'
       aria-label={alt}
       title={alt}
     >
-      {renderLayer(prevSrc, isLoaded ? 'imageLayer-layer__fadeOut' : 'imageLayer-layer__visible')}
-      {renderLayer(currentSrc, isLoaded ? 'imageLayer-layer__fadeIn' : 'imageLayer-layer__hidden')}
+      {isLottie && <div ref={lottieRef} className={`imageLayer-lottie ${acl(enableParallax, 'imageLayer-parallax')} `} />}
+      {!isLottie && (
+        <>
+          {renderLayer(prevSrc, isLoaded ? 'imageLayer-layer__fadeOut' : 'imageLayer-layer__visible')}
+          {renderLayer(currentSrc, isLoaded ? 'imageLayer-layer__fadeIn' : 'imageLayer-layer__hidden')}
+        </>
+      )}
     </div>
   )
 }
