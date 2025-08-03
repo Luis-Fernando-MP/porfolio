@@ -77,7 +77,7 @@ const DevCardInfo = () => {
             <p>{INFO.resumeAbout}</p>
           </div>
           <div className='devCard-section'>
-            <div className='mfrow'> 
+            <div className='mfrow'>
               <InfinityIcon />
               <h4>Pasatiempos:</h4>
             </div>

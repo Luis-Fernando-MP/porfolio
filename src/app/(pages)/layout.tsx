@@ -2,6 +2,7 @@ import type { JSX, ReactNode } from 'react'
 
 import Footer from '../components/Footer'
 import MainBar from '../components/MainBar'
+import BackgroundHero from './components/BackgroundHero'
 import './style.scss'
 import './userMobile.scss'
 
@@ -12,7 +13,8 @@ interface Props {
 const Layout = async ({ children }: Props): Promise<JSX.Element> => {
   return (
     <main className='page' aria-label='Acerca de Luis Fernando'>
-      <MainBar />
+      <MainBar className='page-bar' />
+      <BackgroundHero />
       <div className='page-wrapper'>{children}</div>
       <Footer />
     </main>

@@ -15,7 +15,7 @@ const Home = (): JSX.Element => {
   return (
     <main className='home' aria-label={`Página principal de ${INFO.fullName}`}>
       <HomeHero />
-      <MainBar className='home-nav' />
+      <MainBar className='home-nav' includeDevCard={true} />
 
       <div className='home-wrapper'>
         <article className='home-presentation'>

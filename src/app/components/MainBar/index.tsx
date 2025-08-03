@@ -3,7 +3,7 @@
 import DevCardToggle from '@/app/(home)/ui/DevCardToggle'
 import { INFO } from '@/constants'
 import IconButton from '@/shared/ui/IconButton'
-import { useState } from 'react'
+import { unstable_ViewTransition as ViewTransition, useState } from 'react'
 
 import MusicButton from '../MusicButton'
 import UserPreferences from '../UserPreferences'
@@ -14,33 +14,35 @@ import './userMobile.scss'
 
 interface Props {
   className?: string
+  includeDevCard?: boolean
 }
 
-const MainBar: React.FC<Props> = ({ className = '' }) => {
+const MainBar: React.FC<Props> = ({ className = '', includeDevCard = false }) => {
   const [show, setShow] = useState(false)
 
   return (
-    <article className={`mainBar ${className}`}>
-      <div className='mainBar-wrapper border'>
-        <LogoLink />
+    <ViewTransition name='main-bar'>
+      <article className={`mainBar ${className}`}>
+        <div className='mainBar-wrapper border'>
+          <LogoLink />
 
-        <div className='mainBar-group frow'>
-          <HamburgerToggle show={show} setShow={setShow} />
+          <div className='mainBar-group frow'>
+            <HamburgerToggle show={show} setShow={setShow} />
 
-          <MusicButton className='mainBar-hidden' />
+            <MusicButton className='mainBar-hidden' />
+            {includeDevCard && <DevCardToggle />}
 
-          <DevCardToggle />
+            <IconButton noSound className='events-none mainBar-hidden' active>
+              <div className='mainBar-point' />
+              {INFO.working.state && <h4>Creando ideas con {INFO.working.enterprise}</h4>}
+              {!INFO.working.state && <h4>Trabajemos juntos</h4>}
+            </IconButton>
+          </div>
 
-          <IconButton noSound className='events-none mainBar-hidden' active>
-            <div className='mainBar-point' />
-            {INFO.working.state && <h4>Creando ideas con {INFO.working.enterprise}</h4>}
-            {!INFO.working.state && <h4>Trabajemos juntos</h4>}
-          </IconButton>
+          {show && <UserPreferences />}
         </div>
-
-        {show && <UserPreferences />}
-      </div>
-    </article>
+      </article>
+    </ViewTransition>
   )
 }
 
