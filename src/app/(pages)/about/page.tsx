@@ -1,3 +1,4 @@
+import { metadataByPage } from '@/constants/metadata'
 import { Metadata } from 'next'
 import type { JSX } from 'react'
 
@@ -6,12 +7,7 @@ import Details from './ui/Details'
 import DevExperiences from './ui/DevExperiences'
 import DevStack from './ui/DevStack'
 
-export const metadata: Metadata = {
-  title: 'Acerca de mi - Luis Fernando',
-  description:
-    'Portafolio de Luis Fernando (Haui) - Desarrollador Full Stack y Diseñador UI. Especialista en crear interfaces intuitivas y sistemas útiles para la comunidad de desarrolladores.',
-  keywords: 'desarrollador full stack, diseñador UI, programación web, desarrollo web, Luis Fernando, Haui'
-}
+export const metadata: Metadata = metadataByPage.about
 
 const About = (): JSX.Element => {
   return (

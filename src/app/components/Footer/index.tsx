@@ -1,4 +1,5 @@
-import { INFO, LINK_GROUPS } from '@/constants'
+import { INFO } from '@/constants'
+import { LINK_GROUPS } from '@/constants/navbar'
 import { acl } from '@/shared/acl'
 import IconLink from '@/shared/ui/IconLink'
 import Social from '@/shared/ui/Social'
@@ -48,7 +49,7 @@ const Footer: FC = () => {
             <IconLink href='mailto:luigfmp@gmail.com' className='' border label='Hablemos!!' active>
               <MailMinusIcon />
               <address>
-                <p>luigfmp@gmail.com</p>
+                <p>{INFO.mail}</p>
               </address>
             </IconLink>
           </div>

@@ -1,5 +1,5 @@
 import { galleryImages } from '@/constants/galleryImages'
-import BlurImage from '@/shared/components/BlurImage'
+import CImage from '@/shared/components/CImage'
 import { ImageIcon } from 'lucide-react'
 import type { FC } from 'react'
 
@@ -24,7 +24,7 @@ const Gallery: FC<Props> = ({ className = '' }) => {
           const key = `gallery-image-${i}`
           return (
             <li className='gallery-image border' key={key}>
-              <BlurImage
+              <CImage
                 blurhash={blurhash}
                 src={image}
                 alt='Gallery image'

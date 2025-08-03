@@ -15,7 +15,7 @@ const Layout = async ({ children }: Props): Promise<JSX.Element> => {
     <main className='page' aria-label='Acerca de Luis Fernando'>
       <MainBar className='page-bar' />
       <BackgroundHero />
-      <div className='page-wrapper'>{children}</div>
+      <div className='page-content'>{children}</div>
       <Footer />
     </main>
   )

@@ -1,6 +1,5 @@
 import { developerExperiences } from '@/constants/developerExperiences'
 import ShadowText from '@/shared/ui/ShadowText'
-import TitleWeight from '@/shared/ui/TitleWeight'
 import { BriefcaseBusinessIcon } from 'lucide-react'
 import type { FC } from 'react'
 
@@ -18,7 +17,6 @@ const DevExperiences: FC = () => {
         <div className='borderIcon' aria-hidden='true'>
           <BriefcaseBusinessIcon />
         </div>
-        <TitleWeight lighter='Mis' bold='Experiencias' wrap />
       </header>
 
       <ul className='devExperiences-list'>

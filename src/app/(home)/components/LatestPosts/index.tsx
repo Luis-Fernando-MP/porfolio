@@ -16,7 +16,7 @@ const LatestPosts: FC<Props> = ({ className = '' }) => {
     <article className={`lastedPosts ${className}`} aria-label='Últimos posts'>
       <header className='home-header'>
         <Title sub='✍️ Mis' title='Últimos Posts' center />
-        <p className='home-description'>
+        <p className='description'>
           Estos son algunos de mis apuntes que he ido escribiendo durante camino en nuevo campo lleno de rosas.
         </p>
       </header>

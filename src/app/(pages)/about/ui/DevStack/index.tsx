@@ -4,7 +4,6 @@ import { myTechnologyStack } from '@/constants/myTechnologyStack'
 import { acl } from '@/shared/acl'
 import IconButton from '@/shared/ui/IconButton'
 import ShadowText from '@/shared/ui/ShadowText'
-import TitleWeight from '@/shared/ui/TitleWeight'
 import { type FC, useState } from 'react'
 
 import Technologies from '../Technologies'
@@ -19,7 +18,6 @@ const DevStack: FC = () => {
         <ShadowText className='certificates-shadow' role='heading' aria-level={1}>
           DEV Stack
         </ShadowText>
-        <TitleWeight lighter='Mi' bold='Stack Tecnológico' wrap />
         <IconButton className='inverse' onClick={() => setOpen(!open)}>
           <h4>Mostrar todo</h4>
         </IconButton>

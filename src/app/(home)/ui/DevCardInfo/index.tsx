@@ -61,7 +61,7 @@ const DevCardInfo = () => {
 
           <Social />
 
-          <Link href={INFO.github} target='_blank' rel='noopener noreferrer'>
+          <Link href={INFO.linked_in} target='_blank' rel='noopener noreferrer'>
             <h1 className='devCard-name'>#{INFO.devShortName}</h1>
           </Link>
           <IconButton isLink href={INFO.phone} label='Por WhatsApp' className='active'>

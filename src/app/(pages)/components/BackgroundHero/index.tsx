@@ -12,7 +12,7 @@ const BackgroundHero: FC = () => {
   const { path } = useBackgroundImageStore(s => s.background)
 
   return (
-    <section className='bgHero'>
+    <section className='bgHero border'>
       <ImageLayer className='bgHero-bg' src={path} />
     </section>
   )
