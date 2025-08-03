@@ -1,22 +1,7 @@
-import {
-  BadgeInfoIcon,
-  BookOpenIcon,
-  CopyIcon,
-  CuboidIcon,
-  FileBadgeIcon,
-  GlobeIcon,
-  LayersIcon,
-  LayoutIcon,
-  RocketIcon,
-  UserIcon,
-  VenetianMaskIcon
-} from 'lucide-react'
-
 export enum DEV_MODE {
   PROD = 'production',
   DEV = 'development'
 }
-export const DEV_ENV = process.env.NODE_ENV ?? DEV_MODE.DEV
 
 export const INFO = {
   devName: 'Haui dev',
@@ -27,7 +12,7 @@ export const INFO = {
     state: false,
     enterprise: ''
   },
-  mail: 'mailto:luigfmp@gmail.com',
+  mail: 'luigfmp@gmail.com',
   phone: '958978370',
   linked_in: 'https://www.linkedin.com/in/luigfmp/',
   github: 'https://github.com/Luis-Fernando-MP',
@@ -35,89 +20,36 @@ export const INFO = {
   cv: 'https://luigfmp.github.io/cv/',
   resumeAbout: 'Desarrollador y diseñador de aplicaciones full stack',
   hobbies: ['Estudiar', 'Leer', 'Entrenar', 'Programar', 'Investigar', 'Gatos', 'Hamsters', 'Músicas', 'Meditar']
-}
-
-export const APP = {
-  pages: [
-    {
-      path: '/projects',
-      label: 'Proyectos',
-      image: '/assets/pages/projects.webp',
-      Icon: RocketIcon,
-      isCompleted: true
-    },
-    {
-      path: '/achievements',
-      label: 'Certificados y Títulos',
-      image: '/assets/pages/achievements.webp',
-      Icon: FileBadgeIcon,
-      isCompleted: true
-    },
-    {
-      path: '/webs',
-      label: 'Páginas web',
-      image: '/assets/pages/webs.webp',
-      Icon: GlobeIcon,
-      isCompleted: false
-    },
-    {
-      path: '/attribution',
-      label: 'Atribuciones',
-      image: '/assets/pages/attribution.webp',
-      Icon: BadgeInfoIcon,
-      isCompleted: false
-    },
-    {
-      path: '/about',
-      label: 'Acerca de mí',
-      image: '/assets/pages/about.webp',
-      Icon: UserIcon,
-      isCompleted: true
-    },
-
-    {
-      path: '/blog',
-      label: 'Blog',
-      image: '/assets/pages/blog.webp',
-      Icon: BookOpenIcon,
-      isCompleted: true
-    },
-
-    {
-      path: '/stack',
-      label: 'Stack',
-      image: '/assets/pages/stack.webp',
-      Icon: LayersIcon,
-      isCompleted: false
-    },
-
-    {
-      path: '/templates',
-      label: 'Plantillas',
-      image: '/assets/pages/templates.webp',
-      Icon: CopyIcon,
-      isCompleted: false
-    }
-  ]
 } as const
 
-export const LINK_GROUPS = [
-  {
-    title: 'General',
-    icon: LayoutIcon,
-    links: APP.pages.filter(page => ['/blog', '/projects', '/shorts', '/about'].includes(page.path)),
-    className: 'footer-generalLinks'
+export const personalJourneys = {
+  'Mis inicios': {
+    id: 'jny-00003',
+    text: '<p>Mi camino comenzó en 2021, cuando obtuve el título de <b>Técnico en Diseño y Programación de Aplicaciones Web</b>. Desde entonces, he seguido formándome y actualmente curso el séptimo ciclo de la carrera de <b>Ingeniería de Software</b> en la Universidad Tecnológica del Perú.</p>',
+    date: '2025-01',
+    images: [
+      {
+        url: '/backgrounds/candy/1.webp',
+        alt: 'string',
+        caption: 'string',
+        blurHash: 'L4F5gBK$00EL.jot^*_M00%2-;Ns'
+      }
+    ]
   },
-  {
-    title: 'Extras',
-    icon: VenetianMaskIcon,
-    links: APP.pages.filter(page => ['/stack', '/attribution'].includes(page.path)),
-    className: 'footer-extraLinks'
+  'Mi caos': {
+    id: 'jny-00002',
+    text: '<p>No sé lidiar ni con lo normal ni con lo perfecto. Solo soy, y cada proyecto que toco lo sabe. Si puedo mejorarlo, transformarlo o reinventarlo… lo haré. Para eso están mis manitas.</p>',
+    date: '2024-05',
+    images: []
   },
-  {
-    title: 'Recursos',
-    icon: CuboidIcon,
-    links: APP.pages.filter(page => ['/webs', '/templates'].includes(page.path)),
-    className: 'footer-resources'
+  'Mi forma de ser': {
+    id: 'jny-00001',
+    text: `<p>Me encantan las mascotas. <b>A veces me paso el día admirando los grandes pelos de un gato o el inmenso corazón que puede llegar a tener un hámster.</b></p>
+    <p>Me encuentro en sintonía con el mundo, porque este es un encargo; una constante que permanecerá entre mis particularidades, un bug que no resolveré y un deploy que permanecerá perpetuo… aun si es viernes.</p>
+    <p>Te voy a contar un secreto <b><i>“Para mi, programar es lo más cerca que he estado de una carta de despedida que nunca supe cómo escribir”<i></b></p>
+    <p>Si has llegado hasta aquí… algún día deberíamos tomarnos un café, Yo invito</p>`,
+    date: '2022-06-17',
+    images: []
   }
-]
+} as const
+export type PersonalJourney = (typeof personalJourneys)[keyof typeof personalJourneys]

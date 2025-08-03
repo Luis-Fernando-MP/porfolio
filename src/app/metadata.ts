@@ -1,21 +1,9 @@
+import { metadataByPage } from '@/constants/metadata'
 import type { Metadata } from 'next'
 
 export const metadata: Metadata = {
   metadataBase: new URL('https://haui.vercel.app'),
-  title: 'haui:Porfolio',
-  description:
-    'Hola soy Luis pero dime haui, soy un desarrollador de aplicaciones apasionado por crear soluciones innovadoras, estaré encantado de trabajar contigo',
-  keywords: [
-    'Portafolio',
-    'Desarrollador Web',
-    'Full Stack',
-    'Luis Fernando Melgar Pizarro',
-    'HAUI DEV',
-    'dev',
-    'programador',
-    'lima',
-    'Perú'
-  ],
+  ...metadataByPage.home,
   authors: [{ name: 'Luis Fernando Melgar Pizarro', url: 'https://haui.vercel.app' }],
   creator: 'Luis Fernando Melgar Pizarro',
   publisher: 'haui.dev',
