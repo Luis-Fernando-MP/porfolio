@@ -5,10 +5,11 @@
 @include m.extraLargeScreen {
   .mainBar {
     max-width: 100% !important;
+    margin: initial !important;
     padding: 0 v.$padding;
 
     &-wrapper {
-      margin: auto !important;
+      margin: 0 auto !important;
     }
   }
 }
@@ -16,7 +17,7 @@
 @include m.mediumScreen {
   .mainBar {
     &-hidden {
-      display: none;
+      display: none !important;
     }
   }
 }

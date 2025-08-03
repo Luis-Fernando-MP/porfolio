@@ -10,5 +10,6 @@
 
   &-background {
     height: calc($height + 80px);
+    min-height: calc($height + 80px);
   }
 }

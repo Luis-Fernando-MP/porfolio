@@ -6,11 +6,22 @@
   height: fit-content;
   min-height: 100vh;
 
-  @include d.flex($gap: v.$big-padding * 3);
+  @include d.flex($gap: v.$big-padding);
+
+  &-bar {
+    width: 100%;
+    max-width: v.$max-w;
+    margin: 0 auto;
+
+    .mainBar-wrapper {
+      margin: 0;
+    }
+  }
 
   &-wrapper {
     width: v.$max-w;
-    margin: auto;
+    max-width: v.$max-w;
+    margin: 0 auto;
 
     @include d.flex($gap: v.$big-padding * 2, $ali: center);
   }

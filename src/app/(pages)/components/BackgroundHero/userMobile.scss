@@ -2,45 +2,41 @@
 @use '@sass/utils/media' as m;
 
 @include m.extraLargeScreen {
-  .homeHero {
+  .bgHero {
     height: 300px;
 
     &-background {
       height: 380px;
-      min-height: 380px;
     }
   }
 }
 
 @include m.largeScreen {
-  .homeHero {
+  .bgHero {
     height: 250px;
 
     &-background {
       height: 330px;
-      min-height: 330px;
     }
   }
 }
 
 @include m.mediumScreen {
-  .homeHero {
+  .bgHero {
     height: 200px;
 
     &-background {
       height: 280px;
-      min-height: 280px;
     }
   }
 }
 
 @include m.smallScreen {
-  .homeHero {
+  .bgHero {
     height: 120px;
 
     &-background {
       height: 200px;
-      min-height: 200px;
     }
   }
 }
