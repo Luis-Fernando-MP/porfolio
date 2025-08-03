@@ -11,13 +11,4 @@
   &-section {
     @include d.flex;
   }
-
-  &-description {
-    width: 100%;
-    max-width: 650px;
-
-    b {
-      color: rgb(v.$fn3);
-    }
-  }
 }

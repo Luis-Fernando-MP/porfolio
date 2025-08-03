@@ -2,23 +2,13 @@
 @use '@sass/utils/defs' as d;
 
 .details {
-  display: grid;
-  grid-template-columns: 300px 1fr;
-  flex-wrap: wrap;
-  gap: v.$big-padding;
+  @include d.flex($ali: center);
 
-  width: 100%;
-  height: fit-content;
-
-  &-title {
-    @include d.flex($dir: row, $ali: center);
+  &-sliceContainer {
+    width: v.$max-w;
   }
 
-  &-information {
-    @include d.flex($gap: v.$padding * 2);
-  }
-
-  &-paragraph {
-    @include d.flex;
+  &-list {
+    width: 100%;
   }
 }

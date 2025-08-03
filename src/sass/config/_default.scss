@@ -111,6 +111,10 @@ body {
     height: $icon;
   }
 
+  b {
+    color: rgb($fn3);
+  }
+
   .lucide {
     stroke: rgb($fn1);
     stroke-width: 2;

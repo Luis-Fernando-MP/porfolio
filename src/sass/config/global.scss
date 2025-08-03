@@ -5,6 +5,12 @@
 @use 'default' as *;
 
 body {
+  .description {
+    width: 100%;
+    max-width: 530px;
+    text-align: center;
+  }
+
   .font2 {
     font-family: $font2;
     font-weight: 400;
@@ -89,6 +95,14 @@ body {
     @include d.flex($ali: center, $dir: row);
 
     flex-wrap: wrap;
+  }
+
+  .flex {
+    @include d.flex;
+  }
+
+  .mflex {
+    @include d.flex($gap: $min-padding);
   }
 
   .mfrow {

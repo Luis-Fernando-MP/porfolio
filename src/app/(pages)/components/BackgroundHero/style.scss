@@ -2,13 +2,13 @@
 @use '@sass/utils/defs' as d;
 
 .bgHero {
-  width: 150px;
-  height: 150px;
-  margin: auto;
-  padding: 10px;
+  overflow: hidden;
+  width: 200px;
+  height: 200px;
+  border-radius: v.$radius;
 
   &-background {
-    width: 150px;
-    height: 150px;
+    width: 100%;
+    height: 100%;
   }
 }
