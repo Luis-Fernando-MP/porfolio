@@ -10,10 +10,7 @@
   @include d.flex($dir: row, $gap: 0);
 
   &-option {
-    content-visibility: auto;
-
     overflow: hidden;
-
     width: 30px;
     height: 30px;
     border-radius: v.$min-radius;

@@ -18,9 +18,18 @@
     }
   }
 
+  &-minContent {
+    overflow-x: hidden;
+    max-width: v.$max-w-md;
+  }
+
+  &-content {
+    max-width: v.$max-w;
+  }
+
+  &-minContent,
   &-content {
     width: 100%;
-    max-width: v.$max-w;
 
     @include d.flex($gap: v.$section-padding, $ali: center);
   }

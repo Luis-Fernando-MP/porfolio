@@ -71,3 +71,20 @@
     opacity: 0;
   }
 }
+
+.imageLayer-lottie {
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+  height: 100%;
+
+  &.imageLayer-parallax {
+    height: 200%;
+  }
+
+  svg {
+    display: block;
+    width: 100% !important;
+    height: 100% !important;
+  }
+}

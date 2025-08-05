@@ -2,13 +2,16 @@
 @use '@sass/utils/defs' as d;
 
 .details {
-  @include d.flex($ali: center);
+  @include d.flex($ali: center, $gap: v.$padding * 2.5);
 
-  &-sliceContainer {
-    width: v.$max-w;
+  &-header {
+    @include d.flex($ali: center);
   }
 
-  &-list {
+  &-journeys {
     width: 100%;
+    max-width: v.$max-w-min;
+
+    @include d.flex($gap: v.$padding * 2);
   }
 }

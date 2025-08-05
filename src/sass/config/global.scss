@@ -5,6 +5,10 @@
 @use 'default' as *;
 
 body {
+  .lazy {
+    content-visibility: auto;
+  }
+
   .description {
     width: 100%;
     max-width: 530px;
