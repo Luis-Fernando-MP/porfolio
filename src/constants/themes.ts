@@ -1,52 +1,49 @@
 import { MonitorDotIcon, MoonStarIcon, SunIcon, ZapIcon } from 'lucide-react'
 
 const tmp = [
-  { path: '/backgrounds/lavender/1.webp', hash: 'L4F5gBK$00EL.jot^*_M00%2-;Ns' },
-  { path: '/backgrounds/lavender/2.webp', hash: 'L4F5gBK$00EL.jot^*_M00%2-;Ns' },
-  { path: '/backgrounds/lavender/3.jpg', hash: 'L4F5gBK$00EL.jot^*_M00%2-;Ns' },
-  { path: '/backgrounds/lavender/4.jpg', hash: 'L4F5gBK$00EL.jot^*_M00%2-;Ns' }
+  { path: '/backgrounds/lavender/1.webp' },
+  { path: '/backgrounds/lavender/2.webp' },
+  { path: '/backgrounds/lavender/3.jpg' },
+  { path: '/backgrounds/lavender/4.jpg' }
 ]
 
 export const themeBackgroundImages: Record<ThemeColorKeys, BackgroundImage[]> = {
   gris: [
-    { path: '/backgrounds/gris/1.webp', hash: 'LHExFS~BEM9b03Io%1-oR+I=niV@' },
-    { path: '/backgrounds/gris/2.webp', hash: 'LdGQtVS5E2%1~Ut7M|fi-:xtRkjF' },
-    { path: '/backgrounds/gris/3.webp', hash: 'LdGQtVS5E2%1~Ut7M|fi-:xtRkjF' },
-    { path: '/backgrounds/gris/4.gif', hash: 'LdGQtVS5E2%1~Ut7M|fi-:xtRkjF' },
-    { path: '/backgrounds/gris/5.gif', hash: 'LdGQtVS5E2%1~Ut7M|fi-:xtRkjF' }
+    { path: '/backgrounds/gris/1.webp' },
+    { path: '/backgrounds/gris/2.webp' },
+    { path: '/backgrounds/gris/3.webp' },
+    { path: '/backgrounds/gris/4.json', isLottie: true },
+    { path: '/backgrounds/gris/5.gif' }
   ],
   'haui dark': [
-    { path: '/backgrounds/dev-dark/1.webp', hash: 'L4F5gBK$00EL.jot^*_M00%2-;Ns' },
-    { path: '/backgrounds/dev-dark/2.webp', hash: 'L4F5gBK$00EL.jot^*_M00%2-;Ns' },
-    { path: '/backgrounds/dev-dark/3.webp', hash: 'L4F5gBK$00EL.jot^*_M00%2-;Ns' }
+    { path: '/backgrounds/dev-dark/1.webp' },
+    { path: '/backgrounds/dev-dark/2.webp' },
+    { path: '/backgrounds/dev-dark/3.webp' }
   ],
-  'haui light': [{ path: '/backgrounds/haui-light/1.jpg', hash: 'L4F5gBK$00EL.jot^*_M00%2-;Ns' }],
+  'haui light': [{ path: '/backgrounds/haui-light/1.jpg' }],
   Candy: [
-    { path: '/backgrounds/candy/1.webp', hash: 'L4F5gBK$00EL.jot^*_M00%2-;Ns' },
-    { path: '/backgrounds/candy/2.webp', hash: 'L4F5gBK$00EL.jot^*_M00%2-;Ns' },
-    { path: '/backgrounds/candy/3.webp', hash: 'L4F5gBK$00EL.jot^*_M00%2-;Ns' },
-    { path: '/backgrounds/candy/4.webp', hash: 'L4F5gBK$00EL.jot^*_M00%2-;Ns' },
-    { path: '/backgrounds/candy/5.webp', hash: 'L4F5gBK$00EL.jot^*_M00%2-;Ns' },
-    { path: '/backgrounds/candy/6.webp', hash: 'L4F5gBK$00EL.jot^*_M00%2-;Ns' }
+    { path: '/backgrounds/candy/1.webp' },
+    { path: '/backgrounds/candy/2.webp' },
+    { path: '/backgrounds/candy/3.webp' },
+    { path: '/backgrounds/candy/4.webp' },
+    { path: '/backgrounds/candy/5.webp' },
+    { path: '/backgrounds/candy/6.webp' }
   ],
-  Electric: [{ path: '/backgrounds/electric/1.jpg', hash: 'L4F5gBK$00EL.jot^*_M00%2-;Ns' }],
-  Lavender: [
-    { path: '/backgrounds/lavender/1.webp', hash: 'L4F5gBK$00EL.jot^*_M00%2-;Ns' },
-    { path: '/backgrounds/lavender/2.webp', hash: 'L4F5gBK$00EL.jot^*_M00%2-;Ns' }
-  ],
+  Electric: [{ path: '/backgrounds/electric/1.jpg' }],
+  Lavender: [{ path: '/backgrounds/lavender/1.webp' }, { path: '/backgrounds/lavender/2.webp' }],
 
   'Synth wave 84': [
-    { path: '/backgrounds/synth-wave-84/1.jpg', hash: 'L4F5gBK$00EL.jot^*_M00%2-;Ns' },
-    { path: '/backgrounds/synth-wave-84/2.jpg', hash: 'L4F5gBK$00EL.jot^*_M00%2-;Ns' },
-    { path: '/backgrounds/synth-wave-84/3.jpg', hash: 'L4F5gBK$00EL.jot^*_M00%2-;Ns' },
-    { path: '/backgrounds/synth-wave-84/4.jpg', hash: 'L4F5gBK$00EL.jot^*_M00%2-;Ns' }
+    { path: '/backgrounds/synth-wave-84/1.jpg' },
+    { path: '/backgrounds/synth-wave-84/2.jpg' },
+    { path: '/backgrounds/synth-wave-84/3.jpg' },
+    { path: '/backgrounds/synth-wave-84/4.jpg' }
   ],
-  neonCyber: [{ path: '/backgrounds/neon-cyber/1.webp', hash: 'L4F5gBK$00EL.jot^*_M00%2-;Ns' }],
+  neonCyber: [{ path: '/backgrounds/neon-cyber/1.webp' }],
   Forest: [
-    { path: '/backgrounds/forest/1.webp', hash: 'L4F5gBK$00EL.jot^*_M00%2-;Ns' },
-    { path: '/backgrounds/forest/2.webp', hash: 'L4F5gBK$00EL.jot^*_M00%2-;Ns' },
-    { path: '/backgrounds/forest/3.webp', hash: 'L4F5gBK$00EL.jot^*_M00%2-;Ns' },
-    { path: '/backgrounds/forest/4.webp', hash: 'L4F5gBK$00EL.jot^*_M00%2-;Ns' }
+    { path: '/backgrounds/forest/1.webp' },
+    { path: '/backgrounds/forest/2.webp' },
+    { path: '/backgrounds/forest/3.webp' },
+    { path: '/backgrounds/forest/4.webp' }
   ]
 }
 
@@ -56,7 +53,7 @@ export const THEMES = {
     styles: {
       gris: {
         'bg-primary': '25, 26, 27',
-        'bg-secondary': '38, 39, 41',
+        'bg-secondary': '32, 33, 34',
         'bg-tertiary': '58, 59, 61',
         'fnt-primary': '235, 235, 235',
         'fnt-secondary': '170, 172, 174',
@@ -98,7 +95,7 @@ export const THEMES = {
         'bg-tertiary': '28, 38, 32',
         'fnt-primary': '220, 255, 240',
         'fnt-secondary': '160, 200, 180',
-        'fnt-tertiary': '120, 160, 140',
+        'fnt-tertiary': '190, 240, 215',
         'fnt-active': '12, 18, 15',
         'tn-primary': '45, 212, 191',
         'tn-secondary': '16, 185, 129'
@@ -189,7 +186,7 @@ export const DEFAULT_THEME = {
   theme: 'gris' as ThemeColorKeys,
   colors: THEMES.default.styles.gris,
   bgs: themeBackgroundImages['gris'],
-  bg: themeBackgroundImages['gris'][0] ?? { path: '/backgrounds/gris/bg1.webp', hash: 'LHExFS~BEM9b03Io%1-oR+I=niV@' }
+  bg: themeBackgroundImages['gris'][0] ?? { path: '/backgrounds/gris/bg1.webp' }
 } as const
 
 export type ThemeParent = (typeof THEMES)['default']
@@ -201,4 +198,4 @@ export type ThemeColorKeys =
   | keyof typeof THEMES.light.styles
   | keyof typeof THEMES.chaotic.styles
 
-export type BackgroundImage = { path: string; hash: string }
+export type BackgroundImage = { path: string; isLottie?: boolean }
