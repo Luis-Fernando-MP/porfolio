@@ -1,5 +1,4 @@
 import { BackgroundImage, DEFAULT_THEME, ThemeColorKeys, themeBackgroundImages } from '@/constants/themes'
-import { blurhashToCssGradientString } from '@unpic/placeholder'
 import { StateCreator, create } from 'zustand'
 import { persist } from 'zustand/middleware'
 
@@ -10,12 +9,10 @@ interface Props {
   getThemeBackgrounds: (key: ThemeColorKeys) => BackgroundImage[]
 }
 
-const placeholder = blurhashToCssGradientString(DEFAULT_THEME.bg.hash)
-
 const state: StateCreator<Props> = set => ({
   background: {
     path: DEFAULT_THEME.bg.path,
-    hash: placeholder
+    isLottie: DEFAULT_THEME.bg.isLottie ?? false
   },
   getThemeBackgrounds(key: ThemeColorKeys) {
     if (!(key in themeBackgroundImages)) return []
@@ -31,8 +28,10 @@ const state: StateCreator<Props> = set => ({
     if (!(key in themeBackgroundImages)) return
     const bgs = themeBackgroundImages[key]
     if (bgs.length <= 0) return
-    const placeholder = blurhashToCssGradientString(bgs[0].hash)
-    return set({ background: { path: bgs[0].path, hash: placeholder } })
+
+    const { path, isLottie } = bgs[0]
+
+    return set({ background: { path, isLottie: isLottie ?? false } })
   }
 })
 

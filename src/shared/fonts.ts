@@ -2,7 +2,7 @@ import { Instrument_Serif, Roboto } from 'next/font/google'
 
 export const font1 = Roboto({
   subsets: ['latin'],
-  weight: ['400', '500', '600', '700', '800'],
+  weight: ['300','400', '500', '600', '700', '800'],
   variable: '--family1'
 })
 

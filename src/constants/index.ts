@@ -22,6 +22,13 @@ export const INFO = {
   hobbies: ['Estudiar', 'Leer', 'Entrenar', 'Programar', 'Investigar', 'Gatos', 'Hamsters', 'Músicas', 'Meditar']
 } as const
 
+export type JourneysImage = {
+  src: string
+  caption?: string
+  action?: string
+  actionText?: string
+}
+
 export const personalJourneys = {
   'Mis inicios': {
     id: 'jny-00003',
@@ -29,12 +36,19 @@ export const personalJourneys = {
     date: '2025-01',
     images: [
       {
-        url: '/backgrounds/candy/1.webp',
-        alt: 'string',
-        caption: 'string',
-        blurHash: 'L4F5gBK$00EL.jot^*_M00%2-;Ns'
+        src: '/content/projects/20d98397-f7fa-80ed-ae15-d5e783a9ee85/banner.webp',
+        caption: 'Ilustración de un camino rosado con árboles, simbolizando el inicio de un viaje formativo'
+      },
+      {
+        src: '/backgrounds/candy/1.webp',
+        caption: '<h5>Así comenzó mi camino en el mundo del desarrollo web, lleno de curiosidad y sueños</h5>',
+        action: '/about'
+      },
+      {
+        src: '/backgrounds/candy/2.webp',
+        action: '/about'
       }
-    ]
+    ] as JourneysImage[]
   },
   'Mi caos': {
     id: 'jny-00002',
