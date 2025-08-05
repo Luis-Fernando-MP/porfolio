@@ -9,21 +9,22 @@ import './userMobile.scss'
 
 const Details: FC = () => {
   return (
-    <article className='details'>
-      <Title sub='✨ Dime' title='HAUI' />
-      <p className='description'>
-        <b>Soy desarrollador y diseñador de aplicaciones full stack</b>, pero mi fuerte es la creación de <b>aplicaciones web</b>{' '}
-        funcionales e interactivas centradas en el usuario.
-      </p>
-      <SliceContainer parentClassName='details-sliceContainer' maxHeight={1500} reverse overlayColor='var(--bg-primary)'>
-        <ul className='details-list'>
+    <article className='details' itemScope itemType='https://schema.org/Person'>
+      <header className='details-header'>
+        <Title sub='✨ Dime' title='HAUI' />
+        <p className='description' itemProp='description'>
+          <b>Soy desarrollador y diseñador de aplicaciones full stack</b>, pero mi fuerte es la creación de{' '}
+          <b>aplicaciones web</b> funcionales e interactivas centradas en el usuario.
+        </p>
+      </header>
+      <SliceContainer maxHeight={400} overlayColor='var(--bg-primary)'>
+        <div className='details-journeys'>
           {Object.entries(personalJourneys).map(items => {
             const [title, journey] = items
             return <Journey key={journey.id} journey={journey} title={title} />
           })}
-        </ul>
+        </div>
       </SliceContainer>
-      <section className='projects-section'></section>
     </article>
   )
 }

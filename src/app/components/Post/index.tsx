@@ -1,6 +1,6 @@
 import { toRelativeTime } from '@/lib/relativeTime'
 import IconButton from '@/shared/ui/IconButton'
-import { Image } from '@unpic/react'
+import { Image } from '@unpic/react/nextjs'
 import { Marks } from 'contentlayer/generated'
 import { ArrowUpRightIcon } from 'lucide-react'
 import Link from 'next/link'
@@ -16,8 +16,8 @@ const Post: FC<Props> = mark => {
   return (
     <li className='post'>
       <div className='post-image'>
-        <Image src={thumb} alt={title} layout='fullWidth' />
-        {last_edited_time && <p className='post-editedTime'>{toRelativeTime(last_edited_time)}</p>}
+        <Image src={thumb} alt={title} width={230} height={130} />
+        {last_edited_time && <p className='post-editedTime lazy'>{toRelativeTime(last_edited_time)}</p>}
       </div>
 
       <ul className='frow'>

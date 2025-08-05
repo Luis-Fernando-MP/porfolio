@@ -6,7 +6,6 @@ import type { FC } from 'react'
 
 import './style.scss'
 
-// import './userMobile.scss'
 
 const BackgroundHero: FC = () => {
   const { path } = useBackgroundImageStore(s => s.background)

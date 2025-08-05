@@ -1,6 +1,6 @@
 import { Testimony } from '@/constants/testimonies'
 import { acl } from '@/shared/acl'
-import { Image } from '@unpic/react'
+import { Image } from '@unpic/react/nextjs'
 import { GraduationCapIcon } from 'lucide-react'
 import Link from 'next/link'
 import type { FC } from 'react'
@@ -28,7 +28,8 @@ const TestimonyComponent: FC<Props> = ({ testimony }) => {
           height={50}
           alt={`Photo of ${autor}`}
           loading='lazy'
-          decoding='async'
+          fetchPriority='low'
+          background='/fallback.webp'
         />
         <div className='testimony-author'>
           <h3>{autor}</h3>

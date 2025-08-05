@@ -11,12 +11,12 @@ export const metadata: Metadata = metadataByPage.about
 
 const About = (): JSX.Element => {
   return (
-    <>
+    <div className='page-minContent'>
       <Details />
       <Certificates />
       <DevExperiences />
       <DevStack />
-    </>
+    </div>
   )
 }
 

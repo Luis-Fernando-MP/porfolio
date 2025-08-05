@@ -8,11 +8,11 @@ import './style.scss'
 import './userMobile.scss'
 
 const HomeHero: FC = () => {
-  const { path } = useBackgroundImageStore(s => s.background)
+  const { path, isLottie } = useBackgroundImageStore(s => s.background)
 
   return (
     <section className='homeHero'>
-      <ImageLayer className='homeHero-background' src={path} enableParallax />
+      <ImageLayer className='homeHero-background' src={path} enableParallax isLottie={isLottie} />
     </section>
   )
 }

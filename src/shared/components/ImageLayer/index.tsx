@@ -129,6 +129,11 @@ const ImageLayer: FC<Props> = ({
   // Carga del JSON Lottie
   useEffect(() => {
     if (!isLottie || !src) return
+
+    setPrevSrc(null)
+    setCurrentSrc(null)
+    setIsLoaded(false)
+
     fetch(src)
       .then(res => res.json())
       .then(setAnimationData)
@@ -177,7 +182,12 @@ const ImageLayer: FC<Props> = ({
       aria-label={alt}
       title={alt}
     >
-      {isLottie && <div ref={lottieRef} className={`imageLayer-lottie ${acl(enableParallax, 'imageLayer-parallax')} `} />}
+      {isLottie && (
+        <div
+          ref={lottieRef}
+          className={`imageLayer-lottie ${acl(enableParallax, 'imageLayer-parallax')} ${'imageLayer-layer__fadeIn'}`}
+        />
+      )}
       {!isLottie && (
         <>
           {renderLayer(prevSrc, isLoaded ? 'imageLayer-layer__fadeOut' : 'imageLayer-layer__visible')}

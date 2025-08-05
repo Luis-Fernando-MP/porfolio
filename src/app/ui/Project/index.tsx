@@ -1,5 +1,5 @@
 import IconButton from '@/shared/ui/IconButton'
-import { Image } from '@unpic/react'
+import { Image } from '@unpic/react/nextjs'
 import { Projects } from 'contentlayer/generated'
 import Link from 'next/link'
 import type { FC } from 'react'
@@ -13,7 +13,17 @@ const Project: FC<Props> = props => {
 
   return (
     <Link href={`/project/${id}`} className='project border'>
-      <Image className='project-background' src={banner} layout='fullWidth' alt={`Vista previa del proyecto ${title}`} />
+      <Image
+        alt={`Vista previa del proyecto ${title}`}
+        className='project-background'
+        src={banner}
+        width={300}
+        height={450}
+        layout='fullWidth'
+        fetchPriority='high'
+        priority
+        background='/fallback.webp'
+      />
 
       <div className='project-content'>
         <header>
@@ -46,10 +56,10 @@ const Project: FC<Props> = props => {
               height={35}
               src={thumb ?? ''}
               className='project-thumbnail border'
+              alt='Vista en miniatura del proyecto'
               loading='lazy'
               fetchPriority='low'
               background='/fallback.webp'
-              alt='Vista en miniatura del proyecto'
             />
           ))}
         </div>

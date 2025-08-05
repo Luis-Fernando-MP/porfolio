@@ -9,6 +9,6 @@ interface Props {
 }
 
 export const BackgroundImage: FC<Props> = ({ className }) => {
-  const { path } = useBackgroundImageStore(s => s.background)
-  return <ImageLayer className={className} src={path} />
+  const { path, isLottie } = useBackgroundImageStore(s => s.background)
+  return <ImageLayer className={className} src={path} isLottie={isLottie} />
 }

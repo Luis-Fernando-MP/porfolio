@@ -17,7 +17,7 @@ const BackgroundSelector: FC = () => {
       <h5># Backgrounds</h5>
       <div className='frow backgroundSelector'>
         {images.map(bg => {
-          return <ThemeBackgroundOption key={`${bg.path}-option-image`} {...bg} />
+          return <ThemeBackgroundOption key={`${bg.path}-option-image lazy`} {...bg} />
         })}
       </div>
     </section>
