@@ -1,0 +1,37 @@
+@use '@sass/config/vars' as v;
+@use '@sass/utils/media' as m;
+@use '@sass/utils/defs' as d;
+@use '@sass/utils/scrollbar' as *;
+
+@include m.smallScreen {
+  .gallery {
+    &-figure {
+      overflow-x: hidden;
+      overflow-y: scroll;
+      display: grid;
+      grid-template-rows: fit-content 1fr;
+      gap: v.$padding;
+
+      @include scroll-hidden;
+    }
+
+    &-figure,
+    &-mainImage {
+      height: min-content;
+      max-height: min-content !important;
+    }
+
+    &-header,
+    &-navigation {
+      position: relative;
+      top: 0;
+      bottom: 0;
+      left: 0;
+      transform: none;
+    }
+
+    &-keyboard {
+      display: none !important;
+    }
+  }
+}

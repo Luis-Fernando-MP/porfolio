@@ -4,6 +4,8 @@
 @use '@sass/utils/tooltip' as tol;
 
 .iconButton {
+  user-select: none;
+
   position: relative;
 
   display: grid;

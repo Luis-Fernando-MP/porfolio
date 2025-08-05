@@ -98,6 +98,7 @@ body {
   small,
   label,
   figcaption,
+  kbd,
   input {
     font-family: $font1;
     font-size: map.get(map.get($typography, 'p'), size);
