@@ -245,7 +245,7 @@ export const useFocusGallery = () => {
     // Atajos de teclado
 
     const EVENTS = {
-      Escape: closeModal,
+      Escape: () => btnCloseRef?.current?.click(),
       ArrowLeft: navigateToPrevious,
       ArrowRight: navigateToNext,
       Enter: toggleImageZoom,
@@ -262,7 +262,7 @@ export const useFocusGallery = () => {
 
     document.addEventListener('keydown', handleKeyNavigation)
     return () => document.removeEventListener('keydown', handleKeyNavigation)
-  }, [isModalOpen, closeModal, navigateToPrevious, navigateToNext, toggleImageZoom])
+  }, [isModalOpen, navigateToPrevious, navigateToNext, toggleImageZoom])
 
   useEffect(() => {
     if (!isDraggingImage) return

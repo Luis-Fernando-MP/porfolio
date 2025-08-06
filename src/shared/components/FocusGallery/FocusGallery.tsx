@@ -4,6 +4,7 @@ import { acl } from '@/shared/acl'
 import IconButton from '@/shared/ui/IconButton'
 import { Image } from '@unpic/react/nextjs'
 import { ArrowLeft, ArrowRight, ExternalLink, X, ZoomIn, ZoomOut } from 'lucide-react'
+import { useEffect, useState } from 'react'
 import { createPortal } from 'react-dom'
 
 import './style.scss'
@@ -13,6 +14,7 @@ import './userMobile.scss'
 const FocusGalleryComponent = () => {
   const body = document?.body
   const modal = useFocusGallery()
+  const [isLoaded, setIsLoaded] = useState(false)
 
   const {
     isModalOpen,
@@ -37,6 +39,10 @@ const FocusGalleryComponent = () => {
     handleMouseUp,
     HandleCloseOverlay
   } = modal
+
+  useEffect(() => {
+    setIsLoaded(false)
+  }, [activeImage?.src])
 
   if (!isModalOpen || !activeImage) return null
 
@@ -85,7 +91,7 @@ const FocusGalleryComponent = () => {
       </nav>
 
       <figure
-        className='gallery-figure'
+        className={`gallery-figure ${acl(!isLoaded, 'loading')}`}
         onClick={e => e.stopPropagation()}
         onDoubleClick={toggleImageZoom}
         onMouseDown={handleMouseDown}
@@ -116,6 +122,9 @@ const FocusGalleryComponent = () => {
             </p>
           </div>
         )}
+
+        {!isLoaded && <div className='gallery-fallback' aria-hidden='true' />}
+
         <img
           src={src}
           ref={mainImageRef}
@@ -123,7 +132,8 @@ const FocusGalleryComponent = () => {
           fetchPriority='high'
           alt={caption ?? 'Image from gallery'}
           style={{ transform: isImageZoomed ? transform : undefined }}
-          className={`gallery-mainImage ${acl(isImageZoomed, 'zoomed')}`}
+          className={`gallery-mainImage ${acl(isImageZoomed, 'zoomed')} ${isLoaded ? 'fade' : 'pending'}`}
+          onLoad={() => setIsLoaded(true)}
         />
       </figure>
 
