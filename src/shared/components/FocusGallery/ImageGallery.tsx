@@ -1,3 +1,6 @@
+'use client'
+
+import useSound from '@/shared/hook/useSound'
 import { Image, type ImageProps } from '@unpic/react/nextjs'
 import { type FC, useId } from 'react'
 
@@ -12,13 +15,41 @@ interface GalleryImageData {
 
 interface Props extends ImageProps, GalleryImageData {}
 
-const ImageGallery: FC<Props> = ({ src, caption, action, actionText, index, groupId, noUniqueGroup, ...imgProps }) => {
+/**
+ * Renders an image configured for use in a focusable gallery system.
+ * Automatically assigns dataset attributes for gallery grouping, caption, action, and index.
+ * Plays a sound on click using a shared sound hook.
+ *
+ * @param {string} [caption] - Text description shown as the image caption in the gallery viewer.
+ * @param {string} [action] - Optional action URL.
+ * @param {string} [actionText] - Text label describing the action. Defaults to "Ver más".
+ * @param {number} [index] - Position of the image within the gallery group for sorting purposes.
+ * @param {string} [groupId] - Manually set group identifier to group this image with others.
+ * @param {boolean} [noUniqueGroup=false] - If true, uses a shared group ID "haui" instead of a unique one.
+ *
+ * @returns {JSX.Element} The image element with gallery-aware attributes and behavior.
+ *
+ * @example
+ * <ImageGallery
+ *   src="/images/photo.jpg"
+ *   alt="Sunset view"
+ *   caption="A beautiful sunset"
+ *   action="/post/123"
+ *   actionText="See more"
+ *   index={2}
+ *   noUniqueGroup
+ * />
+ */
+const ImageGallery: FC<Props> = ({ src, caption, action, actionText, index, groupId, noUniqueGroup = false, ...imgProps }) => {
   const fallbackGroupId = useId()
   const finalGroupId = noUniqueGroup ? 'haui' : (groupId ?? fallbackGroupId)
+
+  const [play] = useSound('BUTTON_ON')
 
   return (
     <Image
       src={src}
+      onClick={() => play()}
       data-gallery-src={src}
       data-gallery-index={index}
       data-gallery-group={finalGroupId}
