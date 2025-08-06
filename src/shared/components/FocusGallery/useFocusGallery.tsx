@@ -200,20 +200,37 @@ export const useFocusGallery = () => {
       if (!galleryContainer) return
 
       const galleryId = galleryContainer.dataset.galleryGroup
-      const clickedImageIndex = Number(galleryContainer.dataset.galleryIndex)
+      const clickedSrc = galleryContainer.dataset.gallerySrc
 
       // Buscar todas las imágenes del mismo grupo
       const galleryElements = document.querySelectorAll(`[${CONF.GROUP_GALLERY_ATTRIBUTE}="${galleryId}"]`)
 
-      const galleryImages = Array.from(galleryElements).map(element => {
+      let galleryImages = Array.from(galleryElements).map(element => {
         const el = element as HTMLElement
+        const index = Number(el.dataset.galleryIndex)
         return {
           src: el.dataset.gallerySrc ?? '/fallback.webp',
           caption: el.dataset.galleryCaption ?? '',
           action: el.dataset.galleryAction,
-          actionText: el.dataset.galleryActionText ?? 'Ver más'
+          actionText: el.dataset.galleryActionText ?? 'Ver más',
+          index: isNaN(index) ? undefined : index
         }
       })
+
+      // Verifica si al menos una imagen tiene un índice válido
+      const hasValidIndexes = galleryImages.some(img => typeof img.index === 'number')
+
+      if (hasValidIndexes) {
+        galleryImages = galleryImages.sort((a, b) => {
+          const aIndex = typeof a.index === 'number' ? a.index : Infinity
+          const bIndex = typeof b.index === 'number' ? b.index : Infinity
+          return aIndex - bIndex
+        })
+      }
+
+      // Buscar el índice de la imagen clickeada
+      const realClickedIndex = galleryImages.findIndex(img => img.src === clickedSrc)
+      const clickedImageIndex = realClickedIndex >= 0 ? realClickedIndex : 0
 
       setImageGallery(galleryImages)
       setCurrentImageIndex(clickedImageIndex)
