@@ -1,4 +1,10 @@
 # See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
+# ignore rules for temp MD files and generated image content
+content/**
+public/content/**
+
+# Ignore all backgrounds
+public/backgrounds/**
 
 # contentlayer
 .contentlayer
