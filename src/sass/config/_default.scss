@@ -152,6 +152,10 @@ body {
   button {
     cursor: pointer;
   }
+
+  p + p {
+    margin-top: $fP;
+  }
 }
 
 @include m.mediumScreen {
