@@ -5,6 +5,7 @@ import './style.scss'
 import './userMobile.scss'
 
 interface Props {
+  emoji?: string
   sub: string
   title: string
   reverse?: boolean
@@ -16,6 +17,7 @@ interface Props {
  *
  *
  * @component
+ * @param {string} [emoji] - Optional emoji character to display above the headings. Ideal for expressive titles.
  * @param {string} sub - The subtitle to be displayed as the first heading.
  * @param {string} title - The main title to be displayed as the second heading.
  * @param {boolean} [reverse=false] - Whether to apply the 'reverse' CSS class for layout styling.
@@ -24,16 +26,17 @@ interface Props {
  *
  * @example
  * <Title
+ *   emoji="🚀"
  *   sub="Welcome to"
  *   title="Haui's Portfolio"
  *   reverse
  *   center
  * />
-
  */
-const Title: FC<Props> = ({ sub, title, reverse = false, center = false }) => {
+const Title: FC<Props> = ({ emoji, sub, title, reverse = false, center = false }) => {
   return (
     <div className={`title ${acl(reverse, 'reverse')} ${acl(center, 'center')}`}>
+      {emoji && <h2 className='emoji'>{emoji}</h2>}
       <h2>{sub}</h2>
       <h2 className='font2'>{title}</h2>
     </div>

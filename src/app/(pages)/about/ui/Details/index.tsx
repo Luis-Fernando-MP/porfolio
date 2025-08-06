@@ -11,7 +11,7 @@ const Details: FC = () => {
   return (
     <article className='details' itemScope itemType='https://schema.org/Person'>
       <header className='details-header'>
-        <Title sub='✨ Dime' title='HAUI' />
+        <Title emoji='✨' sub='Dime' title='HAUI' />
         <p className='description' itemProp='description'>
           <b>Soy desarrollador y diseñador de aplicaciones full stack</b>, pero mi fuerte es la creación de{' '}
           <b>aplicaciones web</b> funcionales e interactivas centradas en el usuario.

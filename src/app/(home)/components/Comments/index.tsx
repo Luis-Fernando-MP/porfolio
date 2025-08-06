@@ -15,7 +15,7 @@ const Comments: FC<Props> = ({ className = '' }) => {
   return (
     <article className={`comments ${className}`}>
       <header className='home-header'>
-        <Title sub='🌱 Algunas' title='Bonitas Palabras' center />
+        <Title emoji='🌱' sub='Algunas' title='Bonitas Palabras' center />
         <p className='description'>
           Fragmentos de gratitud, aprecio y confianza que he recibido de personas con las que he tenido el honor de construir
           algo.

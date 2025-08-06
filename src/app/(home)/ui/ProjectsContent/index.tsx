@@ -12,7 +12,7 @@ const ProjectsContent: FC = () => {
   return (
     <article className='projects'>
       <section className='projects-section'>
-        <Title sub='✨ Mis' title='Proyectos' />
+        <Title emoji='✨' sub='Mis' title='Proyectos' />
         <p className='projects-description'>
           En cada uno de estos proyectos he aplicado todo lo que he aprendido. En cada versión que he construido, he buscado
           siempre mejorar y refinar mi enfoque.{' '}
