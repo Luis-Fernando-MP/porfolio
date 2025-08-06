@@ -100,7 +100,8 @@ const ImageLayer: FC<Props> = ({
 
     let ticking = false
     const updateParallax = () => {
-      const rect = wrapperRef.current!.getBoundingClientRect()
+      const rect = wrapperRef.current?.getBoundingClientRect()
+      if (!rect) return
       const progress = rect.top / window.innerHeight
       const maxOffset = wrapperRef.current!.offsetHeight
       const translateY = Math.max(-maxOffset, Math.min(maxOffset, progress * maxOffset))

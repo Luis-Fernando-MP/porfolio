@@ -37,6 +37,14 @@
   }
 }
 
+@include m.smallScreen {
+  .devCard {
+    &-sliceHobbies {
+      align-items: flex-start !important;
+    }
+  }
+}
+
 @include m.smallerScreen {
   .devCard {
     padding: v.$padding;

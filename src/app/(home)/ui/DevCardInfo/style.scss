@@ -97,6 +97,10 @@
     text-transform: uppercase;
   }
 
+  &-sliceHobbies {
+    width: 100%;
+  }
+
   &-hobbies {
     @include d.flex;
 

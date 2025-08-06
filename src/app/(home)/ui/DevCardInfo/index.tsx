@@ -81,7 +81,7 @@ const DevCardInfo = () => {
               <InfinityIcon />
               <h4>Pasatiempos:</h4>
             </div>
-            <SliceContainer maxHeight={150} reverse>
+            <SliceContainer parentClassName='devCard-sliceHobbies' maxHeight={150} reverse>
               <ul className='devCard-hobbies'>
                 {INFO.hobbies.map(hobby => (
                   <li key={hobby} className='devCard-hobby'>

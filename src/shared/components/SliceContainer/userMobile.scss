@@ -3,9 +3,7 @@
 @use '@sass/utils/defs' as d;
 
 @include m.smallScreen {
-  .details {
-    &-journeys {
-      gap: v.$padding * 2;
-    }
+  .sliceContainer {
+    align-items: center;
   }
 }

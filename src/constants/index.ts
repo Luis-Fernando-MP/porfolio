@@ -39,11 +39,7 @@ export const personalJourneys = {
         src: '/content/projects/20d98397-f7fa-80ed-ae15-d5e783a9ee85/banner.webp',
         caption: 'Ilustración de un camino rosado con árboles, simbolizando el inicio de un viaje formativo'
       },
-      {
-        src: '/backgrounds/candy/1.webp',
-        caption: '<h5>Así comenzó mi camino en el mundo del desarrollo web, lleno de curiosidad y sueños</h5>',
-        action: '/about'
-      },
+
       {
         src: '/backgrounds/candy/2.webp',
         action: '/about'
@@ -54,7 +50,13 @@ export const personalJourneys = {
     id: 'jny-00002',
     text: '<p>No sé lidiar ni con lo normal ni con lo perfecto. Solo soy, y cada proyecto que toco lo sabe. Si puedo mejorarlo, transformarlo o reinventarlo… lo haré. Para eso están mis manitas.</p>',
     date: '2024-05',
-    images: []
+    images: [
+      {
+        src: '/backgrounds/candy/1.webp',
+        caption: '<h5>Así comenzó mi camino en el mundo del desarrollo web, lleno de curiosidad y sueños</h5>',
+        action: '/about'
+      }
+    ]
   },
   'Mi forma de ser': {
     id: 'jny-00001',

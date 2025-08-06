@@ -1,0 +1,21 @@
+@use '@sass/config/vars' as v;
+@use '@sass/utils/media' as m;
+
+@include m.smallScreen {
+  .journey {
+    align-items: center;
+    text-align: center;
+
+    &-paragraph {
+      max-width: 100%;
+    }
+
+    &-header {
+      flex-direction: column !important;
+    }
+
+    &-content {
+      max-width: 400px;
+    }
+  }
+}

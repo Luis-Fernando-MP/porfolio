@@ -8,28 +8,10 @@
 
   @include d.flex($gap: v.$big-padding, $ali: center);
 
-  &-bar {
-    width: 100%;
-    max-width: v.$max-w;
-    margin: 0 auto;
-
-    .mainBar-wrapper {
-      margin: 0;
-    }
-  }
-
-  &-minContent {
-    overflow-x: hidden;
-    max-width: v.$max-w-md;
-  }
-
-  &-content {
-    max-width: v.$max-w;
-  }
-
-  &-minContent,
   &-content {
     width: 100%;
+    max-width: v.$max-w;
+    padding: v.$padding;
 
     @include d.flex($gap: v.$section-padding, $ali: center);
   }

@@ -2,16 +2,16 @@
 @use '@sass/utils/defs' as d;
 
 .details {
-  @include d.flex($ali: center, $gap: v.$padding * 2.5);
+  @include d.flex($ali: center, $gap: v.$padding * 3);
+
+  width: 100%;
+  max-width: 600px;
 
   &-header {
     @include d.flex($ali: center);
   }
 
   &-journeys {
-    width: 100%;
-    max-width: v.$max-w-min;
-
-    @include d.flex($gap: v.$padding * 2);
+    @include d.flex($gap: v.$big-padding);
   }
 }

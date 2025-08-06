@@ -6,7 +6,7 @@
   position: relative;
   min-width: fit-content;
 
-  @include d.flex($gap: v.$padding * 1.5);
+  @include d.flex($gap: v.$padding * 2);
 
   &-content {
     @include scroll-hidden;

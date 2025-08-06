@@ -17,7 +17,8 @@ const Details: FC = () => {
           <b>aplicaciones web</b> funcionales e interactivas centradas en el usuario.
         </p>
       </header>
-      <SliceContainer maxHeight={400} overlayColor='var(--bg-primary)'>
+
+      <SliceContainer reverse maxHeight={400} overlayColor='var(--bg-primary)'>
         <div className='details-journeys'>
           {Object.entries(personalJourneys).map(items => {
             const [title, journey] = items

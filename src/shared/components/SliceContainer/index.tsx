@@ -5,6 +5,7 @@ import { MoreHorizontalIcon } from 'lucide-react'
 import { type FC, type HTMLAttributes, type ReactNode, useRef, useState } from 'react'
 
 import './style.scss'
+import './userMobile.scss'
 
 interface Props extends HTMLAttributes<HTMLDivElement> {
   children?: ReactNode

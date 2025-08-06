@@ -26,6 +26,7 @@
   .mainBar {
     &-wrapper {
       gap: v.$padding;
+      justify-content: center;
       width: 100%;
     }
   }

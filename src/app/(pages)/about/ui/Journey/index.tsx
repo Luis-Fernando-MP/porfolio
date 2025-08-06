@@ -1,9 +1,12 @@
-import { INFO, PersonalJourney } from '@/constants'
+import { INFO, JourneysImage, PersonalJourney } from '@/constants'
 import { toRelativeTime } from '@/lib/relativeTime'
+import ImageGallery from '@/shared/components/FocusGallery/ImageGallery'
 import HauiDevLogo from '@/shared/ui/HauiDevLogo'
-import { Image } from '@unpic/react/nextjs'
 import Link from 'next/link'
 import type { FC } from 'react'
+
+import './style.scss'
+import './userMobile.scss'
 
 interface Props {
   journey: PersonalJourney
@@ -11,31 +14,61 @@ interface Props {
 }
 
 const Journey: FC<Props> = ({ journey, title }) => {
-  const { text, date, images } = journey
+  const { text, date, images, id: journeyId } = journey
+
   return (
-    <li className='journey'>
+    <article className='journey' itemScope itemType='https://schema.org/CreativeWork'>
       <header className='journey-header frow'>
-        <HauiDevLogo size='lg' />
+        <HauiDevLogo size='md' />
         <div className='mflex'>
-          <h3>{title}:</h3>
-          <Link href={INFO.linked_in} target='_blank' rel='noopener noreferrer'>
+          <h3 itemProp='headline'>{title}:</h3>
+          <Link
+            href={INFO.linked_in}
+            target='_blank'
+            rel='noopener noreferrer author external'
+            aria-label={`Perfil de LinkedIn de ${INFO.devName}`}
+            itemProp='author'
+          >
             @{INFO.devName}
           </Link>
         </div>
       </header>
 
-      <section className='journey-content'>
-        <div dangerouslySetInnerHTML={{ __html: text }} />
-        <h6>{toRelativeTime(date)}</h6>
+      <section className='journey-section journey-content' itemProp='text'>
+        <div className='journey-paragraph' dangerouslySetInnerHTML={{ __html: text }} />
+        <time itemProp='datePublished'>
+          <i>{toRelativeTime(date)}</i>
+        </time>
       </section>
 
-      <footer className='journey-images'>
-        {images.map(img => {
-          const { alt, caption, url, blurHash } = img
-          return <Image key={url} src={url} width={100} height={100} loading='lazy' decoding='async' />
-        })}
-      </footer>
-    </li>
+      {images.length > 0 && (
+        <footer className='journey-section journey-footer'>
+          <ul className='frow'>
+            {images.map((image, index) => {
+              const { caption, src, action, actionText } = image as any as JourneysImage
+              return (
+                <li key={`${src}-journey-image`} itemProp='image'>
+                  <ImageGallery
+                    className='journey-image'
+                    src={src}
+                    width={90}
+                    height={50}
+                    alt={caption ?? 'Imagen del recorrido'}
+                    loading='lazy'
+                    fetchPriority='low'
+                    index={index}
+                    groupId={journeyId}
+                    caption={caption}
+                    action={action}
+                    actionText={actionText}
+                  />
+                </li>
+              )
+            })}
+          </ul>
+        </footer>
+      )}
+    </article>
   )
 }
 

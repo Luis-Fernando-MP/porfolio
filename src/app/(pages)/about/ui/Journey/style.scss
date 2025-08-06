@@ -1,0 +1,35 @@
+@use '@sass/config/vars' as v;
+@use '@sass/utils/defs' as d;
+
+.journey {
+  @include d.flex;
+
+  &-section {
+    padding: v.$padding;
+    border-radius: v.$radius;
+    background-color: rgb(v.$bg2);
+  }
+
+  &-content {
+    @include d.flex;
+  }
+
+  &-footer {
+    width: fit-content;
+    max-width: 100%;
+  }
+
+  &-paragraph {
+    max-width: 90%;
+  }
+
+  &-image {
+    overflow: hidden;
+
+    min-width: 90px;
+    min-height: 50px;
+    border-radius: v.$min-radius;
+
+    object-fit: cover;
+  }
+}
