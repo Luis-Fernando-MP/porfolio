@@ -8,6 +8,9 @@ importers:
 
   .:
     dependencies:
+      '@formkit/auto-animate':
+        specifier: ^0.8.2
+        version: 0.8.2
       '@lucide/lab':
         specifier: 0.1.2
         version: 0.1.2
@@ -48,10 +51,10 @@ importers:
         specifier: 2.6.0
         version: 2.6.0
       lottie-react:
-        specifier: ^2.4.1
+        specifier: 2.4.1
         version: 2.4.1(react-dom@19.1.0(react@19.1.0))(react@19.1.0)
       lottie-web:
-        specifier: ^5.13.0
+        specifier: 5.13.0
         version: 5.13.0
       lucide-react:
         specifier: 0.487.0
@@ -520,6 +523,9 @@ packages:
 
   '@fal-works/esbuild-plugin-global-externals@2.1.2':
     resolution: {integrity: sha512-cEee/Z+I12mZcFJshKcCqC8tuX5hG3s+d+9nZ3LabqKF1vKdF41B92pJVCBggjAGORAeOzyyDDKrZwIkLffeOQ==}
+
+  '@formkit/auto-animate@0.8.2':
+    resolution: {integrity: sha512-SwPWfeRa5veb1hOIBMdzI+73te5puUBHmqqaF1Bu7FjvxlYSz/kJcZKSa9Cg60zL0uRNeJL2SbRxV6Jp6Q1nFQ==}
 
   '@grpc/grpc-js@1.13.4':
     resolution: {integrity: sha512-GsFaMXCkMqkKIvwCQjCrwH+GHbPKBjhwo/8ZuUkWHqbI73Kky9I+pQltrlT0+MWpedCoosda53lgjYfyEPgxBg==}
@@ -4337,6 +4343,8 @@ snapshots:
       levn: 0.4.1
 
   '@fal-works/esbuild-plugin-global-externals@2.1.2': {}
+
+  '@formkit/auto-animate@0.8.2': {}
 
   '@grpc/grpc-js@1.13.4':
     dependencies:

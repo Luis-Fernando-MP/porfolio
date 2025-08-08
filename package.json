@@ -16,6 +16,7 @@
     "build:content": "contentlayer2 build"
   },
   "dependencies": {
+    "@formkit/auto-animate": "0.8.2",
     "@lucide/lab": "0.1.2",
     "@prisma/client": "6.6.0",
     "@unpic/pixels": "1.3.0",
