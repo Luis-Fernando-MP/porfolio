@@ -1,0 +1,34 @@
+@use '@sass/config/vars' as v;
+@use '@sass/utils/defs' as d;
+
+.devStack {
+  width: 100%;
+
+  @include d.flex($gap: v.$big-padding, $ali: center);
+}
+
+.headerCardStack {
+  @include d.flex($ali: center);
+
+  &-card {
+    padding: v.$padding * 2;
+    border-radius: v.$radius;
+    background-color: rgb(v.$bg2);
+
+    &__paragraph {
+      width: 100%;
+      max-width: 280px;
+    }
+  }
+
+  &-favoriteTech {
+    @include d.flex($dir: row, $gap: v.$padding * 1.5);
+  }
+
+  &-hero {
+    overflow: hidden;
+    width: 140px;
+    height: 140px;
+    border-radius: v.$min-radius;
+  }
+}

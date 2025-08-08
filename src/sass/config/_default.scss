@@ -130,6 +130,10 @@ body {
   input {
     width: min-content;
 
+    &::placeholder {
+      color: rgb($fn2, 0.8);
+    }
+
     &:focus {
       outline: none;
     }

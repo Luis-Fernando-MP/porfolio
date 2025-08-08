@@ -1,0 +1,87 @@
+@use '@sass/config/vars' as v;
+@use '@sass/utils/defs' as d;
+
+.technologies {
+  @include d.flex($ali: center, $gap: v.$padding * 2);
+
+  width: 100%;
+
+  &-filters {
+    flex-wrap: wrap;
+    justify-content: space-between;
+    width: 100%;
+
+    @include d.flex($dir: row, $ali: center);
+  }
+
+  &-search {
+    width: max-content;
+    width: fit-content;
+    max-width: 400px;
+    padding: v.$btn-padding;
+    border-radius: v.$min-radius;
+
+    @include d.flex($dir: row, $ali: center);
+
+    background-color: rgb(v.$bg2);
+
+    input {
+      width: 100%;
+      background-color: transparent;
+    }
+  }
+
+  &-categories {
+    justify-content: center;
+    width: 100%;
+  }
+
+  &-category {
+    text-transform: capitalize;
+  }
+
+  &-list {
+    width: 100%;
+    min-height: 200px;
+  }
+
+  &-wrap {
+    flex-wrap: wrap;
+
+    @include d.flex($dir: row);
+
+    justify-content: center;
+  }
+
+  &-btn {
+    position: relative;
+
+    &__bg {
+      position: absolute;
+      z-index: 0;
+      top: 50%;
+      left: 13px;
+      transform: translateY(-50%);
+
+      width: 12px;
+      height: 12px;
+
+      filter: blur(10px);
+    }
+  }
+
+  &-tech {
+    min-width: max-content;
+
+    img {
+      min-width: 20px;
+      min-height: 20px;
+      object-fit: contain !important;
+    }
+  }
+
+  &-block {
+    position: relative;
+    z-index: 1;
+  }
+}

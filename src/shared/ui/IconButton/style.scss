@@ -14,10 +14,14 @@
   width: fit-content;
   min-width: 35px;
   height: fit-content;
+  min-height: 34px;
   padding: v.$btn-padding;
-  border-radius: v.$min-radius;
 
   background-color: rgb(v.$bg2);
+
+  &.radius {
+    border-radius: v.$min-radius;
+  }
 
   &.disabled {
     pointer-events: none;
@@ -63,7 +67,7 @@
       left $transition,
       right $transition,
       bottom $transition;
-    transition-delay: 0.5s;
+    transition-delay: 0.18s;
 
     &.top,
     &.bottom {
@@ -94,7 +98,7 @@
     }
   }
 
-  &:hover {
+  &.hover:hover {
     background-color: rgb(v.$bg3);
     transition: background-color 0.3s ease;
 
@@ -103,19 +107,19 @@
       opacity: 1;
 
       &.top {
-        top: calc(-100% - v.$padding);
+        top: calc(-100% - v.$min-padding);
       }
 
       &.bottom {
-        bottom: calc(-100% - v.$padding);
+        bottom: calc(-100% - v.$min-padding);
       }
 
       &.left {
-        right: calc(100% + v.$padding);
+        right: calc(100% + v.$min-padding);
       }
 
       &.right {
-        left: calc(100% + v.$padding);
+        left: calc(100% + v.$min-padding);
       }
     }
   }

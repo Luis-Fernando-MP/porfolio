@@ -17,10 +17,12 @@ const DevCardToggle: FC = () => {
   }
 
   return (
-    <IconButton className='devCardToggle' transparent onClick={handleClick}>
-      <SparklesIcon />
-      <h4 className='devCardToggle-name'>{INFO.devShortName}</h4>
-    </IconButton>
+    <div className='devCardToggle'>
+      <IconButton transparent onClick={handleClick}>
+        <SparklesIcon />
+        <h4 className='devCardToggle-name'>{INFO.devShortName}</h4>
+      </IconButton>
+    </div>
   )
 }
 

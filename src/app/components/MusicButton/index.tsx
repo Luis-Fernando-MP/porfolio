@@ -9,7 +9,7 @@ interface Props extends HtmlHTMLAttributes<HTMLButtonElement> {}
 
 const MusicButton: FC<Props> = ({ className, ...props }) => {
   return (
-    <IconButton transparent className={`musicBtn ${className}`} {...props}>
+    <IconButton transparent noPadding className={`musicBtn ${className}`} {...props}>
       <div className='musicBtn-image border'>
         <Image
           src='/assets/pages/music.webp'

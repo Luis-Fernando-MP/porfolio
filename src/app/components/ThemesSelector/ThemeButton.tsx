@@ -23,6 +23,7 @@ const ThemeButton: FC<Props> = ({ themeKey, name, colors }) => {
     <IconButton
       transparent
       noPadding
+      radius={false}
       aria-label={`Select ${name} theme`}
       label={name}
       style={{ backgroundColor: `rgb(${colors['tn-primary']})` }}

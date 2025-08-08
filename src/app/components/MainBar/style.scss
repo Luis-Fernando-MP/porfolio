@@ -14,7 +14,7 @@
 
     width: fit-content;
     margin: 0 auto;
-    padding: v.$btn-padding;
+    padding: v.$btn-padding !important;
     border-radius: v.$radius;
 
     background-color: rgb(v.$bg1);

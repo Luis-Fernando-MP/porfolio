@@ -65,7 +65,7 @@ export const THEMES = {
       'haui dark': {
         'bg-primary': '10, 10, 10',
         'bg-secondary': '17, 17, 17',
-        'bg-tertiary': '24, 24, 24',
+        'bg-tertiary': '35, 35, 35',
         'fnt-primary': '250, 250, 250',
         'fnt-secondary': '161, 161, 170',
         'fnt-tertiary': '197, 197, 200',
@@ -123,7 +123,7 @@ export const THEMES = {
         'bg-tertiary': '200, 190, 235',
         'fnt-primary': '50, 30, 70',
         'fnt-secondary': '100, 80, 120',
-        'fnt-tertiary': '147, 147, 147',
+        'fnt-tertiary': '100, 67, 136',
         'fnt-active': '255, 255, 255',
         'tn-primary': '150, 100, 200',
         'tn-secondary': '130, 80, 180'

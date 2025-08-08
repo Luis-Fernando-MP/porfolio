@@ -22,6 +22,8 @@ type CommonProps = {
   isLink?: boolean
   isTag?: boolean
   disable?: boolean
+  radius?: boolean
+  hover?: boolean
   noSound?: boolean
   soundType?: Audio
   noPadding?: boolean
@@ -59,6 +61,8 @@ type Props = ButtonProps | LinkProps
  * @param {boolean} isTag - Applies tag style, used for tags or categories.
  * @param {boolean} disable - Prevents any interaction and applies disabled style.
  * @param {boolean} noSound - If true, prevents sound from playing on click.
+ * @param {boolean} hover - If true, applies hover effect style.
+ * @param {boolean} radius - If true, applies border-radius style.
  * @param {Audio} soundType - Type of sound to play. Defaults to 'BUTTON_ON'.
  * @param {boolean} noPadding - If true, removes default padding from the button.
  * @param {string} href - URL destination for the link (required if isLink is true).
@@ -113,6 +117,8 @@ const IconButton: FC<Props> = ({
   isTag = false,
   disable = false,
   noSound = false,
+  hover = true,
+  radius = true,
   soundType = 'BUTTON_ON',
   noPadding = false,
   onClick,
@@ -120,7 +126,7 @@ const IconButton: FC<Props> = ({
 }) => {
   const [playSound] = useSound(soundType, { interrupt: true })
 
-  const parsedClassName = `iconButton ${acl(outline, 'outline')} ${acl(transparent, 'transparent')} ${acl(active, 'active')} ${acl(secondary, 'secondary')} ${acl(disable, 'disabled')} ${acl(isTag, 'tag')} ${acl(noPadding, 'noPadding')} ${className}`
+  const parsedClassName = `iconButton ${acl(outline, 'outline')} ${acl(transparent, 'transparent')} ${acl(active, 'active')} ${acl(secondary, 'secondary')} ${acl(disable, 'disabled')} ${acl(isTag, 'tag')} ${acl(noPadding, 'noPadding')} ${acl(radius, 'radius')} ${acl(hover, 'hover')} ${className}`
 
   const handleClick = (e: MouseEvent<HTMLElement>) => {
     if (disable) return

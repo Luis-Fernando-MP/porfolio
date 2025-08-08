@@ -2,17 +2,14 @@
 @use '@sass/utils/defs' as d;
 
 .musicBtn {
-  padding: 0 v.$padding;
-
   &-image {
     position: relative;
-    overflow: hidden;
-    border-radius: v.$min-radius;
 
-    img {
-      width: 30px;
-      height: 30px;
-    }
+    overflow: hidden;
+
+    width: 30px;
+    height: 30px;
+    border-radius: v.$min-radius;
   }
 
   &-icon {

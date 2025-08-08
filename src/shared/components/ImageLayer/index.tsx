@@ -102,9 +102,12 @@ const ImageLayer: FC<Props> = ({
     const updateParallax = () => {
       const rect = wrapperRef.current?.getBoundingClientRect()
       if (!rect) return
-      const progress = rect.top / window.innerHeight
-      const maxOffset = wrapperRef.current!.offsetHeight
-      const translateY = Math.max(-maxOffset, Math.min(maxOffset, progress * maxOffset))
+
+      const rawProgress = rect.top / window.innerHeight
+      // 50% del alto
+      const maxOffset = wrapperRef.current!.offsetHeight / 2
+      const clampedProgress = Math.max(-1, Math.min(1, rawProgress))
+      const translateY = clampedProgress * maxOffset
 
       wrapperRef.current!.querySelectorAll<HTMLElement>('.imageLayer-parallax').forEach(layer => {
         layer.style.transform = `translateY(${translateY}px)`
