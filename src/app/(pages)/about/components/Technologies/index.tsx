@@ -7,16 +7,19 @@ import {
   TechnologyStack,
   listOfOrders,
   techQuery,
-  technologyCategories,
-  technologyStack
+  technologyCategories
 } from '@/lib/techQuery'
 import IconButton from '@/shared/ui/IconButton'
 import { useAutoAnimate } from '@formkit/auto-animate/react'
 import { Image } from '@unpic/react/nextjs'
-import { Search, SortAsc, SortDesc } from 'lucide-react'
-import { type FC, useState } from 'react'
+import { Search } from 'lucide-react'
+import { type FC, useCallback, useMemo, useState } from 'react'
 
+import CategoriesButtons from './CategoriesButtons'
+import OrderButtons from './OrderButtons'
+import StacksButtons from './StacksButtons'
 import './style.scss'
+import './userMobile.scss'
 
 const Technologies: FC = () => {
   const [parent] = useAutoAnimate({})
@@ -27,127 +30,121 @@ const Technologies: FC = () => {
   const [orderBy, setOrderBy] = useState<OrderBy[]>(['Nombre'])
   const [search, setSearch] = useState('')
 
-  const resetFilters = () => {
+  const resetFilters = useCallback(() => {
     setSelectedCategories([])
-  }
+  }, [])
 
-  const toggleCategory = (category: TechnologyCategory) => {
+  const toggleCategory = useCallback((category: TechnologyCategory) => {
     setSelectedCategories(prev => {
       const cat = category as TechnologyCategory
       return prev.includes(cat) ? prev.filter(c => c !== cat) : [...prev, cat]
     })
-  }
+  }, [])
 
-  const toggleStack = (stack: TechnologyStack) => {
+  const toggleStack = useCallback((stack: TechnologyStack) => {
     setSelectedStack(prev => (prev === stack ? undefined : stack))
-  }
+  }, [])
 
-  const toggleOrderBy = (key: OrderBy) => {
+  const toggleOrderBy = useCallback((key: OrderBy) => {
     setOrderBy(prev => {
       const isActive = prev.includes(key)
       if (isActive) return prev.filter(k => k !== key)
       return listOfOrders.filter(k => prev.includes(k) || k === key)
     })
-  }
+  }, [])
 
-  const filtered = techQuery({
-    categories: selectedCategories,
-    stack: selectedStack,
-    orderBy,
-    orderDirection
-  })
-    .filter(t => t.name.toLowerCase().includes(search.toLowerCase()))
-    .reverse()
+  const allCategories = useMemo(() => Object.keys(technologyCategories) as TechnologyCategory[], [])
 
-  const allCategories = Object.keys(technologyCategories) as TechnologyCategory[]
-  const categoriesToShow = showAllCategories ? allCategories : allCategories.slice(0, 6)
+  const categoriesToShow = useMemo(
+    () => (showAllCategories ? allCategories : allCategories.slice(0, 6)),
+    [showAllCategories, allCategories]
+  )
+
+  const filtered = useMemo(() => {
+    let result = techQuery({
+      categories: selectedCategories,
+      stack: selectedStack,
+      orderBy,
+      orderDirection
+    }).filter(t => t.name.toLowerCase().includes(search.toLowerCase()))
+
+    return result
+  }, [selectedCategories, selectedStack, orderBy, orderDirection, search])
 
   return (
     <article className='technologies'>
       <h2>
         <b className='emoji'>🛠️</b> Tecnologías
       </h2>
-      <section className='technologies-filters'>
+
+      <section className='technologies-filters' aria-label='Filtros de tecnologías'>
         <div className='technologies-search border'>
           <Search />
-          <input placeholder='Buscar...' value={search} onChange={e => setSearch(e.target.value)} />
+          <label htmlFor='searchTech' className='sr-only'>
+            Buscar tecnologías
+          </label>
+          <input
+            id='searchTech'
+            placeholder='Buscar...'
+            value={search}
+            onChange={e => setSearch(e.target.value)}
+            type='search'
+            aria-label='Buscar tecnologías'
+          />
         </div>
-        <div className='frow'>
-          <h5>Ordenar por:</h5>
-          {listOfOrders.map(order => {
-            const active = orderBy.includes(order)
-            return (
-              <IconButton className='border' key={`${order}-orderBy`} onClick={() => toggleOrderBy(order)} active={active}>
-                {order}
-              </IconButton>
-            )
-          })}
-          <IconButton
-            className='border'
-            disable={orderBy.length <= 0}
-            onClick={() => setOrderDirection(dir => (dir === 'asc' ? 'desc' : 'asc'))}
-            label={orderDirection === 'asc' ? 'ascendente' : 'descendente'}
-          >
-            {orderDirection === 'asc' ? <SortAsc /> : <SortDesc />}
-          </IconButton>
+        <div className='frow technologies-orderBy' role='group' aria-labelledby='orderByLabel'>
+          <h6 id='orderByLabel'>Ordenar por:</h6>
+          <OrderButtons
+            orderBy={orderBy}
+            toggleOrderBy={toggleOrderBy}
+            orderDirection={orderDirection}
+            setOrderDirection={setOrderDirection}
+          />
         </div>
       </section>
-      <section className='frow'>
-        {Object.entries(technologyStack).map(stack => {
-          const [name, Icon] = stack
-          const active = selectedStack === name
-          return (
-            <IconButton
-              className='technologies-category'
-              key={name}
-              onClick={() => toggleStack(name as TechnologyStack)}
-              active={active}
-            >
-              <Icon />
-              <h4>{name}</h4>
-            </IconButton>
-          )
-        })}
+
+      <section className='technologies-section' aria-label='Filtros por stack'>
+        <h6>Stack:</h6>
+
+        <StacksButtons selectedStack={selectedStack} toggleStack={toggleStack} />
       </section>
-      <section className='technologies-categories frow'>
-        <IconButton className='technologies-category' onClick={resetFilters} active={selectedCategories.length === 0}>
-          <h4>All</h4>
-        </IconButton>
-        {/* Botones de categoría */}
-        {categoriesToShow.map(category => {
-          const active = selectedCategories.includes(category)
-          return (
-            <IconButton className='technologies-category' key={category} onClick={() => toggleCategory(category)} active={active}>
-              <h4>{category}</h4>
-            </IconButton>
-          )
-        })}
-        {!showAllCategories && (
-          <IconButton onClick={() => setShowAllCategories(true)}>+{allCategories.length - 6} categorías</IconButton>
-        )}
-        {showAllCategories && <IconButton onClick={() => setShowAllCategories(false)}>Mostrar menos</IconButton>}
+
+      <section className='technologies-section' aria-label='Categorías de tecnologías'>
+        <h6>Categorías:</h6>
+
+        <CategoriesButtons
+          categories={categoriesToShow}
+          selectedCategories={selectedCategories}
+          toggleCategory={toggleCategory}
+          resetFilters={resetFilters}
+          showAllCategories={showAllCategories}
+          setShowAllCategories={setShowAllCategories}
+        />
       </section>
-      <section className='technologies-list'>
-        <div className='technologies-wrap' ref={parent}>
+
+      <section className='technologies-list' aria-label='Lista de tecnologías'>
+        <ul className='technologies-wrap' ref={parent}>
           {filtered.map(tech => {
             const { name, src, color } = tech
             return (
-              <IconButton key={`${name}-technology`} contentClass='technologies-tech' className='technologies-btn'>
-                <div className='technologies-btn__bg' style={{ backgroundColor: color }} />
-                <Image
-                  src={src}
-                  width={20}
-                  height={20}
-                  alt={name}
-                  loading='lazy'
-                  decoding='async'
-                  className='lazy technologies-block'
-                />
-                <h5 className='technologies-block'>{name}</h5>
-              </IconButton>
+              <li key={`${name}-technology`}>
+                <IconButton contentClass='technologies-tech' className='technologies-btn' aria-label={name}>
+                  <div className='technologies-btn__bg' style={{ backgroundColor: color }} />
+                  <Image
+                    src={src}
+                    width={20}
+                    height={20}
+                    alt={name}
+                    loading='lazy'
+                    decoding='async'
+                    className='lazy technologies-block'
+                  />
+                  <h5 className='technologies-block'>{name}</h5>
+                </IconButton>
+              </li>
             )
           })}
-        </div>
+        </ul>
       </section>
     </article>
   )

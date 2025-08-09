@@ -2,7 +2,9 @@
 @use '@sass/utils/defs' as d;
 
 .devStack {
+  justify-content: center;
   width: 100%;
+  min-height: 100vh;
 
   @include d.flex($gap: v.$big-padding, $ali: center);
 }
@@ -14,6 +16,10 @@
     padding: v.$padding * 2;
     border-radius: v.$radius;
     background-color: rgb(v.$bg2);
+  }
+
+  &-info {
+    @include d.flex($gap: v.$padding * 2);
 
     &__paragraph {
       width: 100%;
@@ -21,8 +27,15 @@
     }
   }
 
-  &-favoriteTech {
+  &-favoriteTechs {
     @include d.flex($dir: row, $gap: v.$padding * 1.5);
+
+    flex-wrap: wrap;
+
+    img {
+      pointer-events: none;
+      user-select: none;
+    }
   }
 
   &-hero {

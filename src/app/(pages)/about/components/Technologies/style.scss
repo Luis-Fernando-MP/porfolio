@@ -4,6 +4,7 @@
 .technologies {
   @include d.flex($ali: center, $gap: v.$padding * 2);
 
+  justify-content: center;
   width: 100%;
 
   &-filters {
@@ -14,8 +15,12 @@
     @include d.flex($dir: row, $ali: center);
   }
 
+  &-orderBy {
+    justify-content: center;
+    width: fit-content;
+  }
+
   &-search {
-    width: max-content;
     width: fit-content;
     max-width: 400px;
     padding: v.$btn-padding;
@@ -31,9 +36,20 @@
     }
   }
 
-  &-categories {
+  &-section {
     justify-content: center;
-    width: 100%;
+
+    max-width: 100%;
+    padding: v.$padding;
+    border-radius: v.$radius;
+
+    background-color: rgb(v.$bg2);
+
+    @include d.flex($ali: center);
+
+    .frow {
+      justify-content: center;
+    }
   }
 
   &-category {
@@ -42,15 +58,16 @@
 
   &-list {
     width: 100%;
-    min-height: 200px;
+    height: max-content;
+    min-height: 250px;
+    padding: v.$padding * 1.5 0;
   }
 
   &-wrap {
     flex-wrap: wrap;
+    justify-content: center;
 
     @include d.flex($dir: row);
-
-    justify-content: center;
   }
 
   &-btn {

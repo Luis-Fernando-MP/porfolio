@@ -2,12 +2,34 @@
 @use '@sass/utils/media' as m;
 @use '@sass/utils/defs' as d;
 
-@include m.smallerScreen {
-  .devStack {
-    gap: v.$padding * 2;
+@include m.smallScreen {
+  .headerCardStack {
+    width: 100%;
 
-    &-technologies {
-      max-height: 350px;
+    &-card {
+      flex-direction: column-reverse !important;
+      align-items: center !important;
+      width: fit-content;
+      max-width: 100%;
+    }
+
+    &-info {
+      align-items: center !important;
+      text-align: center;
+
+      &__paragraph {
+        width: 100%;
+        max-width: 350px;
+      }
+    }
+
+    &-favoriteTechs {
+      justify-content: center;
+    }
+
+    &-hero {
+      width: 80px;
+      height: 80px;
     }
   }
 }

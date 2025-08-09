@@ -11,34 +11,38 @@ const MyHeaderCardStack: FC = () => {
       <Title sub='Mi' title='Stack' />
 
       <section className='headerCardStack-card frow border'>
-        <div className='flex'>
-          <h3>
-            Mi stack favorito <b className='emoji'>🌱</b>
-          </h3>
-          <p className='headerCardStack-card__paragraph'>
-            Los uso en proyectos personales, prototipos rápidos y aprendizajes diarios.
-          </p>
-          <h6>Frontend:</h6>
-          <div className='headerCardStack-favoriteTech'>
-            {techQuery({ favoriteFor: 'frontend', orderBy: ['category'], orderDirection: 'desc' }).map(tech => {
-              const { src, name } = tech
-              return (
-                <Image
-                  key={`${name}-technology`}
-                  className='lazy'
-                  src={src}
-                  width={20}
-                  height={20}
-                  alt={name}
-                  loading='lazy'
-                  fetchpriority='low'
-                  decoding='async'
-                  priority={false}
-                />
-              )
-            })}
+        <header className='headerCardStack-info'>
+          <div className='flex'>
+            <h3>
+              Mi stack favorito <b className='emoji'>🌱</b>
+            </h3>
+            <p className='headerCardStack-info__paragraph'>
+              Los uso en proyectos personales, prototipos rápidos y aprendizajes diarios.
+            </p>
           </div>
-        </div>
+          <div className='flex'>
+            <h6>Frontend:</h6>
+            <div className='headerCardStack-favoriteTechs'>
+              {techQuery({ favoriteFor: 'frontend', orderBy: ['Nombre'], orderDirection: 'desc' }).map(tech => {
+                const { src, name } = tech
+                return (
+                  <Image
+                    key={`${name}-technology`}
+                    className='lazy'
+                    src={src}
+                    width={20}
+                    height={20}
+                    alt={name}
+                    loading='lazy'
+                    fetchpriority='low'
+                    decoding='async'
+                    priority={false}
+                  />
+                )
+              })}
+            </div>
+          </div>
+        </header>
 
         <MyHeaderCardStackBackground />
       </section>
