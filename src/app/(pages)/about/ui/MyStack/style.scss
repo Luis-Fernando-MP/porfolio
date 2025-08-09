@@ -13,9 +13,14 @@
   @include d.flex($ali: center);
 
   &-card {
+    position: relative;
+    z-index: 1;
     padding: v.$padding * 2;
-    border-radius: v.$radius;
-    background-color: rgb(v.$bg2);
+
+    &__spot {
+      border-radius: v.$radius;
+      background-color: rgb(v.$bg2);
+    }
   }
 
   &-info {

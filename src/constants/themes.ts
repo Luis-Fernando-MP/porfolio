@@ -138,11 +138,11 @@ export const THEMES = {
         'bg-secondary': '30, 15, 60',
         'bg-tertiary': '50, 30, 90',
         'fnt-primary': '255, 120, 255',
-        'fnt-secondary': '100, 255, 255',
-        'fnt-tertiary': '255, 210, 100',
+        'fnt-secondary': '180, 120, 255',
+        'fnt-tertiary': '200, 150, 255',
         'fnt-active': '255, 255, 255',
         'tn-primary': '255, 0, 150',
-        'tn-secondary': '0, 150, 150'
+        'tn-secondary': '120, 80, 255'
       },
       neonCyber: {
         'bg-primary': '5, 0, 25',
