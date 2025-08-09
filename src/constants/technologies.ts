@@ -129,7 +129,7 @@ export const technologies: Technology[] = [
     color: '#04BEA4',
     categories: ['ORM', 'library'],
     stack: ['fullstack'],
-    favoriteFor: ['backend']
+    favoriteFor: ['backend', 'frontend']
   },
   {
     name: 'TypeORM',
@@ -183,7 +183,7 @@ export const technologies: Technology[] = [
     color: '#F05033',
     categories: ['VCS'],
     stack: ['Kit'],
-    favoriteFor: ['frontend', 'backend']
+    favoriteFor: ['backend', 'frontend']
   },
   {
     name: 'GitHub',
@@ -393,6 +393,22 @@ export const technologies: Technology[] = [
     level: 'Incursionando',
     color: '#000000',
     categories: ['devops', 'cloud', 'hosting'],
+    stack: ['Kit']
+  },
+  {
+    name: 'Beekeeper',
+    src: '/assets/code/beekeeper.webp',
+    level: 'Aprendiendo',
+    color: '#E0C03A',
+    categories: ['IDE', 'editor'],
+    stack: ['Kit']
+  },
+  {
+    name: 'phpMyAdmin',
+    src: '/assets/code/phpMyAdmin.webp',
+    level: 'Aprendiendo',
+    color: '#F99C0E',
+    categories: ['IDE', 'editor'],
     stack: ['Kit']
   }
 ]
