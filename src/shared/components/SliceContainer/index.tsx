@@ -83,7 +83,7 @@ const SliceContainer: FC<Props> = ({
             onClick={() => $btn?.current?.click()}
             aria-label='Expand content'
             style={{
-              backgroundImage: `linear-gradient(rgb(${overlayColor}, 0) 60%, rgb(${overlayColor}))`
+              backgroundImage: ` linear-gradient(to bottom, rgba(${overlayColor}, 0) 50%,rgba(${overlayColor}, 0.9) 80%, rgba(${overlayColor}, 95%) 100%)`
             }}
           />
         )}

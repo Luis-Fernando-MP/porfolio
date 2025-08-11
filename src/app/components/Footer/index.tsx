@@ -49,7 +49,7 @@ const Footer: FC = () => {
             <IconLink href='mailto:luigfmp@gmail.com' className='' border label='Hablemos!!' active>
               <MailMinusIcon />
               <address>
-                <p>{INFO.mail}</p>
+                <h4>{INFO.mail}</h4>
               </address>
             </IconLink>
           </div>

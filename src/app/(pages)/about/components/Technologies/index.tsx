@@ -13,7 +13,7 @@ import IconButton from '@/shared/ui/IconButton'
 import { useAutoAnimate } from '@formkit/auto-animate/react'
 import { Image } from '@unpic/react/nextjs'
 import { Search } from 'lucide-react'
-import { type FC, useCallback, useMemo, useState } from 'react'
+import { CSSProperties, type FC, useCallback, useMemo, useState } from 'react'
 
 import CategoriesButtons from './CategoriesButtons'
 import OrderButtons from './OrderButtons'
@@ -128,8 +128,13 @@ const Technologies: FC = () => {
             const { name, src, color } = tech
             return (
               <li key={`${name}-technology`}>
-                <IconButton contentClass='technologies-tech' className='technologies-btn' aria-label={name}>
-                  <div className='technologies-btn__bg' style={{ backgroundColor: color }} />
+                <IconButton
+                  contentClass='technologies-tech'
+                  className='tech'
+                  aria-label={name}
+                  style={{ '--bg-color': color } as CSSProperties}
+                  data-bg={color}
+                >
                   <Image
                     src={src}
                     width={20}
@@ -137,9 +142,9 @@ const Technologies: FC = () => {
                     alt={name}
                     loading='lazy'
                     decoding='async'
-                    className='lazy technologies-block'
+                    className='lazy block-block'
                   />
-                  <h5 className='technologies-block'>{name}</h5>
+                  <h5 className='block-block'>{name}</h5>
                 </IconButton>
               </li>
             )
