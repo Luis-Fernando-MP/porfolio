@@ -2,6 +2,8 @@
 @use '@sass/utils/media' as m;
 @use '@sass/utils/defs' as d;
 
+@forward 'style';
+
 @include m.extraLargeScreen {
   .footer {
     padding: v.$big-padding v.$padding * 4;

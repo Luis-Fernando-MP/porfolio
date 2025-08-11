@@ -2,10 +2,10 @@
 @use '@sass/utils/media' as m;
 @use '@sass/utils/defs' as d;
 
-@include m.smallScreen {
-  .details {
-    &-journeys {
-      gap: v.$padding * 2;
-    }
+@forward 'style';
+
+@include m.largeScreen {
+  .page {
+    gap: v.$padding * 2;
   }
 }

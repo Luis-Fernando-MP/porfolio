@@ -4,8 +4,7 @@ import Title from '@/shared/ui/Title'
 import type { FC } from 'react'
 
 import Journey from '../Journey'
-import './style.scss'
-import './userMobile.scss'
+import './index.scss'
 
 const Details: FC = () => {
   return (
@@ -18,7 +17,7 @@ const Details: FC = () => {
         </p>
       </header>
 
-      <SliceContainer reverse maxHeight={400} overlayColor='var(--bg-primary)'>
+      <SliceContainer reverse maxHeight={300} overlayColor='var(--bg-primary)'>
         <div className='details-journeys'>
           {Object.entries(personalJourneys).map(items => {
             const [title, journey] = items
