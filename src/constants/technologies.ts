@@ -1,11 +1,13 @@
-import { Technology } from '@/lib/techQuery'
+// import { Technology } from '@/lib/techQuery'
 
-export const technologies: Technology[] = [
+export type TechName = (typeof technologies)[number]['name']
+
+export const technologies = [
   {
     name: 'NextJs',
     src: '/assets/code/nextjs.webp',
     level: 'Aprendiendo',
-    color: '#000000',
+    color: '#fff',
     categories: ['framework'],
     stack: ['fullstack'],
     favoriteFor: ['frontend'],
@@ -57,7 +59,7 @@ export const technologies: Technology[] = [
     name: 'CSS',
     src: '/assets/code/css.webp',
     level: 'Aprendiendo',
-    color: '#663399',
+    color: '#842cddff',
     categories: ['style', 'web-standard'],
     stack: ['frontend']
   },
@@ -135,7 +137,7 @@ export const technologies: Technology[] = [
     name: 'TypeORM',
     src: '/assets/code/typeorm.webp',
     level: 'Aprendiendo',
-    color: '#FE0200',
+    color: '#fe00009d',
     categories: ['ORM', 'library'],
     stack: ['backend'],
     favoriteFor: ['backend']
@@ -311,7 +313,7 @@ export const technologies: Technology[] = [
     name: 'Hostinger',
     src: '/assets/code/hostinger.webp',
     level: 'Incursionando',
-    color: '#663399',
+    color: '#983cf4',
     categories: ['devops', 'hosting', 'cloud'],
     stack: ['Kit']
   },
@@ -359,7 +361,7 @@ export const technologies: Technology[] = [
     name: 'Skeleton',
     src: '/assets/code/skeleton.webp',
     level: 'Incursionando',
-    color: '#000000',
+    color: '#fff',
     categories: ['framework', 'style'],
     stack: ['frontend']
   },
@@ -383,7 +385,7 @@ export const technologies: Technology[] = [
     name: 'Cursor',
     src: '/assets/code/cursor.webp',
     level: 'Incursionando',
-    color: '#000000',
+    color: '#fff',
     categories: ['editor', 'IDE'],
     stack: ['Kit']
   },
@@ -391,7 +393,7 @@ export const technologies: Technology[] = [
     name: 'Vercel',
     src: '/assets/code/vercel.webp',
     level: 'Incursionando',
-    color: '#000000',
+    color: '#fff',
     categories: ['devops', 'cloud', 'hosting'],
     stack: ['Kit']
   },
@@ -410,5 +412,45 @@ export const technologies: Technology[] = [
     color: '#F99C0E',
     categories: ['IDE', 'editor'],
     stack: ['Kit']
+  },
+  {
+    name: 'MySQL Workbench',
+    src: '/assets/code/workbench.webp',
+    level: 'Aprendiendo',
+    color: '#25567C',
+    categories: ['IDE', 'database', 'sql'],
+    stack: ['Kit']
+  },
+  {
+    name: 'Microsoft PowerPoint',
+    src: '/assets/code/powerPoint.webp',
+    level: 'Aprendiendo',
+    color: '#D65130',
+    categories: ['presentation'],
+    stack: ['Kit']
+  },
+  {
+    name: 'Microsoft Word',
+    src: '/assets/code/word.webp',
+    level: 'Aprendiendo',
+    color: '#1759BB',
+    categories: ['presentation'],
+    stack: ['Kit']
+  },
+  {
+    name: 'Microsoft Excel',
+    src: '/assets/code/excel.webp',
+    level: 'Aprendiendo',
+    color: '#1DA364',
+    categories: ['spreadsheet'],
+    stack: ['Kit']
+  },
+  {
+    name: 'WordPress',
+    src: '/assets/code/wordPress.webp',
+    level: 'Aprendiendo',
+    color: '#0D8EBF',
+    categories: ['CMS', 'hosting'],
+    stack: ['frontend']
   }
-]
+] as const

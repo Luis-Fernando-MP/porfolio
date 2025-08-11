@@ -31,7 +31,10 @@ export const technologyCategories = {
   markup: 5,
   editor: 3,
   OS: 3,
-  methodology: 2
+  methodology: 2,
+  presentation: 4,
+  spreadsheet: 4,
+  CMS: 7
 } as const
 
 export type TechnologyCategory = keyof typeof technologyCategories
@@ -127,10 +130,12 @@ const stackAliases: Record<TechnologyStack, TechnologyStack[]> = {
  *   hasNotionPage: true
  * })
  */
-export function techQuery(filters: FiltersTechnologies = {}, techList: Technology[] = technologies): Technology[] {
+export function techQuery(filters: FiltersTechnologies = {}, techList?: Technology[]): Technology[] {
   const { orderBy, orderDirection, stack: filterStack } = filters
 
-  const filtered = techList.filter(tech => {
+  const list = techList ?? (technologies as any as Technology[])
+
+  const filtered = list.filter(tech => {
     const { level, categories, stack } = tech
 
     if (filters.level && level !== filters.level) return false
