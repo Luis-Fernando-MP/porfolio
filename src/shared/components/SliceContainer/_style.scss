@@ -9,8 +9,6 @@
   @include d.flex($gap: v.$padding * 2);
 
   &-content {
-    will-change: max-height;
-
     @include scroll-hidden;
   }
 
@@ -28,9 +26,6 @@
   }
 
   &-action {
-    position: sticky;
-    z-index: 2;
-    top: v.$padding;
     background-color: rgb(v.$bg3);
   }
 }

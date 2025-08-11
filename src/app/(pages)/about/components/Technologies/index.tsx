@@ -22,7 +22,7 @@ import './style.scss'
 import './userMobile.scss'
 
 const Technologies: FC = () => {
-  const [parent] = useAutoAnimate({})
+  const [parent] = useAutoAnimate({ duration: 300, easing: 'ease-in' })
   const [selectedStack, setSelectedStack] = useState<TechnologyStack | undefined>(undefined)
   const [selectedCategories, setSelectedCategories] = useState<TechnologyCategory[]>([])
   const [orderDirection, setOrderDirection] = useState<OrderDirection>('desc')

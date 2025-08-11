@@ -3,8 +3,7 @@ import type { FC } from 'react'
 
 import JobHistory from './JobHistory'
 import LearningBadges from './LearningBadges'
-import './style.scss'
-import './userMobile.scss'
+import './index.scss'
 
 const WorkExperience: FC = () => {
   return (

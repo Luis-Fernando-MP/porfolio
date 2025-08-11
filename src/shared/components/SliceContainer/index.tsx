@@ -4,8 +4,7 @@ import IconButton from '@/shared/ui/IconButton'
 import { MoreHorizontalIcon } from 'lucide-react'
 import { type FC, type HTMLAttributes, type ReactNode, useRef, useState } from 'react'
 
-import './style.scss'
-import './userMobile.scss'
+import './index.scss'
 
 interface Props extends HTMLAttributes<HTMLDivElement> {
   children?: ReactNode

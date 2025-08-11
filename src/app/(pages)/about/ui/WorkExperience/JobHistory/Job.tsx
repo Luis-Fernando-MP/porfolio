@@ -35,21 +35,20 @@ const Job: FC<Props> = job => {
 
   return (
     <li className='jobExperience lazy'>
-      <h6>
-        <time className='jobExperience-period ellipsis' dateTime={period}>
-          {period}:
-        </time>
+      <h6 className='jobExperience-period ellipsis'>
+        <time dateTime={period}>{period}:</time>
       </h6>
 
       <section className='jobExperience-content' aria-label={`Experiencia en ${name}`}>
         <h2>{position}</h2>
 
-        <IconButton className='jobExperience-companyName' isLink href={websiteUrl} target='_blank' rel='noopener noreferrer'>
-          <Image src={logo} width={30} height={30} alt={`Logo de ${name}`} />
-          <h4>{name}</h4>
-        </IconButton>
-
-        <article className='jobExperience-article flex'>{Description}</article>
+        <article className='jobExperience-article flex'>
+          <IconButton className='jobExperience-companyName' isLink href={websiteUrl} target='_blank' rel='noopener noreferrer'>
+            <Image src={logo} width={30} height={30} alt={`Logo de ${name}`} />
+            <h4>{name}</h4>
+          </IconButton>
+          {Description}
+        </article>
 
         <article className='jobExperience-article flex'>
           <header>

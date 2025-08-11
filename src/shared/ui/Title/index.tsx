@@ -1,8 +1,7 @@
 import { acl } from '@/shared/acl'
 import type { FC } from 'react'
 
-import './style.scss'
-import './userMobile.scss'
+import './index.scss'
 
 interface Props {
   emoji?: string

@@ -1,7 +1,9 @@
 @use '@sass/config/vars' as v;
 @use '@sass/utils/media' as m;
 
-@include m.largeScreen {
+@forward 'style';
+
+@include m.extraLargeScreen {
   .title {
     align-items: center;
     justify-content: center;
@@ -10,18 +12,20 @@
   }
 }
 
+@include m.mediumScreen {
+  .title h2 {
+    font-size: calc(v.$fH1 * 1.5);
+  }
+}
+
 @include m.smallScreen {
-  .title {
-    h2 {
-      font-size: calc(v.$fH1 * 1.5);
-    }
+  .title h2 {
+    font-size: calc(v.$fH1 * 1.2);
   }
 }
 
 @include m.smallerScreen {
-  .title {
-    h2 {
-      font-size: v.$fH1;
-    }
+  .title h2 {
+    font-size: calc(v.$fH1);
   }
 }

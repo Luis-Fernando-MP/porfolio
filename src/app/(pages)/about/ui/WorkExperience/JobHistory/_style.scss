@@ -2,9 +2,7 @@
 @use '@sass/utils/defs' as d;
 
 .jobHistory {
-  @include d.flex($gap: v.$padding * 2, $ali: center);
-
-  padding-top: v.$padding * 2;
+  @include d.flex($gap: v.$big-padding, $ali: center);
 }
 
 .jobExperience {
@@ -14,7 +12,7 @@
   justify-content: space-between;
 
   width: fit-content;
-  max-width: v.$max-w-md;
+  max-width: v.$max-w-md - 100px;
 
   &-period {
     display: block;
@@ -28,7 +26,7 @@
   }
 
   &-content {
-    @include d.flex($gap: v.$padding * 2);
+    @include d.flex($gap: v.$padding * 3);
   }
 
   &-tools {
@@ -45,7 +43,6 @@
 
   &-article {
     width: 100%;
-    max-width: 700px;
 
     h4,
     h5,
