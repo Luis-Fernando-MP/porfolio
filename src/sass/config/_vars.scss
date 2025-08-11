@@ -31,8 +31,8 @@ $big-padding: 50px;
 $section-padding: 100px;
 
 // Radius
-$min-radius: 8px; // 3px
-$radius: $min-radius + $padding; // 5px
+$min-radius: 5px; // 3px
+$radius: $min-radius + $min-padding; // 5px
 
 // Font families
 $font1: var(--family1), arial, helvetica, sans-serif, 'Segoe UI Mono';

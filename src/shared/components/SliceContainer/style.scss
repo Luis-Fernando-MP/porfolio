@@ -9,6 +9,8 @@
   @include d.flex($gap: v.$padding * 2);
 
   &-content {
+    will-change: max-height;
+
     @include scroll-hidden;
   }
 

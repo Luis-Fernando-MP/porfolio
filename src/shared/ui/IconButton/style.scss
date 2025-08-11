@@ -15,7 +15,6 @@
   min-width: 35px;
   height: fit-content;
   min-height: 34px;
-  padding: v.$btn-padding;
 
   background-color: rgb(v.$bg2);
 
@@ -29,8 +28,8 @@
     opacity: 0.5;
   }
 
-  &.noPadding {
-    padding: 0 !important;
+  &.padding {
+    padding: v.$btn-padding;
   }
 
   &.transparent {
@@ -101,7 +100,9 @@
   &.hover:hover {
     background-color: rgb(v.$bg3);
     transition: background-color 0.3s ease;
+  }
 
+  &:hover {
     .iconButton-label {
       visibility: visible;
       opacity: 1;

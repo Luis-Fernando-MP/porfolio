@@ -70,23 +70,6 @@
     @include d.flex($dir: row);
   }
 
-  &-btn {
-    position: relative;
-
-    &__bg {
-      position: absolute;
-      z-index: 0;
-      top: 50%;
-      left: 13px;
-      transform: translateY(-50%);
-
-      width: 12px;
-      height: 12px;
-
-      filter: blur(10px);
-    }
-  }
-
   &-tech {
     min-width: max-content;
 
@@ -95,10 +78,5 @@
       min-height: 20px;
       object-fit: contain !important;
     }
-  }
-
-  &-block {
-    position: relative;
-    z-index: 1;
   }
 }

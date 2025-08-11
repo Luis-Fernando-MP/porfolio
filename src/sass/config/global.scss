@@ -5,6 +5,31 @@
 @use 'default' as *;
 
 body {
+  .tech {
+    position: relative;
+
+    &::before {
+      content: '';
+
+      position: absolute;
+      z-index: 0;
+      top: 50%;
+      left: 13px;
+      transform: translateY(-50%);
+
+      width: 14px;
+      height: 14px;
+
+      background-color: var(--bg-color, $bg1);
+      filter: blur(10px);
+    }
+
+    &-block {
+      position: relative;
+      z-index: 1;
+    }
+  }
+
   .lazy {
     content-visibility: auto;
   }
@@ -70,14 +95,7 @@ body {
 
   .active {
     background-color: rgb($tn1) !important;
-  }
 
-  .secondary {
-    background-color: rgb($tn2) !important;
-  }
-
-  .secondary,
-  .active {
     &,
     h3,
     h4,

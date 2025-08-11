@@ -1,0 +1,74 @@
+@use '@sass/config/vars' as v;
+@use '@sass/utils/defs' as d;
+
+.jobHistory {
+  @include d.flex($gap: v.$padding * 2, $ali: center);
+
+  padding-top: v.$padding * 2;
+}
+
+.jobExperience {
+  display: grid;
+  grid-template-columns: 160px 1fr;
+  gap: v.$big-padding;
+  justify-content: space-between;
+
+  width: fit-content;
+  max-width: v.$max-w-md;
+
+  &-period {
+    display: block;
+    width: 100%;
+    max-width: 160px;
+    padding-top: v.$padding * 0.5;
+  }
+
+  &-companyName {
+    background-color: rgb(v.$bg3) !important;
+  }
+
+  &-content {
+    @include d.flex($gap: v.$padding * 2);
+  }
+
+  &-tools {
+    @include d.flex($dir: row, $gap: v.$min-padding);
+
+    flex-wrap: wrap;
+  }
+
+  &-tool {
+    img {
+      object-fit: contain !important;
+    }
+  }
+
+  &-article {
+    width: 100%;
+    max-width: 700px;
+
+    h4,
+    h5,
+    h6,
+    p {
+      display: inline;
+    }
+
+    ul,
+    ol {
+      @include d.flex;
+
+      padding-left: 1.5rem;
+    }
+
+    li {
+      padding-left: 0;
+      list-style: disc;
+      list-style-position: outside;
+    }
+
+    li p {
+      display: inline;
+    }
+  }
+}
