@@ -3,7 +3,7 @@
   "version": "0.2.1",
   "private": true,
   "scripts": {
-    "dev": "rimraf .next && pnpm store prune && next dev",
+    "dev": "rimraf .next && pnpm store prune && next dev --port 4321",
     "build": "pnpm lint && next build",
     "start": "next start",
     "lint": "pnpx stylelint '**/*.{css,scss}' && next lint",
