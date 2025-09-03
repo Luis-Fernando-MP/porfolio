@@ -60,7 +60,10 @@ export const THEMES = {
         'fnt-tertiary': '195, 195, 195',
         'fnt-active': '255, 255, 255',
         'tn-primary': '32, 108, 255',
-        'tn-secondary': '88, 101, 242'
+        'tn-secondary': '88, 101, 242',
+
+        'extra-specialized': '208, 220, 188',
+        'extra-applicable': '231, 193, 167'
       },
       'haui dark': {
         'bg-primary': '10, 10, 10',
