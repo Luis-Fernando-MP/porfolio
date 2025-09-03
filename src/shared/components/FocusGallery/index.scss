@@ -3,6 +3,8 @@
 @use '@sass/utils/defs' as d;
 @use '@sass/utils/scrollbar' as *;
 
+@use 'style';
+
 @include m.smallScreen {
   .gallery {
     &-figure {

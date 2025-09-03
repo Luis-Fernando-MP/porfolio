@@ -7,9 +7,8 @@ import { ArrowLeft, ArrowRight, ExternalLink, X, ZoomIn, ZoomOut } from 'lucide-
 import { useEffect, useState } from 'react'
 import { createPortal } from 'react-dom'
 
-import './style.scss'
+import './index.scss'
 import { useFocusGallery } from './useFocusGallery'
-import './userMobile.scss'
 
 const FocusGalleryComponent = () => {
   const body = document?.body

@@ -61,15 +61,15 @@ export const useFocusGallery = () => {
   }, [resetZoomAndPanState])
 
   const navigateToPrevious = useCallback(() => {
-    if (!canNavigateToPrevious) return
-    setCurrentImageIndex(currentImageIndex - 1)
     resetZoomAndPanState()
-  }, [currentImageIndex, canNavigateToPrevious, resetZoomAndPanState])
+    const index = canNavigateToPrevious ? currentImageIndex - 1 : imageGallery.length - 1
+    setCurrentImageIndex(index)
+  }, [currentImageIndex, canNavigateToPrevious, resetZoomAndPanState, imageGallery.length])
 
   const navigateToNext = useCallback(() => {
-    if (!canNavigateToNext) return
-    setCurrentImageIndex(currentImageIndex + 1)
     resetZoomAndPanState()
+    const index = canNavigateToNext ? currentImageIndex + 1 : 0
+    setCurrentImageIndex(index)
   }, [currentImageIndex, canNavigateToNext, resetZoomAndPanState])
 
   const navigateToIndex = useCallback(

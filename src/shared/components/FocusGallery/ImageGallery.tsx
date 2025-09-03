@@ -2,7 +2,7 @@
 
 import useSound from '@/shared/hook/useSound'
 import { Image, type ImageProps } from '@unpic/react/nextjs'
-import { type FC, useId } from 'react'
+import { type FC, Ref, useId } from 'react'
 
 interface GalleryImageData {
   groupId?: string
@@ -13,7 +13,9 @@ interface GalleryImageData {
   index?: number
 }
 
-interface Props extends ImageProps, GalleryImageData {}
+interface Props extends ImageProps, GalleryImageData {
+  ref?: Ref<HTMLImageElement>
+}
 
 /**
  * Renders an image configured for use in a focusable gallery system.
@@ -40,7 +42,17 @@ interface Props extends ImageProps, GalleryImageData {}
  *   noUniqueGroup
  * />
  */
-const ImageGallery: FC<Props> = ({ src, caption, action, actionText, index, groupId, noUniqueGroup = false, ...imgProps }) => {
+const ImageGallery: FC<Props> = ({
+  src,
+  caption,
+  action,
+  actionText,
+  index,
+  groupId,
+  noUniqueGroup = false,
+  ref,
+  ...imgProps
+}) => {
   const fallbackGroupId = useId()
   const finalGroupId = noUniqueGroup ? 'haui' : (groupId ?? fallbackGroupId)
 
@@ -48,6 +60,7 @@ const ImageGallery: FC<Props> = ({ src, caption, action, actionText, index, grou
 
   return (
     <Image
+      ref={ref}
       src={src}
       onClick={() => play()}
       data-gallery-src={src}
