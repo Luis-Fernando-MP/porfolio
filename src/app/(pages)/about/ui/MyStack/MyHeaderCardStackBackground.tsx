@@ -5,11 +5,11 @@ import useBackgroundImageStore from '@/shared/store/backgroundImage.store'
 import type { FC } from 'react'
 
 const MyHeaderCardStackBackground: FC = () => {
-  const { path } = useBackgroundImageStore(s => s.background)
+  const { path, isLottie } = useBackgroundImageStore(s => s.background)
 
   return (
     <section className='headerCardStack-hero border'>
-      <ImageLayer className='headerCardStack-bg' src={path} enableParallax />
+      <ImageLayer className='headerCardStack-bg' src={path} enableParallax isLottie={isLottie} />
     </section>
   )
 }

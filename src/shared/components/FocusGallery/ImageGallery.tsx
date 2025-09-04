@@ -51,6 +51,7 @@ const ImageGallery: FC<Props> = ({
   groupId,
   noUniqueGroup = false,
   ref,
+  alt,
   ...imgProps
 }) => {
   const fallbackGroupId = useId()
@@ -62,6 +63,7 @@ const ImageGallery: FC<Props> = ({
     <Image
       ref={ref}
       src={src}
+      alt={alt ?? 'gallery image'}
       onClick={() => play()}
       data-gallery-src={src}
       data-gallery-index={index}

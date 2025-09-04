@@ -189,7 +189,7 @@ export const useFocusGallery = () => {
 
       btnCloseRef?.current?.click()
     },
-    [closeModal, isImageZoomed]
+    [isImageZoomed]
   )
 
   useEffect(() => {

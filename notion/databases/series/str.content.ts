@@ -21,7 +21,7 @@ reading_time: ${readingTime ?? 30}
 words: ${words ?? 0}
 folder: '${properties.Folder?.select?.name}'
 folder_color: '${properties.Folder?.select?.color}'
-profesor(s): '${teacher}'
+profesor: '${teacher}'
 ${imagePropsStr}
 created_time: '${created_time}'
 last_edited_time: '${lastEditedTime}'

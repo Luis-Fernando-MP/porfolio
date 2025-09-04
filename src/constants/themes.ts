@@ -1,12 +1,5 @@
 import { MonitorDotIcon, MoonStarIcon, SunIcon, ZapIcon } from 'lucide-react'
 
-const tmp = [
-  { path: '/backgrounds/lavender/1.webp' },
-  { path: '/backgrounds/lavender/2.webp' },
-  { path: '/backgrounds/lavender/3.jpg' },
-  { path: '/backgrounds/lavender/4.jpg' }
-]
-
 export const themeBackgroundImages: Record<ThemeColorKeys, BackgroundImage[]> = {
   gris: [
     { path: '/backgrounds/gris/1.webp' },

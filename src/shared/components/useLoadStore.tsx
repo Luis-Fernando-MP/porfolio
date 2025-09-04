@@ -20,12 +20,12 @@ const useLoadStore = () => {
         root.style.setProperty(`--${name}`, `${color}`)
       })
     }
-  }, [theme])
+  }, [theme, currentTheme])
 
   useLayoutEffect(() => {
     const root = document.documentElement
     root.style.fontSize = `${fontSize()}px`
-  }, [])
+  }, [fontSize])
 
   return { theme }
 }

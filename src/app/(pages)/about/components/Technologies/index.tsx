@@ -61,7 +61,7 @@ const Technologies: FC = () => {
   )
 
   const filtered = useMemo(() => {
-    let result = techQuery({
+    const result = techQuery({
       categories: selectedCategories,
       stack: selectedStack,
       orderBy,

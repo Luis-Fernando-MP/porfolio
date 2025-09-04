@@ -75,7 +75,7 @@ const Job: FC<Props> = job => {
                   style={{ '--bg-color': color } as CSSProperties}
                   data-bg={color}
                 >
-                  <Image className='tech-block' src={src} width={20} height={20} />
+                  <Image alt={toolName} className='tech-block' src={src} width={20} height={20} />
                 </IconButton>
               )
             })}

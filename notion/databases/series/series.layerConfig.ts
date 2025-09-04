@@ -11,7 +11,7 @@ const seriesFields: FieldDefs = {
     type: 'string',
     required: true
   },
-  'profesor(s)': {
+  profesor: {
     type: 'string',
     required: false
   },

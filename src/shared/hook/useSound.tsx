@@ -52,7 +52,9 @@ function initializeSound(src: string, options: HookOptions, preload: boolean) {
     soundCache[src] = instance
   }
 
-  preload ? load() : setTimeout(load, 3000)
+  if (preload) return load()
+
+  setTimeout(load, 3000)
 }
 
 /**

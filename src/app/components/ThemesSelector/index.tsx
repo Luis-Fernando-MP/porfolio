@@ -15,4 +15,6 @@ const ThemesSelector: FC = memo(() => {
   )
 })
 
+ThemesSelector.displayName = 'ThemesSelector'
+
 export default ThemesSelector
