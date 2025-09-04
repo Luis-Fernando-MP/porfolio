@@ -1,0 +1,11 @@
+@use '@sass/config/vars' as v;
+@use '@sass/utils/media' as m;
+@use '@sass/utils/defs' as d;
+
+@forward 'style';
+
+@include m.largeScreen {
+  .page {
+    gap: v.$padding * 2;
+  }
+}

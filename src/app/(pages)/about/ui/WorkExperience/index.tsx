@@ -7,14 +7,13 @@ import './index.scss'
 
 const WorkExperience: FC = () => {
   return (
-    <article className='workExperience' aria-label='Experiencias laborales'>
+    <section className='workExperience' aria-label='Experiencias laborales'>
       <Title emoji='🚀' sub='Experiencias' title='Laborales' />
-
       <div className='workExperience-content border'>
         <JobHistory />
         <LearningBadges />
       </div>
-    </article>
+    </section>
   )
 }
 

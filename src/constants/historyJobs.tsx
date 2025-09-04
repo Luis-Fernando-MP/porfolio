@@ -21,7 +21,7 @@ export const historyJobs: HistoryJob[] = [
   {
     name: 'DevDatep Consulting E.I.R.L',
     logo: '/assets/work-experience/devdatep-consulting.webp',
-    position: 'Practicante en áreas de bases de datos y desarrollo web',
+    position: 'Web Database Intern & Web Development Leader',
     period: 'Jun 2024 — Sep 2024',
     usedTools: [
       'MySQL',
@@ -140,8 +140,8 @@ export const historyJobs: HistoryJob[] = [
   {
     name: 'AVS Consultores Informáticos',
     logo: '/assets/work-experience/avs-consultores.webp',
-    position: 'Practicante de Desarrollo de Aplicaciones Web',
-    period: 'Ene 2023 — Oct 2023',
+    position: 'Web Development Intern',
+    period: 'Abr 2023 — Oct 2023',
     usedTools: ['JavaScript', 'HTML', 'CSS', 'ReactJs', 'PHP', 'NestJs', 'WordPress'],
 
     websiteUrl: 'http://www.avsconsultores.com',
@@ -214,7 +214,7 @@ export const historyJobs: HistoryJob[] = [
   {
     name: 'Municipalidad Distrital de San Agustín de Cajas',
     logo: '/assets/work-experience/municipalidad-cajas.webp',
-    position: 'Ayudante Técnico de Computación',
+    position: 'Computer Technical Assistant',
     period: 'Abr 2021 — Oct 2021',
     usedTools: ['Microsoft Word', 'Microsoft Excel', 'Microsoft PowerPoint', 'Java', 'Linux'],
 
@@ -302,7 +302,7 @@ export const historyJobs: HistoryJob[] = [
   {
     name: 'Industria Gráfica Inmaculada Concepción',
     logo: '/assets/work-experience/grafica-Concepcion.webp',
-    position: 'Practicante de Diseño Gráfico',
+    position: 'Graphic Design Intern',
     period: 'Abr 2019 — Dic 2019',
     usedTools: ['Figma', 'HTML', 'CSS', 'JavaScript'],
 

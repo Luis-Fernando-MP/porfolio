@@ -1,0 +1,27 @@
+@use '@sass/config/vars' as v;
+@use '@sass/utils/defs' as d;
+
+.learningBadges {
+  padding-top: v.$padding * 2;
+  border-top: 1.5px solid rgb(v.$bg3);
+
+  @include d.flex($ali: center, $gap: v.$padding * 2);
+
+  &-group {
+    @include d.flex($ali: center);
+  }
+
+  &-title h2 {
+    display: inline-block;
+    font-size: v.$fH1;
+    text-align: center;
+  }
+
+  &-seeMore {
+    background-color: rgb(v.$bg3) !important;
+  }
+
+  &-badges {
+    justify-content: center;
+  }
+}

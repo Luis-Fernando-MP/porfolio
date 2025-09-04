@@ -1,6 +1,7 @@
 import { HistoryJob } from '@/constants/historyJobs'
 import { technologies } from '@/constants/technologies'
-import { Technology, techQuery } from '@/lib/techQuery'
+import { techQuery } from '@/lib/techQuery'
+import { Technology } from '@/lib/techQuery/tech.type'
 import IconButton from '@/shared/ui/IconButton'
 import { Image } from '@unpic/react/nextjs'
 import type { CSSProperties, FC } from 'react'
@@ -17,8 +18,8 @@ const Job: FC<Props> = job => {
     Tools,
     Description,
     Acknowledgements,
-    externalUrl,
-    facebookUrl,
+    // externalUrl,
+    // facebookUrl,
     websiteUrl,
     usedTools
   } = job

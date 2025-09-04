@@ -1,0 +1,41 @@
+@use '@sass/config/vars' as v;
+@use '@sass/utils/defs' as d;
+
+.badge {
+  cursor: pointer;
+
+  position: relative;
+
+  overflow: hidden;
+
+  width: 100px;
+  height: 80px;
+  border-radius: v.$radius;
+
+  background-color: rgb(v.$bg3);
+
+  &-specialized {
+    background-color: rgb(v.$ex-specialized);
+  }
+
+  &-applicable {
+    background-color: rgb(v.$ex-applicable);
+  }
+
+  &-fundamentals {
+    background-color: rgb(v.$bg2);
+  }
+
+  &-image {
+    pointer-events: none;
+
+    position: absolute;
+    right: -30px;
+    bottom: -20px;
+
+    border-top-left-radius: v.$min-radius;
+
+    object-fit: cover !important;
+    box-shadow: -3px -3px 35px -7px rgb(0 0 0 / 30%);
+  }
+}

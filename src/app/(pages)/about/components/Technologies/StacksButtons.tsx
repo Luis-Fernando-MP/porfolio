@@ -1,4 +1,4 @@
-import { TechnologyStack, technologyStack } from '@/lib/techQuery'
+import { TechnologyStack, technologyStack } from '@/lib/techQuery/tech.type'
 import IconButton from '@/shared/ui/IconButton'
 import { type FC } from 'react'
 

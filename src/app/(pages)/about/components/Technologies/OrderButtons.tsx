@@ -1,4 +1,4 @@
-import { OrderBy, OrderDirection, listOfOrders } from '@/lib/techQuery'
+import { OrderBy, OrderDirection, listOfOrders } from '@/lib/techQuery/tech.type'
 import IconButton from '@/shared/ui/IconButton'
 import { SortAscIcon, SortDescIcon } from 'lucide-react'
 import { Dispatch, FC, SetStateAction } from 'react'

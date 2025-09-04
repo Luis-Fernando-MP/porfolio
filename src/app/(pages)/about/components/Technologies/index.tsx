@@ -1,14 +1,14 @@
 'use client'
 
+import { techQuery } from '@/lib/techQuery'
 import {
   OrderBy,
   OrderDirection,
   TechnologyCategory,
   TechnologyStack,
   listOfOrders,
-  techQuery,
   technologyCategories
-} from '@/lib/techQuery'
+} from '@/lib/techQuery/tech.type'
 import IconButton from '@/shared/ui/IconButton'
 import { useAutoAnimate } from '@formkit/auto-animate/react'
 import { Image } from '@unpic/react/nextjs'

@@ -3,6 +3,11 @@ export enum DEV_MODE {
   DEV = 'development'
 }
 
+export const ENV = {
+  GITHUB_KEY: process.env.GITHUB_TOKEN ?? '',
+  GITHUB_API: 'https://api.github.com/repos/Luis-Fernando-MP'
+}
+
 export const INFO = {
   devName: 'Haui dev',
   devShortName: 'Haui',

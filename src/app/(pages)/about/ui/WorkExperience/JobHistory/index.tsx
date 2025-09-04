@@ -7,12 +7,12 @@ import './index.scss'
 
 const JobHistory: FC = () => {
   return (
-    <SliceContainer reverse maxHeight={1000}>
-      <section className='jobHistory'>
-        {historyJobs.slice(0, 2).map(job => {
+    <SliceContainer maxHeight={1000}>
+      <article className='jobHistory'>
+        {historyJobs.map(job => {
           return <Job key={job.name} {...job} />
         })}
-      </section>
+      </article>
     </SliceContainer>
   )
 }

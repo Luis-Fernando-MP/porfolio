@@ -1,4 +1,4 @@
-import { TechnologyCategory, technologyCategories } from '@/lib/techQuery'
+import { TechnologyCategory, technologyCategories } from '@/lib/techQuery/tech.type'
 import IconButton from '@/shared/ui/IconButton'
 import { type FC } from 'react'
 

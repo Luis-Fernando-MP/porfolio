@@ -1,0 +1,24 @@
+@use '@sass/config/vars' as v;
+@use '@sass/utils/media' as m;
+
+@forward 'style';
+
+@include m.extraLargeScreen {
+  .workExperience {
+    padding: 0 v.$padding;
+
+    &-content {
+      width: fit-content;
+    }
+  }
+}
+
+@include m.smallScreen {
+  .workExperience {
+    padding: 0 v.$padding;
+
+    &-content {
+      padding: v.$padding * 2;
+    }
+  }
+}
