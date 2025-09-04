@@ -9,16 +9,11 @@
     "lint": "pnpx stylelint '**/*.{css,scss}' && next lint",
     "format": "pnpx stylelint '**/*.{css,scss}' --fix && prettier --write '**/*.{js,jsx,ts,tsx,json,md,scss,css}'",
     "notion:generate": "ts-node --project ./notion.tsconfig.json -r tsconfig-paths/register ./notion/index.ts",
-    "postinstall": "prisma generate",
-    "prisma:migrate": "pnpx prisma migrate dev --name",
-    "prisma:deploy": "pnpx prisma migrate deploy",
-    "prisma:generate": "pnpx prisma generate",
     "build:content": "contentlayer2 build"
   },
   "dependencies": {
     "@formkit/auto-animate": "0.8.2",
     "@lucide/lab": "0.1.2",
-    "@prisma/client": "6.6.0",
     "@unpic/pixels": "1.3.0",
     "@unpic/placeholder": "0.1.2",
     "@unpic/react": "1.0.1",

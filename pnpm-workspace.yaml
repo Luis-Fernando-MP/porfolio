@@ -1,6 +1,7 @@
 ignoredBuiltDependencies:
   - '@parcel/watcher'
   - contentlayer
+  - contentlayer2
   - esbuild
   - protobufjs
   - sharp

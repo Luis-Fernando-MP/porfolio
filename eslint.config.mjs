@@ -22,12 +22,13 @@ const eslintConfig = [
       '@typescript-eslint/no-non-null-assertion': 'off',
       '@typescript-eslint/no-explicit-any': 'off',
       '@next/next/no-img-element': 'off',
+      '@typescript-eslint/no-empty-object-type': 'off',
       'no-restricted-imports': [
         'error',
         {
           patterns: [
             {
-              group: ['../../'],
+              group: ['../../../'],
               message: 'Relative imports from parent directories are not allowed.'
             }
           ]
