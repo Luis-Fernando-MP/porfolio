@@ -4,6 +4,7 @@ import Noise from '@/shared/components/Noise'
 import Offline from '@/shared/components/Offline'
 import { bodyFonts } from '@/shared/fonts'
 import '@sass/config/global.scss'
+import { SpeedInsights } from '@vercel/speed-insights/next'
 import NextTopLoader from 'nextjs-toploader'
 import type { JSX, ReactNode } from 'react'
 import { Toaster } from 'react-hot-toast'
@@ -27,6 +28,7 @@ const RootLayout = async ({ children }: IRootLayout): Promise<JSX.Element> => {
         <Noise />
         <Hydration>{children}</Hydration>
         <Toaster position='top-center' toastOptions={{ className: 'toast' }} />
+        <SpeedInsights />
       </body>
     </html>
   )
