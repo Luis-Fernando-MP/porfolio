@@ -4,8 +4,7 @@ import SliceContainer from '@/shared/components/SliceContainer'
 import Title from '@/shared/ui/Title'
 import type { FC } from 'react'
 
-import './style.scss'
-import './userMobile.scss'
+import './index.scss'
 
 interface Props {
   className?: string

@@ -3,7 +3,7 @@
 import DevCardToggle from '@/app/(home)/ui/DevCardToggle'
 import { INFO } from '@/constants'
 import IconButton from '@/shared/ui/IconButton'
-import { unstable_ViewTransition as ViewTransition, useState } from 'react'
+import { useState } from 'react'
 
 import MusicButton from '../MusicButton'
 import UserPreferences from '../UserPreferences'
@@ -21,28 +21,26 @@ const MainBar: React.FC<Props> = ({ className = '', includeDevCard = false }) =>
   const [show, setShow] = useState(false)
 
   return (
-    <ViewTransition name='main-bar'>
-      <article className={`mainBar ${className}`}>
-        <div className='mainBar-wrapper border'>
-          <LogoLink />
+    <article className={`mainBar ${className}`}>
+      <div className='mainBar-wrapper border'>
+        <LogoLink />
 
-          <div className='mainBar-group frow'>
-            <HamburgerToggle show={show} setShow={setShow} />
+        <div className='mainBar-group frow'>
+          <HamburgerToggle show={show} setShow={setShow} />
 
-            <MusicButton className='mainBar-hidden' />
-            {includeDevCard && <DevCardToggle />}
+          <MusicButton className='mainBar-hidden' />
+          {includeDevCard && <DevCardToggle />}
 
-            <IconButton noSound className='events-none mainBar-hidden' active>
-              <div className='mainBar-point' />
-              {INFO.working.state && <h4>Creando ideas con {INFO.working.enterprise}</h4>}
-              {!INFO.working.state && <h4>Trabajemos juntos</h4>}
-            </IconButton>
-          </div>
-
-          {show && <UserPreferences />}
+          <IconButton noSound className='events-none mainBar-hidden' active>
+            <div className='mainBar-point' />
+            {INFO.working.state && <h4>Creando ideas con {INFO.working.enterprise}</h4>}
+            {!INFO.working.state && <h4>Trabajemos juntos</h4>}
+          </IconButton>
         </div>
-      </article>
-    </ViewTransition>
+
+        {show && <UserPreferences />}
+      </div>
+    </article>
   )
 }
 

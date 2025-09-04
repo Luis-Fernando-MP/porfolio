@@ -1,7 +1,7 @@
 'use client'
 
 import lottie, { AnimationItem } from 'lottie-web'
-import { useCallback, useEffect, useRef, useState } from 'react'
+import { useCallback, useEffect, useRef } from 'react'
 
 export interface ImageLayerProps {
   src: string
@@ -15,70 +15,6 @@ const useImageLayer = ({ src, enableParallax, lazy, isLottie }: ImageLayerProps)
   const lottieRef = useRef<HTMLDivElement>(null)
   const lottieAnimRef = useRef<AnimationItem | null>(null)
 
-  const [prevSrc, setPrevSrc] = useState<string | null>(null)
-  const [currentSrc, setCurrentSrc] = useState<string | null>(null)
-  const [isImageFullyLoaded, setIsImageFullyLoaded] = useState(false)
-  const [isBlurActive, setIsBlurActive] = useState(false)
-
-  const TRANSITION_DURATION_MS = 500
-
-  const loadImage = useCallback(() => {
-    if (!src) return
-
-    if (currentSrc && currentSrc !== src) {
-      setPrevSrc(currentSrc)
-    } else {
-      setPrevSrc(null)
-    }
-
-    setIsImageFullyLoaded(false)
-    setCurrentSrc(null)
-
-    const img = new Image()
-    img.src = src
-
-    img.onload = () => {
-      setIsBlurActive(true)
-      setCurrentSrc(src)
-
-      setTimeout(() => {
-        setIsBlurActive(false)
-        setIsImageFullyLoaded(true)
-        if (prevSrc) {
-          setTimeout(() => setPrevSrc(null), TRANSITION_DURATION_MS)
-        }
-      }, TRANSITION_DURATION_MS)
-    }
-  }, [src, currentSrc, prevSrc])
-
-  useEffect(() => {
-    if (isLottie || !wrapperRef.current) return
-
-    setIsImageFullyLoaded(false)
-    setIsBlurActive(false)
-
-    if (!lazy) {
-      loadImage()
-      return
-    }
-
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          loadImage()
-          observer.disconnect()
-        }
-      },
-      { threshold: 0.1 }
-    )
-
-    observer.observe(wrapperRef.current)
-
-    return () => {
-      observer.disconnect()
-    }
-  }, [src, lazy, isLottie, loadImage])
-
   const updateParallax = useCallback(() => {
     if (!wrapperRef.current) return
 
@@ -87,8 +23,7 @@ const useImageLayer = ({ src, enableParallax, lazy, isLottie }: ImageLayerProps)
 
     const rawProgress = rect.top / window.innerHeight
     const maxOffset = wrapperRef.current.offsetHeight / 2
-    const clampedProgress = Math.max(-1, Math.min(1, rawProgress))
-    const translateY = clampedProgress * maxOffset
+    const translateY = Math.max(-1, Math.min(1, rawProgress)) * maxOffset
 
     wrapperRef.current.querySelectorAll<HTMLElement>('.imageLayer-parallax').forEach(layer => {
       layer.style.transform = `translateY(${translateY}px)`
@@ -134,10 +69,7 @@ const useImageLayer = ({ src, enableParallax, lazy, isLottie }: ImageLayerProps)
     }
 
     fetch(src)
-      .then(res => {
-        if (!res.ok) throw new Error(`HTTP error! status: ${res.status}`)
-        return res.json()
-      })
+      .then(res => res.json())
       .then(animationData => {
         if (!lottieRef.current) return
 
@@ -147,12 +79,11 @@ const useImageLayer = ({ src, enableParallax, lazy, isLottie }: ImageLayerProps)
           loop: true,
           autoplay: true,
           animationData: animationData,
-          rendererSettings: {
-            preserveAspectRatio: 'xMidYMid slice'
-          }
-        })
 
-        anim.setSpeed(10)
+          rendererSettings: { preserveAspectRatio: 'xMidYMid slice' }
+        })
+        anim.setSpeed(2)
+
         lottieAnimRef.current = anim
       })
       .catch(error => {
@@ -167,7 +98,7 @@ const useImageLayer = ({ src, enableParallax, lazy, isLottie }: ImageLayerProps)
     }
   }, [src, isLottie])
 
-  return { wrapperRef, isImageFullyLoaded, isBlurActive, lottieRef, prevSrc, currentSrc }
+  return { wrapperRef, lottieRef, isLottie }
 }
 
 export default useImageLayer

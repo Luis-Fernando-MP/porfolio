@@ -51,7 +51,13 @@ const TestimonyComponent: FC<Props> = ({ testimony }) => {
 
   if (profileLink)
     return (
-      <Link href={profileLink} target='_blank' rel='noopener noreferrer' title={`Read more about ${autor}`}>
+      <Link
+        className='testimony-link'
+        href={profileLink}
+        target='_blank'
+        rel='noopener noreferrer'
+        title={`Read more about ${autor}`}
+      >
         {content}
       </Link>
     )

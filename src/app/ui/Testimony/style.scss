@@ -17,6 +17,10 @@
     background-color: rgb(v.$bg3);
   }
 
+  &-link {
+    width: fit-content;
+  }
+
   &-header {
     width: 100%;
     max-width: 200px;

@@ -25,7 +25,7 @@ const LearningBadges: FC = () => {
           serán los últimos.
         </p>
 
-        <IconButton className='learningBadges-seeMore'>
+        <IconButton className='learningBadges-seeMore' isLink href='/achievements'>
           <ArrowRightIcon />
           <h4>Ver ahora</h4>
         </IconButton>
