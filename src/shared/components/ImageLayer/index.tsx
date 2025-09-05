@@ -37,17 +37,8 @@ type Props = HtmlHTMLAttributes<HTMLDivElement> &
  * />
  * ```
  */
-const ImageLayer: FC<Props> = ({
-  className = '',
-  src,
-  style,
-  alt = '',
-  enableParallax = false,
-  lazy = false,
-  isLottie = false,
-  ...props
-}) => {
-  const { wrapperRef, lottieRef, isLottie: isLottieLoaded } = useImageLayer({ src, enableParallax, lazy, isLottie })
+const ImageLayer: FC<Props> = ({ className = '', src, style, alt = '', enableParallax = false, isLottie = false, ...props }) => {
+  const { wrapperRef, lottieRef, isLottie: isLottieLoaded } = useImageLayer({ src, enableParallax, isLottie })
 
   return (
     <div ref={wrapperRef} {...props} className={`imageLayer ${className}`} style={style} role='img' aria-label={alt} title={alt}>

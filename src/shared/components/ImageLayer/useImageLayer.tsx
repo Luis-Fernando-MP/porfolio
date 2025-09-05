@@ -6,11 +6,10 @@ import { useCallback, useEffect, useRef } from 'react'
 export interface ImageLayerProps {
   src: string
   enableParallax?: boolean
-  lazy?: boolean
   isLottie?: boolean
 }
 
-const useImageLayer = ({ src, enableParallax, lazy, isLottie }: ImageLayerProps) => {
+const useImageLayer = ({ src, enableParallax, isLottie }: ImageLayerProps) => {
   const wrapperRef = useRef<HTMLDivElement>(null)
   const lottieRef = useRef<HTMLDivElement>(null)
   const lottieAnimRef = useRef<AnimationItem | null>(null)
