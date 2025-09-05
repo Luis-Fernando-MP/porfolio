@@ -6,14 +6,12 @@ interface Props {
   selectedTypes: string[]
   selectedDomains: string[]
   selectedTechs: string[]
-  showTechFilters: boolean
   orderBy: OrderBy[]
   page: number
   setSearch: (search: string) => void
   toggleType: (type: string) => void
   toggleDomain: (domain: string) => void
   toggleTech: (tech: string) => void
-  toggleShowTechFilters: () => void
   toggleOrder: (field: OrderBy) => void
   setPage: (page: number) => void
   resetTypes: () => void
@@ -24,7 +22,6 @@ const state: StateCreator<Props> = set => ({
   selectedTypes: [],
   selectedDomains: [],
   selectedTechs: [],
-  showTechFilters: false,
   orderBy: ['Contribución', 'Fecha'],
   page: 1,
   setSearch: search => set({ search, page: 1 }),
@@ -49,7 +46,7 @@ const state: StateCreator<Props> = set => ({
         : [...state.selectedTechs, tech],
       page: 1
     })),
-  toggleShowTechFilters: () => set(state => ({ showTechFilters: !state.showTechFilters })),
+
   toggleOrder: field =>
     set(state => ({
       orderBy: state.orderBy.includes(field) ? state.orderBy.filter(f => f !== field) : [...state.orderBy, field],

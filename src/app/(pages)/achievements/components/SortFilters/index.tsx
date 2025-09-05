@@ -8,7 +8,7 @@ export const SortFilters = () => {
   const toggleOrder = useAchievementsStore(s => s.toggleOrder)
 
   return (
-    <section className='frow'>
+    <section className='frow justify-center'>
       <h6>Ordenar por:</h6>
       <IconButton active={orderBy.includes('Contribución')} onClick={() => toggleOrder('Contribución')}>
         <h4>Contribución</h4>

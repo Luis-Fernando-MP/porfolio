@@ -24,7 +24,7 @@ const AchievementsPage: FC = () => {
         </section>
 
         <article className='achievements-container'>
-          <section className='frow'>
+          <section className='frow justify-center'>
             <SearchBar />
             <TechFilters />
           </section>

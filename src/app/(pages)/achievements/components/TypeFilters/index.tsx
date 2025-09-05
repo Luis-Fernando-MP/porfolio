@@ -9,7 +9,7 @@ export const TypeFilters = () => {
   const selectedTypes = useAchievementsStore(s => s.selectedTypes)
 
   return (
-    <section className='frow'>
+    <section className='frow justify-center'>
       <IconButton active={selectedTypes.length === 0} onClick={resetTypes}>
         <h4>Todos</h4>
       </IconButton>

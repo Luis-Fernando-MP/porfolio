@@ -1,0 +1,22 @@
+@use '@sass/utils/media' as m;
+@use '@sass/config/vars' as v;
+
+@forward 'style';
+
+@include m.smallScreen {
+  .achievementsTech {
+    &-list {
+      position: relative;
+      top: 0;
+      right: 0;
+
+      justify-content: center;
+
+      width: 100%;
+      margin-bottom: v.$padding;
+      padding: 0;
+
+      backdrop-filter: none;
+    }
+  }
+}
