@@ -22,19 +22,7 @@
   }
 
   &-search {
-    width: fit-content;
     max-width: 400px;
-    padding: v.$btn-padding;
-    border-radius: v.$min-radius;
-
-    @include d.flex($dir: row, $ali: center);
-
-    background-color: rgb(v.$bg2);
-
-    input {
-      width: 100%;
-      background-color: transparent;
-    }
   }
 
   &-section {

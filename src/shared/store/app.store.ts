@@ -31,7 +31,7 @@ interface Props {
 const state: StateCreator<Props> = (set, get) => ({
   noiseStyle: 'Off',
   fontSize: 'Normal',
-  soundEnabled: true,
+  soundEnabled: false,
   setSoundEnabled: (enabled: boolean) => {
     set({ soundEnabled: enabled })
   },

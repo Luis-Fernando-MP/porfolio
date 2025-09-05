@@ -1,6 +1,5 @@
-// import { Technology } from '@/lib/techQuery'
-
 export type TechName = (typeof technologies)[number]['name']
+export type TechProps = (typeof technologies)[number]
 
 export const technologies = [
   {

@@ -1,0 +1,14 @@
+@use '@sass/config/vars' as v;
+@use '@sass/utils/defs' as d;
+
+.achievements {
+  &-wrapper {
+    @include d.flex($gap: v.$padding * 3, $ali: center);
+  }
+
+  &-container {
+    @include d.flex($ali: center);
+
+    width: 100%;
+  }
+}

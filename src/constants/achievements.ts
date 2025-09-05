@@ -1,11 +1,11 @@
 import { Achievements } from '@/lib/achievementsQuery/achievement.type'
 
-import { TechName } from './technologies'
+import { type TechProps, technologies } from './technologies'
 
 export const achievements: Achievements[] = [
   {
     path: '/achievements/20-web-projects-build-20-html-css-and-javascript-projects.webp',
-    name: '20 Web Projects Build 20 HTML, CSS and JavaScript Projects',
+    name: 'Web Projects Build 20 HTML, CSS and JavaScript Projects',
     achievementType: 'Curso',
     skillDomain: ['Frontend', 'Diseño'],
     technologies: ['HTML', 'CSS', 'JavaScript'],
@@ -298,5 +298,17 @@ export const achievements: Achievements[] = [
   }
 ]
 
-const allTechnologies = achievements.flatMap(a => a.technologies)
-export const achievementsTechnologies: TechName[] = [...new Set(allTechnologies)]
+const technologyLookup = Object.fromEntries(technologies.map(t => [t.name, t]))
+
+export const achievementsTechUsage = achievements
+  .flatMap(a => a.technologies)
+  .reduce<Record<string, TechProps & { quantity: number }>>((acc, tech) => {
+    const baseTech = technologyLookup[tech]
+    if (!baseTech) return acc
+
+    acc[tech] = {
+      ...baseTech,
+      quantity: (acc[tech]?.quantity ?? 0) + 1
+    }
+    return acc
+  }, {})

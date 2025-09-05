@@ -145,6 +145,33 @@ body {
   .emoji {
     font-family: $emojis;
   }
+
+  .input {
+    width: fit-content;
+    padding: $btn-padding;
+    border-radius: $min-radius;
+
+    @include d.flex($dir: row, $ali: center);
+
+    background-color: rgb($bg2);
+
+    input {
+      width: 100%;
+      background-color: transparent;
+    }
+  }
+
+  .specialized {
+    background-color: rgb($ex-specialized);
+  }
+
+  .applicable {
+    background-color: rgb($ex-applicable);
+  }
+
+  .fundamentals {
+    background-color: rgb($ex-fundamentals);
+  }
 }
 
 @keyframes fade {

@@ -1,6 +1,6 @@
 import dayjs from 'dayjs'
 
-import { Achievements, achievementCat, achievementWeight, devContribution, skillDomainCategories } from './achievement.type'
+import { Achievements, achievementWeight, devContribution, skillDomainCategories } from './achievement.type'
 
 type TPrimaryComparator = (a: Achievements, b: Achievements) => number
 // Helper para sub-ordenamiento automático por weight
@@ -14,8 +14,6 @@ const withWeightTiebreaker = (primaryComparator: TPrimaryComparator) => (a: Achi
 // Comparadores con sub-ordenamiento automático por weight
 export const achievementSortComparators = {
   Nombre: (a: Achievements, b: Achievements) => a.name.localeCompare(b.name),
-
-  Tipo: withWeightTiebreaker((a, b) => (achievementCat[a.achievementType] ?? 0) - (achievementCat[b.achievementType] ?? 0)),
 
   Fecha: withWeightTiebreaker((a, b) => dayjs(a.acquisitionDate).valueOf() - dayjs(b.acquisitionDate).valueOf()),
 

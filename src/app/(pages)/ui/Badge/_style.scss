@@ -8,23 +8,9 @@
 
   overflow: hidden;
 
-  width: 100px;
-  height: 80px;
   border-radius: v.$radius;
 
   background-color: rgb(v.$bg3);
-
-  &-specialized {
-    background-color: rgb(v.$ex-specialized);
-  }
-
-  &-applicable {
-    background-color: rgb(v.$ex-applicable);
-  }
-
-  &-fundamentals {
-    background-color: rgb(v.$bg2);
-  }
 
   &-image {
     pointer-events: none;

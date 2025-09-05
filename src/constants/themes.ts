@@ -56,7 +56,8 @@ export const THEMES = {
         'tn-secondary': '88, 101, 242',
 
         'extra-specialized': '208, 220, 188',
-        'extra-applicable': '231, 193, 167'
+        'extra-applicable': '231, 193, 167',
+        'extra-fundamentals': '169, 171, 173'
       },
       'haui dark': {
         'bg-primary': '10, 10, 10',

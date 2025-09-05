@@ -1,6 +1,6 @@
 'use client'
 
-import { Achievements, DevContribution } from '@/lib/achievementsQuery/achievement.type'
+import { Achievements, devContributionMapper } from '@/lib/achievementsQuery/achievement.type'
 import ImageGallery from '@/shared/components/FocusGallery/ImageGallery'
 import { type FC, useRef } from 'react'
 
@@ -9,25 +9,27 @@ import './index.scss'
 interface Props extends Achievements {
   index: number
   noMapperContribution?: boolean
-}
-
-const classNameMapper: Partial<Record<DevContribution, string>> = {
-  Aplicables: 'applicable',
-  Especializado: 'specialized',
-  Fundamentos: 'fundamentals'
+  big?: boolean
 }
 
 const Badge: FC<Props> = props => {
-  const { path, name, index, AdditionalImages, devContribution, noMapperContribution } = props
+  const { path, name, index, AdditionalImages, devContribution, noMapperContribution, big } = props
   const $img = useRef<HTMLImageElement>(null)
 
-  const className = !noMapperContribution ? `badge-${classNameMapper[devContribution]}` : 'badge-default'
+  const className = !noMapperContribution ? `${devContributionMapper[devContribution]}` : 'badge-default'
+
+  const height = big ? 160 : 80
+  const width = height + (big ? 50 : 20)
 
   return (
     <figure
       className={`badge ${className}`}
       role='group'
       aria-label={`Achievement badge: ${name}`}
+      style={{
+        width: width,
+        height: height
+      }}
       onClick={e => {
         e.stopPropagation()
         $img.current?.click()
@@ -37,8 +39,8 @@ const Badge: FC<Props> = props => {
         ref={$img}
         className='badge-image'
         src={path}
-        width={100}
-        height={80}
+        width={width}
+        height={height}
         alt={`Badge for ${name}`}
         title={name}
         loading='lazy'

@@ -1,5 +1,6 @@
 import { TechName } from '@/constants/technologies'
 import { Award, BookOpen, GraduationCap, Medal } from 'lucide-react'
+import { FC } from 'react'
 
 export type AchievementType = keyof typeof achievementCat
 export const achievementCat = {
@@ -7,6 +8,13 @@ export const achievementCat = {
   Certificado: 9,
   Bootcamp: 8,
   Curso: 5
+} as const
+
+export const achievementIcons: Record<AchievementType, FC> = {
+  Título: GraduationCap,
+  Certificado: Award,
+  Bootcamp: Medal,
+  Curso: BookOpen
 } as const
 
 export type SkillDomain = keyof typeof skillDomainCategories
@@ -26,13 +34,11 @@ export const devContribution = {
   Fundamentos: 6
 } as const
 
-export const achievementTypeIcons = {
-  Certificación: Award,
-  Diploma: GraduationCap,
-  Grado: GraduationCap,
-  Bootcamp: BookOpen,
-  Curso: Medal
-} as const
+export const devContributionMapper: Partial<Record<DevContribution, string>> = {
+  Aplicables: 'applicable',
+  Especializado: 'specialized',
+  Fundamentos: 'fundamentals'
+}
 
 export type AchievementWeight = keyof typeof achievementWeight
 export const achievementWeight = {
@@ -54,12 +60,11 @@ export type Achievements = {
   AdditionalImages?: string[]
 }
 
-export const defaultPriorityOrder = ['Tipo', 'Contribución', 'Skill', 'Fecha', 'Nombre'] as const
+export const defaultPriorityOrder = ['Contribución', 'Skill', 'Fecha', 'Nombre'] as const
 export type OrderBy = (typeof defaultPriorityOrder)[number]
 export type OrderDirection = 'asc' | 'desc'
 
 export const FIELD_DEFAULT_DIR: Partial<Record<OrderBy, OrderDirection>> = {
-  Tipo: 'desc',
   Contribución: 'desc',
   Skill: 'desc',
   Fecha: 'desc',

@@ -78,7 +78,7 @@ const Technologies: FC = () => {
       </h2>
 
       <section className='technologies-filters' aria-label='Filtros de tecnologías'>
-        <div className='technologies-search border'>
+        <div className='input technologies-search border'>
           <Search />
           <label htmlFor='searchTech' className='sr-only'>
             Buscar tecnologías
@@ -87,6 +87,7 @@ const Technologies: FC = () => {
             id='searchTech'
             placeholder='Buscar...'
             value={search}
+            autoComplete='off'
             onChange={e => setSearch(e.target.value)}
             type='search'
             aria-label='Buscar tecnologías'
