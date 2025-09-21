@@ -18,8 +18,7 @@ import { CSSProperties, type FC, useCallback, useMemo, useState } from 'react'
 import CategoriesButtons from './CategoriesButtons'
 import OrderButtons from './OrderButtons'
 import StacksButtons from './StacksButtons'
-import './style.scss'
-import './userMobile.scss'
+import './index.scss'
 
 const Technologies: FC = () => {
   const [parent] = useAutoAnimate({ duration: 300, easing: 'ease-in' })
